@@ -24,17 +24,3 @@ const embarcacionesVenta = new Schema({
 
 
 export default model("embarcacionesVenta", embarcacionesVenta)
-
-
-
-
-
-
-
-
-
-
-
-
-"potencia total": "200 CV",
-    "combustible": "Diesel"
