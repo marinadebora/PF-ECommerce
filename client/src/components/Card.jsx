@@ -1,13 +1,16 @@
 import React from 'react';
 
 
-export default function Card({ tipo, Marca, modelo, Motor, precio, astillero, fabricacion, localizacion, imagen, producto, descripcion, Tamaño })
+export default function Card({ tipo, marca, modelo, motor, precio, astillero, fabricacion, localizacion, imagen, producto, descripcion, Tamaño })
 {
 
     return (
         <div>
             {
-                Marca ? <p>Marca: {Marca}</p> : ''
+                marca ? <p>Marca: {marca}</p> : ''
+            }
+            {
+                tipo ? <p>tipo: {tipo}</p> : ''
             }
             {
                 modelo ? <p>modelo: {modelo}</p> : ''
@@ -19,14 +22,12 @@ export default function Card({ tipo, Marca, modelo, Motor, precio, astillero, fa
                 astillero ? <p>astillero: {astillero}</p> : ''
             }
             {
-                Motor ? <p>Motor: {Motor}</p> : ''
+                motor ? <p>Motor: {motor}</p> : ''
             }
             {
                 localizacion ? <p>localizacion: {localizacion}</p> : ''
             }
-            {
-                tipo ? <p>tipo: {tipo}</p> : ''
-            }
+            
             {
                 precio ? <p>precio: {precio}</p> : ''
             }
