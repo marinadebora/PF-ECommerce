@@ -11,7 +11,12 @@ export default function Card({tipo, modelo, precio, astillero, fabricacion, loca
                <p>{astillero}</p> 
                <p>{fabricacion}</p> 
                <p>{localizacion}</p> 
-               <img src={imagen} alt='img'/>
+               {
+                imagen?.map(e =>
+                <img src={e} alt='img'/>
+                    
+                    )
+               }
         </div>
     )
 }

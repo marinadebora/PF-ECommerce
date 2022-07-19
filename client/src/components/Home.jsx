@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import todosLosProductos from '../actions/actions'
+import { Link } from 'react-router-dom';
+import {todosLosProductos} from '../actions/actions'
 import Paginado from './Paginado';
 import Card from './Card';
 
@@ -38,6 +39,8 @@ export default function Home(){
                 actualPage?.map(e => 
                     {
                         return(
+                            <Fragment>
+                            <Link to={`/home/${e.id}`} >
                             <Card 
                                 tipo = {e.tipo}
                                 modelo = {e.modelo}
@@ -47,6 +50,8 @@ export default function Home(){
                                 localizacion = {e.localizacion}
                                 imagen = {e.imagen}
                             />
+                            </Link>
+                            </Fragment>
                         )
                     })
             }
