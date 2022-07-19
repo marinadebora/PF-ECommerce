@@ -1,5 +1,8 @@
 import app from './app';
 
-app.listen(3001, () =>{
-    console.log('server listening on port 3001')
-});
+
+
+// se declara el servidor 
+app.listen(app.get('port'), ()=>{
+    console.log('puerto 3000')
+})
