@@ -24,3 +24,15 @@ const embarcacionesVenta = new Schema({
 
 
 export default model("embarcacionesVenta", embarcacionesVenta)
+<<<<<<< HEAD:server/src/modelos/EmbarcacionesVenta.js
+
+
+
+
+
+
+
+
+
+=======
+>>>>>>> b7f6615e62cb1d0f1a917794dfbd1b3ab6be48c8:server/src/modelos/EmbarcacionesVenta.ts
