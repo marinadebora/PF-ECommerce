@@ -43,12 +43,18 @@ export default function Home(){
                             <Link to={`/home/${e.id}`} >
                             <Card 
                                 tipo = {e.tipo}
+                                Marca={e.Marca}
                                 modelo = {e.modelo}
+                                Motor={e.Motor}
                                 precio = {e.precio}
                                 astillero = {e.astillero}
                                 fabricacion = {e.fabricacion}
                                 localizacion = {e.localizacion}
                                 imagen = {e.imagen}
+                                producto={e.producto}
+                                descripcion={e.descripcion}
+                                Tamaño={e.Tamaño}
+
                             />
                             </Link>
                             </Fragment>
