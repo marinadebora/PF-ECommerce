@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { productosDetail } from "../actions/actions";
+import '../styles/cardDetail.css'
 
 export default function CardDetail()
 {
@@ -24,9 +25,13 @@ navigate(-1)
     {
       myDetail ?
         <div>
+
           
             <button onClick={volver}>VOLVER</button>
           
+
+      
+
           {
             myDetail.marca ? <p>Marca: {myDetail.marca}</p> : ''
           }

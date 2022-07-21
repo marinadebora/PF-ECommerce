@@ -45,4 +45,6 @@ export default function Producto({ tipo, precio, fabricacion, imagen }) {
       </Card>
     </Fragment>
   );
+
 }
+
