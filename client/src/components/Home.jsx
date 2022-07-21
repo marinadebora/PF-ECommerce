@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import {todosLosProductos} from '../actions/actions'
 import Paginado from './Paginado';
 import Card from './Card';
+import Navbar from './Navbar'
+import {Grid} from '@mui/material'
+
 
 
 export default function Home(){
@@ -13,7 +16,7 @@ export default function Home(){
     const newState = useSelector(state => state.products)
 
     const [page, setPage] = useState(1);
-    const [characterPerPage, setCharacterPerPage] = useState(5);
+    const [characterPerPage, setCharacterPerPage] = useState(8);
     const index = page * characterPerPage;
     const endIndex = index - characterPerPage;
     const actualPage = newState?.slice(endIndex, index);
@@ -21,7 +24,7 @@ export default function Home(){
     const paginado = (numPage) =>{
         setPage(numPage)
       }
-
+ 
     useEffect(()=>{
 
         dispatch(todosLosProductos())
@@ -30,31 +33,67 @@ export default function Home(){
 
     return(
         <div>
+            <Navbar/>
+
             <Paginado 
             characterPerPage ={characterPerPage}
             newState ={newState.length}
             paginado = {paginado}
             />
+            
+            <Grid container spacing={2}>
             {
+                
                 actualPage?.map(e => 
                     {
                         return(
                             <Fragment>
+<<<<<<< HEAD
+
+                                <Grid item xs={12} sm={6} md={4} lg={3}>
+                                    <Link to={`/home/${e.id}`} >
+                                        <Card 
+                                            tipo = {e.tipo}
+                                            Marca={e.Marca}
+                                            modelo = {e.modelo}
+                                            Motor={e.Motor}
+                                            precio = {e.precio}
+                                            astillero = {e.astillero}
+                                            fabricacion = {e.fabricacion}
+                                            localizacion = {e.localizacion}
+                                            imagen = {e.imagen}
+                                            producto={e.producto}
+                                            descripcion={e.descripcion}
+                                            Tamaño={e.Tamaño}
+                                        />
+                                    </Link>
+                                </Grid>
+                                
+                            
+=======
                             <Link to={`/home/${e.id}`} >
                             <Card 
                                 tipo = {e.tipo}
+                                Marca={e.Marca}
                                 modelo = {e.modelo}
+                                Motor={e.Motor}
                                 precio = {e.precio}
                                 astillero = {e.astillero}
                                 fabricacion = {e.fabricacion}
                                 localizacion = {e.localizacion}
                                 imagen = {e.imagen}
+                                producto={e.producto}
+                                descripcion={e.descripcion}
+                                Tamaño={e.Tamaño}
+
                             />
                             </Link>
+>>>>>>> 202ffe9f91417634ca46b71c3496debaf5254da0
                             </Fragment>
                         )
                     })
             }
+            </Grid>
 
         </div>
     )
