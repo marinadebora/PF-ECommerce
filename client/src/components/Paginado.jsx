@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/paginado.css";
+
 
 export default function Paginado({ characterPerPage, newState, paginado }){
   let page = [];
@@ -7,9 +9,9 @@ export default function Paginado({ characterPerPage, newState, paginado }){
     page.push(i + 1)
   }
   
-  return <div>
+  return  <div id='mainPaginado'>
     {page?.map(e => (
-      <button onClick={() => paginado(e)} key={e}>{e}</button>
+      <button onClick={() => paginado(e)} key={e} id='buttonPage'>{e}</button>
 
     ))}
   </div>;

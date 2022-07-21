@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { productosDetail } from "../actions/actions";
+import '../styles/cardDetail.css'
 
 export default function CardDetail()
 {
@@ -22,7 +23,7 @@ export default function CardDetail()
       myDetail ?
         <div>
           <Link to='/home'>
-            <button>VOLVER</button>
+            <button id='buttonBack'>VOLVER</button>
           </Link>
           {
             myDetail.marca ? <p>Marca: {myDetail.marca}</p> : ''
