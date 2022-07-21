@@ -8,8 +8,10 @@ getAccesorios.get('/', async (req,res)=>{
     const api = await Accesorios.find()
     try {
         if(producto){
-        const busqueda = await Accesorios.find({producto: producto})
-        res.send(busqueda)
+        const busqueda = api.filter( e => e.producto.toLowerCase().includes(producto.toLowerCase()))
+        busqueda.length ?
+        res.send(busqueda):
+        res.status(404).send(`el id: ${producto}; es erroneo`)
     }else{
         res.send(api)
     }

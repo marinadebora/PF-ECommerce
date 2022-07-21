@@ -1,5 +1,4 @@
 const {Router} = require("express");
-const { getEmbarcacionesEnRenta } = require("../controladores/controladorDeEmbarcacionesEnArquilir");
 const EmbarcacionesRenta = require('../modelos/EmbarcacionesRenta')
 
 const getEmbarRenta = Router();
@@ -9,8 +8,10 @@ getEmbarRenta.get('/', async (req,res)=>{
     const api = await EmbarcacionesRenta.find()
     try {
         if(marca){
-        const busqueda = await EmbarcacionesRenta.find({marca: marca})
-        res.send(busqueda)
+        const busqueda = api.filter( e => e.marca.toLowerCase().includes(marca.toLowerCase()))
+        busqueda.length ?
+        res.send(busqueda):
+        res.status(404).send(`el id: ${marca}; es erroneo`)
     }else{
         res.send(api)
     }
