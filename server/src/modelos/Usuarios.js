@@ -1,10 +1,8 @@
-let mongoose = require("mongoose")
-let  { Schema }= require("mongoose");
-
+const { Schema } = require("mongoose");
+const mongoose = require("mongoose")
 
 const usuariosSchema = new Schema({
     id:{
-        
         required:true,
         primaryKey:true   
     },

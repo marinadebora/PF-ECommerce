@@ -1,15 +1,14 @@
-let mongoose = require("mongoose")
-let  { Schema }= require("mongoose");
+const mongoose = require("mongoose")
+const {Schema } = require("mongoose");
 
-const embarcacionSchema = new Schema({
+const embarcacionRentaSchema = new Schema({
     marca:{
         type: String,
         required: true,
         trim: true
     },
-    categoria:{
+    categorias:{
         type: Array,
-        required: true
     },
     modelo:{
         type: String,
@@ -43,19 +42,18 @@ const embarcacionSchema = new Schema({
         required: true
     },
     cantMotores:{
-        type: Number,
+        type: String,
         required: true
     },
     hp: {
-        type: Number
+        type: String
     },
     marcamotor:{
         type: String,
         required: true
     },
     descripcion:{
-        type:Text,
-
+        type: String
     },
     combustible:{
         type: String,
@@ -71,11 +69,10 @@ const embarcacionSchema = new Schema({
     },
     disponible:{
         type: Boolean,
-        required:true,
-        defaultValue: true
+        defaultValue:true,
     },
     preciojornada:{
-        type:Number,
+        type:Number
     },
     preciodia:{
         type:Number
@@ -85,4 +82,4 @@ const embarcacionSchema = new Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model('embarcaciones', embarcacionSchema)
+module.exports = mongoose.model('EmbarcacionesRenta', embarcacionRentaSchema)

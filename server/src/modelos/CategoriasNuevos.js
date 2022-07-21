@@ -1,5 +1,5 @@
-let mongoose = require("mongoose")
-let  { Schema }= require("mongoose");
+const { Schema } = require("mongoose");
+const mongoose = require("mongoose")
 
 
 const categoriasNuevosSchema = new Schema({
@@ -7,4 +7,4 @@ const categoriasNuevosSchema = new Schema({
 
 },{timestamps:false})
 
-module.exports= mongoose.model("categoriasNuevos",categoriasNuevosSchema)
+module.exports = mongoose.model("categoriasNuevos",categoriasNuevosSchema)

@@ -7,4 +7,4 @@ const app = express();
 app.use(morgan("dev"));
 app.use("/",index)
 
-module.exports=app ;
+module.exports = app ;

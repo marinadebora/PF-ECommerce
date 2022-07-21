@@ -1,10 +1,7 @@
-const axios = require("axios") ;
+const api =require('../resources/products.json')
 
-let api =require('../resources/products.json')
-
- const getEmbarcacionesV = (req,res)=>{
+const getEmbarcacionesV = (req,res)=>{
     try{
-     
         let getjsondata =  api;
         let jsonMap = getjsondata.venta.map(resultado=>{
             return{
@@ -24,18 +21,15 @@ let api =require('../resources/products.json')
                 marca_de_motor:resultado.marca_de_motor,
                 potencia_total:resultado.potencia_total,
                 descripcion:resultado.descripcion,
-                combustible:resultado.combustible}
+                combustible:resultado.combustible
+            }
         })
-        console.log(jsonMap)
-        res.status(200).send(jsonMap);
-    }catch(error){
-        console.log(error)
+        
+        return jsonMap;
+        }catch(error){
+            console.log(error)
+        }
     }
+    module.exports= {
+        getEmbarcacionesV
     }
-    let savingDb = (req,res)=>{
-
-    }
- 
-
-
-    module.exports= {getEmbarcacionesV}
