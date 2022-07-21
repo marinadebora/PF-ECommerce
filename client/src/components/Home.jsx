@@ -2,69 +2,83 @@ import React, { Fragment } from 'react';
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
-import {todosLosProductos} from '../actions/actions'
+import { todosLosProductos } from '../actions/actions'
 import Paginado from './Paginado';
 import Card from './Card';
+import Navbar from './Navbar'
+import { Grid } from '@mui/material'
 
 
-export default function Home(){
 
-    const dispatch = useDispatch();
-    const newState = useSelector(state => state.products)
+export default function Home()
+{
 
-    const [page, setPage] = useState(1);
-    const [characterPerPage, setCharacterPerPage] = useState(5);
-    const index = page * characterPerPage;
-    const endIndex = index - characterPerPage;
-    const actualPage = newState?.slice(endIndex, index);
+  const dispatch = useDispatch();
+  const newState = useSelector(state => state.products)
 
-    const paginado = (numPage) =>{
-        setPage(numPage)
-      }
+  const [page, setPage] = useState(1);
+  const [characterPerPage, setCharacterPerPage] = useState(8);
+  const index = page * characterPerPage;
+  const endIndex = index - characterPerPage;
+  const actualPage = newState?.slice(endIndex, index);
 
-    useEffect(()=>{
+  const paginado = (numPage) =>
+  {
+    setPage(numPage)
+  }
 
-        dispatch(todosLosProductos())
+  useEffect(() =>
+  {
 
-    },[dispatch]) 
+    dispatch(todosLosProductos())
 
-    return(
-        <div>
-            <Paginado 
-            characterPerPage ={characterPerPage}
-            newState ={newState.length}
-            paginado = {paginado}
-            />
-            {
-                actualPage?.map(e => 
-                    {
-                        return(
-                            <Fragment>
-                            <Link to={`/home/${e.id}`} >
-                            <Card 
-                                tipo = {e.tipo}
-                                Marca={e.Marca}
-                                modelo = {e.modelo}
-                                Motor={e.Motor}
-                                precio = {e.precio}
-                                astillero = {e.astillero}
-                                fabricacion = {e.fabricacion}
-                                localizacion = {e.localizacion}
-                                imagen = {e.imagen}
-                                producto={e.producto}
-                                descripcion={e.descripcion}
-                                Tamaño={e.Tamaño}
+  }, [dispatch])
 
-                            />
-                            </Link>
-                            </Fragment>
-                        )
-                    })
-            }
+  return (
+    <div>
+      <Navbar />
 
-        </div>
-    )
+      <Paginado
+        characterPerPage={characterPerPage}
+        newState={newState.length}
+        paginado={paginado}
+      />
 
-}   
+      <Grid container spacing={2}>
+        {
+
+          actualPage?.map(e => 
+          {
+            return (
+              <Fragment>
+
+                <Grid item xs={12} sm={6} md={4} lg={3}>
+                  <Link to={`/home/${e.id}`} >
+                    <Card
+                      tipo={e.tipo}
+                      Marca={e.Marca}
+                      modelo={e.modelo}
+                      Motor={e.Motor}
+                      precio={e.precio}
+                      astillero={e.astillero}
+                      fabricacion={e.fabricacion}
+                      localizacion={e.localizacion}
+                      imagen={e.imagen}
+                      producto={e.producto}
+                      descripcion={e.descripcion}
+                      Tamaño={e.Tamaño}
+                    />
+                  </Link>
+                </Grid>
 
 
+              </Fragment>
+            )
+          })
+        }
+      </Grid>
+
+    </div>
+  )
+
+}
