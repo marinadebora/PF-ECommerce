@@ -1,17 +1,18 @@
-import { Schema,model } from "mongoose";
+const mongoose = require('mongoose');
+const { Schema } = require("mongoose");
 
 const accesorioSchema = new Schema({
-    nombre:{
+    producto:{
         type: String,
         required: true,
         trim:true
     },
-    tipo:{
-        type:String,
+    categorias:{
+        type: Array,
         required:true
     },
-    imagen:{
-        type: String,
+    imagenes:{
+        type: Array,
         required: true,
         trim:true
     },
@@ -19,7 +20,7 @@ const accesorioSchema = new Schema({
         type: String,
         trim: true
     },
-    tamanio:{
+    dimensiones:{
         type: String,
         trim:true
     },
@@ -36,4 +37,4 @@ const accesorioSchema = new Schema({
     timestamps:true
 })
 
-export default model("Accesorio",accesorioSchema);
+module.exports= mongoose.model('Accesorios', accesorioSchema);

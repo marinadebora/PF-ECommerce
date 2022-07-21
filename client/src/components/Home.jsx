@@ -48,6 +48,7 @@ export default function Home(){
                     {
                         return(
                             <Fragment>
+<<<<<<< HEAD
 
                                 <Grid item xs={12} sm={6} md={4} lg={3}>
                                     <Link to={`/home/${e.id}`} >
@@ -69,6 +70,25 @@ export default function Home(){
                                 </Grid>
                                 
                             
+=======
+                            <Link to={`/home/${e.id}`} >
+                            <Card 
+                                tipo = {e.tipo}
+                                Marca={e.Marca}
+                                modelo = {e.modelo}
+                                Motor={e.Motor}
+                                precio = {e.precio}
+                                astillero = {e.astillero}
+                                fabricacion = {e.fabricacion}
+                                localizacion = {e.localizacion}
+                                imagen = {e.imagen}
+                                producto={e.producto}
+                                descripcion={e.descripcion}
+                                Tamaño={e.Tamaño}
+
+                            />
+                            </Link>
+>>>>>>> 202ffe9f91417634ca46b71c3496debaf5254da0
                             </Fragment>
                         )
                     })

@@ -1,33 +1,25 @@
-import { Schema, model } from "mongoose";
+const mongoose = require("mongoose")
+const {Schema } = require("mongoose");
 
-const embarcacionSchema = new Schema({
+const embarcacionRentaSchema = new Schema({
     marca:{
         type: String,
         required: true,
         trim: true
     },
-    categoria:{
-        type: String,
-        required: true
+    categorias:{
+        type: Array,
     },
     modelo:{
         type: String,
         required: true,
         trim: true
     },
-    venta:{
-        type: Boolean,
-        required: true
-    },
-    renta:{
-        trpe: Boolean,
-        required: true
-    },
     fabricacion:{
         type: String,
     },
-    fabricacionMotor:{
-        type:String,
+    fabricacionDelMotor:{
+        type:Number,
     },
     motor:{
         type: String,
@@ -49,22 +41,25 @@ const embarcacionSchema = new Schema({
         type: String,
         required: true
     },
-    cantidadMotores:{
-        type: Number,
+    cantMotores:{
+        type: String,
         required: true
     },
     hp: {
-        type: Number
+        type: String
     },
-    marcaMotor:{
+    marcamotor:{
         type: String,
         required: true
+    },
+    descripcion:{
+        type: String
     },
     combustible:{
         type: String,
         required: true
     },
-    duracionDelConbustible:{
+    horas:{
         type: String,
         required:true
     },
@@ -72,15 +67,21 @@ const embarcacionSchema = new Schema({
         type: String,
         required: true
     },
-    disponibilidad:{
+    disponible:{
         type: Boolean,
-        required:true,
-        defaultValue: true
+        defaultValue:true,
+    },
+    preciojornada:{
+        type:Number
+    },
+    preciodia:{
+        type:Number
     }
+
 
 },{
     versionKey:false,
     timestamps:true
 })
 
-export default(model('embarcaciones', embarcacionSchema))
+module.exports = mongoose.model('EmbarcacionesRenta', embarcacionRentaSchema)
