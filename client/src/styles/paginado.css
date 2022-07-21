@@ -1,0 +1,15 @@
+#mainPaginado{
+    margin: 20px;
+}
+
+#buttonPage{
+    font-weight: bold;
+    height: 25px;
+    width: 25px;
+    background-color: #a9e8db;
+    border-radius: 100px;
+    margin: 10px;
+    border: solid 2px #0184a9;
+   
+    
+}
