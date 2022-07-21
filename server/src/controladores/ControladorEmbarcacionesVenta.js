@@ -1,11 +1,11 @@
-const axios =require("axios") ;
+const axios = require("axios") ;
+
 let api =require('../resources/products.json')
 
  const getEmbarcacionesV = (req,res)=>{
     try{
      
         let getjsondata =  api;
-        
         let jsonMap = getjsondata.venta.map(resultado=>{
             return{
                 tipo:resultado.tipo,
@@ -16,22 +16,26 @@ let api =require('../resources/products.json')
                 fabricacion:resultado.fabricacion,
                 localizacion:resultado.localizacion,
                 imagenes:resultado.imagenes,
-                numero_de_pasajero:resultado.numero_de_pasajero,
+                numero_de_pasajeros:resultado.numero_de_pasajeros,
                 eslora:resultado.eslora,
                 manga:resultado.manga,
                 calado:resultado.calado,
                 numero_de_motores:resultado.numero_de_motores,
-                marca_de_motores:resultado.marca_de_motores,
+                marca_de_motor:resultado.marca_de_motor,
                 potencia_total:resultado.potencia_total,
                 descripcion:resultado.descripcion,
                 combustible:resultado.combustible}
         })
-        res.json(jsonMap);
+        console.log(jsonMap)
+        res.status(200).send(jsonMap);
     }catch(error){
         console.log(error)
     }
     }
+    let savingDb = (req,res)=>{
 
+    }
+ 
 
 
     module.exports= {getEmbarcacionesV}

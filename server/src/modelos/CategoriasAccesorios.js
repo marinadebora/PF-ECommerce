@@ -1,9 +1,9 @@
-import {Schema,model} from "mongoose";
-
+let mongoose = require("mongoose")
+let  { Schema }= require("mongoose");
 
 const categoriasAccesoriosSchema = new Schema({
   name:{type:String}
 
 },{timestamps:false})
 
-export default model("categoriasAccesorios",categoriasAccesoriosSchema)
+module.exports= mongoose.model("categoriasAccesorios",categoriasAccesoriosSchema)

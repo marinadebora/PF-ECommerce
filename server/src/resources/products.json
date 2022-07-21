@@ -28,7 +28,7 @@
                     "fabricacion": "2021",
                     "localizacion": "Monaco",
                     "imagenes": ["https://imagenes.cosasdebarcos.com/barcosOcasion/3/6/8/6/grand-soleil-34-60847020210354565765666852654568x.jpg"],
-                    "numero de pasajeros": "4",
+                    "numero_de_pasajeros": "4",
                     "eslora": "10.7 m",
                     "manga": "3.6 m",
                     "calado": "1.98 m",
@@ -48,7 +48,7 @@
                     "fabricacion": "2009",
                     "localizacion": "Suiza",
                     "imagenes":"https://imagenes.cosasdebarcos.com/barcosNuevos/1/3/3/6/canados-86-40393060171565664855525751524557x.jpg",
-                    "numero de pasajeros": "18",
+                    "numero_de_pasajeros": "18",
                     "eslora":"26.52 m",
                     "manga": "6.4 m",
                     "calado": "1.85 m",
@@ -67,7 +67,7 @@
                     "fabricacion": "2022",
                     "localizacion": "España",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/9/9/6/0/bavaria-yachts-bavaria-s36-ht-31592070221748656957505256484557x.jpg",
-                    "numero de pasajeros": "8",
+                    "numero_de_pasajeros": "8",
                     "eslora": "10.8 m",
                     "manga": "3.59 m",
                     "calado": "1.15 m",
@@ -87,7 +87,7 @@
                     "fabricacion": "2021",
                     "localizacion": "Estados Unidos",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/4/8/1/0/bavaria-c42-30849070221748656868676751524548x.jpg",
-                    "numero de pasajeros": "8",
+                    "numero_de_pasajeros": "8",
                     "eslora": "12.90 m",
                     "manga": "4.29 m",
                     "calado": "1.70 m",
@@ -107,7 +107,7 @@
                     "fabricacion": "2022",
                     "localizacion": "Estados Unidos",
                     "imagenes": "https://www.cranchi.com/sites/default/files/styles/griglia_gallery_big/public/galleryYacht/2_0000_e30_0.jpg?itok=FrUlE-Aj",
-                    "numero de pasajeros": "8",
+                    "numero_de_pasajeros": "8",
                     "eslora": "9.85 m",
                     "manga": "2.98 m",
                     "calado": "0.90 m",
@@ -127,7 +127,7 @@
                     "fabricacion": "2019",
                     "localizacion": "España",
                     "imagenes": "https://www.smartyachting.com/wp-content/uploads/2021/12/AA3R6712.jpg",
-                    "numero de pasajeros": "8",
+                    "numero_de_pasajeros": "8",
                     "eslora": "15.03 m",
                     "manga": "4.25 m",
                     "calado": "1.05 m",
@@ -147,7 +147,7 @@
                     "fabricacion": "2006",
                     "localizacion": "Paises Bajos",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/4/5/2/9/karnic-26cc-43152070220969505454526648674566x.jpg",
-                    "numero de pasajeros": "6",
+                    "numero_de_pasajeros": "6",
                     "eslora": "7.49 m",
                     "manga": "2.5 m",
                     "calado": "0.80 m",
@@ -167,7 +167,7 @@
                     "fabricacion": "2021",
                     "localizacion": "Estados Unidos",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/9/5/1/8/sessa-marine-key-largo-20-51395060223066525670525566564567x.jpg",
-                    "numero de pasajeros": "4",
+                    "numero_de_pasajeros": "4",
                     "eslora": "6 m",
                     "manga": "2.3 m",
                     "calado": "0.60 m",
@@ -187,7 +187,7 @@
                     "fabricacion": "2022",
                     "localizacion": "España",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/3/3/7/4/jeanneau-sun-odyssey-380-36345110210369534867496770554569x.jpg",
-                    "numero de pasajeros": "10",
+                    "numero_de_pasajeros": "10",
                     "eslora": "11.75 m",
                     "manga": "3.76 m",
                     "calado": "2 m",
@@ -207,7 +207,7 @@
                     "fabricacion": "2021",
                     "localizacion": "Francia",
                     "imagenes": "https://www.dufour-yachts.com/wp-content/uploads/2021/06/dufour-61-sailing-yacht-luxury-5-min-v2.jpg",
-                    "numero de pasajeros": "16",
+                    "numero_de_pasajeros": "16",
                     "eslora": "19.22 m",
                     "manga": "5.48 m",
                     "calado": "2.80 m",
@@ -227,7 +227,7 @@
                     "fabricacion": "2022",
                     "localizacion": "Estados Unidos",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/4/8/7/2/beneteau-oceanis-301-45520120191170526749545151504565x.jpg",
-                    "numero de pasajeros": "10",
+                    "numero_de_pasajeros": "10",
                     "eslora": "9.53 m",
                     "manga": "2.99 m",
                     "calado": "1.88 m",
@@ -247,7 +247,7 @@
                     "fabricacion": "2022",
                     "localizacion": "Estados Unidos",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/8/0/5/8/idea-marine-702-wa-37635050222748526551565557654548x.jpg",
-                    "numero de pasajeros": "10",
+                    "numero_de_pasajeros": "10",
                     "eslora": "7 m",
                     "manga": "2.5 m",
                     "calado": "0.60 m",
@@ -267,7 +267,7 @@
                     "fabricacion": "2008",
                     "localizacion": "Francia",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/3/1/7/1/bruno-abbate-primatist-g46-31472050222848575466695453494557x.jpg",
-                    "numero de pasajeros": "8",
+                    "numero_de_pasajeros": "8",
                     "eslora": "13.3 m",
                     "manga": "4.47 m",
                     "calado": "0.80 m",
@@ -287,7 +287,7 @@
                     "fabricacion": "2022",
                     "localizacion": "España",
                     "imagenes": "https://imagenes.cosasdebarcos.com/barcosOcasion/8/7/7/5/aventura-catamarans-aventura-34-66337100210854486657555257554568x.jpg",
-                    "numerodepasajeros": "8",
+                    "numero_de_pasajeros": "8",
                     "eslora": "9.98 m",
                     "manga": "9.98 m",
                     "calado": "5.30 m",
@@ -320,7 +320,7 @@
                     "descripcion":"",
                     "combustible": "Nafta",
                     "horas": "40",
-                    "transmisión": "Pata Duo Prop.-"
+                    "transmision": "Pata Duo Prop.-"
                     
                 },
                 {
@@ -341,7 +341,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "60",
-                    "transmisión": "Pata Duo Prop.-"
+                    "transmision": "Pata Duo Prop.-"
                     
                 },
                 {
@@ -362,7 +362,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "60",
-                    "transmisión": "Eje"
+                    "transmision": "Eje"
                     
                 },
                 {
@@ -383,7 +383,7 @@
                     "descripcion":"",
                     "combustible": "Nafta",
                     "horas": "65h",
-                    "transmisión": "Eje"
+                    "transmision": "Eje"
                     
                 },
                 {
@@ -404,7 +404,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "61",
-                    "transmisión": "370 Hp Diesel."
+                    "transmision": "370 Hp Diesel."
                     
                 },
                 {
@@ -425,7 +425,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "60",
-                    "transmisión": "Línea de eje"
+                    "transmision": "Línea de eje"
                 },
                 {
                     "marca": "SEGUE",
@@ -445,7 +445,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "1500 h",
-                    "transmisión": "Internos"
+                    "transmision": "Internos"
                 },
                 {
                     "marca": "Segue",
@@ -465,7 +465,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "1600 h",
-                    "transmisión": " Linea de eje"
+                    "transmision": " Linea de eje"
                 },
                 {
                     "marca": "SEGUE",
@@ -485,7 +485,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "485 h",
-                    "transmisión": "internos"
+                    "transmision": "internos"
                 },
                 {
                     "marca": "CUSTON SPECIAL",
@@ -505,7 +505,7 @@
                     "descripcion":"",
                     "combustible": "Nafta",
                     "horas": "500 h",
-                    "transmisión": "Eje"
+                    "transmision": "Eje"
                 },
                 {
                     "marca": "QUEST",
@@ -525,7 +525,7 @@
                     "descripcion":"",
                     "combustible": "Nafta",
                     "horas": "130 h",
-                    "transmisión": "Pata"
+                    "transmision": "Pata"
                 },
                 {
                     "marca": "Garcia Del Fino",
@@ -545,7 +545,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "480 h",
-                    "transmisión": "Eje en Linea"
+                    "transmision": "Eje en Linea"
                 },
                 {
                     "marca": "Koala",
@@ -565,7 +565,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "500 h",
-                    "transmisión": "Eje"
+                    "transmision": "Eje"
                 },
                 {
                     "marca": "Tarrab 101",
@@ -585,7 +585,7 @@
                     "descripcion":"",
                     "combustible": "Nafta",
                     "horas": "1000 h",
-                    "transmisión": "Eje en Linea"
+                    "transmision": "Eje en Linea"
                 },
                 {
                     "marca": "Princess V42 Volvo",
@@ -605,7 +605,7 @@
                     "descripcion":"",
                     "combustible": "Gas Oil",
                     "horas": "630 h",
-                    "transmisión": "Patas Volvo 290DPX"
+                    "transmision": "Patas Volvo 290DPX"
                 }
             ]
         ,
@@ -613,7 +613,7 @@
             "accessories": [
                 {
                     "producto": "Chaleco Salvavidas",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://www.eduardono.com/nautico/1/chaleco-salvavidas-eduardono-1.jpg",
                     "stock":5,
                     "descripcion": "Chaleco salvavidas de neopreno con 2 hebillas para hombre Yamaha Construcción de neopreno de alta calidad. Paneles de espuma totalmente segmentados Dos correas ajustables con hebillas de liberación lateral para mayor apoyo y seguridad Cremallera frontal duradera",
@@ -622,7 +622,7 @@
                 },
                 {
                     "producto": "Bote inflable",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://http2.mlstatic.com/D_NQ_NP_821055-MLA41327582058_042020-O.webp",
                     "stock":5,
                     "descripcion": "Inflables de remolque OBRIEN deluxe nylon-wrapped con asas y neopreno nudillos. Cubierta de nylon de doble costura y alta resistencia PVC virgen vejiga. Velocidad Válvula De Seguridad",
@@ -631,7 +631,7 @@
                 },
                 {
                     "producto": "Ecosondas Garmin",
-                    "categorias":[],
+                    "categorias":["electronica"],
                     "imagenes": "https://nautycar.com.ar/wp-content/uploads/2020/04/eco.jpg",
                     "stock":5,
                     "descripcion": "Garmin Striker 4 con transductor, Sensor de peces GPS con transductor tradicional CHIRP, te muestra más de lo que hay en el agua alrededor de tu barco; este sonar de alta frecuencia ofrece imágenes fotográficas cerca con representaciones detalladas de objetos, estructura y peces",
@@ -640,7 +640,7 @@
                 },
                 {
                     "producto": "Manillar Wake doble manija Straight Line",
-                    "categorias":[],
+                    "categorias":["esparcimiento"],
                     "imagenes": "https://nautycar.com.ar/wp-content/uploads/2020/04/manillar-doble-400x300.jpg",
                     "stock":5,
                     "descripcion": "núcleo de aluminio de alta resistencia, protector de dedos de espuma que flota de 10cm. Mango de aluminio de 15 cm, Incluye cincha de sujeción ",
@@ -649,7 +649,7 @@
                 },
                 {
                     "producto": "SKIES NAUTICOS",
-                    "categorias":[],
+                    "categorias":["esparcimiento"],
                     "imagenes": "https://http2.mlstatic.com/D_NQ_NP_980862-MLA31587520506_072019-O.jpg",
                     "stock":5,
                     "descripcion": "Esquís acuáticos moldeados con borde de 67 pulgadas. Perfecto para diferentes niveles de habilidad.Colas anchas/parte inferior con forma de túnel para rendimiento, control y estabilidad. Construcción compuesta y aletas de nailon reforzadas con fibra de vidrio. ",
@@ -658,7 +658,7 @@
                 },
                 {
                     "producto": "HYPERLITE 119 Motivo Jr BWF (2020)",
-                    "categorias":[],
+                    "categorias":["esparcimiento"],
                     "imagenes": "https://m.media-amazon.com/images/I/31h6agKsWTL._AC_US200_.jpg",
                     "stock":5,
                     "descripcion": "Construcción de monocroco: integra el cristal superior y el cristal inferior en uno. Generando una placa más duradera en los impactos laterales para evitar la deslaminación.",
@@ -667,7 +667,7 @@
                 },
                 {
                     "producto": "Airhead AHDL-4 Bungee Dockline 4 pies",
-                    "categorias":[],
+                    "categorias":["esparcimiento"],
                     "imagenes": "http://cdn.shopify.com/s/files/1/0134/1272/8896/products/AHDL-D12-15-20-loop2_88741807-dbdb-4a19-b652-82cca7948a1f_600x.jpg?v=1607229142",
                     "stock":5,
                     "descripcion": "Material: cuerda, 2.150 libras de resistencia. La soga de 4 ft se extiende a 5.5 ft. La soga de 5 ft se extiende a 7 ft. La soga de 6 ft se extiende a 9 ft.",
@@ -676,7 +676,7 @@
                 },
                 {
                     "producto": "Tono Popa Cockpit Lona Nautica, Toneau",
-                    "categorias":[],
+                    "categorias":["esparcimiento"],
                     "imagenes": "https://http2.mlstatic.com/D_NQ_NP_983989-MLA46454012431_062021-O.webp",
                     "stock":5,
                     "descripcion": "Confeccionado con lona nautica, reforzada en todo su perimetro y con ribete de terminacion, cuenta con broches de presion colocados cada 40cm aprox, para su fijacion.",
@@ -685,7 +685,7 @@
                 },
                 {
                     "producto": "Kit de seguridad ",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://img.nauticexpo.es/images_ne/photo-m2/23078-410963.jpg",
                     "stock":5,
                     "descripcion": "Linterna silbato Bailer & Line Bailer KitIncluye: linterna de emergencia, silbato de seguridad sin pelar, bailer con mango de fácil agarre y 50 pies de línea flotante con flotador y espejo reflectante de señal Mylar",
@@ -694,7 +694,7 @@
                 },
                 {
                     "producto": "Orion Safety 584,",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://images-na.ssl-images-amazon.com/images/I/411jLdJD08L._SR600%2C315_PIWhiteStrip%2CBottomLeft%2C0%2C35_SCLZZZZZZZ_FMpng_BG255%2C255%2C255.jpg",
                     "stock":5,
                     "descripcion": "Orion Safety 584, Alerter Basic 4, lanzador de calibre 12 y paquete de señal aéreaSeñal de día o noche aprobada por USCG.",
@@ -703,7 +703,7 @@
                 },
                 {
                     "producto": "Cornamusas para muelles de amarre",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://m.media-amazon.com/images/I/518HVHunAPL._AC_SL1001_.jpg",
                     "stock":5,
                     "descripcion": "Cornamusas para muelles de amarre, 5 pulgadas de cornamusa inoxidable 316 para yate marino, Cornamusa de amarre, Base hueca",
@@ -712,7 +712,7 @@
                 },
                 {
                     "producto": "Barco de Cebo de Pesca GPS ",
-                    "categorias":[],
+                    "categorias":["electronica"],
                     "imagenes": "https://m.media-amazon.com/images/I/61IQuRGr7nL._AC_SX425_.jpg",
                     "stock":5,
                     "descripcion": "Doorslay Barco de Cebo de Pesca GPS con contenedor de Cebo. Grande Barco de Cebo automático con Alcance Remoto de 400-500M",
@@ -721,7 +721,7 @@
                 },
                 {
                     "producto": "Eulbevoli Plotter GPS",
-                    "categorias":[],
+                    "categorias":["electronica"],
                     "imagenes": "https://images-na.ssl-images-amazon.com/images/I/61-MeBD1xqL.__AC_SX300_SY300_QL70_ML2_.jpg",
                     "stock":5,
                     "descripcion": "Eulbevoli Plotter GPS, Pantalla a Color de 8 Pulgadas, Navegador Satelital, 200 Rutas, Protección IP20 para Barcos",
@@ -730,7 +730,7 @@
                 },
                 {
                     "producto": "Easterner Luz de navegación EVOLED",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://images-na.ssl-images-amazon.com/images/I/41iFPTCz8lL.__AC_SY300_SX300_QL70_ML2_.jpg",
                     "stock":5,
                     "descripcion": "Luz de navegación EVOLED. Para montaje en suelo, izquierda y derecha. Luces LED de bajo consumo. Luces de navegación de acero inoxidable. Áreas de luz: verde: 112,5 ° rojo: 112,5 °",
@@ -739,7 +739,7 @@
                 },
                 {
                     "producto": "Luces de Proa de Barcos",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://m.media-amazon.com/images/I/71pNZswuOpS._AC_SX425_.jpg",
                     "stock":5,
                     "descripcion": "4 Piezas Luces de Proa de Barcos Luces de Navegación de Barcos LED con 5 Pilas de Botón para Barco Kayak Pontón Aerodeslizador Yate Motora Caza Pesca Correr de Noche (Rojo, Verde, Blanco)",
@@ -748,7 +748,7 @@
                 },
                 {
                     "producto": "KAOLALI Luces para Barcos",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://m.media-amazon.com/images/I/51PE5tkIQ4S._AC_SY879_.jpg",
                     "stock":5,
                     "descripcion": "KAOLALI Luces para Barcos, Luz de Navegación Ajustable para Barcos Yates LED Lámpara de Navegación Todo Redondo 360 ° Blanco Puro 12 V/24 V",
@@ -757,7 +757,7 @@
                 },
                 {
                     "producto": "Cuerda Flotante de Anclaje",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://m.media-amazon.com/images/I/51VPtgEv3cL._AC_SX425_.jpg",
                     "stock":5,
                     "descripcion": "BeGrit 10M Cuerda Flotante de Anclaje 6mm para Amarre, Cuerda multifunción, línea de Remolque para Barco, Camping, Senderismo, Escalada Naranja, capacidad máxima de carga de 20 kg",
@@ -766,7 +766,7 @@
                 },
                 {
                     "producto": "Kit de Anclaje de Barco",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://m.media-amazon.com/images/I/61JZvPE7vYL._AC_SX425_.jpg",
                     "stock":5,
                     "descripcion": "VEVOR Kit de Anclaje de Barco 6,35 kg, Anclas de Barco 63 x 31 x 29 cm, de Material de Acero Inoxidable 316, para dimensiones de Barco de 6-10,7 m, Color Plata, Ideal para Fondos de Arena, Guijarros, etc.",
@@ -775,7 +775,7 @@
                 },
                 {
                     "producto": "Escalera Náutica Enrollable",
-                    "categorias":[],
+                    "categorias":["seguridad"],
                     "imagenes": "https://http2.mlstatic.com/D_NQ_NP_864655-MLA31112668151_062019-O.webp",
                     "stock":5,
                     "descripcion": "Posee 4 escalones de acero inoxidable. Ideal para botes y lanchas sin escalera.  Incluye bolsa de guardado.",
@@ -784,7 +784,7 @@
                 },
                 {
                     "producto": "Cámara Fish Finder de pesca subacuática",
-                    "categorias":[],
+                    "categorias":["electronica"],
                     "imagenes": "https://m.media-amazon.com/images/I/71dn2Qs612L._AC_SX425_.jpg",
                     "stock":5,
                     "descripcion": "Fish Finder visual con pantalla IPS de 4,3 pulgadas El fishfinder está compuesto principalmente por un host con pantalla IPS de 4,3 pulgadas y un objetivo impermeable IP68 para formar un sistema de cámaras subacuáticas.",

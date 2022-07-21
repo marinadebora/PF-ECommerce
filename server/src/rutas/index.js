@@ -3,6 +3,6 @@ const  {getEmbarcacionesV} = require("../controladores/ControladorEmbarcacionesV
 
 let router = Router();
 
-router.get("/",getEmbarcacionesV)
+router.get("/embarcacionesv",getEmbarcacionesV)
 
 module.exports= router;

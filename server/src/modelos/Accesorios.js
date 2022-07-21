@@ -1,4 +1,5 @@
-import { Schema,model } from "mongoose";
+let mongoose = require("mongoose")
+let  { Schema }= require("mongoose");
 
 const accesorioSchema = new Schema({
     nombre:{
@@ -36,4 +37,4 @@ const accesorioSchema = new Schema({
     timestamps:true
 })
 
-export default model("Accesorio",accesorioSchema);
+module.exports = mongoose.model("Accesorio",accesorioSchema);

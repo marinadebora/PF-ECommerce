@@ -1,4 +1,5 @@
-import {Schema,model} from "mongoose";
+let mongoose = require("mongoose")
+let  { Schema }= require("mongoose");
 
 
 const categoriasNuevosSchema = new Schema({
@@ -6,4 +7,4 @@ const categoriasNuevosSchema = new Schema({
 
 },{timestamps:false})
 
-export default model("categoriasNuevos",categoriasNuevosSchema)
+module.exports= mongoose.model("categoriasNuevos",categoriasNuevosSchema)

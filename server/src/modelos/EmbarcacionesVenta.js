@@ -1,4 +1,5 @@
-import { Schema, model } from "mongoose";
+let mongoose = require("mongoose")
+let  { Schema }= require("mongoose");
 
 
 const embarcacionesVenta = new Schema({
@@ -8,7 +9,7 @@ const embarcacionesVenta = new Schema({
     astillero: { type: String },
     fabricacion: { type: String },
     localizacion: { type: String },
-    imagen: { type: Array,required:true },
+    imagenes: { type: Array,required:true },
     numeroDePasajeros: { type: String },
     eslora: { type: String,required:true },
     manga: { type: String },
@@ -17,14 +18,13 @@ const embarcacionesVenta = new Schema({
     marcaDeMotor: { type: String },
     potencia: { type: String },
     combustible: { type: String },
-    venta: { type: Boolean, required:true },
-    disponible:{type:Boolean,required:true}
+    venta: { type: Boolean, required:true, defaultValue: true },
+    disponible: {type:Boolean,required:tru, defaultValue:true}
 }, { timestamps: false })
 
 
 
-export default model("embarcacionesVenta", embarcacionesVenta)
-<<<<<<< HEAD:server/src/modelos/EmbarcacionesVenta.js
+module.exports= mongoose.model("embarcacionesVenta", embarcacionesVenta)
 
 
 
@@ -34,5 +34,3 @@ export default model("embarcacionesVenta", embarcacionesVenta)
 
 
 
-=======
->>>>>>> b7f6615e62cb1d0f1a917794dfbd1b3ab6be48c8:server/src/modelos/EmbarcacionesVenta.ts

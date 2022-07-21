@@ -1,4 +1,6 @@
-import { Schema, model } from "mongoose"
+let mongoose = require("mongoose")
+let  { Schema }= require("mongoose");
+
 
 const usuariosSchema = new Schema({
     id:{
@@ -6,4 +8,9 @@ const usuariosSchema = new Schema({
         required:true,
         primaryKey:true   
     },
+    carritoCompra:{
+        type:Array,
+    }
 })
+
+module.exports= mongoose.model("Usuarios",usuariosSchema)
