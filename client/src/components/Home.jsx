@@ -53,7 +53,7 @@ export default function Home(){
 
 
                                 <Grid item xs={12} sm={6} md={4} lg={3}>
-                                    <Link to={`/home/${e.id}`} >
+                                
                                         <Card 
                                             tipo = {e.tipo}
                                             Marca={e.Marca}
@@ -63,12 +63,13 @@ export default function Home(){
                                             astillero = {e.astillero}
                                             fabricacion = {e.fabricacion}
                                             localizacion = {e.localizacion}
-                                            imagen = {e.imagen}
+                                            imagenes = {e.imagenes[0]}
                                             producto={e.producto}
                                             descripcion={e.descripcion}
                                             Tamaño={e.Tamaño}
+                                            Link={<Link to={`/homes/${e._id}`} >Info</Link> }
                                         />
-                                    </Link>
+                                  
                                 </Grid>
                                 
                             

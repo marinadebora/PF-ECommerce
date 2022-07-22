@@ -21,6 +21,7 @@ const volver=()=>{
 navigate(-1)
 }
 
+
   return <div>
     {
       myDetail ?
@@ -28,10 +29,7 @@ navigate(-1)
 
           
             <button onClick={volver}>VOLVER</button>
-          
-
-      
-
+        
           {
             myDetail.marca ? <p>Marca: {myDetail.marca}</p> : ''
           }
@@ -117,7 +115,7 @@ navigate(-1)
             myDetail.Tamaño ? <p>Tamaño: {myDetail.Tamaño}</p> : ''
           }
           {
-            myDetail.imagen?.map(e =>
+            myDetail.imagenes?.map(e =>
               <img src={e} alt='img' />
             )
           }
