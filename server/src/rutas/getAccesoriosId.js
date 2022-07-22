@@ -11,9 +11,11 @@ getAccesoriosId.get('/:id', async (req,res)=>{
             const busqueda = await Accesorios.find({_id:id})
             console.log(busqueda)
             res.send(busqueda)
+        }else{
+            res.status(404).send(`El id: ${id}, no existe`)
         }
     } catch (error) {
-        res.status(404).send(`el id: ${id}; es erroneo`)
+        console.log(error)
     }
 })
 

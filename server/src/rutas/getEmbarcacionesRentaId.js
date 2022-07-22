@@ -9,6 +9,8 @@ getEmbarRentaId.get('/:id', async (req,res)=>{
         if(id){
         const busqueda = await EmbarcacionesRenta.find({_id: id})
         res.send(busqueda)
+    }else{
+        res.status(404).send(`El id: ${id}, no existe`)
     }
     } catch (error) {
         res.status(404).send(`el id: ${id}; es erroneo`)
