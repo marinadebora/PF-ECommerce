@@ -7,9 +7,13 @@ const getEmbarVentaId = require("./getEmbarcacionesVentaid");
 const getEmbarRentaId = require("./getEmbarcacionesRentaId");
 const getTodo = require("./getTodo");
 const getTodoId = require("./getTodoId");
-const postEmbarVenta= require("./postEmbarcacionesVenta");
-const postAccesorios= require("./postAccesorios")
-const putEmbarVenta= require("./putEmbarcacionesVenta")
+const postEmbarcacionesRenta = require("./postEmbarcacionesRentas");
+const postEmbarcacionesV = require("./postEmbarcacionesVentas");
+const postAccesorios = require("./postAccesorios");
+const putEmbarcacionesRenta = require("./putEmbarcacionesRenta");
+const putEmbarcacionesVenta = require("./putEmbarcacionesVenta");
+const putAccesorio = require("./putAccesorios");
+
 let router = Router();
 
 router.use("/embarcacionesv", getEmbarVenta)
@@ -20,7 +24,13 @@ router.use("/accesorios", getAccesorios)
 router.use("/accesorio", getAccesoriosId)
 router.use("/todos", getTodo)
 router.use("/todo", getTodoId)
-router.use("/embarcacionesv", postEmbarVenta)
-router.use("/accesorios",postAccesorios)
-router.use("/embarcacionesv",putEmbarVenta)
-module.exports = router;
+router.use("/embarcacionesR",postEmbarcacionesRenta)
+router.use("/embrarcacionesV",postEmbarcacionesV)
+router.use("/accesorio",postAccesorios)
+router.use("/embarcacionesR",putEmbarcacionesRenta)
+router.use("/embrarcacionesV",putEmbarcacionesVenta)
+router.use("/accesorio",putAccesorio)
+
+
+
+module.exports= router;
