@@ -17,10 +17,10 @@ import '../styles/card.css';
 export default function Producto({ tipo, precio, fabricacion, imagen, Link}) {
   return (
     <Fragment>
-      <Card sx={{ maxWidth: 345 }} id='card'>
+      <Card sx={{ maxWidth: 330 }} id='card'>
         <CardHeader
           title={
-            <Typography fontSize="20px" fontFamily="arial" underline="none">
+            <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
               {tipo}
             </Typography>
           }
@@ -34,13 +34,16 @@ export default function Producto({ tipo, precio, fabricacion, imagen, Link}) {
              
              )}
         <CardContent>
-          <Typography>Año: {fabricacion}</Typography>
+        {
+            fabricacion? <Typography>Año: {fabricacion}</Typography>:''
+          }
+          <Typography>Price: {precio}</Typography>
         </CardContent>
         <CardActions disableSpacing id='cardAction'>
           <IconButton aria-label="add to favorites">
             <AddShoppingCartIcon />
           </IconButton>
-          <Button id='infoButton' sx={{marginLeft: 'auto'}} size="small">{Link}</Button>
+          <Button sx={{marginLeft: 'auto'}} size="small">{Link}</Button>
         </CardActions>
       </Card>
     </Fragment>

@@ -41,7 +41,7 @@ export default function Home(){
                 <Box id='textBox2'>We love sailing...</Box>
             </Box>
             
-            <Grid container spacing={2}>
+            <Grid container spacing={1}>
             {
                 
                 actualPage?.map(e => 
@@ -65,7 +65,7 @@ export default function Home(){
                                             producto={e.producto}
                                             descripcion={e.descripcion}
                                             Tamaño={e.Tamaño}
-                                            Link={<Link to={`/home/${e.id}`} >Info</Link> }
+                                            Link={<Link to={`/home/${e.id}`} id='buttonText'>Info</Link> }
                                         />
                                       
                                 </Grid>

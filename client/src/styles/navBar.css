@@ -31,5 +31,56 @@
     float: left;
 }
 
+@media(max-width: 680px){
+    #guest{
+       display: none;
+    }
+
+    #logo{
+        margin-left: 30px;
+        margin-right: 80px;
+    }
+    #button{
+        height: 25px;
+        width: 70px;
+        font-size: 8px;
+    }
+}
+
+@media(max-width: 600px){
+    #guest{
+        display: none;
+     }
+ 
+     #logo{
+        margin-left: 10px;
+        height: 50px;
+     }
+     #button{
+         height: 25px;
+         width: 70px;
+         font-size: 8px;
+     }  
+
+     #cart{
+        font-size: 20px;
+        color: #0184a9
+    }
+
+    #badge{
+        height: 15px;
+    }
+}
+
+@media(max-width: 507px){
+    
+     #logo{
+        height: 40px;
+}
+}
+
+
+
+
 
 
