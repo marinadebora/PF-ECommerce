@@ -21,49 +21,56 @@ export default function CardDetail()
   return <div>
     {
       myDetail ?
-        <div>
-          <Link to='/home'>
-            <button id='buttonBack'>VOLVER</button>
-          </Link>
+        <div id='mainContainer'>
+          <div id='mainImg'>
           {
-            myDetail.marca ? <p>Marca: {myDetail.marca}</p> : ''
+            myDetail.imagen?.map(e =>
+              <img src={e} alt='img' id='imgProduc'/>
+            )
+          }
+          </div>
+      
+            <ul>
+          {
+            myDetail.marca ? <li><p>Marca: {myDetail.marca}</p></li> : ''
           }
           {
-            myDetail.tipo ? <p>tipo: {myDetail.tipo}</p> : ''
+            myDetail.tipo ? <li><p>tipo: {myDetail.tipo}</p></li> : ''
           }
           {
-            myDetail.modelo ? <p>Modelo: {myDetail.modelo}</p> : ''
+            myDetail.modelo ? <li><p>Modelo: {myDetail.modelo}</p></li> : ''
           }
           {
-            myDetail.fabricacion ? <p>fabricacion: {myDetail.fabricacion}</p> : ''
+            myDetail.fabricacion ? <li><p>fabricacion: {myDetail.fabricacion}</p></li> : ''
           }
           {
-            myDetail.astillero ? <p>astillero: {myDetail.astillero}</p> : ''
+            myDetail.astillero ? <li><p>astillero: {myDetail.astillero}</p></li> : ''
           }
           {
-            myDetail.motor ? <p>Motor: {myDetail.motor}</p> : ''
+            myDetail.motor ? <li><p>Motor: {myDetail.motor}</p></li> : ''
           }
           {
-            myDetail.localizacion ? <p>localizacion: {myDetail.localizacion}</p> : ''
+            myDetail.localizacion ? <li><p>localizacion: {myDetail.localizacion}</p></li> : ''
           }
           
           {
-            myDetail.precio ? <p>precio: {myDetail.precio}</p> : ''
+            myDetail.precio ? <li><p>precio: {myDetail.precio}</p></li> : ''
           }
           {
-            myDetail.producto ? <p>producto: {myDetail.producto}</p> : ''
+            myDetail.producto ? <li><p>producto: {myDetail.producto}</p></li> : ''
           }
           {
-            myDetail.descripcion ? <p>descripcion: {myDetail.descripcion}</p> : ''
+            myDetail.descripcion ? <li><p>descripcion: {myDetail.descripcion}</p></li> : ''
           }
           {
-            myDetail.Tamaño ? <p>Tamaño: {myDetail.Tamaño}</p> : ''
+            myDetail.Tamaño ? <li><p>Tamaño: {myDetail.Tamaño}</p></li> : ''
           }
-          {
-            myDetail.imagen?.map(e =>
-              <img src={e} alt='img' />
-            )
-          }
+          </ul>
+          
+          
+           <Link to='/home'>
+            <button id='buttonBack'>VOLVER</button>
+          </Link>
         </div>
         : <h1><strong>Loading...</strong></h1>
     }

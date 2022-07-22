@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import infoProductos from '../infoPrueba/index'
+import infoProductos from '../infoPrueba/productos'
 
 
 export function todosLosProductos()
@@ -8,7 +8,7 @@ export function todosLosProductos()
     return async function (dispatch)
     {
         try {
-            const productos = infoProductos; // await axios(`http://localHost:3001/productos`)
+            const productos = infoProductos; // await axios(`http://localhost:3000/embarcacionesv`)
 
             return dispatch({
 
