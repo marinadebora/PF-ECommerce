@@ -8,8 +8,8 @@ getEmbarVentaId.get('/:id', async (req,res) =>{
     try {
         if(id){
             const busqueda = await EmbarcacionesVenta.find({_id: id})
-            res.send(busqueda)
-        }else{
+            busqueda.length ?
+            res.send(busqueda):
             res.status(404).send(`El id: ${id}, no existe`)
         }
     } catch (error) {

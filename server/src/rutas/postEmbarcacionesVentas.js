@@ -13,9 +13,8 @@ postEmbarcacionesV.post("/", async (req,res) =>{
     try {
         const t = await EmbarcacionesVenta.find({tipo: tipo})
         const m = await EmbarcacionesVenta.find({modelo: modelo})
-        if(t.length && m.length){ 
-            res.status(404).send(`El vehiculo ${tipo} modelo ${modelo}, ya se encuetra en nuestro almacen`)
-        }else{
+        if(t.length && m.length){ res.status(404).send(`El vehiculo ${tipo} modelo ${modelo}, ya se encuetra en nuestro almacen`)}
+        else{
         const acc = await EmbarcacionesVenta.create({
             tipo,categorias,modelo,precio,astillero,
             fabricacion,localizacion,imagenes,

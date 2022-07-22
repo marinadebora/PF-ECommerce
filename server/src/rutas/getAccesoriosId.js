@@ -9,9 +9,8 @@ getAccesoriosId.get('/:id', async (req,res)=>{
     try {
         if(id){
             const busqueda = await Accesorios.find({_id:id})
-            console.log(busqueda)
-            res.send(busqueda)
-        }else{
+            busqueda.length ?
+            res.send(busqueda):
             res.status(404).send(`El id: ${id}, no existe`)
         }
     } catch (error) {
