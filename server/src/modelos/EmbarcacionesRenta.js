@@ -77,8 +77,6 @@ const embarcacionRentaSchema = new Schema({
     preciodia:{
         type:Number
     }
-
-
 },{
     versionKey:false,
     timestamps:true

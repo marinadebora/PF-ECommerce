@@ -1,7 +1,7 @@
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { productosDetail } from "../actions/actions";
 import '../styles/cardDetail.css'
 
@@ -10,13 +10,16 @@ export default function CardDetail()
   const dispatch = useDispatch();
   const { id } = useParams();
   const myDetail = useSelector(state => state.detail);
+const navigate=useNavigate()
 
   useEffect(() =>
   {
     dispatch(productosDetail(id))
   }, [dispatch, id])
 
-
+const volver=()=>{
+navigate(-1)
+}
 
   return <div>
     {
@@ -66,8 +69,7 @@ export default function CardDetail()
             myDetail.Tamaño ? <li><p>Tamaño: {myDetail.Tamaño}</p></li> : ''
           }
           </ul>
-          
-          
+         
            <Link to='/home'>
             <button id='buttonBack'>VOLVER</button>
           </Link>

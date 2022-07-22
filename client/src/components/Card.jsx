@@ -45,6 +45,5 @@ export default function Producto({ tipo, precio, fabricacion, imagen, Link}) {
       </Card>
     </Fragment>
   );
+
 }
-
-
