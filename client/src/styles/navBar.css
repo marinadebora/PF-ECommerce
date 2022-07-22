@@ -1,0 +1,32 @@
+#logo{
+    height: 70px;
+}
+
+#appBar{
+    background-color: #0184a9;
+    text-decoration: none;
+}
+
+#guest{
+    padding: 20px;
+}
+
+#button{
+    color: white;
+    border: solid 1px white;
+    float: left;
+    margin-left: 10px;
+}
+
+#cart{
+    font-size: 30px;
+    color: white;
+}
+
+#cartButton{
+    padding: 20px;
+    float: left;
+}
+
+
+
