@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -27,9 +26,9 @@ navigate(-1)
       myDetail ?
         <div>
 
-          
+
             <button onClick={volver}>VOLVER</button>
-        
+
           {
             myDetail.marca ? <p>Marca: {myDetail.marca}</p> : ''
           }
@@ -39,7 +38,7 @@ navigate(-1)
           {
             myDetail.categorias ? <p>Categorias: {myDetail.tipo}</p> : ''
           }
-          
+
           {
             myDetail.modelo ? <p>Modelo: {myDetail.modelo}</p> : ''
           }
@@ -94,11 +93,11 @@ navigate(-1)
           {
             myDetail.numero_de_motores ?<p>Numero de Motores: {myDetail.eslora}</p> : ''
           }
-         
+
           {
             myDetail.localizacion ? <p>localizacion: {myDetail.localizacion}</p> : ''
           }
-          
+
           {
             myDetail.precio ? <p>precio: {myDetail.precio}</p> : ''
           }

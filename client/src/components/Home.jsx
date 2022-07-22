@@ -67,7 +67,7 @@ export default function Home(){
                                             producto={e.producto}
                                             descripcion={e.descripcion}
                                             Tamaño={e.Tamaño}
-                                            Link={<Link to={`/homes/${e._id}`} >Info</Link> }
+                                            Link={<Link to={`/home/${e._id}`} >Info</Link> }
                                         />
                                   
                                 </Grid>

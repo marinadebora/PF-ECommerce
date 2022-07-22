@@ -34,7 +34,7 @@ export function productosDetail(id)
     return async function (dispatch)
     {
         try {
-           const proDetail =await axios(`http://localhost:4000/todo/${id}`)
+           const proDetail =await axios.get(`http://localhost:4000/todo/${id}`)
            console.log(proDetail)
             return dispatch({
                 type: 'PRODUCTOS_DETAIL',
@@ -47,6 +47,23 @@ export function productosDetail(id)
     }
 
 }
+
+/*export function getRecipeById(id) {
+    return async function (dispatch) {
+      try {
+        let jsonRecipeID = await axios.get(
+          `${URL}/recipes/${id}`
+        );
+        
+        return dispatch({
+          type: GET_RECIPE_BY_ID,
+          payload: jsonRecipeID.data,
+        });
+      } catch (error) {
+        return alert(`No encontramos la receta con el ID ${id}.`);
+      }
+    };
+  }*/
 
 /*  export function productosDetail(_id){
     return async function(dispatch){ 
