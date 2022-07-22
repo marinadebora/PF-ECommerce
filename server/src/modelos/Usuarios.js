@@ -6,6 +6,9 @@ const usuariosSchema = new Schema({
         required:true,
         primaryKey:true   
     },
+    carritoCompra:{
+        type:Array,
+    }
 })
 
-module.exports = mongoose.model('usuario', usuariosSchema)
+module.exports= mongoose.model("Usuarios",usuariosSchema)

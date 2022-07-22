@@ -9,7 +9,7 @@ const initialState = {
   rentVessels: [],
   accesories: [],
   allaccesories:[],
-  detail: []
+  detail: {}
 };
 
 function rootReducer(state = initialState, action)
