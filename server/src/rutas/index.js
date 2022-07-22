@@ -10,6 +10,9 @@ const getTodoId = require("./getTodoId");
 const postEmbarcacionesRenta = require("./postEmbarcacionesRentas");
 const postEmbarcacionesV = require("./postEmbarcacionesVentas");
 const postAccesorios = require("./postAccesorios");
+const putEmbarcacionesRenta = require("./putEmbarcacionesRenta");
+const putEmbarcacionesVenta = require("./putEmbarcacionesVenta");
+const putAccesorio = require("./putAccesorios");
 
 let router = Router();
 
@@ -24,6 +27,9 @@ router.use("/todo", getTodoId)
 router.use("/embarcacionesR",postEmbarcacionesRenta)
 router.use("/embrarcacionesV",postEmbarcacionesV)
 router.use("/accesorio",postAccesorios)
+router.use("/embarcacionesR",putEmbarcacionesRenta)
+router.use("/embrarcacionesV",putEmbarcacionesVenta)
+router.use("/accesorio",putAccesorio)
 
 
 

@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const config = require("./config");
+let mongoose =require("mongoose");
+let config = require("./config") ;
 
 // conectamos nuestra base de datos
 //  (async()=>{
