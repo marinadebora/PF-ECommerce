@@ -9,11 +9,12 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Button from '@mui/material/Button';
-import '../infoPrueba/productos';
+
 import '../styles/card.css';
 
 
-export default function Producto({ tipo, precio, fabricacion, imagen }) {
+export default function Producto({ tipo, precio, fabricacion, imagenes, Link }) {
+
   return (
     <Fragment>
       <Card sx={{ maxWidth: 345 }}>
@@ -24,23 +25,29 @@ export default function Producto({ tipo, precio, fabricacion, imagen }) {
             </Typography>
           }
         />
-
-        <CardMedia
-        component="img"
-        height="200"
-        image={
-            imagen?.map(e =>
-              <img src={e} alt='img' />
-            )
-          } />
+        
+        { imagenes?
+         <CardMedia
+         component="img"
+         height="200"
+         image={imagenes} />
+         :''
+            
+        }
+        
+       
         <CardContent>
-          <Typography>Año: {fabricacion}</Typography>
+          {
+            fabricacion? <Typography>Año: {fabricacion}</Typography>:''
+          }
+         
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
             <AddShoppingCartIcon />
           </IconButton>
-          <Button id='infoButton' sx={{marginLeft: 'auto'}} size="small">Info</Button>
+          
+          <Button id='infoButton' sx={{marginLeft: 'auto'}} size="small">{Link}</Button>
         </CardActions>
       </Card>
     </Fragment>
