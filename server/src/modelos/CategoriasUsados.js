@@ -1,5 +1,5 @@
-const { Schema } = require("mongoose");
-const mongoose = require("mongoose")
+let mongoose = require("mongoose")
+let  { Schema }= require("mongoose");
 
 const categoriasUsadosSchema = new Schema({
   name:{type:String}
