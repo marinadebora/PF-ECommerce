@@ -14,11 +14,11 @@ export function BarcosEnAlquiler()
  //----------paginado---------//
 
   const [page, setPage] = useState(1);
-  const [characterPerPage, setCharacterPerPage] = useState(5);
+  const [characterPerPage, /* setCharacterPerPage */] = useState(5);
   const index = page * characterPerPage;
   const endIndex = index - characterPerPage;
   const actualPage = productAlquiler?.slice(endIndex, index);
-  const [ordering, setOrdering] = useState('')
+  const [/* ordering */, setOrdering] = useState('')
 
 
 console.log(productAlquiler)

@@ -2,7 +2,7 @@
     "venta": [
         {
             "tipo": "Catamaran a motor",
-            "categorias": [],
+            "categorias": ["Gama Alta"],
             "modelo": "A10",
             "precio": "238386 usd",
             "astillero": "Aventura Catamarans",
@@ -23,7 +23,7 @@
         },
         {
             "tipo": "Velero",
-            "categorias": [],
+            "categorias": ["Gama media"],
             "modelo": "34",
             "precio": "175000 usd",
             "astillero": "Grand Soleil",
@@ -44,7 +44,7 @@
         },
         {
             "tipo": "Yate de motor",
-            "categorias": [],
+            "categorias": ["Gama Alta"],
             "modelo": "86",
             "precio": "1798000 usd",
             "astillero": "Canados",
@@ -63,7 +63,7 @@
         },
         {
             "tipo": "Embarcacion de crucero",
-            "categorias": [],
+            "categorias": ["Gama Alta"],
             "modelo": "S36 HT",
             "precio": "417000 usd",
             "astillero": "Bavaria",
@@ -82,7 +82,7 @@
         },
         {
             "tipo": "Velero",
-            "categorias": [],
+            "categorias": ["Gama Alta"],
             "modelo": "C42",
             "precio": "313000 usd",
             "astillero": "Bavaria",
@@ -101,7 +101,7 @@
         },
         {
             "tipo": "Lancha",
-            "categorias": [],
+            "categorias": ["Gama baja"],
             "modelo": "Endurance 30",
             "precio": "85000 usd",
             "astillero": "Cranchi",
@@ -120,7 +120,7 @@
         },
         {
             "tipo": "Embarcacion de crucero",
-            "categorias": [],
+            "categorias": ["Gama Alta"],
             "modelo": "Gladiator 493 Grand",
             "precio": "1085500 usd",
             "astillero": "Canados",
@@ -139,7 +139,7 @@
         },
         {
             "tipo": "Embarcacion de motor",
-            "categorias": [],
+            "categorias": ["Gama baja"],
             "modelo": "26 CC",
             "precio": "33000 usd",
             "astillero": "Karnic",
@@ -158,7 +158,7 @@
         },
         {
             "tipo": "Embarcacion de motor",
-            "categorias": [],
+            "categorias": ["Gama baja"],
             "modelo": "Key Largo",
             "precio": "65000 usd",
             "astillero": "Sessa Marine",
@@ -177,7 +177,7 @@
         },
         {
             "tipo": "Velero de crucero",
-            "categorias": [],
+            "categorias": ["Gama media"],
             "modelo": "Sun Odyssey 380",
             "precio": "214300 usd",
             "astillero": "Jeanneau",
@@ -196,7 +196,7 @@
         },
         {
             "tipo": "Velero de crucero",
-            "categorias": [],
+            "categorias": ["Gama Alta"],
             "modelo": "61",
             "precio": "1773696 usd",
             "astillero": "Dufour",
@@ -215,7 +215,7 @@
         },
         {
             "tipo": "Velero de crucero",
-            "categorias": [],
+            "categorias": ["Gama media"],
             "modelo": "Oceanis 30.1",
             "precio": "195065 usd",
             "astillero": "Beneteau",
@@ -234,7 +234,7 @@
         },
         {
             "tipo": "Lancha",
-            "categorias": [],
+            "categorias": ["Gama baja"],
             "modelo": "70.2 WA",
             "precio": "69800 usd",
             "astillero": "Idea Marine",
@@ -253,7 +253,7 @@
         },
         {
             "tipo": "Embarcacion de crucero",
-            "categorias": [],
+            "categorias": ["Gama media"],
             "modelo": "2008",
             "precio": "210000 usd",
             "astillero": "Bruno Abbate",
@@ -272,7 +272,7 @@
         },
         {
             "tipo": "Catamaran de vela",
-            "categorias": [],
+            "categorias": ["Gama Alta"],
             "modelo": "Aventura 34",
             "precio": "180000 usd",
             "astillero": "Aventura Catamarans",

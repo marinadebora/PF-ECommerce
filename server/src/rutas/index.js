@@ -16,6 +16,12 @@ const putAccesorios = require("./putAccesorios");
 const deleteAccesorios = require("./deleteAccesorios");
 const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
 const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
+<<<<<<< HEAD
+=======
+const { categorias } = require("../controladores/controladorCategorias");
+const cargarVentas = require("../controladores/CargaVentas");
+const postCategorias = require("./postCategoria");
+>>>>>>> 694370bf7214f6a7cd92b36c43e0bd1e885408e5
 
 let router = Router();
 
@@ -36,6 +42,14 @@ router.use("/accesorio", putAccesorios)
 router.use("/accesorio", deleteAccesorios)
 router.use("/todos", getTodo)
 router.use("/todo", getTodoId)
+
+router.get("/categorias", categorias)
+router.use("/categorias", postCategorias)
+
+
+// no ejecutar esta ruta para no replicar los documentos de la base de datos
+router.use("/cargarVenta", cargarVentas)
+
 
 
 
