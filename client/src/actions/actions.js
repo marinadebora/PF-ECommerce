@@ -111,7 +111,7 @@ export function accesorios(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localHost:3001/accesorios')
+            const prodVenta= await axios('http://localHost:4000/accesorios')
             return dispatch({
                 type:'ACCESORIOS',
                 payload:prodVenta.data

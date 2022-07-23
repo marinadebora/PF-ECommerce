@@ -1,7 +1,7 @@
 const initialState={
 
     products: [],
-    saleVessels:[],
+    saleVessels: [],
     rentVessels: [],
     accesories: [],
     detail:{}
@@ -22,6 +22,8 @@ function  rootReducer(state = initialState, action){
           ...state,
           detail:action.payload
     }
+    //----------------------ACCESORIO----------------------
+    //-----------------------------------------------------
     case "POST_ACCESORIO":   
     return { ...state, accesories: state.accesories.concat(action.payload) };
 
@@ -34,16 +36,32 @@ function  rootReducer(state = initialState, action){
        return {
           ...state
     }
+     //----------------------EMBARCACION VENTA----------------------
+     //-------------------------------------------------------------
 
-    case "POST_EMBARCACION":   
-     return { ...state, products: state.products.concat(action.payload) };
+    case "POST_EMBARCACIONENV":   
+     return { ...state, saleVessels: state.saleVessels.concat(action.payload) };
 
-    case "DELETE_EMBARCACION":
+    case "DELETE_EMBARCACIONENV":
       return {
          ...state
     }
     
-    case "UPDATE_EMBARCACION":
+    case "UPDATE_EMBARCACIONENV":
+       return {
+          ...state
+    }
+     //----------------------EMBARCACION RENTA----------------------
+     //-------------------------------------------------------------
+     case "POST_EMBARCACIONRT":   
+     return { ...state, rentVessels: state.rentVessels.concat(action.payload) };
+
+    case "DELETE_EMBARCACIONRT":
+      return {
+         ...state
+    }
+    
+    case "UPDATE_EMBARCACIONRT":
        return {
           ...state
     }

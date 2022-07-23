@@ -6,12 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {postEmbarcacionEnV } from '../../actions/admin-action';
-import { todosLosProductos, /*getAllTypes */} from '../../actions/actions';
+import { barcosEnVenta, /*getAllTypes */} from '../../actions/actions';
 
 
 
 
-export function EmbarcacionCreate(){
+export function EmbarcacionCreateEnV(){
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -49,44 +49,44 @@ export function EmbarcacionCreate(){
         if(!input.modelo){
             errors.modelo='No ingresaste el modelo'
         }
-        if(input.precio){
+        if(!input.precio){
             errors.precio = 'no ingresaste el precio.'
         }
         if(!input.astillero){
             errors.astillero = 'no ingresaste astillero'
         }
-        if (input.fabricacion){
+        if (!input.fabricacion){
             errors.fabricacion = "no ingresaste fabricacion"
         }
-        if (input.localizacion){
+        if (!input.localizacion){
             errors.localizacion = "no ingresaste localizacion"
         }
-        if (input.numero_de_pasajeros){
+        if (!input.numero_de_pasajeros){
             errors.numero_de_pasajeros = "no ingresaste numero_de_pasajeros"
         }
-        if (input.eslora){
+        if (!input.eslora){
             errors.eslora = "no ingresaste eslora"
         }
-        if (input.manga){
-            errors.manga = "no ingresaste .manga"
+        if (!input.manga){
+            errors.manga = "no ingresaste manga"
         }
-        if (input.calado){
+        if (!input.calado){
             errors.calado = "no ingresastecalado"
         }
        
-         if (input.numero_de_motores){
+         if (!input.numero_de_motores){
             errors.numero_de_motores = "no ingresaste numero_de_motores"
         }
-        if (input.marca_de_motor){
+        if (!input.marca_de_motor){
             errors.marca_de_motor = "no ingresaste marca_de_motor"
         }
-        if (input.potencia_total){
+        if (!input.potencia_total){
             errors.potencia_total = "no ingresaste potencia_total"
         }
-        if (input.descripcion){
+        if (!input.descripcion){
             errors.descripcion = "no ingresaste descripcion"
         }
-        if (input.combustible){
+        if (!input.combustible){
             errors.combustible = "no ingresaste combustible"
         }
 
@@ -102,86 +102,89 @@ export function EmbarcacionCreate(){
 
     useEffect( () => {
        // dispatch(getAllTypes())
-        dispatch(todosLosProductos())
+        dispatch(barcosEnVenta())
     }, [dispatch])
 
-    const [input, setInput] = useState({
+    const [input, setinput] = useState({
         tipo: '',
         modelo: '',
-        precio:0,
+        precio: "",
         astillero: '',
         fabricacion: 0,
-        localizacion:'' ,
+        localizacion: '',
         numero_de_pasajeros: 0,
-        eslora:0,
-        manga:0,
-        calado:0,
+        eslora:"",
+        manga:"",
+        calado:"",
         numero_de_motores:0,
-        marca_de_motor:" ",
-        potencia_total: " ",
-        descripcion: " ",
-        combustible: " "
+        marca_de_motor: "",
+        potencia_total: "",
+        descripcion: "",
+        combustible: ""
 
     })
 
     
     const [errors, setErrors] = useState({});
 
-    function handleDiet(e){
+   /* function handleDiet(e){
         if(!input.diets.includes(e.target.value)){
-            setInput({
+            setinput({
                 ...input,
                 diets: [...input.diets, e.target.value]
             })
         }
     }
 
-    /*function handleDelete(d){
-        setInput({
+    function handleDelete(d){
+        setinput({
             ...input,
             diets: input.diets.filter(e => e !== d)
         })
     }*/
 
     function handleChange(e){
-        setInput({
+        setinput({
             ...input,
             [e.target.name]:e.target.value
-        }) //LAS DIETAS VENDRIAN A SER LAS CATEGORIAS, TODAVI NO SE DEFINIO NOMBRE NI MODELO
-
-        setErrors(validate({
+        })
+       setErrors(validate({
             ...input,
             [e.target.name]:e.target.value
         }))
+        
     }
 
+    const allEmbarcacionVenta = useSelector((state) => state.saleVessels);
     
-    function handleSubmit(e) {    
-        e.preventDefault();
+    function handleSubmit(e) {   
+        e.preventDefault(); 
+        
         try {
-          let findName = saleVessels.find((e) => e.tipo.toLowerCase() === input.tipo.toLowerCase()
-          )
-          if (findName) {
-            return alert("Ya existe una embarcacion con este nombre. ¡Cambialo!");
-          }else if(Object.keys(errors).length === 0 && (input.tipo!=='')){
+            let findproducto = allEmbarcacionVenta.find((e) => e.tipo.toLowerCase() === input.tipo.toLowerCase()
+            )
+            if (findproducto) {
+              return alert("Ya existe un producto con este nombre. ¡Cambialo!");
+            }else if(Object.keys(errors).length === 0 && (input.tipo!=='')){
+            
             
             dispatch(postEmbarcacionEnV(input))
-            setInput({
+            setinput({
                 tipo: '',
                 modelo: '',
-                precio:0,
+                precio: "",
                 astillero: '',
                 fabricacion: 0,
                 localizacion:'' ,
                 numero_de_pasajeros: 0,
-                eslora:0,
-                manga:0,
-                calado:0,
+                eslora: "",
+                manga: "",
+                calado:"",
                 numero_de_motores:0,
-                marca_de_motor:" ",
-                potencia_total: " ",
-                descripcion: " ",
-                combustible: " "
+                marca_de_motor: "",
+                potencia_total: "",
+                descripcion: "",
+                combustible: ""
             })
             return (
                 alert(`La Embarcacion fue creada con éxito.`), navigate(`/admin`)
@@ -194,12 +197,19 @@ export function EmbarcacionCreate(){
           );
         }
       };
+      
+      
     
     return (
         <div className="cont-form">
-            <NavBar />
             
-            {
+            
+            { !allEmbarcacionVenta ? 
+                <>
+                    <div>
+                        <h1>LOADING</h1>
+                    </div>
+                </>:
                 
                 <>
                     <div className="create_embarcacionEnv">
@@ -210,11 +220,11 @@ export function EmbarcacionCreate(){
                                 <label>Tipo de la Embarcacion: </label>
                                 <input 
                                     type='text' 
-                                    name='name' 
+                                    name='tipo' 
                                     placeholder='Tipo de la embarcacion' 
                                     value={input.tipo}
                                     onChange={handleChange}
-                                    className={errors.tipo && 'danger'}
+                                    className="input"
                                 >
                                 </input>
                                 {errors.tipo && <p className="danger">{errors.tipo}</p>}
@@ -226,7 +236,7 @@ export function EmbarcacionCreate(){
                                     type='text' 
                                     name='descripcion' 
                                     value={input.descripcion}
-                                    className={errors.descripcion && 'danger'} 
+                                    className="input" 
                                     onChange={handleChange}> 
                                 </textarea>
                                 {errors.tipo && <p className="danger">{errors.tipo}</p>}
@@ -239,26 +249,26 @@ export function EmbarcacionCreate(){
                                     name='modelo' 
                                     value={input.modelo} 
                                     onChange={handleChange}
-                                    className={errors.modelo && 'danger'}
+                                    className="input"
                                     >
                                 </input>
                                 {errors.modelo && <p className="danger">{errors.modelo}</p>}
                             </div>
                             <div>
-                                <label>Precio:</label>
-                                <input 
+                                <label>precio:</label>
+                                <input
                                     type='text' 
                                     name='precio' 
                                     value={input.precio} 
                                     onChange={handleChange}
-                                    className={errors.precio && 'danger'}
+                                    className="input"
                                     >
                                 </input>
                                 {errors.precio && <p className="danger">{errors.precio}</p>}
                             </div>
                             <div>
                                 <label>Astillero:</label>
-                                <input 
+                                <input
                                     type='text' 
                                     name='astillero' 
                                     value={input.astillero} 
@@ -270,8 +280,8 @@ export function EmbarcacionCreate(){
                             </div>
                             <div>
                                 <label>Fabricacion:</label>
-                                <input 
-                                    type='text' 
+                                <input
+                                    type='number' 
                                     name='fabricacion' 
                                     value={input.fabricacion} 
                                     onChange={handleChange}
@@ -295,7 +305,7 @@ export function EmbarcacionCreate(){
                             <div>
                                 <label>Numero de Pasajeros:</label>
                                 <input 
-                                    type='text' 
+                                    type='number' 
                                     name='numero_de_pasajeros' 
                                     value={input.numero_de_pasajeros} 
                                     onChange={handleChange}
@@ -343,9 +353,9 @@ export function EmbarcacionCreate(){
                             <div>
                                 <label>Numero de Motores:</label>
                                 <input 
-                                    type='text' 
+                                    type='number' 
                                     name='numero_de_motores' 
-                                    value={input.calado} 
+                                    value={input.numero_de_motores} 
                                     onChange={handleChange}
                                     className={errors.numero_de_motores && 'danger'}
                                     >
@@ -396,7 +406,7 @@ export function EmbarcacionCreate(){
                             
                           
 
-                            <button className="button-submit" type="submit">Crear Embarcacion</button>
+                            <button className="button-submitev" type="submit">Crear Embarcacion</button>
                             {/* {
                                 ((errors.summary) || (errors.steps) || (errors.healthScore) || (!input.name)) ?
                                 <button disabled className="button-submit" type="submit">Enviar Receta</button>:
@@ -413,4 +423,4 @@ export function EmbarcacionCreate(){
     )
 }
 
-export default CreateEmbarcacionEnV;
+export default EmbarcacionCreateEnV;

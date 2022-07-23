@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {postAccesorio } from '../../actions/admin-action';
-import { todosLosProductos, /*getAllTypes */} from '../../actions/actions';
+import { accesorios, /*getAllTypes */} from '../../actions/actions';
 
 
 
@@ -17,50 +17,73 @@ export function AccesoriosCreate(){
     function validate(input){
         let errors = {}
 
-        if(!input.name){
-            errors.name = 'Falta ingresar el nombre'
+        /*{
+            "_id": "62d8a6b52029a4c825e23ed4",
+            "producto": "Bote inflable",
+            "categorias": [
+              "seguridad"
+            ],
+            "imagenes": [
+              "https://http2.mlstatic.com/D_NQ_NP_821055-MLA41327582058_042020-O.webp"
+            ],
+            "descripcion": "Inflables de remolque OBRIEN deluxe nylon-wrapped con asas y neopreno nudillos. Cubierta de nylon de doble costura y alta resistencia PVC virgen vejiga. Velocidad Válvula De Seguridad",
+            "dimensiones": "Rider, 54 de diámetro, (desinflado)",
+            "precio": "US$96.61",
+            "stock": "5",
+            "createdAt": "2022-07-21T01:07:01.988Z",
+            "updatedAt": "2022-07-21T01:07:01.988Z"
+          }*/
+
+        if(!input.producto){
+            errors.producto = 'Falta ingresar el nombre'
         }
 
-        if(!input.summary){
-            errors.summary='No ingresaste el resumen de la receta!'
+        if(!input.descripcion){
+            errors.descripcion='No ingresaste el resumen de la receta!'
         }
 
-        if(((input.healthScore < 1) || (input.healthScore >100)) || isNaN(input.healthScore)){
-            errors.healthScore = 'Ingresaste un HealthScore invalido.'
+        if(((input.precio < 1) || (input.precio >100)) || isNaN(input.precio)){
+            errors.precio = 'Ingresaste un precio invalido.'
         }
 
-        if(!input.steps){
-            errors.steps = 'Hace falta agregar el paso a paso de la receta.'
+        if(!input.dimensiones){
+            errors.dimensiones = 'Hace falta agregar una dimension.'
         }
-        if (input.name.charAt(0) !== input.name.charAt(0).toUpperCase()){
-            errors.name = "La primera letra debe ser mayúscula"
+       /* if (input.producto.charAt(0) !== input.producto.charAt(0).toUpperCase()){
+            errors.producto = "La primera letra debe ser mayúscula"
+        }*/
+        if(!input.stock){
+            errors.stock = 'Hace falta agregar el stock.'
         }
 
         
         return errors
     }
 
-    const allRecipes = useSelector((state) => state.all_recipes);
+    const allAccesories = useSelector((state) => state.allaccesories);
+    console.log(allAccesories)
+    
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
     useEffect( () => {
-        dispatch(getAllTypes())
-        dispatch(getAllRecipes())
+        //dispatch(getAllTypes())
+        dispatch(accesorios())
     }, [dispatch])
 
     const [input, setInput] = useState({
-        name: '',
-        summary: '',
-        healthScore:0,
-        image: '',
-        steps: '',
-        diets: []
+        producto: '',
+        descripcion: '',
+        precio:0,
+        dimensiones: '',
+        stock: 0
+        
+        
     })
 
     
     const [errors, setErrors] = useState({});
 
-    function handleDiet(e){
+   /* function handleDiet(e){
         if(!input.diets.includes(e.target.value)){
             setInput({
                 ...input,
@@ -74,7 +97,7 @@ export function AccesoriosCreate(){
             ...input,
             diets: input.diets.filter(e => e !== d)
         })
-    }
+    }*/
 
     function handleChange(e){
         setInput({
@@ -92,143 +115,127 @@ export function AccesoriosCreate(){
     function handleSubmit(e) {    
         e.preventDefault();
         try {
-          let findName = allRecipes.find((e) => e.name.toLowerCase() === input.name.toLowerCase()
+          let findproducto = allAccesories.find((e) => e.producto.toLowerCase() === input.producto.toLowerCase()
           )
-          if (findName) {
-            return alert("Ya existe una receta con este nombre. ¡Cambialo!");
-          }else if(Object.keys(errors).length === 0 && (input.name!=='')){
-            if(input.healthScore){parseInt(input.healthScore)}
-            dispatch(postRecipe(input))
+          if (findproducto) {
+            return alert("Ya existe un producto con este nombre. ¡Cambialo!");
+          }else if(Object.keys(errors).length === 0 && (input.producto!=='')){
+            if(input.precio){parseInt(input.precio)}
+            dispatch(postAccesorio(input))
             setInput({
-                name: '',
-                summary: '',
-                healthScore:0,
-                image: '',
-                steps: '',
-                diets: []
+                producto: '',
+                descripcion: '',
+                precio:0,
+                dimensiones: '',
+                stock:0
+                
             })
             return (
-                alert(`La receta fue creada con éxito.`), navigate(`/home`)
+                alert(`El Accesorio fue creado con exito.`), navigate(`/admin`)
                 ) 
           
        } } catch (error) {
           console.log(error);
           return alert(
-            "Oh no! Algo falló al crear la receta. ¡Intentalo de nuevo!"
+            "Algo falló al crear el accesorio."
           );
         }
       };
     
     return (
-        <div className="cont-form">
-            <NavBar />
+        <div classproducto="cont-form">
+            
             
             {
-                !allDiets ? 
+                !allAccesories ? 
                 <>
                     <div>
-                        <img src={Loader} alt='loader'></img>
+                        <h1>LOADING</h1>
                     </div>
                 </>:
                 <>
-                    <div className="create_recipe">
-                        <form className="form" onSubmit={handleSubmit}>
-                            <h1>Crea tu propia receta!</h1>
+                    <div classproducto="create_recipe">
+                        <form classproducto="form" onSubmit={handleSubmit}>
+                            <h1>Crea el Accesorio</h1>
                             
                             <div >
-                                <label>Name of recipe: </label>
+                                <label>Nombre del Producto: </label>
                                 <input 
                                     type='text' 
-                                    name='name' 
-                                    placeholder='Name of recipe...' 
-                                    value={input.name}
+                                    name='producto' 
+                                    placeholder='producto of recipe...' 
+                                    value={input.producto}
                                     onChange={handleChange}
-                                    className={errors.name && 'danger'}
+                                    className={errors.producto && 'danger'}
                                 >
                                 </input>
-                                {errors.name && <p className="danger">{errors.name}</p>}
+                                {errors.producto && <p classproducto="danger">{errors.producto}</p>}
                             </div>
                             
                             <div>
-                                <label>Summary: </label>
+                                <label>Descripcion: </label>
                                 <textarea 
                                     type='text' 
-                                    name='summary' 
-                                    value={input.summary}
-                                    className={errors.summary && 'danger'} 
+                                    name='descripcion' 
+                                    value={input.descripcion}
+                                    className={errors.descripcion && 'danger'} 
                                     onChange={handleChange}> 
                                 </textarea>
-                                {errors.summary && <p className="danger">{errors.summary}</p>}
+                                {errors.descripcion && <p classproducto="danger">{errors.descripcion}</p>}
                             </div>
 
                             <div>
-                                <label>HealthScore:</label>
+                                <label>Precio:</label>
                                 <input 
                                     type='text' 
-                                    name='healthScore' 
-                                    value={input.healthScore} 
+                                    name='precio' 
+                                    value={input.precio} 
                                     onChange={handleChange}
-                                    className={errors.healthScore && 'danger'}
+                                    classnameo={errors.precio && 'danger'}
                                     >
                                 </input>
-                                {errors.healthScore && <p className="danger">{errors.healthScore}</p>}
+                                {errors.precio && <p classproducto="danger">{errors.precio}</p>}
+                            </div>
+                            <div>
+                                <label>Stock:</label>
+                                <input 
+                                    type='text' 
+                                    name='stock' 
+                                    value={input.stock} 
+                                    onChange={handleChange}
+                                    classnameo={errors.stock && 'danger'}
+                                    >
+                                </input>
+                                {errors.stock && <p classproducto="danger">{errors.stock}</p>}
                             </div>
 
-                            <div>
-                                <label>Image: </label>
-                                <input type='text' name='image'value={input.image} onChange={handleChange}></input>
-                            </div>
+                           
 
                             <div>
-                                <label>Steps: </label>
+                                <label>Dimensiones: </label>
                                 <textarea 
                                     type='text' 
-                                    name='steps' 
-                                    value={input.steps} 
+                                    name='dimensiones' 
+                                    value={input.dimensiones} 
                                     onChange={handleChange}
-                                    className={errors.steps && 'danger'}
+                                    className={errors.dimensiones && 'danger'}
                                     >
 
                                 </textarea>
-                                {errors.steps && <p className="danger">{errors.steps}</p>}
+                                {errors.dimensiones && <p classproducto="danger">{errors.dimensiones}</p>}
                             </div>
                             
-                            <div className="class-select">
-                                <label>Tipos de dieta</label>
-                                <select onChange={handleDiet} Value='Onetype' >
-                                    <option disabled>Eligir tipos de dietas</option>
-                                    {
-                                        allDiets && allDiets?.map(e => {
-                                            return (
-                                                <option key={e.name} value={e.name} name={e.name}>{e.name}</option>
-                                            )
-                                        })
-                                    }
-                                </select>
-                            </div>
+                            
 
-                            <button className="button-submit" type="submit">Enviar Receta</button>
+                            <button classproducto="button-submit" type="submit">Enviar Accesorio</button>
                             {/* {
-                                ((errors.summary) || (errors.steps) || (errors.healthScore) || (!input.name)) ?
-                                <button disabled className="button-submit" type="submit">Enviar Receta</button>:
+                                ((errors.descripcion) || (errors.dimensiones) || (errors.healthScore) || (!input.producto)) ?
+                                <button disabled classproducto="button-submit" type="submit">Enviar Receta</button>:
                                 
                             } */}
                         </form>
 
-                        <div className="my-diets">
-                            <h3>MIS DIETAS</h3>
-                            <div className="dietitas">
-                                {input.diets.map(d => {
-                                    return (
-                                    <div key={d} className="tipo_dieta">
-                                        <button className="cerrar" onClick={() => handleDelete(d)}>X</button>
-                                        <p>{d}</p> 
-                                    </div>
-                                    )
-                                }
-                            )}
-                            </div>
-                        </div>
+                        
                     </div>
                 </>
             }
@@ -237,4 +244,4 @@ export function AccesoriosCreate(){
     )
 }
 
-export default RecipeCreate;
+export default AccesoriosCreate;
