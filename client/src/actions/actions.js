@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 import infoProductos from '../infoPrueba/index'
-import buscaId from '../components/prueba'
+
 
 export function todosLosProductos()
 {
@@ -22,20 +22,14 @@ export function todosLosProductos()
 
     }
 }
-function filtrado(id){
-
-   const a=infoProductos.filter(e => e._id==id) 
- 
-   return a
-}
 
 export function productosDetail(id)
 {
     return async function (dispatch)
     {
         try {
-           const proDetail =await axios.get(`http://localhost:4000/todo/${id}`)
-           console.log(proDetail)
+           const proDetail =await axios(`http://localhost:4000/todo/${id}`)
+          
             return dispatch({
                 type: 'PRODUCTOS_DETAIL',
                 payload: proDetail.data
@@ -48,35 +42,6 @@ export function productosDetail(id)
 
 }
 
-/*export function getRecipeById(id) {
-    return async function (dispatch) {
-      try {
-        let jsonRecipeID = await axios.get(
-          `${URL}/recipes/${id}`
-        );
-        
-        return dispatch({
-          type: GET_RECIPE_BY_ID,
-          payload: jsonRecipeID.data,
-        });
-      } catch (error) {
-        return alert(`No encontramos la receta con el ID ${id}.`);
-      }
-    };
-  }*/
-
-/*  export function productosDetail(_id){
-    return async function(dispatch){ 
-       return(
-        fetch(`http://localhost:4000/todo/${_id}`)
-       .then(response=>response.json())
-        .then(data=> dispatch({
-            type:'PRODUCTOS_DETAIL',
-            payload:data
-        }))
-        .catch (error=>console.log(error)) 
-            
-       )} } */
 
       
 export function barcosEnVenta(){
@@ -97,7 +62,7 @@ export function barcosEnAlquiler(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localHost:3001/embarcacionesr');
+            const prodVenta= await axios('http://localHost:4000/embarcacionesr');
             return dispatch({
                 type:'BARCOS_EN_ALQUILER',
                 payload:prodVenta.data
@@ -111,7 +76,7 @@ export function accesorios(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localHost:3001/accesorios')
+            const prodVenta= await axios('http://localHost:4000/accesorios')
             return dispatch({
                 type:'ACCESORIOS',
                 payload:prodVenta.data
@@ -151,3 +116,64 @@ export function precioOrden(payload){
         payload
     }
     }
+
+export function filtrosCombinados(payload){
+    return {
+        type:'FILTROS_COMBINDAOS',
+        payload
+    }
+}
+
+export function filtrosCategoriaEmbarcacion(payload){
+    return {
+        type:'FITRO_CATEGORIA_EMBARCACION',
+        payload
+    }
+}
+
+
+const categorias=['seguridad','electronica','esparcimiento','Gama Alta','Gama Economica','Gama Media']
+
+
+
+
+export function todasCategorias(){
+     return async function(dispatch){
+            try {
+                
+                const prodCat=categorias //await axios('http://localHost:4000/categorias')
+                
+                return dispatch({
+                    type:'TODAS_CATEGORIAS',
+                    payload:prodCat//.data
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    
+}
+
+export function filtroCatgorias(payload){
+    return {
+        type:'FILTRO_CATEGORIAS',
+        payload,
+    }
+}
+
+export function productName(payload){
+
+    return async function(dispatch){
+     try {
+        const name= await axios(`http://localhost:4000/todos?name=${payload}`)//http://localhost:4000/todos?name=chaleco
+        console.log(name.data)
+        return dispatch({
+          type:'PRODUCT_NAME',
+          payload:name.data[0]
+        })
+     } catch (error) {
+        console.log(error)
+     }
+    }
+  
+  }

@@ -13,16 +13,16 @@ import Button from '@mui/material/Button';
 import '../styles/card.css';
 
 
-export default function Producto({ tipo, precio, fabricacion, imagenes, Link }) {
+export default function Producto({ tipo, precio, fabricacion, imagenes, Link, producto, marca }) {
 
   return (
     <Fragment>
       <Card sx={{ maxWidth: 345 }}>
         <CardHeader
           title={
-            <Typography fontSize="20px" fontFamily="arial">
+           tipo? <Typography fontSize="20px" fontFamily="arial">
               {tipo}
-            </Typography>
+            </Typography>:producto? <Typography fontSize="20px" fontFamily="arial">{producto}</Typography>:marca? <Typography fontSize="20px" fontFamily="arial">{marca}</Typography>:''
           }
         />
         
@@ -38,8 +38,14 @@ export default function Producto({ tipo, precio, fabricacion, imagenes, Link }) 
        
         <CardContent>
           {
-            fabricacion? <Typography>Año: {fabricacion}</Typography>:''
+            fabricacion? <Typography>Año: {fabricacion}</Typography>: ''
           }
+         
+        </CardContent>
+        <CardContent>
+          
+             <Typography>{precio}</Typography>
+          
          
         </CardContent>
         <CardActions disableSpacing>
