@@ -22,6 +22,7 @@ function App() {
     <BrowserRouter>
     <div className="App">
       <Routes>
+        <Route exact path='/' element={<Navbar/>} />
         <Route exact path='/home' element={<Home />} />
         <Route  path='/home/:id' element={<CardDetail />} />
         <Route exact path='/admin' element={<Admin/>} />

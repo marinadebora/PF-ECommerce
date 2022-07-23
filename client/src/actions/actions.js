@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import infoProductos from '../infoPrueba/index'
-import buscaId from '../components/prueba'
+import infoProductos from '../infoPrueba/productos'
+
 
 export function todosLosProductos()
 {

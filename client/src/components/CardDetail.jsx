@@ -24,6 +24,7 @@ navigate(-1)
   return <div>
     {
       myDetail ?
+<<<<<<< HEAD
         <div>
 
 
@@ -116,56 +117,59 @@ navigate(-1)
           {
             myDetail.imagenes?.map(e =>
               <img src={e} alt='img' />
+=======
+        <div id='mainContainer'>
+          <div id='mainImg'>
+          {
+            myDetail.imagen?.map(e =>
+              <img src={e} alt='img' id='imgProduc'/>
+>>>>>>> 84b1fddbd10c7eb317d942618ca8b89eef356c0d
             )
           }
+          </div>
+      
+            <ul>
+          {
+            myDetail.marca ? <li><p>Marca: {myDetail.marca}</p></li> : ''
+          }
+          {
+            myDetail.tipo ? <li><p>tipo: {myDetail.tipo}</p></li> : ''
+          }
+          {
+            myDetail.modelo ? <li><p>Modelo: {myDetail.modelo}</p></li> : ''
+          }
+          {
+            myDetail.fabricacion ? <li><p>fabricacion: {myDetail.fabricacion}</p></li> : ''
+          }
+          {
+            myDetail.astillero ? <li><p>astillero: {myDetail.astillero}</p></li> : ''
+          }
+          {
+            myDetail.motor ? <li><p>Motor: {myDetail.motor}</p></li> : ''
+          }
+          {
+            myDetail.localizacion ? <li><p>localizacion: {myDetail.localizacion}</p></li> : ''
+          }
+          
+          {
+            myDetail.precio ? <li><p>precio: {myDetail.precio}</p></li> : ''
+          }
+          {
+            myDetail.producto ? <li><p>producto: {myDetail.producto}</p></li> : ''
+          }
+          {
+            myDetail.descripcion ? <li><p>descripcion: {myDetail.descripcion}</p></li> : ''
+          }
+          {
+            myDetail.Tamaño ? <li><p>Tamaño: {myDetail.Tamaño}</p></li> : ''
+          }
+          </ul>
+         
+           <Link to='/home'>
+            <button id='buttonBack'>VOLVER</button>
+          </Link>
         </div>
         : <h1><strong>Loading...</strong></h1>
     }
   </div>;
 };
-/* 
-    "_id": "62d8ae81d780cdfae6405235",
-    "marca": "Genesis",
-    "categorias": [],
-    "modelo": "Genesis290",
-    "fabricacion": "2018",
-    "fabricacionDelMotor": 2018,
-    "motor": "4 tiempos",
-    "imagenes": [
-      "https://http2.mlstatic.com/D_NQ_NP_623052-MLA49561613143_042022-O.webp"
-    ],
-    "eslora": "9.05 m",
-    "manga": "2.6 m",
-    "puntal": "1. 72 m",
-    "cantMotores": "1",
-    "hp": "300",
-    "marcamotor": "VOLVO PENTA",
-    "descripcion": "",
-    "combustible": "Nafta",
-    "horas": "40",
-    "transmision": "Pata Duo Prop.-",
-    "createdAt": "2022-07-21T01:40:17.567Z",
-    "updatedAt": "2022-07-21T01:40:17.567Z"
-  },
-    "_id": "62d8b46f497e920550b6f123",
-    "tipo": "Catamaran a motor",
-    "categorias": [],
-    "modelo": "A10",
-    "precio": "238386 usd",
-    "astillero": "Aventura Catamarans",
-    "fabricacion": 2022,
-    "localizacion": "España",
-    "imagenes": [
-      "https://imagenes.cosasdebarcos.com/barcosOcasion/9/0/4/6/a10-aventura-catamarans-70789100210854487068545254684570x.jpg"
-    ],
-    "numero_de_pasajeros": 10,
-    "eslora": "9.98 m",
-    "manga": "5.3 m",
-    "calado": "0.8 m",
-    "numero_de_motores": 2,
-    "marca_de_motor": "Yanmar",
-    "potencia_total": "200 CV",
-    "descripcion": "",
-    "combustible": "Diesel",
-    "__v": 0
-  }, */

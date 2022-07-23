@@ -13,18 +13,24 @@ import Button from '@mui/material/Button';
 import '../styles/card.css';
 
 
+<<<<<<< HEAD
 export default function Producto({ tipo, precio, fabricacion, imagenes, Link }) {
 
+=======
+
+export default function Producto({ tipo, precio, fabricacion, imagen, Link}) {
+>>>>>>> 84b1fddbd10c7eb317d942618ca8b89eef356c0d
   return (
     <Fragment>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345 }} id='card'>
         <CardHeader
           title={
-            <Typography fontSize="20px" fontFamily="arial">
+            <Typography fontSize="20px" fontFamily="arial" underline="none">
               {tipo}
             </Typography>
           }
         />
+<<<<<<< HEAD
         
         { imagenes?
          <CardMedia
@@ -36,17 +42,30 @@ export default function Producto({ tipo, precio, fabricacion, imagenes, Link }) 
         }
         
        
+=======
+
+        { imagen?.map(e =>
+          <CardMedia id='imgCard'
+          component="img"
+          height="200"
+          image={e} />
+             
+             )}
+>>>>>>> 84b1fddbd10c7eb317d942618ca8b89eef356c0d
         <CardContent>
           {
             fabricacion? <Typography>Año: {fabricacion}</Typography>:''
           }
          
         </CardContent>
-        <CardActions disableSpacing>
+        <CardActions disableSpacing id='cardAction'>
           <IconButton aria-label="add to favorites">
             <AddShoppingCartIcon />
           </IconButton>
+<<<<<<< HEAD
           
+=======
+>>>>>>> 84b1fddbd10c7eb317d942618ca8b89eef356c0d
           <Button id='infoButton' sx={{marginLeft: 'auto'}} size="small">{Link}</Button>
         </CardActions>
       </Card>
@@ -54,4 +73,3 @@ export default function Producto({ tipo, precio, fabricacion, imagenes, Link }) 
   );
 
 }
-
