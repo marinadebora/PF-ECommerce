@@ -21,6 +21,7 @@ export const initialState = {
           ...state,
           products: action.payload,
           allProducts:action.payload,
+          detail:{},
         }
       case 'PRODUCTOS_DETAIL':
   
@@ -61,10 +62,18 @@ export const initialState = {
         }
 
       case 'ADD_TO_BASKET':
+        const cart_add = state.products.find(e => e === action.payload)
         return{
           ...state,
-          basket: [...state.basket, action.item]
+          basket: [...state.basket, cart_add]
         }
+
+        case 'REMOVE_TO_BASKET':
+          const cart_remove = state.basket.filter(e => e !== action.payload)
+          return{
+            ...state,
+            basket: cart_remove
+          }
   
     
         //----------filtros----------//

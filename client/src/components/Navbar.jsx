@@ -28,11 +28,14 @@ export default function Navbar() {
 
             <Button variant="outlined" id="button">Sing In</Button>
             <Button variant="outlined" id="button">Register</Button>
-            <IconButton arial-label="show cart items" id="cartButton">
-              <Badge badgeContent={3} color="secondary" id='badge'>
-                <ShoppingCart id="cart" />
-              </Badge>
-            </IconButton>
+
+            <Link to='home/checkoutPage'>
+              <IconButton arial-label="show cart items" id="cartButton">
+                <Badge badgeContent={3} color="secondary" id='badge'>
+                  <ShoppingCart id="cart" />
+                </Badge>
+              </IconButton>
+            </Link>
             
           </Toolbar>
         </Grid>

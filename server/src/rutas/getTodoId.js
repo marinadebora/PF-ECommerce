@@ -1,3 +1,4 @@
+
 const {Router} = require("express");
 const { getTodos } = require('../controladores/controladoDeTodo')
 
@@ -10,8 +11,8 @@ getTodoId.get('/:id', async (req,res)=>{
     try {
         if(id){
             const busqueda = api.filter( e => e._id.toString() === id.toString())
-            busqueda.length ?
-            res.send(busqueda):
+            busqueda[0] ?
+            res.send(busqueda[0]):
             res.status(404).send(`el id: ${id}; es erroneo`)
         }
     } catch (error) {

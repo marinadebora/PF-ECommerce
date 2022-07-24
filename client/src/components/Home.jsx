@@ -57,7 +57,7 @@ export default function Home(){
                              
                                 <Card 
                                     tipo = {e.tipo}
-                                    Marca={e.Marca}
+                                    marca={e.marca}
                                     modelo = {e.modelo}
                                     Motor={e.Motor}
                                     precio = {e.precio}

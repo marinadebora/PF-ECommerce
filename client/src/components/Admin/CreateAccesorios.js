@@ -60,7 +60,7 @@ export function AccesoriosCreate(){
         return errors
     }
 
-    const allAccesories = useSelector((state) => state.allaccesories);
+    const allAccesories = useSelector((state) => state.Allaccesories);
     console.log(allAccesories)
     
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS

@@ -9,24 +9,40 @@ import Typography from "@mui/material/Typography";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Button from '@mui/material/Button';
 import '../styles/card.css';
+import {addToBasket} from '../actions/actions'
+import {useDispatch} from 'react-redux'
 
 
 
-export default function Producto({ tipo, producto, precio, fabricacion, imagenes, Link}) {
+
+
+export default function Producto({ tipo, producto, marca ,precio, fabricacion, imagenes, Link}) {
+
+   const dispatch = useDispatch()
    
+   const addToCart = () =>{
+      dispatch(addToBasket)
+   }
   return (
     <Fragment>
       <Card sx={{ maxWidth: 330 }} id='card'>
         <CardHeader
           title={
+
             tipo ?
             <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
                {tipo}
             </Typography>
-            : 
+            :producto?
             <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
                {producto}
             </Typography>
+
+            :marca&&
+            <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
+              {marca}
+            </Typography>
+
           }
         />
 
@@ -45,7 +61,8 @@ export default function Producto({ tipo, producto, precio, fabricacion, imagenes
           <Typography>Price: {precio}</Typography>
         </CardContent>
         <CardActions disableSpacing id='cardAction'>
-          <IconButton aria-label="add to cart" onClick='addToBasket' >
+          
+          <IconButton aria-label="add to cart" onClick={addToCart} >
             <AddShoppingCartIcon />
           </IconButton>
           <Button sx={{marginLeft: 'auto'}} size="small">{Link}</Button>

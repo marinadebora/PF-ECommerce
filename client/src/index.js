@@ -6,9 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './store/index'
 import { BrowserRouter } from 'react-router-dom';
-import { StateProvider } from './StateProvider';
-import rootReducer from './reducer/reducer';
-import {initialState} from './reducer/reducer'
+
 
 
 
@@ -16,9 +14,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <React.StrictMode>
-        <StateProvider initialState={initialState} reducer={rootReducer}>
-          <App />
-        </StateProvider>
+          <App />  
       </React.StrictMode>
     </BrowserRouter>
   </Provider>,

@@ -91,14 +91,11 @@ export function EmbarcacionCreateEnV(){
         if (!input.combustible){
             errors.combustible = "no ingresaste combustible"
         }
-
-
-
-
         
         return errors
     }
 
+    
     //const allRecipes = useSelector((state) => state.all_recipes); FIJARSE STORE ALL PRODUCTS
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 

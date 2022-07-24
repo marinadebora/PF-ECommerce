@@ -100,6 +100,14 @@ export function addToBasket(payload){
 
             } 
         }
+
+export function removeToBasket(payload){
+    return{
+            type:'REMOVE_TO_BASKET',
+            payload
+
+            } 
+        }
     
 
 //------------Filtro-Por-Precio------------//
