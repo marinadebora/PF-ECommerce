@@ -1,10 +1,13 @@
 const initialState = {
   products: [],
+  allProducts:[],
   saleVessels: [],
   rentVessels: [],
   accesories: [],
+  allAccesories:[],
   detail: {},
   categories: [],
+  
 
 };
 
@@ -17,6 +20,7 @@ function rootReducer(state = initialState, action)
       return {
         ...state,
         products: action.payload,
+        allProducts:action.payload,
       }
     case 'PRODUCTOS_DETAIL':
 
@@ -41,6 +45,7 @@ function rootReducer(state = initialState, action)
       return {
         ...state,
         accesories: action.payload,
+        allAccesories: action.payload,
       }
 
     case 'PRODUCT_NAME':
@@ -54,6 +59,8 @@ function rootReducer(state = initialState, action)
         ...state,
         categories: action.payload
       }
+
+  
       //----------filtros----------//
 
     case 'FITRO_PRECIO':
@@ -94,21 +101,21 @@ function rootReducer(state = initialState, action)
       const allvent = state.saleVessels
 
       const categoriaR = action.payload === 'Alta' ? allrent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload)) :
-        allrent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload))
+      action.payload === 'Media' && allrent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload))
 
       const categoriaV = action.payload === 'Alta' ? allvent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload)) :
-        allvent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload))
+      action.payload === 'media' && allvent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload))
 
       return {
         ...state,
-        rentVessels: action.payload === 'Economica' ? allrent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload)) : categoriaR,
-        saleVessels: action.payload === 'Economica' ? allvent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload)) : categoriaV
+        saleVessels: action.payload === 'baja' ? allvent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload)) : categoriaV,
+        rentVessels: action.payload === 'Economica' ? allrent.filter(e => e.categorias.find(e => (e.split(' ')[1]) === action.payload)) : categoriaR
       }
     
 
     case 'FILTRO_CATEGORIAS':
-      const productos = state.products
-      const filtroCateg = productos.filter(e => e.categorias.find(e => e === action.payload))
+      const productos = state.allProducts
+      const filtroCateg = productos.filter(e => e.categorias.find(e => e.toLowerCase() === action.payload.toLowerCase()))
 
       return {
         ...state,
@@ -130,6 +137,22 @@ function rootReducer(state = initialState, action)
       return {
           ...state,
           saleVessels: order
+        }
+      
+      case 'PRECIO_ORDEN_ACCESORIOS':
+        const stateOrden=state.accesories
+        const orden = action.payload === 'max' ?
+          stateOrden.sort(function (a, b)
+          {
+            return parseInt(b.precio.split('$')[1]) - parseInt(a.precio.split('$')[1])
+          })
+          : stateOrden.sort(function (a, b)
+          {
+            return parseInt(a.precio.split('$')[1]) - parseInt(b.precio.split('$')[1])
+          })
+        return{
+          ...state,
+          accesories:orden
         }
 
     default: {

@@ -86,6 +86,13 @@ export function accesorios(){
         }
     }
 }
+export function categoriaAccesorios(payload){
+    return {
+        type:'CATEGORIA_ACCESORIOS',
+        payload
+    }
+    }
+
 //------------Filtro-Por-Precio------------//
 
 export function filtroPrecio(payload){
@@ -109,20 +116,6 @@ export function filtroCategoriaAccesorios(payload){
         payload
     }
 }
-//-------------Orden-------------//
-export function precioOrden(payload){
-    return {
-        type:'PRECIO_ORDEN',
-        payload
-    }
-    }
-
-export function filtrosCombinados(payload){
-    return {
-        type:'FILTROS_COMBINDAOS',
-        payload
-    }
-}
 
 export function filtrosCategoriaEmbarcacion(payload){
     return {
@@ -131,8 +124,23 @@ export function filtrosCategoriaEmbarcacion(payload){
     }
 }
 
+//-------------Orden-------------//
+export function precioOrden(payload){
+    return {
+        type:'PRECIO_ORDEN',
+        payload
+    }
+    }
 
-const categorias=['seguridad','electronica','esparcimiento','Gama Alta','Gama Economica','Gama Media']
+    export function precioOrdenAccesorios(payload){
+        return {
+            type:'PRECIO_ORDEN_ACCESORIOS',
+            payload
+        }
+        }
+
+
+
 
 
 
@@ -141,11 +149,11 @@ export function todasCategorias(){
      return async function(dispatch){
             try {
                 
-                const prodCat=categorias //await axios('http://localHost:4000/categorias')
+                const prodCat=await axios('http://localhost:4000/categorias')
                 
                 return dispatch({
                     type:'TODAS_CATEGORIAS',
-                    payload:prodCat//.data
+                    payload:prodCat.data
                 })
             } catch (error) {
                 console.log(error)

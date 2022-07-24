@@ -61,7 +61,7 @@ console.log(productAlquiler)
         newState={productAlquiler.length}
         paginado={paginado}
       />
-     
+     <label key='venta'>Filtrar por Precio </label>
       <select name="categoriasR" id="categoriasR" onChange={(e) => filtroPorCategoria(e)}>
         <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
         <option key={'Gama Alta'} value={'Alta'}>Gama Alta</option>

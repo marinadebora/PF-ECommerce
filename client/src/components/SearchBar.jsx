@@ -1,15 +1,16 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { productName,filtroCatgorias, todasCategorias } from "../actions/actions";
+import { productName,filtroCatgorias, todasCategorias, todosLosProductos } from "../actions/actions";
 import { Link } from "react-router-dom";
-
 
 export default function SearchBar(){
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-
   const newState = useSelector(state => state.categories)
+console.log(newState)
+
+
 
 
     useEffect(()=>{
@@ -39,9 +40,13 @@ export default function SearchBar(){
 
   const filtroPorCategoria = (event) =>
   {
-    event.preventDefault()
-    dispatch(filtroCatgorias(event.target.value))
-
+    if(event.target.value==='sinFiltro'){
+      dispatch(todosLosProductos())
+     
+    }else{
+      event.preventDefault()
+      dispatch(filtroCatgorias(event.target.value))
+    }
   }
 
   return (
@@ -67,7 +72,7 @@ export default function SearchBar(){
      <Link to='/alquiler'><h4>Embarcaciones en Renta</h4></Link>
      <Link to='/accesorios'><h4>Accesorios</h4></Link>
 
-     
+
     </div>
   )
 

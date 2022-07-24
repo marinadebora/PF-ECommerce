@@ -16,12 +16,9 @@ const putAccesorios = require("./putAccesorios");
 const deleteAccesorios = require("./deleteAccesorios");
 const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
 const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
-<<<<<<< HEAD
-=======
 const { categorias } = require("../controladores/controladorCategorias");
 const cargarVentas = require("../controladores/CargaVentas");
 const postCategorias = require("./postCategoria");
->>>>>>> 694370bf7214f6a7cd92b36c43e0bd1e885408e5
 
 let router = Router();
 
