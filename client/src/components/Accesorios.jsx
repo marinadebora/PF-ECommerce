@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { accesorios, filtroPrecioAccesorios, filtroCategoriaAccesorios,precioOrdenAccesorios } from '../actions/actions'
@@ -6,10 +5,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import Paginado from "./Paginado";
 import Card from './Card'
 import { Grid } from '@mui/material'
-
-
-export function Accesorios()
-{
+import '../styles/searchBar.css';
+export function Accesorios(){ 
   const accesorio = useSelector(state => state.accesories)
   const dispatch = useDispatch()
   const accesiriosCat=useSelector(state => state.categoriesAcc)
@@ -94,7 +91,7 @@ export function Accesorios()
   return (
     <div>
 
-      <button onClick={volver}>VOLVER</button>
+      <button id='buttonBack' onClick={volver}>VOLVER</button>
 
       <Paginado
         characterPerPage={characterPerPage}

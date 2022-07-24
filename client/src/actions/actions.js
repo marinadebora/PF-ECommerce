@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import infoProductos from '../infoPrueba/index'
+//import infoProductos from '../infoPrueba/index'
 
 
 export function todosLosProductos()
@@ -92,6 +92,15 @@ export function categoriaAccesorios(payload){
         payload
     }
     }
+
+export function addToBasket(payload){
+    return{
+            type:'ADD_TO_BASKET',
+            payload
+
+            } 
+        }
+    
 
 //------------Filtro-Por-Precio------------//
 

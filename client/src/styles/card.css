@@ -1,9 +1,35 @@
 #infoButton{
     
-    color: grey;
+    color: red;
     font-weight: bold;
 }
 
 #titulo{
     text-decoration: none;
 }
+
+#cardAction{
+    box-shadow: #d2d2d2 0px -50px 36px -28px inset;
+   
+}
+
+#card{
+    width: 330px;
+    margin-top: 15px;
+    margin-left: 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    cursor: pointer;
+}
+
+@media(max-width: 600px){
+    #card{
+       margin-left: 100px;
+    }  
+}
+
+@media(max-width: 487px){
+    #card{
+       margin-left: 50px;
+    }  
+}
+

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Paginado from "./Paginado";
 import Card from './Card';
 import { Grid } from '@mui/material'
+import '../styles/searchBar.css';
 
 export function BarcosEnAlquiler()
 {
@@ -54,7 +55,7 @@ console.log(productAlquiler)
   return (
     <div>
       <Link to='/home'>
-        <button>VOLVER</button>
+        <button id='buttonBack'>VOLVER</button>
       </Link>
       <Paginado
         characterPerPage={characterPerPage}
@@ -114,6 +115,7 @@ console.log(productAlquiler)
 
 
     </div>);
+
 };
 
 
