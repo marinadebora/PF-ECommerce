@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,30 +8,36 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Button from '@mui/material/Button';
-import '../infoPrueba/productos';
 import '../styles/card.css';
 
 
 
-export default function Producto({ tipo, precio, fabricacion, imagen, Link}) {
+export default function Producto({ tipo, producto, precio, fabricacion, imagenes, Link}) {
+   
   return (
     <Fragment>
       <Card sx={{ maxWidth: 330 }} id='card'>
         <CardHeader
           title={
+            tipo ?
             <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
-              {tipo}
+               {tipo}
+            </Typography>
+            : 
+            <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
+               {producto}
             </Typography>
           }
         />
 
-        { imagen?.map(e =>
-          <CardMedia id='imgCard'
-          component="img"
-          height="200"
-          image={e} />
-             
-             )}
+        { imagenes?
+         <CardMedia
+         component="img"
+         height="200"
+         image={imagenes} />
+         :''
+            
+        }
         <CardContent>
         {
             fabricacion? <Typography>Año: {fabricacion}</Typography>:''
@@ -40,7 +45,7 @@ export default function Producto({ tipo, precio, fabricacion, imagen, Link}) {
           <Typography>Price: {precio}</Typography>
         </CardContent>
         <CardActions disableSpacing id='cardAction'>
-          <IconButton aria-label="add to favorites">
+          <IconButton aria-label="add to cart" onClick='addToBasket' >
             <AddShoppingCartIcon />
           </IconButton>
           <Button sx={{marginLeft: 'auto'}} size="small">{Link}</Button>
@@ -48,6 +53,5 @@ export default function Producto({ tipo, precio, fabricacion, imagen, Link}) {
       </Card>
     </Fragment>
   );
+
 }
-
-

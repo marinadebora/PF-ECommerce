@@ -2,6 +2,10 @@ import {AppBar, Toolbar, IconButton, Typography, Button, Badge, Grid} from "@mui
 import "../styles/navBar.css";
 import Logo from "../imagenes/logo_PF_Yatch.png";
 import { ShoppingCart } from "@mui/icons-material";
+import SearchBar from "./SearchBar";
+import { Box } from '@mui/system';
+import { Link } from 'react-router-dom';
+import '../styles/searchBar.css';
 
 
 export default function Navbar() {
@@ -14,9 +18,13 @@ export default function Navbar() {
               <img src={Logo} alt="img" id="logo" />
             </IconButton>
             
+           
             <Typography sx={{marginLeft: 'auto'}} variant="h6" component="p" id='guest'>
+            <Link id='adminNavbar' to='/admin'>
               Hello Guest
+              </Link>
             </Typography>
+            
 
             <Button variant="outlined" id="button">Sing In</Button>
             <Button variant="outlined" id="button">Register</Button>
@@ -25,6 +33,7 @@ export default function Navbar() {
                 <ShoppingCart id="cart" />
               </Badge>
             </IconButton>
+            
           </Toolbar>
         </Grid>
       </AppBar>
