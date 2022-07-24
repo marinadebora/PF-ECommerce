@@ -18,7 +18,7 @@ export default function SearchBar(){
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const newState = useSelector(state => state.categories)
-  console.log(newState)
+  
 
 
 

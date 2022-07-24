@@ -14,9 +14,11 @@ export default function Navbar() {
       <AppBar position="sticky" id="appBar">
         <Grid>
           <Toolbar>
-            <IconButton>
-              <img src={Logo} alt="img" id="logo" />
-            </IconButton>
+            <Link to='/home'>
+              <IconButton>
+                <img src={Logo} alt="img" id="logo" />
+              </IconButton>
+            </Link>
             
            
             <Typography sx={{marginLeft: 'auto'}} variant="h6" component="p" id='guest'>
@@ -29,7 +31,7 @@ export default function Navbar() {
             <Button variant="outlined" id="button">Sing In</Button>
             <Button variant="outlined" id="button">Register</Button>
 
-            <Link to='home/checkoutPage'>
+            <Link to='/checkoutPage'>
               <IconButton arial-label="show cart items" id="cartButton">
                 <Badge badgeContent={3} color="secondary" id='badge'>
                   <ShoppingCart id="cart" />

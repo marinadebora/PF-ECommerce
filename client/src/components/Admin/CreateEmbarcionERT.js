@@ -396,6 +396,11 @@ export function EmbarcacionCreateRT(){
                                 {errors.combustible && <p className="danger">{errors.combustible}</p>}
                             </div>
 
+                            <button id='buttonBackForm' className="button-submit" type="submit">Crear Embarcacion</button>
+                            <Link to='/admin'>
+                                <button id='buttonBackForm'>VOLVER</button>
+                            </Link>
+
                             {/* {
                                 ((errors.summary) || (errors.steps) || (errors.healthScore) || (!input.name)) ?
                                 <button disabled className="button-submit" type="submit">Enviar Receta</button>:
@@ -407,10 +412,7 @@ export function EmbarcacionCreateRT(){
                     </div>
                 </>
             }
-             <button id='buttonBackForm' className="button-submit" type="submit">Crear Embarcacion</button>
-            <Link to='/admin'>
-                <button id='buttonBackForm'>VOLVER</button>
-            </Link>
+            
 
         </div>
     )

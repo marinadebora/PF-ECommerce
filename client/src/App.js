@@ -27,7 +27,7 @@ function App() {
         <Route exact path='/' element={<SearchBar />} />
         <Route exact path='/home' element={<Home />} />
         <Route exact path='/home/:id' element={<CardDetail />} />
-        <Route exact path='/home/checkoutPage' element={<CheckoutPage />}/>
+        <Route exact path='/checkoutPage' element={<CheckoutPage />}/>
         <Route exact path='/admin' element={<Admin/>} />
         <Route exact path='/admin/:id' element={<CardDetailAdmin />} />
         <Route exact path='/admin/createAcc' element={<AccesoriosCreate />} />

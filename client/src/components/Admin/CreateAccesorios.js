@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {postAccesorio } from '../../actions/admin-action';
 import { accesorios, /*getAllTypes */} from '../../actions/actions';
+import form from '../../styles/form.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -60,7 +62,7 @@ export function AccesoriosCreate(){
         return errors
     }
 
-    const allAccesories = useSelector((state) => state.Allaccesories);
+    const allAccesories = useSelector((state) => state.allAccesories);
     console.log(allAccesories)
     
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
@@ -225,9 +227,14 @@ export function AccesoriosCreate(){
                                 {errors.dimensiones && <p classproducto="danger">{errors.dimensiones}</p>}
                             </div>
                             
+                            <button id='buttonBackForm' classproducto="button-submit" type="submit">Enviar Accesorio</button>
+                            <Link to='/admin'>
+                                <button id='buttonBackForm'>VOLVER</button>
+                            </Link>
+
                             
 
-                            <button classproducto="button-submit" type="submit">Enviar Accesorio</button>
+
                             {/* {
                                 ((errors.descripcion) || (errors.dimensiones) || (errors.healthScore) || (!input.producto)) ?
                                 <button disabled classproducto="button-submit" type="submit">Enviar Receta</button>:
@@ -239,6 +246,7 @@ export function AccesoriosCreate(){
                     </div>
                 </>
             }
+            
             
         </div>
     )
