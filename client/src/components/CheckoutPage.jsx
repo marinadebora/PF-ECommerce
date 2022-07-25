@@ -1,67 +1,111 @@
 
 import NavBar from './Navbar'
-import { addToBasket } from '../actions/actions'
+import { addToBasket, removeToBasket } from '../actions/actions'
 import { useSelector, useDispatch } from 'react-redux'
-import { useEffect, useState } from 'react'
-import {Grid} from '@mui/material'
-import Card from './Card'
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
+import '../styles/card.css';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import IconButton from "@mui/material/IconButton";
 
 
 
-
-export default function CheckoutPage(){
+export default function CheckoutPage()
+{
 
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
     const stateBasket = useSelector(state => state.basket)
-   
-    useEffect(()=>{
+    useEffect(() =>
+    {
 
         dispatch(addToBasket())
 
-    },[dispatch])
+    }, [dispatch])
 
-    console.log(stateBasket)
+    const volver = () =>
+    {
+        navigate(-1)
+    }
 
-    return(
+    const deleteProduct=(id)=>{
+        dispatch(removeToBasket(id))
+     
+    }
+
+
+    return (
         <div>
-        <NavBar/>
-        
-        <Grid container spacing={1}>
+            <NavBar />
+            <p id='titleCheckoutPage'>Checkout</p>
             {
-                stateBasket?.map(e => 
-                    {
-                        return(
-                            <>
-                               
-                                <Grid item xs={12} sm={6} md={4} lg={3}>
-                             
-                                <Card 
-                                    tipo = {e.tipo}
-                                    marca={e.marca}
-                                    modelo = {e.modelo}
-                                    Motor={e.Motor}
-                                    precio = {e.precio}
-                                    astillero = {e.astillero}
-                                    fabricacion = {e.fabricacion}
-                                    localizacion = {e.localizacion}
-                                    imagenes = {e.imagenes[0]}
-                                    producto={e.producto}
-                                    descripcion={e.descripcion}
-                                    Tamaño={e.Tamaño}
-                                    Link={<Link to={`/home/${e._id}`} id='buttonText' >Info</Link> }
-                                />
-                                      
-                                </Grid>
-                        
-                            </>
-                        ) 
-                    })
-            }
-            </Grid>
-        </div>
-    )
-        }
+        
+                stateBasket?.map(e => (
+                    e !== undefined &&
+                <div id='checkoutCard'>
 
-   
+                    <ul id='detalleCheck'>
+                        {
+                            e.imagenes?.map(e =>
+                                <img id='imgCheckout' src={e} alt='img' />
+                            )
+                        }
+                        
+                        {
+                            e.modelo && <li><p>Modelo: {e.modelo}</p></li>
+                        }
+                        {
+                            e.marca && <li><p>Marca: {e.marca}</p></li>
+                        }
+                        {
+                            e.tipo && <li><p>tipo: {e.tipo}</p></li>
+                        }
+                        {
+                            e.fabricacion && <li><p>fabricacion: {e.fabricacion}</p></li>
+                        }
+                        {
+                            e.astillero && <li><p>astillero: {e.astillero}</p></li>
+                        }
+                        {
+                            e.motor && <li><p>Motor: {e.motor}</p></li>
+                        }
+                        {
+                            e.localizacion && <li><p>localizacion: {e.localizacion}</p></li>
+                        }
+
+                        {
+                            e.precio && <li><p>precio: {e.precio}</p></li>
+                        }
+                        {
+                            e.producto && <li><p>producto: {e.producto}</p></li>
+                        }
+                        {
+                            e.descripcion && <li><p>descripcion: {e.descripcion}</p></li>
+                        }
+
+                        {
+                            e.Tamaño && <li><p>Tamaño: {e.Tamaño}</p></li>
+                        }
+                        
+                    </ul>
+
+                        {
+                            e._id &&<IconButton aria-label="remove to cart" onClick={()=>deleteProduct(e._id)} >
+                                    <DeleteForeverIcon id='buttonRemove' />
+                                    </IconButton>
+                                    
+                        }
+                        
+                    
+                    </div>
+                    ))
+                
+            }
+            <button id='buttonBackCheckout' onClick={volver}>Back</button>
+            
+
+
+        </div>
+
+    )
+}

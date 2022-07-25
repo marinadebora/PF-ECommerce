@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { productosDetail } from "../../actions/actions"
-import { deleteAccesorio, deleteEmbarcacionRT,deleteEmbarcacionEnV } from "../../actions/admin-action"
+import { deleteAccesorio, deleteEmbarcacionRT,deleteEmbarcacionEnV } from "../../actions/actions"
 import { Link } from "react-router-dom";
 import '../../styles/cardDetail.css'
 

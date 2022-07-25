@@ -1,4 +1,4 @@
-export const initialState = {
+ const initialState = {
     products: [],
     allProducts:[],
     saleVessels: [],
@@ -21,13 +21,14 @@ export const initialState = {
           ...state,
           products: action.payload,
           allProducts:action.payload,
-          detail:{},
+          detail:{}
         }
       case 'PRODUCTOS_DETAIL':
-  
+  console.log(action.payload)
         return {
           ...state,
-          detail: action.payload
+          detail: action.payload,
+          basket:action.payload
         }
   
       case 'BARCOS_EN_VENTA':
@@ -61,20 +62,21 @@ export const initialState = {
           categories: action.payload
         }
 
-      case 'ADD_TO_BASKET':
-        const cart_add = state.products.find(e => e === action.payload)
-        return{
-          ...state,
-          basket: [...state.basket, cart_add]
-        }
-
-        case 'REMOVE_TO_BASKET':
-          const cart_remove = state.basket.filter(e => e !== action.payload)
+       case 'ADD_TO_BASKET':
+          const cart_add = state.products.find(e => e._id === action.payload) 
+         
           return{
             ...state,
-            basket: cart_remove
-          }
+            basket: [...state.basket,cart_add]
+          } 
   
+          case 'REMOVE_TO_BASKET':
+            const cart_remove = state.basket.filter(e => e!==undefined&& e._id !== action.payload)
+    
+            return{
+              ...state,
+              basket: cart_remove
+            }
     
         //----------filtros----------//
   

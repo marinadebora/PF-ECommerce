@@ -15,26 +15,30 @@ import '../styles/searchBar.css';
 
 
 
-export default function Home(){
+export default function Home()
+{
 
-    const dispatch = useDispatch();
-    const newState = useSelector(state => state.products)
+	const dispatch = useDispatch();
+	const newState = useSelector(state => state.products)
 
-    const [page, setPage] = useState(1);
-    const [characterPerPage, setCharacterPerPage] = useState(8);
-    const index = page * characterPerPage;
-    const endIndex = index - characterPerPage;
-    const actualPage = newState?.slice(endIndex, index);
+	//----------paginado---------//
 
-    const paginado = (numPage) =>{
-        setPage(numPage)
-      }
- 
+	const [page, setPage] = useState(1);
+	const [characterPerPage, setCharacterPerPage] = useState(8);
+	const index = page * characterPerPage;
+	const endIndex = index - characterPerPage;
+	const actualPage = newState?.slice(endIndex, index);
+
+	const paginado = (numPage) =>
+	{
+		setPage(numPage)
+	}
     useEffect(()=>{
 
         dispatch(todosLosProductos())
 
-    },[dispatch]) 
+    },[dispatch])
+	
 
     return(
         <div>
@@ -68,6 +72,7 @@ export default function Home(){
                                     producto={e.producto}
                                     descripcion={e.descripcion}
                                     Tamaño={e.Tamaño}
+                                    id={e._id}
                                     Link={<Link to={`/home/${e._id}`} id='buttonText' >Info</Link> }
                                 />
                                       
@@ -86,8 +91,19 @@ export default function Home(){
             />
 
         </div>
-    )
+    
 
-}   
+
+
+
+						
+					
+				
+		
+
+	
+	)
+
+}
 
 

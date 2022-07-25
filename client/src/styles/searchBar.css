@@ -62,3 +62,9 @@
     font-size: 15px;
     cursor: pointer;
 }
+
+@media(max-width: 1500px){
+    #appBar2{
+       display: none;
+    }
+}

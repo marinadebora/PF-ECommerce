@@ -47,13 +47,13 @@ export default function Admin(){
                 <button id='buttonBackAdmin'>VOLVER</button>
             </Link>
             
-            {/* <Paginado 
+        <Paginado 
             characterPerPage ={characterPerPage}
             newState ={newState.length}
             paginado = {paginado}
-            /> */}
+            />
             
-            {/* <Grid container spacing={2}>
+            <Grid container spacing={2}>
             {
                 
                 actualPage?.map(e => 
@@ -89,7 +89,7 @@ export default function Admin(){
                         )
                     })
             }
-            </Grid> */}
+            </Grid> 
 
         </div>
     )

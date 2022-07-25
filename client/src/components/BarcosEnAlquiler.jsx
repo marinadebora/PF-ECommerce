@@ -115,4 +115,7 @@ console.log(productAlquiler)
 
 
     </div>);
+
 };
+
+

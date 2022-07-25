@@ -396,9 +396,9 @@ export function EmbarcacionCreateRT(){
                                 {errors.combustible && <p className="danger">{errors.combustible}</p>}
                             </div>
 
-                            <button id='buttonBackForm' className="button-submit" type="submit">Crear Embarcacion</button>
+                            <button id='buttonSubmitForm' className="button-submit" type="submit">Create Product</button>
                             <Link to='/admin'>
-                                <button id='buttonBackForm'>VOLVER</button>
+                                <button id='buttonBackForm'>Back</button>
                             </Link>
 
                             {/* {

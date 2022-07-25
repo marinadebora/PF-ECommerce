@@ -82,7 +82,12 @@ export default function SearchBar(){
           {
             return <option key={e} value={e}>{e}</option>
           })
+       
       }
+      
+        
+       
+      
      
        </select>
 

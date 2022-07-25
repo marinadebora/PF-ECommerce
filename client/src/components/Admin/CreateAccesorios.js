@@ -157,7 +157,7 @@ export function AccesoriosCreate(){
                 </>:
                 <>
                     <div classproducto="create_recipe">
-                        <form classproducto="form" onSubmit={handleSubmit}>
+                        <form className="form" onSubmit={handleSubmit}>
                             <h1>Crea el Accesorio</h1>
                             
                             <div >
@@ -227,9 +227,9 @@ export function AccesoriosCreate(){
                                 {errors.dimensiones && <p classproducto="danger">{errors.dimensiones}</p>}
                             </div>
                             
-                            <button id='buttonBackForm' classproducto="button-submit" type="submit">Enviar Accesorio</button>
+                            <button id='buttonSubmitForm' classproducto="button-submit" type="submit">Create Product</button>
                             <Link to='/admin'>
-                                <button id='buttonBackForm'>VOLVER</button>
+                                <button id='buttonBackForm'>Back</button>
                             </Link>
 
                             

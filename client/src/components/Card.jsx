@@ -6,22 +6,27 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import Badge from "@mui/material/Badge"
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Button from '@mui/material/Button';
 import '../styles/card.css';
 import {addToBasket} from '../actions/actions'
 import {useDispatch} from 'react-redux'
+import {  useState } from 'react';
 
 
 
 
 
-export default function Producto({ tipo, producto, marca ,precio, fabricacion, imagenes, Link}) {
 
+export default function Producto({ tipo,id, producto, marca ,precio, fabricacion, imagenes, Link}) {
+  //const { id } = useParams();
+  const [contador,setContador]=useState(0)
    const dispatch = useDispatch()
    
    const addToCart = () =>{
-      dispatch(addToBasket)
+      dispatch(addToBasket(id))
+    setContador(contador +1)
    }
   return (
     <Fragment>
@@ -30,16 +35,16 @@ export default function Producto({ tipo, producto, marca ,precio, fabricacion, i
           title={
 
             tipo ?
-            <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
+            <Typography fontSize="15px" fontFamily="arial" fontWeight='bold' underline="none">
                {tipo}
             </Typography>
             :producto?
-            <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
+            <Typography fontSize="15px" fontFamily="arial" fontWeight='bold' underline="none">
                {producto}
             </Typography>
 
             :marca&&
-            <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
+            <Typography fontSize="15px" fontFamily="arial" fontWeight='bold' underline="none">
               {marca}
             </Typography>
 
@@ -63,7 +68,9 @@ export default function Producto({ tipo, producto, marca ,precio, fabricacion, i
         <CardActions disableSpacing id='cardAction'>
           
           <IconButton aria-label="add to cart" onClick={addToCart} >
+          <Badge badgeContent={contador} color="secondary" id='badge'>
             <AddShoppingCartIcon />
+            </Badge>
           </IconButton>
           <Button sx={{marginLeft: 'auto'}} size="small">{Link}</Button>
         </CardActions>
