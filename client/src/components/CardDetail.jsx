@@ -71,6 +71,7 @@ export default function CardDetail()
           {
             myDetail.Tamaño ? <li><p>Tamaño: {myDetail.Tamaño}</p></li> : ''
           }
+          
           </ul>
          
             <button id='buttonBack' onClick={volver}>VOLVER</button>

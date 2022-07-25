@@ -33,9 +33,12 @@ export default function Home()
 	{
 		setPage(numPage)
 	}
+    useEffect(()=>{
 
-	useEffect(() =>
-	{
+        dispatch(todosLosProductos())
+
+    },[dispatch])
+	
 
     return(
         <div>
@@ -69,6 +72,7 @@ export default function Home()
                                     producto={e.producto}
                                     descripcion={e.descripcion}
                                     Tamaño={e.Tamaño}
+                                    id={e._id}
                                     Link={<Link to={`/home/${e._id}`} id='buttonText' >Info</Link> }
                                 />
                                       
@@ -87,18 +91,17 @@ export default function Home()
             />
 
         </div>
-    )
+    
 
 
 
 
-							</Fragment>
-						)
-					})
-				}
-			</Grid>
+						
+					
+				
+		
 
-		</div>
+	
 	)
 
 }

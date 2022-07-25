@@ -16,6 +16,7 @@ import CardDetailAdmin from "./components/Admin/CardDetailAdmin"
 import {UpdateAccesorio} from "./components/Admin/EditAccesorios"
 import {UpdateEmbarcacionRenta} from "./components/Admin/EditEmbarcacionRT"
 import {UpdateEmbarcacionVenta}  from "./components/Admin/EditEmbarcacionEnv"
+import CheckoutPage from './components/CheckoutPage'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route exact path='/' element={<SearchBar />} />
         <Route exact path='/home' element={<Home />} />
         <Route exact path='/home/:id' element={<CardDetail />} />
+        <Route exact path='/checkoutPage' element={<CheckoutPage />}/>
         <Route exact path='/admin' element={<Admin/>} />
         <Route exact path='/admin/:id' element={<CardDetailAdmin />} />
         <Route exact path='/admin/createAcc' element={<AccesoriosCreate />} />

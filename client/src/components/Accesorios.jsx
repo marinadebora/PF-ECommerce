@@ -9,7 +9,6 @@ import '../styles/searchBar.css';
 export function Accesorios(){ 
   const accesorio = useSelector(state => state.accesories)
   const dispatch = useDispatch()
-  const accesiriosCat=useSelector(state => state.categoriesAcc)
   //----------paginado---------//
 
   const [page, setPage] = useState(1);

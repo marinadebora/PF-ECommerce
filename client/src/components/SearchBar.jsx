@@ -18,7 +18,7 @@ export default function SearchBar(){
   const dispatch = useDispatch();
   const [name, setName] = useState('');
   const newState = useSelector(state => state.categories)
-  console.log(newState)
+  
 
 
 
@@ -78,14 +78,19 @@ export default function SearchBar(){
           {
             return <option key={e} value={e}>{e}</option>
           })
+       
       }
+      
+        
+       
+      
      
        </select>
 
       <label id='text'>Buscar por Nombre:</label>
       <input value={name} key='buscar' type='text' placeholder='buscar...' onChange={(e) => handleChange(e)} />
       <button  type='submit' onClick={(e) => handleSubmit(e)}>BUSCAR</button>
-
+      
     </div>
           
     </Toolbar>

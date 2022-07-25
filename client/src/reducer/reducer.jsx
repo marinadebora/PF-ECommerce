@@ -15,6 +15,7 @@ function  rootReducer(state = initialState, action){
             return {
                 ...state,
                 products: action.payload,
+                detail:{}
 
     }
     case 'PRODUCTOS_DETAIL':
