@@ -13,38 +13,37 @@ import '../infoPrueba/productos';
 import '../styles/card.css';
 
 
-export default function Producto({ tipo, precio, fabricacion, imagen }) {
+
+export default function Producto({ tipo, precio, fabricacion, imagen, Link}) {
   return (
     <Fragment>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345 }} id='card'>
         <CardHeader
           title={
-            <Typography fontSize="20px" fontFamily="arial">
+            <Typography fontSize="20px" fontFamily="arial" underline="none">
               {tipo}
             </Typography>
           }
         />
 
-        <CardMedia
-        component="img"
-        height="200"
-        image={
-            imagen?.map(e =>
-              <img src={e} alt='img' />
-            )
-          } />
+        { imagen?.map(e =>
+          <CardMedia id='imgCard'
+          component="img"
+          height="200"
+          image={e} />
+             
+             )}
         <CardContent>
           <Typography>Año: {fabricacion}</Typography>
         </CardContent>
-        <CardActions disableSpacing>
+        <CardActions disableSpacing id='cardAction'>
           <IconButton aria-label="add to favorites">
             <AddShoppingCartIcon />
           </IconButton>
-          <Button id='infoButton' sx={{marginLeft: 'auto'}} size="small">Info</Button>
+          <Button id='infoButton' sx={{marginLeft: 'auto'}} size="small">{Link}</Button>
         </CardActions>
       </Card>
     </Fragment>
   );
 
 }
-

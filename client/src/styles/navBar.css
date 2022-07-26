@@ -3,24 +3,27 @@
 }
 
 #appBar{
-    background-color: #0184a9;
-    text-decoration: none;
+    background-color: #ffffff;
+   
+    
+    
 }
 
 #guest{
     padding: 20px;
+    color: #0184a9;
 }
 
 #button{
-    color: white;
-    border: solid 1px white;
+    color: #0184a9;
+    border: solid 1px #0184a9;
     float: left;
     margin-left: 10px;
 }
 
 #cart{
     font-size: 30px;
-    color: white;
+    color: #0184a9
 }
 
 #cartButton{
