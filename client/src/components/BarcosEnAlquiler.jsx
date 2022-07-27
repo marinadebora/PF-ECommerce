@@ -1,83 +1,121 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {barcosEnAlquiler} from '../actions/actions'
+import { barcosEnAlquiler, filtrosCategoriaEmbarcacion } from '../actions/actions'
 import { Link } from 'react-router-dom';
 import Paginado from "./Paginado";
+import Card from './Card';
+import { Grid } from '@mui/material'
+import '../styles/searchBar.css';
 
-export function BarcosEnAlquiler (){
-const productAlquiler=useSelector(state=>state.rentVessels)
-const dispatch=useDispatch()
+export function BarcosEnAlquiler()
+{
+  const productAlquiler = useSelector(state => state.rentVessels)
+  const dispatch = useDispatch()
+
+ //----------paginado---------//
+
+  const [page, setPage] = useState(1);
+  const [characterPerPage, /* setCharacterPerPage */] = useState(5);
+  const index = page * characterPerPage;
+  const endIndex = index - characterPerPage;
+  const actualPage = productAlquiler?.slice(endIndex, index);
+  const [/* ordering */, setOrdering] = useState('')
 
 
-const [page, setPage] = useState(1);
-    const [characterPerPage, setCharacterPerPage] = useState(5);
-    const index = page * characterPerPage;
-    const endIndex = index - characterPerPage;
-    const actualPage = productAlquiler?.slice(endIndex, index);
+console.log(productAlquiler)
 
-    const paginado = (numPage) =>{
-        setPage(numPage)
-      }
+  const paginado = (numPage) =>
+  {
+    setPage(numPage)
+  }
 
-useEffect(()=>{
+  useEffect(() =>
+  {
     dispatch(barcosEnAlquiler())
-},[dispatch])
-  return (
-  <div>
-      <Link to='/home'>
-            <button>VOLVER</button>
-          </Link>
-          <Paginado 
-            characterPerPage ={characterPerPage}
-            newState ={productAlquiler.length}
-            paginado = {paginado}
-            />
-     {
-      actualPage?.map(e=>
+  }, [dispatch])
 
-        <div>
-        
+
+  const filtroPorCategoria = (event) =>
+  {
+    event.preventDefault()
+    if (event.target.value === 'sinFiltro') {
+      dispatch(barcosEnAlquiler())
+      setPage(1)
+      setOrdering(`Order ${event.target.value}`)
+    } else {
+      dispatch(filtrosCategoriaEmbarcacion(event.target.value))
+      setPage(1)
+      setOrdering(`Order ${event.target.value}`)
+    }
+
+  }
+
+
+
+  return (
+    <div>
+      <Link to='/home'>
+        <button id='buttonBack'>VOLVER</button>
+      </Link>
+      <Paginado
+        characterPerPage={characterPerPage}
+        newState={productAlquiler.length}
+        paginado={paginado}
+      />
+     <label key='venta'>Filtrar por Precio </label>
+      <select name="categoriasR" id="categoriasR" onChange={(e) => filtroPorCategoria(e)}>
+        <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
+        <option key={'Gama Alta'} value={'Alta'}>Gama Alta</option>
+        <option key={'Gama Economica'} value={'Economica'}>Gama Economica</option>
+        <option key={'Gama Media'} value={'Media'}>Gama Media</option>
+      </select><br />
+      <br />
+      <br />
+
+
+
+
+      <Grid container spacing={2}>
+        {
+
+          actualPage?.map(e => 
           {
-           e.marca ? <p>Marca: {e.marca}</p> : ''
-          }
-          {
-            e.tipo ? <p>tipo: {e.tipo}</p> : ''
-          }
-          {
-            e.modelo ? <p>Modelo: {e.modelo}</p> : ''
-          }
-          {
-            e.fabricacion ? <p>fabricacion: {e.fabricacion}</p> : ''
-          }
-          {
-            e.astillero ? <p>astillero: {e.astillero}</p> : ''
-          }
-          {
-            e.motor ? <p>Motor: {e.motor}</p> : ''
-          }
-          {
-            e.localizacion ? <p>localizacion: {e.localizacion}</p> : ''
-          }
-          
-          {
-            e.precio ? <p>precio: {e.precio}</p> : ''
-          }
-          {
-            e.producto ? <p>producto: {e.producto}</p> : ''
-          }
-          {
-            e.descripcion ? <p>descripcion: {e.descripcion}</p> : ''
-          }
-          {
-            e.Tamaño ? <p>Tamaño: {e.Tamaño}</p> : ''
-          }
-          {
-            e.imagen?.map(e =>
-              <img src={e} alt='img' />
+            return (
+              <Fragment>
+
+
+                <Grid item xs={12} sm={6} md={4} lg={3}>
+
+                  <Card
+                    tipo={e.tipo}
+                    Marca={e.Marca}
+                    modelo={e.modelo}
+                    Motor={e.Motor}
+                    precio={e.precio}
+                    astillero={e.astillero}
+                    fabricacion={e.fabricacion}
+                    localizacion={e.localizacion}
+                    imagenes={e.imagenes[0]}
+                    producto={e.producto}
+                    descripcion={e.descripcion}
+                    Tamaño={e.Tamaño}
+                    Link={<Link to={`/home/${e._id}`} >Info</Link>}
+                  />
+
+                </Grid>
+
+
+
+
+              </Fragment>
             )
-          }
-        </div>
-        )
-}
-  </div>);
+          })
+        }
+      </Grid>
+
+
+    </div>);
+
 };
+
+

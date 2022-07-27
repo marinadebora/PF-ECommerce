@@ -5,9 +5,10 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import {postEmbarcacionRT } from '../../actions/admin-action';
+import {postEmbarcacionRT, Categorias } from '../../actions/admin-action';
 import { barcosEnAlquiler, /*getAllTypes */} from '../../actions/actions';
-
+import form from '../../styles/form.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -102,7 +103,7 @@ export function EmbarcacionCreateRT(){
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
     useEffect( () => {
-       // dispatch(getAllTypes())
+        dispatch(Categorias())
         dispatch(barcosEnAlquiler())
     }, [dispatch])
 
@@ -121,18 +122,21 @@ export function EmbarcacionCreateRT(){
         transmision:" ",
         horas: " ",
         descripcion: " ",
-        combustible: " "
+        combustible: " ",
+        categorias: [],
+        imagenes: [],
+
 
     })
 
     
     const [errors, setErrors] = useState({});
 
-    /*function handleDiet(e){
-        if(!input.diets.includes(e.target.value)){
+    function handleCat(e){
+        if(!input.categorias.includes(e.target.value)){
             setInput({
                 ...input,
-                diets: [...input.diets, e.target.value]
+                categorias: [...input.categorias, e.target.value]
             })
         }
     }
@@ -140,10 +144,9 @@ export function EmbarcacionCreateRT(){
     function handleDelete(d){
         setInput({
             ...input,
-            diets: input.diets.filter(e => e !== d)
+            categorias: input.categorias.filter(e => e !== d)
         })
-    }*/
-
+    }
     function handleChange(e){
         setInput({
             ...input,
@@ -155,52 +158,62 @@ export function EmbarcacionCreateRT(){
             [e.target.name]:e.target.value
         }))
     }
+    const handleChangeArray=(e)=>{
+        setInput({
+          ...input,
+          [e.target.name] : [e.target.value]
+      })
+    }
 
     const allEmbarcacionRenta = useSelector((state) => state.rentVessels);
+    const allCat = useSelector(state => state.categorias)
+    
     function handleSubmit(e) {    
         e.preventDefault();
-        try {
-          let findName = allEmbarcacionRenta.find((e) => e.marca.toLowerCase() === input.marca.toLowerCase()
-          )
-          if (findName) {
-            return alert("Ya existe una embarcacion con este nombre. ¡Cambialo!");
-          }else if(Object.keys(errors).length === 0 && (input.marca!=='')){
+        try  {
+            let findName = allEmbarcacionRenta.find((e) => e.marca.toLowerCase() === input.marca.toLowerCase()
+            )
+            if (findName) {
+              return alert("Ya existe una embarcacion con este nombre. ¡Cambialo!");
+            }else if(Object.keys(errors).length === 0 && (input.marca!=='')){
+              
+              dispatch(postEmbarcacionRT(input))
+              setInput({
+                  marca: '',
+                  modelo: '',
+                  fabricacionDelMotor:0,
+                  motor: '',
+                  fabricacion: 0,
+                  marcamotor:'' ,
+                  puntal: 0,
+                  eslora:0,
+                  manga:0,
+                  hp:0,
+                  cantMotores:0,
+                  transmision:" ",
+                  horas: " ",
+                  descripcion: " ",
+                  combustible: " ",
+                  categorias: [],
+                  imagenes: [],
+              })
+              return (
+                  alert(`La Embarcacion fue creada con éxito.`), navigate(`/admin`)
+                  ) 
             
-            dispatch(postEmbarcacionRT(input))
-            setInput({
-                marca: '',
-                modelo: '',
-                fabricacionDelMotor:0,
-                motor: '',
-                fabricacion: 0,
-                marcamotor:'' ,
-                puntal: 0,
-                eslora:0,
-                manga:0,
-                hp:0,
-                cantMotores:0,
-                transmision:" ",
-                horas: " ",
-                descripcion: " ",
-                combustible: " "
-            })
-            return (
-                alert(`La Embarcacion fue creada con éxito.`), navigate(`/admin`)
-                ) 
-          
-       } } catch (error) {
-          console.log(error);
-          return alert(
-            "Algo falló al crear la embarcacion. "
-          );
-        }
+         } } catch (error) {
+            console.log(error);
+            return alert(
+              "Algo falló al crear la embarcacion. "
+            );
+          }
       };
     
     return (
         <div className="cont-form">
             
             
-            {!allEmbarcacionRenta ? 
+            {!allCat ? 
                 <>
                     <div>
                         <h1>LOADING</h1>
@@ -394,27 +407,59 @@ export function EmbarcacionCreateRT(){
                                 </input>
                                 {errors.combustible && <p className="danger">{errors.combustible}</p>}
                             </div>
+                            <div >
+                           <label >Imagen</label>
+                           <input  type="url" value={input.imagenes} name="imagenes" onChange={(e)=>handleChangeArray(e)}></input> 
+                           {/*<button name="imagenes" onClick={(e)=>handleChangeArray(e)}>SUBIR FOTO</button>*/}
+       
+                            </div>
+                                
+                                <div className="class-select">
+                                <label>Categorias</label>
+                                <select onChange={handleCat} value='Onetype' >
+                                    <option>Eligir Categorias</option>
+                                    {
+                                        allCat && allCat?.map(e => {
+                                            return (
+                                                <option key={e} value={e} name={e}>{e}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
 
+                            <button id='buttonSubmitForm' className="button-submit" type="submit">Create Product</button>
+                            <Link to='/admin'>
+                                <button id='buttonBackForm'>Back</button>
+                            </Link>
 
-                        
-                       
-                          
-                            
-                          
-
-                            <button className="button-submit" type="submit">Crear Embarcacion</button>
                             {/* {
                                 ((errors.summary) || (errors.steps) || (errors.healthScore) || (!input.name)) ?
                                 <button disabled className="button-submit" type="submit">Enviar Receta</button>:
                                 
                             } */}
                         </form>
+                        <div className="my-categ">
+                            <h3>Mis Categorias</h3>
+                            <div className="cat">
+                                {input.categorias.map(d => {
+                                    return (
+                                    <div key={d} className="tipo_cat">
+                                        <button className="cerrar" onClick={() => handleDelete(d)}>X</button>
+                                        <p>{d}</p> 
+                                    </div>
+                                    )
+                                }
+                            )}
+                            </div>
+                        </div>
 
                        
                     </div>
                 </>
             }
             
+
         </div>
     )
 }

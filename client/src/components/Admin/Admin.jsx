@@ -6,8 +6,8 @@ import { todosLosProductos } from '../../actions/actions'
 import Paginado from '../Paginado';
 import Card from '../Card';
 import Navbar from '../Navbar'
-
-
+import {Button, Typography} from "@mui/material";
+import admincss from '../../styles/admin.css'
 import {Grid} from '@mui/material'
 
 
@@ -36,10 +36,19 @@ export default function Admin(){
     return(
         <div>
             <Navbar/>
-            <Link to ={`/admin/createAcc`}>Crear Accesorio</Link>
-            <Link to ={`/admin/createEmbarcacionVenta`}>Crear Embarcacion para la venta</Link>
-            <Link to ={`/admin/createEmbarcacionRenta`}>Crear Embarcacion para la renta</Link>
-            <Paginado 
+            <Typography sx={{marginLeft: 'auto'}} variant="h6" component="p" id='guest1'>
+              Wellcome Admin
+            </Typography>
+            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createAcc`}>Crear Accesorio</Link></Button>
+            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createEmbarcacionVenta`}>Crear Embarcacion para la venta</Link></Button>
+            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createEmbarcacionRenta`}>Crear Embarcacion para la renta</Link></Button>
+            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createCat`}>Crear Categoria</Link></Button>
+            <br/>
+            <Link to='/home'>
+                <button id='buttonBackAdmin'>VOLVER</button>
+            </Link>
+            
+        <Paginado 
             characterPerPage ={characterPerPage}
             newState ={newState.length}
             paginado = {paginado}
@@ -81,7 +90,7 @@ export default function Admin(){
                         )
                     })
             }
-            </Grid>
+            </Grid> 
 
         </div>
     )

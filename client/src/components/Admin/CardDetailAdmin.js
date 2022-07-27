@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { productosDetail } from "../../actions/actions"
-import { deleteAccesorio, deleteEmbarcacionRT,deleteEmbarcacionEnV } from "../../actions/admin-action"
+import { deleteAccesorio, deleteEmbarcacionRT,deleteEmbarcacionEnV } from "../../actions/actions"
 import { Link } from "react-router-dom";
 import '../../styles/cardDetail.css'
 
@@ -101,8 +101,17 @@ console.log(id)
             myDetail.tipo ? <p>tipo: {myDetail.tipo}</p> : ''
           }
           {
-            myDetail.categorias ? <p>Categorias: {myDetail.tipo}</p> : ''
-          }
+             myDetail.categorias?  (
+               <>
+               <h3>Categorias:</h3>
+               <ul className="list-cat">
+                                
+               {myDetail.categorias?.map(e => <li>{e}</li>)}
+               </ul>
+               
+               </> )
+               :""
+            }
 
           {
             myDetail.modelo ? <p>Modelo: {myDetail.modelo}</p> : ''

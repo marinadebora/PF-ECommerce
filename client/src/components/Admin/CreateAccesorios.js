@@ -3,8 +3,12 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import {postAccesorio } from '../../actions/admin-action';
+import {postAccesorio, Categorias } from '../../actions/admin-action';
 import { accesorios, /*getAllTypes */} from '../../actions/actions';
+import form from '../../styles/form.css';
+import { Link } from 'react-router-dom';
+import * as MdIcons from 'react-icons/md'
+import axios from "axios"
 
 
 
@@ -60,34 +64,45 @@ export function AccesoriosCreate(){
         return errors
     }
 
-    const allAccesories = useSelector((state) => state.allaccesories);
-    console.log(allAccesories)
+    const allAccesories = useSelector((state) => state.allAccesories);
+    const allCat = useSelector(state => state.categorias)
+    const arrayimage = allAccesories.find(e => e.producto)
+    
+   
+    
+    //console.log(allAccesories)
     
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
     useEffect( () => {
-        //dispatch(getAllTypes())
+        dispatch(Categorias())
         dispatch(accesorios())
     }, [dispatch])
-
+    
+    const [imgSrc, setImgSrc] = useState("");
+    const [imgFile, setImgFile] = useState("");
+    const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         producto: '',
         descripcion: '',
         precio:0,
         dimensiones: '',
-        stock: 0
+        stock: 0,
+        imagenes: [],
+        categorias: [],
+        
         
         
     })
 
     
-    const [errors, setErrors] = useState({});
+    
 
-   /* function handleDiet(e){
-        if(!input.diets.includes(e.target.value)){
+    function handleCat(e){
+        if(!input.categorias.includes(e.target.value)){
             setInput({
                 ...input,
-                diets: [...input.diets, e.target.value]
+                categorias: [...input.categorias, e.target.value]
             })
         }
     }
@@ -95,9 +110,9 @@ export function AccesoriosCreate(){
     function handleDelete(d){
         setInput({
             ...input,
-            diets: input.diets.filter(e => e !== d)
+            categorias: input.categorias.filter(e => e !== d)
         })
-    }*/
+    }
 
     function handleChange(e){
         setInput({
@@ -110,36 +125,90 @@ export function AccesoriosCreate(){
             [e.target.name]:e.target.value
         }))
     }
+    const handleDeleteImage = (e) => {
+        setInput({
+          ...input,
+          imagenes: ""
+          
+        });
+        
+      };
+    const handleChangeArray=(e)=>{
+        setInput({
+          ...input,
+          [e.target.name] : [e.target.value]
+      })
+      setErrors(validate({
+         ...input,
+        [e.target.name] : [e.target.value]
+      }))
+      console.log(input)}
+      const cloudinaryUpload2 = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", imgFile);
+        formData.append("upload_preset", "upload-images");
+    
+        try {
+          const response = await axios.post(
+            "https://api.cloudinary.com/v1_1/browsingyate/image/upload",
+            formData
+          );
+          
+          
+          setInput({ ...input, imagenes: [...input.imagenes.concat(response.data.url)] });
+          console.log("todo ok");
+        } catch (error) {
+          console.log(error);
+        }
+      };
+     
+      const previewFile2 = (e) => {
+        const file = e.target.files[0];
+        setImgFile(file);
+        const reader = new FileReader();
+    
+        reader.onload = function () {
+          setImgSrc(reader.result);
+        };
+    
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      };
 
     
     function handleSubmit(e) {    
         e.preventDefault();
         try {
-          let findproducto = allAccesories.find((e) => e.producto.toLowerCase() === input.producto.toLowerCase()
-          )
-          if (findproducto) {
-            return alert("Ya existe un producto con este nombre. ¡Cambialo!");
-          }else if(Object.keys(errors).length === 0 && (input.producto!=='')){
-            if(input.precio){parseInt(input.precio)}
-            dispatch(postAccesorio(input))
-            setInput({
-                producto: '',
-                descripcion: '',
-                precio:0,
-                dimensiones: '',
-                stock:0
-                
-            })
-            return (
-                alert(`El Accesorio fue creado con exito.`), navigate(`/admin`)
-                ) 
-          
-       } } catch (error) {
-          console.log(error);
-          return alert(
-            "Algo falló al crear el accesorio."
-          );
-        }
+            let findproducto = allAccesories.find((e) => e.producto.toLowerCase() === input.producto.toLowerCase()
+            )
+            if (findproducto) {
+              return alert("Ya existe un producto con este nombre. ¡Cambialo!");
+            }else if(Object.keys(errors).length === 0 && (input.producto!=='')){
+              if(input.precio){parseInt(input.precio)}
+              dispatch(postAccesorio(input))
+              setInput({
+                  producto: '',
+                  descripcion: '',
+                  precio:0,
+                  dimensiones: '',
+                  stock:0,
+                  imagenes: [],
+                  categorias: [],
+                  
+                  
+              })
+              return (
+                  alert(`El Accesorio fue creado con exito.`), navigate(`/admin`)
+                  ) 
+            
+         } } catch (error) {
+            console.log(error);
+            return alert(
+              "Algo falló al crear el accesorio."
+            );
+          }
       };
     
     return (
@@ -147,7 +216,7 @@ export function AccesoriosCreate(){
             
             
             {
-                !allAccesories ? 
+                !allCat ? 
                 <>
                     <div>
                         <h1>LOADING</h1>
@@ -155,7 +224,7 @@ export function AccesoriosCreate(){
                 </>:
                 <>
                     <div classproducto="create_recipe">
-                        <form classproducto="form" onSubmit={handleSubmit}>
+                        <form className="form" onSubmit={handleSubmit}>
                             <h1>Crea el Accesorio</h1>
                             
                             <div >
@@ -224,21 +293,273 @@ export function AccesoriosCreate(){
                                 </textarea>
                                 {errors.dimensiones && <p classproducto="danger">{errors.dimensiones}</p>}
                             </div>
+                            <div className="component_rigth_form">
+                {/* MAIN IMAGE INPUT */}
+
+                <div>
+                <label>Main Image:</label>
+                      
+                      <input
+                        type="file"
+                        onChange={previewFile2}
+                        border={"none"}
+                      ></input>
+
+                      <button
+                        bgColor={"#1884BE"}
+                        borderRadius={"none"}
+                        boxShadow="xl"
+                        color={"white"}
+                        fontSize={"1rem"}
+                        onClick={cloudinaryUpload2}
+                        isDisabled={imgSrc ? false : true}
+                        _hover={{
+                          background: "white",
+                          color: "#1884BE",
+                        }}
+                      >
+                        Save
+                      </button>
+
+                  
+
+                    <div className="imagen_principal_container">
+                      <img id="imagen_principal" src={input.imagenes} className="image_form" />
+                      {input.imagenes.length > 0 &&
+
+                        <button className="botonX" onClick={(e) => handleDeleteImage(e)} type="reset"><MdIcons.MdCancel /></button>
+
+                      }
+                    </div>
+
+
+
+                 
+                </div>
+
+                {/* 4 screenshots */}
+                <div >
+
+                  <div >
+                    <label> Insert screenshots</label>
+                  </div>
+                  <div className="container_up_shortsc">
+
+                  <input
+                        type="file"
+                        onChange={previewFile2}
+                        border={"none"}
+                      ></input>
+
+                      <button
+                        bgColor={"#1884BE"}
+                        borderRadius={"none"}
+                        boxShadow="xl"
+                        color={"white"}
+                        fontSize={"1rem"}
+                        onClick={cloudinaryUpload2}
+                        isDisabled={imgSrc ? false : true}
+                        _hover={{
+                          background: "white",
+                          color: "#1884BE",
+                        }}
+                      >
+                        Save
+                      </button>
+                      <input
+                        type="file"
+                        onChange={previewFile2}
+                        border={"none"}
+                      ></input>
+
+                      <button
+                        bgColor={"#1884BE"}
+                        borderRadius={"none"}
+                        boxShadow="xl"
+                        color={"white"}
+                        fontSize={"1rem"}
+                        onClick={cloudinaryUpload2}
+                        isDisabled={imgSrc ? false : true}
+                        _hover={{
+                          background: "white",
+                          color: "#1884BE",
+                        }}
+                      >
+                        Save
+                      </button>
+                      <input
+                        type="file"
+                        onChange={previewFile2}
+                        border={"none"}
+                      ></input>
+
+                      <button
+                        bgColor={"#1884BE"}
+                        borderRadius={"none"}
+                        boxShadow="xl"
+                        color={"white"}
+                        fontSize={"1rem"}
+                        onClick={cloudinaryUpload2}
+                        isDisabled={imgSrc ? false : true}
+                        _hover={{
+                          background: "white",
+                          color: "#1884BE",
+                        }}
+                      >
+                        Save
+                      </button>
+                      <input
+                        type="file"
+                        onChange={previewFile2}
+                        border={"none"}
+                      ></input>
+
+                      <button
+                        bgColor={"#1884BE"}
+                        borderRadius={"none"}
+                        boxShadow="xl"
+                        color={"white"}
+                        fontSize={"1rem"}
+                        onClick={cloudinaryUpload2}
+                        isDisabled={imgSrc ? false : true}
+                        _hover={{
+                          background: "white",
+                          color: "#1884BE",
+                        }}
+                      >
+                        Save
+                      </button>
+
+                  </div>
+                  <div className="screenShots_Image">
+
+                    <div >
+                      <img src={input.imagenes[0]} id="image1" className="image_form" />
+                      {/* {input.imagenes.length > 0 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteShortImage(input.imagenes[0])}
+      type="reset"
+    >
+      X
+    </button>
+    } */}
+                      <img src={input.imagenes[1]} id="image2" className="image_form" />
+                      {/* {input.imagenes.length > 1 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteShortImage(input.imagenes[1])}
+      type="reset"
+    >
+      X
+    </button>
+    } */}
+                      <img src={input.imagenes[2]} id="image3" className="image_form" />
+                      {/* {input.imagenes.length > 2 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteShortImage(input.imagenes[2])}
+      type="reset"
+    >
+      X
+    </button>
+    } */}
+                      <img src={input.imagenes[3]} id="image4" className="image_form" />
+                      {/* {input.imagenes.length > 3 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteShortImage(input.imagenes[3])}
+      type="reset"
+    >
+      X
+    </button>
+    } */}
+                    </div>
+
+                  </div>
+                </div>
+
+
+                {/* 4 screenshots */}
+                
+              </div>
                             
+                     { /*<label>Image:</label>
+                      
+                        <input
+                          type="file"
+                          onChange={previewFile2}
+                          border={"none"}
+                        ></input>
+  
+                        <button
+                          bgColor={"#1884BE"}
+                          borderRadius={"none"}
+                          boxShadow="xl"
+                          color={"white"}
+                          fontSize={"1rem"}
+                          onClick={cloudinaryUpload2}
+                          isDisabled={imgSrc ? false : true}
+                          _hover={{
+                            background: "white",
+                            color: "#1884BE",
+                          }}
+                        >
+                          Save
+                        </button>*/}
+                      
+                    
+                           
+                
+                            
+                            
+                            
+                            
+                            
+                            <div className="class-select">
+                                <label>Categorias</label>
+                                <select onChange={handleCat} value='Onetype' >
+                                    <option>Eligir Categorias</option>
+                                    {
+                                        allCat && allCat?.map(e => {
+                                            return (
+                                                <option key={e} value={e} name={e}>{e}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            
+                            <button id='buttonSubmitForm' classproducto="button-submit" type="submit">Create Product</button>
+                            <Link to='/admin'>
+                                <button id='buttonBackForm'>Back</button>
+                            </Link>
+
                             
 
-                            <button classproducto="button-submit" type="submit">Enviar Accesorio</button>
+
                             {/* {
                                 ((errors.descripcion) || (errors.dimensiones) || (errors.healthScore) || (!input.producto)) ?
                                 <button disabled classproducto="button-submit" type="submit">Enviar Receta</button>:
                                 
                             } */}
                         </form>
+                        <div className="my-categ">
+                            <h3>Mis Categorias</h3>
+                            <div className="cat">
+                                {input.categorias.map(d => {
+                                    return (
+                                    <div key={d} className="tipo_cat">
+                                        <button className="cerrar" onClick={() => handleDelete(d)}>X</button>
+                                        <p>{d}</p> 
+                                    </div>
+                                    )
+                                }
+                            )}
+                            </div>
+                        </div>
 
                         
                     </div>
                 </>
             }
+            
             
         </div>
     )

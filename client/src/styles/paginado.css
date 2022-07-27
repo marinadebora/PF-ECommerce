@@ -4,12 +4,15 @@
 
 #buttonPage{
     font-weight: bold;
-    height: 25px;
-    width: 25px;
-    background-color: #a9e8db;
+    color: white;
+    height: 28px;
+    width: 28px;
+    background-color:#0184a9;
     border-radius: 100px;
+    border: none;
     margin: 10px;
-    border: solid 2px #0184a9;
+    cursor: pointer;
+   
    
     
 }
