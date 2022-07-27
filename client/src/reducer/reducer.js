@@ -24,11 +24,11 @@
           detail:{}
         }
       case 'PRODUCTOS_DETAIL':
-  console.log(action.payload)
+ 
         return {
           ...state,
           detail: action.payload,
-          basket:action.payload
+         
         }
   
       case 'BARCOS_EN_VENTA':
@@ -64,15 +64,16 @@
 
        case 'ADD_TO_BASKET':
           const cart_add = state.products.find(e => e._id === action.payload) 
-         
+        
+      
           return{
             ...state,
-            basket: [...state.basket,cart_add]
+            basket:Array.isArray(state.basket)?[...state.basket,cart_add]:[state.basket,cart_add]
           } 
   
           case 'REMOVE_TO_BASKET':
-            const cart_remove = state.basket.filter(e => e!==undefined&& e._id !== action.payload)
-            console.log(cart_remove)
+            const cart_remove = state.basket?.filter(e => e!==undefined&& e!==null&&e._id !== action.payload)
+           
             return{
               ...state,
               basket: cart_remove

@@ -20,7 +20,8 @@ export function BarcosEnAlquiler()
   const endIndex = index - characterPerPage;
   const actualPage = productAlquiler?.slice(endIndex, index);
   const [/* ordering */, setOrdering] = useState('')
-
+  const [ordenFiltro,setOrdenFiltro] = useState(productAlquiler)
+const arrayFiltros=ordenFiltro
 
 console.log(productAlquiler)
 

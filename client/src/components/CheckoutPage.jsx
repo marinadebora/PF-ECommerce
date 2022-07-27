@@ -1,43 +1,59 @@
 
 import NavBar from './Navbar'
 import { addToBasket, removeToBasket } from '../actions/actions'
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 
 
 export default function CheckoutPage()
 {
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const stateBasket = useSelector(state => state.basket)
+     
+
+    let detalles=JSON.parse(localStorage.getItem('items')!==null?localStorage.getItem('items'):'[]' )
+    console.log(detalles)
+    
+    //localStorage.setItem('items',JSON.stringify(detalles))
+    
+    const [carta, setCarta] = useState(detalles);
+    console.log(carta)
+
+    
     useEffect(() =>
     {
-
         dispatch(addToBasket())
 
-    }, [dispatch])
+    }, [dispatch]);
+
     const volver = () =>
     {
         navigate(-1)
     }
-
-    const deleteProduct=(id)=>{
+    const deleteProduct = (id) =>
+    {  let estado= localStorage.setItem(
+        "items",
+        JSON.stringify(detalles.filter((e) =>e!==null&& e._id !== id))
+        );
         dispatch(removeToBasket(id))
       
+
+        setCarta(estado)//JSON.parse(localStorage.getItem('items'))!==null?JSON.parse(localStorage.getItem('items')):'[]' 
         
     }
-
-
+    let pregunta;
+    Array.isArray(carta)?pregunta=[...carta]:pregunta=[carta]
+    console.log(pregunta)
     return (
         <div>
             <NavBar />
 
-            {
-                stateBasket?.map(e => (
-                    e !== undefined &&
+           {
+                
+                pregunta?.map(e => (
+                    (e !== undefined && e !== null) &&
 
                     <ul>
                         {
@@ -81,18 +97,50 @@ export default function CheckoutPage()
                             e.Tamaño && <li><p>Tamaño: {e.Tamaño}</p></li>
                         }
                         {
-                            e._id &&<button id='buttonDelete' onClick={()=>deleteProduct(e._id)}>BORRAR</button>
+                            e._id && <button id='buttonDelete' onClick={() => deleteProduct(e._id)}>BORRAR</button>
                         }
-                        
+
                     </ul>
                 ))
 
-            }
+            } 
             <button id='buttonBack' onClick={volver}>VOLVER</button>
-            
+
 
 
         </div>
 
     )
 }
+/*   const id_user = localStorage.getItem("id");
+  const videogamesInCart = useSelector((state) => state.cart);
+
+  const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
+  const [cart /* setCart ] = useState(cartFromLocalStorage);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+    if(typeof id_user === "string"){
+      dispatch(getCartById(id_user));
+    }
+  }, [cart /* dispatch ]);
+
+  const current_cart =
+    typeof id_user === "string" ? videogamesInCart : cartFromLocalStorage;
+
+  const handleDelete = (id) => {
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(cartFromLocalStorage.filter((e) => e.id !== id))
+    );
+    if (typeof id_user === "string") {
+      dispatch(delFromCart(id_user, id));
+      
+    } else {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify(cartFromLocalStorage.filter((e) => e.id !== id))
+      );
+    }
+    navigate("/my_cart");
+  }; */

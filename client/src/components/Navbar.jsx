@@ -12,9 +12,9 @@ import { useSelector } from "react-redux";
 export default function Navbar() {
   //constante para cambiar e numero del carrito de forma dinamica
   // si la activo se rompe el detail por un tema de estado
- /*  const carrito=useSelector(state=>state.basket)
-  const suma=carrito.filter(Boolean).length
- */
+ const carrito=useSelector(state=>state.basket)
+ //const suma=carrito.filter(Boolean).length
+ 
 
   return (
     
@@ -39,7 +39,7 @@ export default function Navbar() {
             <Button variant="outlined" id="button">Register</Button>
             <Link to='/checkoutPage'>
               <IconButton arial-label="show cart items" id="cartButton">
-                <Badge badgeContent={3} color="secondary" id='badge'>
+                <Badge badgeContent={1} color="secondary" id='badge'>
                   <ShoppingCart id="cart" />
                 </Badge>
               </IconButton>
