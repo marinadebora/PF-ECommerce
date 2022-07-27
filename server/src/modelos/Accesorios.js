@@ -31,6 +31,15 @@ const accesorioSchema = new Schema({
     stock:{
         type:String,
         required:true
+    },
+    valoraciones:{
+        type: Array
+    },
+    rating:{
+        type: Number
+    },
+    comentarios:{
+        type: Array
     }
 },{
     versionKey:false,
