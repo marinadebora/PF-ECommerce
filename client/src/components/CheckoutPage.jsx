@@ -4,6 +4,9 @@ import { addToBasket, removeToBasket } from '../actions/actions'
 import { useDispatch } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import '../styles/card.css';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import IconButton from "@mui/material/IconButton";
 
 
 
@@ -55,12 +58,13 @@ export default function CheckoutPage()
                 pregunta?.map(e => (
                     (e !== undefined && e !== null) &&
 
-                    <ul>
+                    <ul id='detalleCheck'>
                         {
                             e.imagenes?.map(e =>
-                                <img src={e} alt='img' />
+                                <img id='imgCheckout' src={e} alt='img' />
                             )
                         }
+                        
                         {
                             e.modelo && <li><p>Modelo: {e.modelo}</p></li>
                         }
@@ -101,9 +105,8 @@ export default function CheckoutPage()
                         }
 
                     </ul>
-                ))
 
-            } 
+            ))} 
             <button id='buttonBack' onClick={volver}>VOLVER</button>
 
 

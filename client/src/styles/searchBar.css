@@ -12,7 +12,7 @@
 }
 
 #campos{
-    margin-left: 180px;
+    margin-left: 140px;
     
 }
 #categoriasR{
@@ -42,4 +42,29 @@
     cursor: pointer;
     
     
+}
+
+#buttonR{
+    background-color: #0184a9;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    margin-left: 10px;  
+    cursor: pointer; 
+}
+
+#buttonB{
+    background-color: #0184a9;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    margin-left: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+@media(max-width: 1500px){
+    #appBar2{
+       display: none;
+    }
 }

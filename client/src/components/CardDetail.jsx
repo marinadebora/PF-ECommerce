@@ -22,17 +22,19 @@ export default function CardDetail()
   }
 
 
+console.log(myDetail);
 
   return <div>
     {
       myDetail ?
         <div id='mainContainer'>
-          <div id='mainImg'>
+          <div>
           {
             myDetail.imagenes?.map(e =>
-              <img src={e} alt='img' />
+              <img  id='mainImg' src={e} alt='img' />
             )
           }
+
           </div>
       
             <ul>

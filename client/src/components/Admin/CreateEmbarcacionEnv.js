@@ -91,14 +91,11 @@ export function EmbarcacionCreateEnV(){
         if (!input.combustible){
             errors.combustible = "no ingresaste combustible"
         }
-
-
-
-
         
         return errors
     }
 
+    
     //const allRecipes = useSelector((state) => state.all_recipes); FIJARSE STORE ALL PRODUCTS
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
@@ -158,7 +155,7 @@ export function EmbarcacionCreateEnV(){
     }
 
     const allEmbarcacionVenta = useSelector((state) => state.saleVessels);
-    console.log(allEmbarcacionVenta)
+    
     function handleSubmit(e) {   
         e.preventDefault(); 
         
@@ -215,7 +212,7 @@ export function EmbarcacionCreateEnV(){
                 
                 <>
                     <div className="create_embarcacionEnv">
-                        <form className="form" onSubmit={(e)=>handleSubmit(e)}>
+                        <form className="form" onSubmit={handleSubmit}>
                             <h1>Crea tu Embarcacion</h1>
                             
                             <div >
@@ -401,19 +398,21 @@ export function EmbarcacionCreateEnV(){
                                 {errors.combustible && <p className="danger">{errors.combustible}</p>}
                             </div>
 
+                            <button id='buttonSubmitForm' className="button-submitev" type="submit">Create Product</button>
+                            <Link to='/admin'>
+                                <button id='buttonBackForm'>Back</button>
+                            </Link>
+
                             {/* {
                                 ((errors.summary) || (errors.steps) || (errors.healthScore) || (!input.name)) ?
                                 <button disabled className="button-submit" type="submit">Enviar Receta</button>:
                                 
                             } */}
-            <button id='buttonBackForm' className="button-submitev" type="submit">Crear Embarcacion</button>
-            <Link to='/admin'>
-                <button id='buttonBackForm'>VOLVER</button>
-            </Link>
                         </form>                  
                     </div>
                 </>
             }
+           
             
         </div>
     )

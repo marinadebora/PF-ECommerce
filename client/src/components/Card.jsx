@@ -51,18 +51,18 @@ let guardar=localStorage.getItem("items")
           title={
 
             tipo ?
-              <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
-                {tipo}
-              </Typography>
-              : producto ?
-                <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
-                  {producto}
-                </Typography>
+            <Typography fontSize="15px" fontFamily="arial" fontWeight='bold' underline="none">
+               {tipo}
+            </Typography>
+            :producto?
+            <Typography fontSize="15px" fontFamily="arial" fontWeight='bold' underline="none">
+               {producto}
+            </Typography>
 
-                : marca &&
-                <Typography fontSize="20px" fontFamily="arial" fontWeight='bold' underline="none">
-                  {marca}
-                </Typography>
+            :marca&&
+            <Typography fontSize="15px" fontFamily="arial" fontWeight='bold' underline="none">
+              {marca}
+            </Typography>
 
           }
         />

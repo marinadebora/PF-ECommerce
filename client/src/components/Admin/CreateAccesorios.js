@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {postAccesorio } from '../../actions/admin-action';
 import { accesorios, /*getAllTypes */} from '../../actions/actions';
+import form from '../../styles/form.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -155,7 +157,7 @@ export function AccesoriosCreate(){
                 </>:
                 <>
                     <div classproducto="create_recipe">
-                        <form classproducto="form" onSubmit={handleSubmit}>
+                        <form className="form" onSubmit={handleSubmit}>
                             <h1>Crea el Accesorio</h1>
                             
                             <div >
@@ -225,9 +227,14 @@ export function AccesoriosCreate(){
                                 {errors.dimensiones && <p classproducto="danger">{errors.dimensiones}</p>}
                             </div>
                             
+                            <button id='buttonSubmitForm' classproducto="button-submit" type="submit">Create Product</button>
+                            <Link to='/admin'>
+                                <button id='buttonBackForm'>Back</button>
+                            </Link>
+
                             
 
-                            <button classproducto="button-submit" type="submit">Enviar Accesorio</button>
+
                             {/* {
                                 ((errors.descripcion) || (errors.dimensiones) || (errors.healthScore) || (!input.producto)) ?
                                 <button disabled classproducto="button-submit" type="submit">Enviar Receta</button>:
@@ -239,6 +246,7 @@ export function AccesoriosCreate(){
                     </div>
                 </>
             }
+            
             
         </div>
     )

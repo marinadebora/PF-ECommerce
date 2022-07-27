@@ -59,6 +59,10 @@ export default function SearchBar(){
     }
   }
 
+  const reset = () =>{
+    dispatch(todosLosProductos())
+  }
+
   return (
 
     <AppBar position='static' id="appBar2">
@@ -89,10 +93,13 @@ export default function SearchBar(){
 
       <label id='text'>Buscar por Nombre:</label>
       <input value={name} key='buscar' type='text' placeholder='buscar...' onChange={(e) => handleChange(e)} />
-      <button  type='submit' onClick={(e) => handleSubmit(e)}>BUSCAR</button>
-      
+      <button  type='submit' id='buttonB' onClick={(e) => handleSubmit(e)}>Buscar</button>
+      <button id='buttonB' onClick={reset}>Reset</button>
+        
     </div>
-          
+
+        
+        
     </Toolbar>
         </Grid>
       </AppBar>
