@@ -19,7 +19,8 @@
             "marca_de_motor": "Yanmar",
             "potencia_total": "200 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Velero",
@@ -40,7 +41,8 @@
             "marca_de_motor": "Volvo",
             "potencia_total": "30 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Yate de motor",
@@ -59,7 +61,8 @@
             "marca_de_motor": "Catapillar",
             "potencia_total": "180 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Embarcacion de crucero",
@@ -78,7 +81,8 @@
             "marca_de_motor": "Volvo",
             "potencia_total": "440 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Velero",
@@ -97,7 +101,8 @@
             "marca_de_motor": "Yanmar",
             "potencia_total": "57 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Lancha",
@@ -116,7 +121,8 @@
             "marca_de_motor": "Volvo",
             "potencia_total": "350 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Embarcacion de crucero",
@@ -135,7 +141,8 @@
             "marca_de_motor": "Volvo",
             "potencia_total": "440 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Embarcacion de motor",
@@ -154,7 +161,8 @@
             "marca_de_motor": "Volvo",
             "potencia_total": "260 CV",
             "descripcion": "",
-            "combustible": "Gasolina"
+            "combustible": "Gasolina",
+            "disponible": true
         },
         {
             "tipo": "Embarcacion de motor",
@@ -173,7 +181,8 @@
             "marca_de_motor": "Mercury",
             "potencia_total": "150 CV",
             "descripcion": "",
-            "combustible": "Gasolina"
+            "combustible": "Gasolina",
+            "disponible": true
         },
         {
             "tipo": "Velero de crucero",
@@ -192,7 +201,8 @@
             "marca_de_motor": "Yanmar",
             "potencia_total": "40 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Velero de crucero",
@@ -211,7 +221,8 @@
             "marca_de_motor": "Volvo",
             "potencia_total": "180 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Velero de crucero",
@@ -230,7 +241,8 @@
             "marca_de_motor": "Yanmar",
             "potencia_total": "21 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Lancha",
@@ -249,7 +261,8 @@
             "marca_de_motor": "Suzuki",
             "potencia_total": "175 CV",
             "descripcion": "",
-            "combustible": "Gasolina"
+            "combustible": "Gasolina",
+            "disponible": true
         },
         {
             "tipo": "Embarcacion de crucero",
@@ -268,7 +281,8 @@
             "marca_de_motor": "Volvo",
             "potencia_total": "870 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         },
         {
             "tipo": "Catamaran de vela",
@@ -287,7 +301,8 @@
             "marca_de_motor": "Yanmar",
             "potencia_total": "50 CV",
             "descripcion": "",
-            "combustible": "Diesel"
+            "combustible": "Diesel",
+            "disponible": true
         }
     ],
     "renta": [
@@ -309,7 +324,8 @@
             "descripcion": "",
             "combustible": "Nafta",
             "horas": "40",
-            "transmision": "Pata Duo Prop.-"
+            "transmision": "Pata Duo Prop.-",
+            "disponible": true
         },
         {
             "marca": "Bailayner",
@@ -329,7 +345,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "60",
-            "transmision": "Pata Duo Prop.-"
+            "transmision": "Pata Duo Prop.-",
+            "disponible": true
         },
         {
             "marca": "SEGUE",
@@ -349,7 +366,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "60",
-            "transmision": "Eje"
+            "transmision": "Eje",
+            "disponible": true
         },
         {
             "marca": "KLASE A",
@@ -369,7 +387,8 @@
             "descripcion": "",
             "combustible": "Nafta",
             "horas": "65h",
-            "transmision": "Eje"
+            "transmision": "Eje",
+            "disponible": true
         },
         {
             "marca": "SEGUE",
@@ -389,7 +408,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "61",
-            "transmision": "370 Hp Diesel."
+            "transmision": "370 Hp Diesel.",
+            "disponible": true
         },
         {
             "marca": "ORTHOLAN",
@@ -409,7 +429,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "60",
-            "transmision": "Línea de eje"
+            "transmision": "Línea de eje",
+            "disponible": true
         },
         {
             "marca": "SEGUE",
@@ -429,7 +450,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "1500 h",
-            "transmision": "Internos"
+            "transmision": "Internos",
+            "disponible": true
         },
         {
             "marca": "Segue",
@@ -449,7 +471,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "1600 h",
-            "transmision": " Linea de eje"
+            "transmision": "Linea de eje",
+            "disponible": true 
         },
         {
             "marca": "SEGUE",
@@ -469,7 +492,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "485 h",
-            "transmision": "internos"
+            "transmision": "internos",
+            "disponible": true
         },
         {
             "marca": "CUSTON SPECIAL",
@@ -489,7 +513,8 @@
             "descripcion": "",
             "combustible": "Nafta",
             "horas": "500 h",
-            "transmision": "Eje"
+            "transmision": "Eje",
+            "disponible": true
         },
         {
             "marca": "QUEST",
@@ -509,7 +534,8 @@
             "descripcion": "",
             "combustible": "Nafta",
             "horas": "130 h",
-            "transmision": "Pata"
+            "transmision": "Pata",
+            "disponible": true
         },
         {
             "marca": "Garcia Del Fino",
@@ -529,7 +555,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "480 h",
-            "transmision": "Eje en Linea"
+            "transmision": "Eje en Linea",
+            "disponible": true
         },
         {
             "marca": "Koala",
@@ -549,7 +576,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "500 h",
-            "transmision": "Eje"
+            "transmision": "Eje",
+            "disponible": true
         },
         {
             "marca": "Tarrab 101",
@@ -569,7 +597,8 @@
             "descripcion": "",
             "combustible": "Nafta",
             "horas": "1000 h",
-            "transmision": "Eje en Linea"
+            "transmision": "Eje en Linea",
+            "disponible": true
         },
         {
             "marca": "Princess V42 Volvo",
@@ -589,7 +618,8 @@
             "descripcion": "",
             "combustible": "Gas Oil",
             "horas": "630 h",
-            "transmision": "Patas Volvo 290DPX"
+            "transmision": "Patas Volvo 290DPX",
+            "disponible": true
         }
     ],
     "accessories": [
@@ -602,7 +632,10 @@
             "stock": 5,
             "descripcion": "Chaleco salvavidas de neopreno con 2 hebillas para hombre Yamaha Construcción de neopreno de alta calidad. Paneles de espuma totalmente segmentados Dos correas ajustables con hebillas de liberación lateral para mayor apoyo y seguridad Cremallera frontal duradera",
             "dimensiones": "XL pecho de 114 a 48.8 in",
-            "precio": "US$124.96"
+            "precio": "US$124.96",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Bote inflable",
@@ -613,7 +646,10 @@
             "stock": 5,
             "descripcion": "Inflables de remolque OBRIEN deluxe nylon-wrapped con asas y neopreno nudillos. Cubierta de nylon de doble costura y alta resistencia PVC virgen vejiga. Velocidad Válvula De Seguridad",
             "dimensiones": " Rider, 54 de diámetro, (desinflado)",
-            "precio": "US$96.61"
+            "precio": "US$96.61",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Ecosondas Garmin",
@@ -624,7 +660,10 @@
             "stock": 5,
             "descripcion": "Garmin Striker 4 con transductor, Sensor de peces GPS con transductor tradicional CHIRP, te muestra más de lo que hay en el agua alrededor de tu barco; este sonar de alta frecuencia ofrece imágenes fotográficas cerca con representaciones detalladas de objetos, estructura y peces",
             "dimensiones": "3.5 Pulgadas",
-            "precio": "US$129.29"
+            "precio": "US$129.29",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Manillar Wake doble manija Straight Line",
@@ -635,7 +674,10 @@
             "stock": 5,
             "descripcion": "núcleo de aluminio de alta resistencia, protector de dedos de espuma que flota de 10cm. Mango de aluminio de 15 cm, Incluye cincha de sujeción ",
             "dimensiones": "178, 152, 127 y 101 cm",
-            "precio": " US$38.98"
+            "precio": " US$38.98",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "SKIES NAUTICOS",
@@ -646,7 +688,10 @@
             "stock": 5,
             "descripcion": "Esquís acuáticos moldeados con borde de 67 pulgadas. Perfecto para diferentes niveles de habilidad.Colas anchas/parte inferior con forma de túnel para rendimiento, control y estabilidad. Construcción compuesta y aletas de nailon reforzadas con fibra de vidrio. ",
             "dimensiones": "Fijaciones ajustables de tipo deslizante para tallas de EE.UU. 5 a 12",
-            "precio": "US$319.98"
+            "precio": "US$319.98",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "HYPERLITE 119 Motivo Jr BWF (2020)",
@@ -657,7 +702,10 @@
             "stock": 5,
             "descripcion": "Construcción de monocroco: integra el cristal superior y el cristal inferior en uno. Generando una placa más duradera en los impactos laterales para evitar la deslaminación.",
             "dimensiones": "59.06 x 19.69 x 3.94 pulgadas",
-            "precio": "US$239.99"
+            "precio": "US$239.99",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Airhead AHDL-4 Bungee Dockline 4 pies",
@@ -668,7 +716,10 @@
             "stock": 5,
             "descripcion": "Material: cuerda, 2.150 libras de resistencia. La soga de 4 ft se extiende a 5.5 ft. La soga de 5 ft se extiende a 7 ft. La soga de 6 ft se extiende a 9 ft.",
             "dimensiones": "Talla única",
-            "precio": "US$31.48"
+            "precio": "US$31.48",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Tono Popa Cockpit Lona Nautica, Toneau",
@@ -679,7 +730,10 @@
             "stock": 5,
             "descripcion": "Confeccionado con lona nautica, reforzada en todo su perimetro y con ribete de terminacion, cuenta con broches de presion colocados cada 40cm aprox, para su fijacion.",
             "dimensiones": "Largo x Ancho: 2.8 m x 1.7 m",
-            "precio": "US$250"
+            "precio": "US$250",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Kit de seguridad ",
@@ -690,7 +744,10 @@
             "stock": 5,
             "descripcion": "Linterna silbato Bailer & Line Bailer KitIncluye: linterna de emergencia, silbato de seguridad sin pelar, bailer con mango de fácil agarre y 50 pies de línea flotante con flotador y espejo reflectante de señal Mylar",
             "dimensiones": "estandar",
-            "precio": "US$33.24"
+            "precio": "US$33.24",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Orion Safety 584,",
@@ -701,7 +758,10 @@
             "stock": 5,
             "descripcion": "Orion Safety 584, Alerter Basic 4, lanzador de calibre 12 y paquete de señal aéreaSeñal de día o noche aprobada por USCG.",
             "dimensiones": "calibre 12 ",
-            "precio": "US$98"
+            "precio": "US$98",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Cornamusas para muelles de amarre",
@@ -712,7 +772,10 @@
             "stock": 5,
             "descripcion": "Cornamusas para muelles de amarre, 5 pulgadas de cornamusa inoxidable 316 para yate marino, Cornamusa de amarre, Base hueca",
             "dimensiones": " 5 pulgadas",
-            "precio": "US$17.22"
+            "precio": "US$17.22",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Barco de Cebo de Pesca GPS ",
@@ -723,7 +786,10 @@
             "stock": 5,
             "descripcion": "Doorslay Barco de Cebo de Pesca GPS con contenedor de Cebo. Grande Barco de Cebo automático con Alcance Remoto de 400-500M",
             "dimensiones": "55 x 32 x 20 cm; 2.76 kilogramos",
-            "precio": "US$187.37"
+            "precio": "US$187.37",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Eulbevoli Plotter GPS",
@@ -734,7 +800,10 @@
             "stock": 5,
             "descripcion": "Eulbevoli Plotter GPS, Pantalla a Color de 8 Pulgadas, Navegador Satelital, 200 Rutas, Protección IP20 para Barcos",
             "dimensiones": "43 x 28 x 15 cm; 4.76 kilogramos",
-            "precio": "US$1023.51"
+            "precio": "US$1023.51",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Easterner Luz de navegación EVOLED",
@@ -745,7 +814,10 @@
             "stock": 5,
             "descripcion": "Luz de navegación EVOLED. Para montaje en suelo, izquierda y derecha. Luces LED de bajo consumo. Luces de navegación de acero inoxidable. Áreas de luz: verde: 112,5 ° rojo: 112,5 °",
             "dimensiones": "27.6 x 19.4 x 4.7 cm; 333 gramos",
-            "precio": "US$61.95"
+            "precio": "US$61.95",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Luces de Proa de Barcos",
@@ -756,7 +828,10 @@
             "stock": 5,
             "descripcion": "4 Piezas Luces de Proa de Barcos Luces de Navegación de Barcos LED con 5 Pilas de Botón para Barco Kayak Pontón Aerodeslizador Yate Motora Caza Pesca Correr de Noche (Rojo, Verde, Blanco)",
             "dimensiones": "14.8 x 12.8 x 4.7 cm; 90 gramos",
-            "precio": "US$16.11"
+            "precio": "US$16.11",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "KAOLALI Luces para Barcos",
@@ -767,7 +842,10 @@
             "stock": 5,
             "descripcion": "KAOLALI Luces para Barcos, Luz de Navegación Ajustable para Barcos Yates LED Lámpara de Navegación Todo Redondo 360 ° Blanco Puro 12 V/24 V",
             "dimensiones": "31.5 x 7.3 x 5.4 cm; 360 gramos",
-            "precio": "US$38.27"
+            "precio": "US$38.27",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Cuerda Flotante de Anclaje",
@@ -778,7 +856,10 @@
             "stock": 5,
             "descripcion": "BeGrit 10M Cuerda Flotante de Anclaje 6mm para Amarre, Cuerda multifunción, línea de Remolque para Barco, Camping, Senderismo, Escalada Naranja, capacidad máxima de carga de 20 kg",
             "dimensiones": "10 m, 20 m, 30 m, diámetro: 6 mm.",
-            "precio": "US$14.09"
+            "precio": "US$14.09",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Kit de Anclaje de Barco",
@@ -789,7 +870,10 @@
             "stock": 5,
             "descripcion": "VEVOR Kit de Anclaje de Barco 6,35 kg, Anclas de Barco 63 x 31 x 29 cm, de Material de Acero Inoxidable 316, para dimensiones de Barco de 6-10,7 m, Color Plata, Ideal para Fondos de Arena, Guijarros, etc.",
             "dimensiones": " 58.42 x 27.94 x 25.4 cm; 7.44 kilogramos",
-            "precio": "US$147.07"
+            "precio": "US$147.07",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Escalera Náutica Enrollable",
@@ -800,7 +884,10 @@
             "stock": 5,
             "descripcion": "Posee 4 escalones de acero inoxidable. Ideal para botes y lanchas sin escalera.  Incluye bolsa de guardado.",
             "dimensiones": " 35cm de ancho x 1,30m de largo.",
-            "precio": "US$60.48"
+            "precio": "US$60.48",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         },
         {
             "producto": "Cámara Fish Finder de pesca subacuática",
@@ -811,7 +898,10 @@
             "stock": 5,
             "descripcion": "Fish Finder visual con pantalla IPS de 4,3 pulgadas El fishfinder está compuesto principalmente por un host con pantalla IPS de 4,3 pulgadas y un objetivo impermeable IP68 para formar un sistema de cámaras subacuáticas.",
             "dimensiones": "15.9 x 14.8 x 7.4 cm; 560 gramos",
-            "precio": "US$102.14"
+            "precio": "US$102.14",
+            "rating": 0,
+            "valoraciones": [],
+            "comentarios": []
         }
     ]
 }

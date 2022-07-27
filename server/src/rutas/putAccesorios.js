@@ -5,7 +5,7 @@ const putAccesorios = Router()
 
 putAccesorios.put("/:id", async (req,res)=>{
     const {id} = req.params
-    const { producto, categorias, imagenes, stock, descripcion, dimensiones, precio} = req.body;
+    const { producto, categorias, imagenes, stock, descripcion, dimensiones, precio, valoraciones, comentarios} = req.body;
     try {
         if(id.length !== 24) res.status(404).send(`Rebise el id, porque tiene de mas o menos caracteres`)
         const actualizar = await Accesorios.findOneAndUpdate({_id: id},{
@@ -15,7 +15,9 @@ putAccesorios.put("/:id", async (req,res)=>{
             stock: stock,
             descripcion: descripcion,
             dimensiones: dimensiones,
-            precio: precio
+            precio: precio,
+            valoraciones: valoraciones,
+            comentarios: comentarios
         })
         actualizar ?
         res.send(`Se acualizo el producto: ${producto}`):

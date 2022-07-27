@@ -10,7 +10,8 @@ export default function CardDetail()
   const dispatch = useDispatch();
   const { id } = useParams();
   const myDetail = useSelector(state => state.detail);
-const navigate=useNavigate()
+  
+  const navigate=useNavigate()
 
   useEffect(() =>
   {
@@ -96,7 +97,6 @@ navigate(-1)
           {
             myDetail.numero_de_motores ?<p>Numero de Motores: {myDetail.eslora}</p> : ''
           }
-         
           {
             myDetail.localizacion ? <p>localizacion: {myDetail.localizacion}</p> : ''
           }
