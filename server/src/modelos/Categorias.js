@@ -7,4 +7,8 @@ const categoriasAccesoriosSchema = new Schema({
 
 },{timestamps:false})
 
+<<<<<<< HEAD
 module.exports= mongoose.model("categoriasAccesorios",categoriasAccesoriosSchema)
+=======
+module.exports = mongoose.model("categorias",categoriasSchema)
+>>>>>>> 77a56649ee0571111bb78f25599754a1f8142395
