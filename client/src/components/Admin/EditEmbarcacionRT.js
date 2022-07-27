@@ -3,7 +3,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector,  } from 'react-redux';
 import { useParams } from "react-router-dom";
-import { updateEmbarcacionRT} from '../../actions/admin-action';
+import { updateEmbarcacionRT, Categorias} from '../../actions/admin-action';
 import { productosDetail, /*getAllTypes */} from '../../actions/actions'
 import { useNavigate } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ export function UpdateEmbarcacionRenta(){
 
     let { id } = useParams()
 
-    
+    const allCat = useSelector(state => state.categorias)
     const detail = useSelector(state => state.detail)
 
     function validate(input){
@@ -29,6 +29,9 @@ export function UpdateEmbarcacionRenta(){
     useEffect ( () => {
         dispatch(productosDetail(id))
     },[])
+    useEffect( () => {
+        dispatch(Categorias())
+    }, [])
 
    
 
@@ -47,7 +50,8 @@ export function UpdateEmbarcacionRenta(){
         transmision:"",
         horas: "",
         descripcion: "",
-        combustible: ""
+        combustible: "",
+        categorias: detail.categorias
     })
 
     const [errors, setErrors] = useState({});
@@ -64,21 +68,21 @@ export function UpdateEmbarcacionRenta(){
         }))
     }
 
-    /*function handleDelete(d){
-        setInput({
-            ...input,
-            diets: input.diets.filter(e => e !== d)
-        })
-    }
-
-    function handleDiet(e){
-        if(!input.diets.includes(e.target.value)){
+    function handleCat(e){
+        if(!input.categorias.includes(e.target.value)){
             setInput({
                 ...input,
-                diets: [...input.diets, e.target.value]
+                categorias: [...input.categorias, e.target.value]
             })
         }
-    }*/
+    }
+
+    function handleDelete(d){
+        setInput({
+            ...input,
+            categorias: input.categorias.filter(e => e !== d)
+        })
+    }
 
     function handleSubmit(e){
         e.preventDefault()
@@ -108,7 +112,7 @@ export function UpdateEmbarcacionRenta(){
 
         
         <div className="cont-form">
-            {!detail.transmision  ? 
+            {!allCat  ? 
                 <>
                     <div>
                         <h1>LOADING</h1>
@@ -316,6 +320,19 @@ export function UpdateEmbarcacionRenta(){
                                 </input>
                                 
                             </div>
+                            <div className="class-select">
+                                <label>Categorias</label>
+                                <select onChange={handleCat} value='Onetype' >
+                                    <option>Eligir Categorias</option>
+                                    {
+                                        allCat && allCat?.map(e => {
+                                            return (
+                                                <option key={e} value={e} name={e}>{e}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
                             
                          
 
@@ -323,6 +340,20 @@ export function UpdateEmbarcacionRenta(){
                                 <button className="button-submit" type="submit">Enviar Embarcacion</button>
                             
                         </form>
+                        <div className="my-categ">
+                            <h3>Mis Categorias</h3>
+                            <div className="cat">
+                                {input.categorias.map(d => {
+                                    return (
+                                    <div key={d} className="tipo_cat">
+                                        <button className="cerrar" onClick={() => handleDelete(d)}>X</button>
+                                        <p>{d}</p> 
+                                    </div>
+                                    )
+                                }
+                            )}
+                            </div>
+                        </div>
 
                        
                     </div>

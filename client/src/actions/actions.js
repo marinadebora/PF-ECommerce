@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-import infoProductos from '../infoPrueba/productos'
+
+const URL_BASE = "http://localhost:4000"
+//import infoProductos from '../infoPrueba/index'
 
 
 export function todosLosProductos()
@@ -22,20 +24,14 @@ export function todosLosProductos()
 
     }
 }
-function filtrado(id){
-
-   const a=infoProductos.filter(e => e._id==id) 
- 
-   return a
-}
 
 export function productosDetail(id)
 {
     return async function (dispatch)
     {
         try {
-           const proDetail =await axios.get(`http://localhost:4000/todo/${id}`)
-           console.log(proDetail)
+           const proDetail =await axios(`http://localhost:4000/todo/${id}`)
+          
             return dispatch({
                 type: 'PRODUCTOS_DETAIL',
                 payload: proDetail.data
@@ -48,35 +44,6 @@ export function productosDetail(id)
 
 }
 
-/*export function getRecipeById(id) {
-    return async function (dispatch) {
-      try {
-        let jsonRecipeID = await axios.get(
-          `${URL}/recipes/${id}`
-        );
-        
-        return dispatch({
-          type: GET_RECIPE_BY_ID,
-          payload: jsonRecipeID.data,
-        });
-      } catch (error) {
-        return alert(`No encontramos la receta con el ID ${id}.`);
-      }
-    };
-  }*/
-
-/*  export function productosDetail(_id){
-    return async function(dispatch){ 
-       return(
-        fetch(`http://localhost:4000/todo/${_id}`)
-       .then(response=>response.json())
-        .then(data=> dispatch({
-            type:'PRODUCTOS_DETAIL',
-            payload:data
-        }))
-        .catch (error=>console.log(error)) 
-            
-       )} } */
 
       
 export function barcosEnVenta(){
@@ -97,7 +64,7 @@ export function barcosEnAlquiler(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localHost:3001/embarcacionesr');
+            const prodVenta= await axios('http://localHost:4000/embarcacionesr');
             return dispatch({
                 type:'BARCOS_EN_ALQUILER',
                 payload:prodVenta.data
@@ -121,6 +88,30 @@ export function accesorios(){
         }
     }
 }
+export function categoriaAccesorios(payload){
+    return {
+        type:'CATEGORIA_ACCESORIOS',
+        payload
+    }
+    }
+
+    export function addToBasket(payload){
+        return{
+                type:'ADD_TO_BASKET',
+                payload
+    
+                } 
+            }
+    
+    export function removeToBasket(payload){
+        return{
+                type:'REMOVE_TO_BASKET',
+                payload
+    
+                } 
+            }
+    
+
 //------------Filtro-Por-Precio------------//
 
 export function filtroPrecio(payload){
@@ -144,6 +135,14 @@ export function filtroCategoriaAccesorios(payload){
         payload
     }
 }
+
+export function filtrosCategoriaEmbarcacion(payload){
+    return {
+        type:'FITRO_CATEGORIA_EMBARCACION',
+        payload
+    }
+}
+
 //-------------Orden-------------//
 export function precioOrden(payload){
     return {
@@ -151,3 +150,209 @@ export function precioOrden(payload){
         payload
     }
     }
+
+    export function precioOrdenAccesorios(payload){
+        return {
+            type:'PRECIO_ORDEN_ACCESORIOS',
+            payload
+        }
+        }
+
+
+
+
+
+
+
+export function todasCategorias(){
+     return async function(dispatch){
+            try {
+                
+                const prodCat=await axios('http://localhost:4000/categorias')
+                
+                return dispatch({
+                    type:'TODAS_CATEGORIAS',
+                    payload:prodCat.data
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    
+}
+
+export function filtroCatgorias(payload){
+    return {
+        type:'FILTRO_CATEGORIAS',
+        payload,
+    }
+}
+
+export function productName(payload){
+
+    return async function(dispatch){
+     try {
+        const name= await axios(`http://localhost:4000/todos?name=${payload}`)//http://localhost:4000/todos?name=chaleco
+        console.log(name.data)
+        return dispatch({
+          type:'PRODUCT_NAME',
+          payload:name.data[0]
+        })
+     } catch (error) {
+        console.log(error)
+     }
+    }
+  
+  }
+
+  
+
+export function postAccesorio(payload) {
+    return async function (dispatch) {
+      try {
+        const accesoriosCreated = await axios.post(`${URL_BASE}/accesorios`, payload);
+        return dispatch({
+          type: "POST_ACCESORIOS",
+          payload: accesoriosCreated,
+        });
+      } catch (error) {
+        console.log(error.message);
+        return alert(
+          "Hubo un error al crear el Accesorio. "
+        );
+        
+      }
+    };
+  }
+
+  export function deleteAccesorio(id){
+    return function(dispatch){
+        return axios.delete(`${URL_BASE}/accesorio/${id}`)
+        .then(data => {
+            dispatch({
+                type:"DELETE_ACCESORIO",
+                payload:data
+            })
+        })
+    }
+}
+
+
+
+export function updateAccesorio(id, payload){
+    return function(dispatch){
+        return axios.put(`${URL_BASE}/accesorio/${id}`, payload)
+        .then(data => {
+            dispatch({
+                type:"UPDATE_ACCESORIO",
+                payload:data
+            })
+        })
+    }
+}
+//---------------------EMBARCACIONENV---------------------
+//--------------------------------------------------------
+  export function postEmbarcacionEnV(payload) {
+    return async function (dispatch) {
+      try {
+        const embarcacionCreated = await axios.post(`${URL_BASE}/embrarcacionesV`, payload);
+        return dispatch({
+          type: "POST_EMBARCACIONENV",
+          payload: embarcacionCreated,
+        });
+      } catch (error) {
+        console.log(error.message);
+        return alert(
+          "Hubo un error al crear la embarcacion. "
+        );
+        
+      }
+    };
+  }
+
+export function deleteEmbarcacionEnV(id){
+    return async function(dispatch){
+        return axios.delete(`${URL_BASE}/embarcacionesV/${id}`) 
+        .then(data => {
+            dispatch({
+                type:"DELETE_EMBARCACIONENV",
+                payload:data
+            })
+        }).catch((error) => console.error("Error:", error))
+    }
+} 
+
+/*export const deleteEmbarcacionEnV = (id) => (dispatch)=>{
+  return fetch (`${URL_BASE}/embrarcacionesV/${id}`,{
+    method:"DELETE",
+ })
+ .then((res)=>res.json())
+ .then((json)=>dispatch({
+  type:"DELETE_EMBARCACIONENV",
+  payload:json
+ }))
+ .catch((error) => console.error("Error:", error))
+ 
+}*/
+
+
+
+
+export function updateEmbarcacionEnV(id, payload){
+    return function(dispatch){
+        return axios.put(`${URL_BASE}/embrarcacionesV/${id}`, payload)
+        .then(data => {
+            dispatch({
+                type:"UPDATE_EMBARCACIONENV",
+                payload:data
+            })
+        })
+    }
+}
+
+
+//---------------------EMBARCACION RENTAS---------------------
+//------------------------------------------------------------
+export function postEmbarcacionRT(payload) {
+  return async function (dispatch) {
+    try {
+      const embarcacionCreated = await axios.post(`${URL_BASE}/embarcacionesR`, payload);
+      return dispatch({
+        type: "POST_EMBARCACIONRT",
+        payload: embarcacionCreated,
+      });
+    } catch (error) {
+      console.log(error.message);
+      return alert(
+        "Hubo un error al crear la embarcacion. "
+      );
+      
+    }
+  };
+}
+
+export function deleteEmbarcacionRT(id){
+  return function(dispatch){
+      return axios.delete(`${URL_BASE}/embarcacionesR/${id}`)
+      .then(data => {
+          dispatch({
+              type:"DELETE_EMBARCACIONRT",
+              payload:data
+          })
+      })
+  }
+}
+
+
+
+export function updateEmbarcacionRT(id, payload){
+  return function(dispatch){
+      return axios.put(`${URL_BASE}/embarcacionesR/${id}`, payload)
+      .then(data => {
+          dispatch({
+              type:"UPDATE_EMBARCACIONRT",
+              payload:data
+          })
+      })
+  }
+}
