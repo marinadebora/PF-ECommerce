@@ -10,18 +10,30 @@ import '../styles/searchBar.css';
 export function BarcosEnVenta()
 {
   const productVenta = useSelector(state => state.saleVessels)
-  const dispatch = useDispatch()
+/*   const dispatch = useDispatch()
+ */
+  //----------paginado---------//
 
+<<<<<<< HEAD
   //----------paginado---------//
 
   const [ordering, setOrdering] = useState('')
   const [page, setPage] = useState(1);
+=======
+/*   const [ordering, setOrdering] = useState('')
+ */  const [page, setPage] = useState(1);
+>>>>>>> debora/carrito
   const [characterPerPage, setCharacterPerPage] = useState(5);
   const index = page * characterPerPage;
   const endIndex = index - characterPerPage;
   const actualPage = productVenta?.slice(endIndex, index);
+<<<<<<< HEAD
   const [venta, setVenta] = useState('')
   const [categoriasR, setCategoriasR] = useState('')
+=======
+  /* const [venta, setVenta] = useState('')
+  const [categoriasR, setCategoriasR] = useState('') */
+>>>>>>> debora/carrito
   
 
 
@@ -29,7 +41,11 @@ export function BarcosEnVenta()
   {
     setPage(numPage)
   }
+<<<<<<< HEAD
   console.log(productVenta)
+=======
+/*   console.log(productVenta)
+>>>>>>> debora/carrito
   useEffect(() =>
   {
     dispatch(barcosEnVenta())
@@ -77,8 +93,12 @@ export function BarcosEnVenta()
     dispatch(precioOrden(event.target.value))
     setPage(1)
     setOrdering(`Order ${event.target.value}`)
+<<<<<<< HEAD
   }
+=======
+>>>>>>> debora/carrito
   }
+  } */
 
 
 
@@ -92,7 +112,11 @@ export function BarcosEnVenta()
         newState={productVenta.length}
         paginado={paginado}
       />
+<<<<<<< HEAD
         <label key='venta'>Filtrar por Precio </label>
+=======
+      {/*   <label key='venta'>Filtrar por Precio </label>
+>>>>>>> debora/carrito
         <select name="venta" id="barcoVenta" onChange={(e) => filtroPorPrecio(e)}>
         <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
         <option key={'mayor'} value={'mayor'}>Mas de US$ 300000 </option>
@@ -123,7 +147,11 @@ export function BarcosEnVenta()
           <option key={'min'} value={'min'}>Menor Precio</option>
         </select>
       }
+<<<<<<< HEAD
 
+=======
+ */}
+>>>>>>> debora/carrito
 
       <br />
       <br />

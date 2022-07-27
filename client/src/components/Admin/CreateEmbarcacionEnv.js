@@ -5,7 +5,11 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+<<<<<<< HEAD
 import {postEmbarcacionEnV, Categorias } from '../../actions/admin-action';
+=======
+import {postEmbarcacionEnV } from '../../actions/admin-action';
+>>>>>>> debora/carrito
 import { barcosEnVenta, /*getAllTypes */} from '../../actions/actions';
 import form from '../../styles/form.css';
 import { Link } from 'react-router-dom';
@@ -100,7 +104,11 @@ export function EmbarcacionCreateEnV(){
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
     useEffect( () => {
+<<<<<<< HEAD
         dispatch(Categorias())
+=======
+       // dispatch(getAllTypes())
+>>>>>>> debora/carrito
         dispatch(barcosEnVenta())
     }, [dispatch])
 
@@ -119,20 +127,32 @@ export function EmbarcacionCreateEnV(){
         marca_de_motor: "",
         potencia_total: "",
         descripcion: "",
+<<<<<<< HEAD
         combustible: "",
         imagenes: [],
         categorias: [],
+=======
+        combustible: ""
+>>>>>>> debora/carrito
 
     })
 
     
     const [errors, setErrors] = useState({});
 
+<<<<<<< HEAD
     function handleCat(e){
         if(!input.categorias.includes(e.target.value)){
             setinput({
                 ...input,
                 categorias: [...input.categorias, e.target.value]
+=======
+   /* function handleDiet(e){
+        if(!input.diets.includes(e.target.value)){
+            setinput({
+                ...input,
+                diets: [...input.diets, e.target.value]
+>>>>>>> debora/carrito
             })
         }
     }
@@ -140,9 +160,15 @@ export function EmbarcacionCreateEnV(){
     function handleDelete(d){
         setinput({
             ...input,
+<<<<<<< HEAD
             categorias: input.categorias.filter(e => e !== d)
         })
     }
+=======
+            diets: input.diets.filter(e => e !== d)
+        })
+    }*/
+>>>>>>> debora/carrito
 
     function handleChange(e){
         setinput({
@@ -155,6 +181,7 @@ export function EmbarcacionCreateEnV(){
         }))
         
     }
+<<<<<<< HEAD
     const handleChangeArray=(e)=>{
         setinput({
           ...input,
@@ -162,6 +189,9 @@ export function EmbarcacionCreateEnV(){
       })
     }
     const allCat = useSelector(state => state.categorias)
+=======
+
+>>>>>>> debora/carrito
     const allEmbarcacionVenta = useSelector((state) => state.saleVessels);
     
     function handleSubmit(e) {   
@@ -191,9 +221,13 @@ export function EmbarcacionCreateEnV(){
                 marca_de_motor: "",
                 potencia_total: "",
                 descripcion: "",
+<<<<<<< HEAD
                 combustible: "",
                 categorias: [],
                 imagenes: [],
+=======
+                combustible: ""
+>>>>>>> debora/carrito
             })
             return (
                 alert(`La Embarcacion fue creada con éxito.`), navigate(`/admin`)
@@ -213,7 +247,11 @@ export function EmbarcacionCreateEnV(){
         <div className="cont-form">
             
             
+<<<<<<< HEAD
             { !allCat ? 
+=======
+            { !allEmbarcacionVenta ? 
+>>>>>>> debora/carrito
                 <>
                     <div>
                         <h1>LOADING</h1>
@@ -407,6 +445,7 @@ export function EmbarcacionCreateEnV(){
                                 </input>
                                 {errors.combustible && <p className="danger">{errors.combustible}</p>}
                             </div>
+<<<<<<< HEAD
                             <div >
                            <label >Imagen</label>
                            <input  type="url" value={input.imagenes} name="imagenes" onChange={(e)=>handleChangeArray(e)}></input> 
@@ -427,6 +466,8 @@ export function EmbarcacionCreateEnV(){
                                     }
                                 </select>
                             </div>
+=======
+>>>>>>> debora/carrito
 
                             <button id='buttonSubmitForm' className="button-submitev" type="submit">Create Product</button>
                             <Link to='/admin'>
@@ -438,6 +479,7 @@ export function EmbarcacionCreateEnV(){
                                 <button disabled className="button-submit" type="submit">Enviar Receta</button>:
                                 
                             } */}
+<<<<<<< HEAD
                         </form>   
                         <div className="my-categ">
                             <h3>Mis Categorias</h3>
@@ -453,6 +495,9 @@ export function EmbarcacionCreateEnV(){
                             )}
                             </div>
                         </div>                            
+=======
+                        </form>                  
+>>>>>>> debora/carrito
                     </div>
                 </>
             }

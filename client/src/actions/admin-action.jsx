@@ -150,6 +150,7 @@ export function updateEmbarcacionRT(id, payload){
           })
       })
   }
+<<<<<<< HEAD
 }
 //---------------------CATEGORIAS---------------------
 //----------------------------------------------------
@@ -187,4 +188,6 @@ export function postCategorias(payload) {
       
     }
   };
+=======
+>>>>>>> debora/carrito
 }
