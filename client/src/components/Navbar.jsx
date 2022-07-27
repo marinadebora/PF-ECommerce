@@ -5,7 +5,7 @@ import { ShoppingCart } from "@mui/icons-material";
 
 export default function Navbar() {
   return (
-    <AppBar position="static" id="appBar">
+    <AppBar position="sticky" id="appBar">
       <Toolbar>
         <IconButton>
           <img src={Logo} alt="img" id="logo" />
