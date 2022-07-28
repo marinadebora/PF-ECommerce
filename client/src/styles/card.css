@@ -26,6 +26,10 @@
 
 }
 
+#imgCard{
+    overflow: hidden;
+}
+
 #titleCheckoutPage{
     font-size: 20px;
     font-weight: bold;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { productosDetail } from "../actions/actions";
 import '../styles/cardDetail.css'
+import ImagenList from  './ImagenList'
 
 export default function CardDetail()
 {
@@ -29,15 +30,18 @@ console.log(myDetail);
       myDetail ?
         <div id='mainContainer'>
           <div>
-          {
+          {/* {
             myDetail.imagenes?.map(e =>
               <img  id='mainImg' src={e} alt='img' />
             )
-          }
+          } */}
+
+
+          <ImagenList/>
 
           </div>
       
-            <ul>
+          <ul>
           
           {
             myDetail.marca ? <li><p>Marca: {myDetail.marca}</p></li> : ''

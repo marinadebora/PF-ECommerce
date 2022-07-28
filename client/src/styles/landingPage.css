@@ -1,0 +1,74 @@
+
+
+#boxLanding{
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../imagenes/banner1.jpg);
+    height: 950px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+}
+
+#logoL{
+    padding-top: 230px;
+    height: 90px;
+    margin-right: 617px;
+
+}
+
+#iconLanding{
+    height: 70px;
+}
+
+
+
+#textBoxL2{
+    padding-top: 7px;
+    margin-right: 770px;
+    font-size: 25px;
+}
+
+#buttonsLanding{
+    display: flex;
+    align-items: flex-end;
+    margin-top: 50px;
+    margin-left: 120px;
+
+    
+}
+
+#titleButtonLanding{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 4px;
+}
+
+.itemLanding1{
+    font-family: ethnocentric;
+    font-weight: bold;
+    text-decoration: none;
+    
+    color: white;
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 30px;
+    border: none;
+    margin: 10px;
+    margin-top: 80px;
+    margin-right: 30px;
+    cursor: pointer;
+    box-shadow: white 0px 1px 5px;
+    
+}
+
+.Landing{
+    
+    text-decoration: none;
+    color: black;
+}

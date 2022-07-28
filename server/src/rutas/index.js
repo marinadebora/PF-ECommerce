@@ -19,6 +19,7 @@ const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
 const { categorias } = require("../controladores/controladorCategorias");
 const cargarVentas = require("../controladores/CargaVentas");
 const postCategorias = require("./postCategoria");
+const deleteCategoria = require("./deleteCategoria");
 
 let router = Router();
 
@@ -42,6 +43,7 @@ router.use("/todo", getTodoId)
 
 router.get("/categorias", categorias)
 router.use("/categorias", postCategorias)
+router.use("/categorias", deleteCategoria)
 
 
 // no ejecutar esta ruta para no replicar los documentos de la base de datos

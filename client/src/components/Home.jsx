@@ -10,6 +10,7 @@ import Navbar from './Navbar'
 import {Grid} from '@mui/material'
 import '../styles/box.css'
 import SearchBar from './SearchBar';
+import Footer from './Footer';
 import '../styles/searchBar.css';
 
 
@@ -89,6 +90,8 @@ export default function Home()
             newState ={newState.length}
             paginado = {paginado}
             />
+
+            <Footer/>
 
         </div>
     

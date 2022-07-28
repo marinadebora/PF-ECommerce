@@ -101,8 +101,17 @@ console.log(id)
             myDetail.tipo ? <p>tipo: {myDetail.tipo}</p> : ''
           }
           {
-            myDetail.categorias ? <p>Categorias: {myDetail.tipo}</p> : ''
-          }
+             myDetail.categorias?  (
+               <>
+               <h3>Categorias:</h3>
+               <ul className="list-cat">
+                                
+               {myDetail.categorias?.map(e => <li>{e}</li>)}
+               </ul>
+               
+               </> )
+               :""
+            }
 
           {
             myDetail.modelo ? <p>Modelo: {myDetail.modelo}</p> : ''

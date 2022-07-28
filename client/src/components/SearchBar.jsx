@@ -107,6 +107,3 @@ export default function SearchBar(){
 
   
 };
-
-
-

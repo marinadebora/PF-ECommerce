@@ -151,3 +151,40 @@ export function updateEmbarcacionRT(id, payload){
       })
   }
 }
+//---------------------CATEGORIAS---------------------
+//----------------------------------------------------
+
+export function  Categorias() {
+  return async function (dispatch) {
+    try {
+      let jsonTypes = await axios.get(`${URL_BASE}/categorias`);
+      console.log(jsonTypes.data);
+      return dispatch({
+        type: 'CATEGORIAS',
+        payload: jsonTypes.data,
+      });
+    } catch (error) {
+      console.log(error);
+      return alert(
+        "Algo salio mal al cargar los Types. Intenta de nuevo más tarde"
+      );
+    }
+  };
+}
+export function postCategorias(payload) {
+  return async function (dispatch) {
+    try {
+      const CatCreated = await axios.post(`${URL_BASE}/categorias`, payload);
+      return dispatch({
+        type: "POST_CATEGORIAS",
+        payload: CatCreated,
+      });
+    } catch (error) {
+      console.log(error.message);
+      return alert(
+        "Hubo un error al crear la Categoria. "
+      );
+      
+    }
+  };
+}

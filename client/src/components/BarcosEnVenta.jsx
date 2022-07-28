@@ -2,10 +2,14 @@ import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { barcosEnVenta, filtroPrecio, filtrosCategoriaEmbarcacion, precioOrden } from '../actions/actions'
 import { Link } from 'react-router-dom';
+import { Box } from '@mui/system';
 import Paginado from "./Paginado";
 import Card from './Card'
+import Navbar from './Navbar';
+import Footer from './Footer';
 import { Grid } from '@mui/material'
 import '../styles/searchBar.css';
+import '../styles/box.css'
 
 export function BarcosEnVenta()
 {
@@ -35,99 +39,16 @@ export function BarcosEnVenta()
     dispatch(barcosEnVenta())
   }, [dispatch])
 
-  const filtroPorPrecio = (event) =>
-  {
-    event.preventDefault()
-    if (event.target.value === 'sinFiltro') {
-      dispatch(barcosEnVenta())
-      setPage(1)
-      setOrdering(`Order ${event.target.value}`)
-    } else {
-      dispatch(filtroPrecio(event.target.value))
-      setVenta(true)
-      setPage(1)
-      setOrdering(`Order ${event.target.value}`)
-    }
-
-  }
-
-  const filtroPorCategoria = (event) =>
-  {
-    event.preventDefault()
-    if (event.target.value === 'sinFiltro') {
-      dispatch(barcosEnVenta())
-      setPage(1)
-      setOrdering(`Order ${event.target.value}`)
-    } else {
-    dispatch(filtrosCategoriaEmbarcacion(event.target.value))
-    setCategoriasR(true)
-    setPage(1)
-    setOrdering(`Order ${event.target.value}`)
-  }
-  }
-
-  const ordenPrecio = (event) =>
-  {
-    event.preventDefault()
-    if (event.target.value === 'sinFiltro') {
-      dispatch(barcosEnVenta())
-      setPage(1)
-      setOrdering(`Order ${event.target.value}`)
-    } else {
-    dispatch(precioOrden(event.target.value))
-    setPage(1)
-    setOrdering(`Order ${event.target.value}`)
-  }
-  }
-
-
 
   return (
     <div>
-      <Link to='/home'>
-        <button id='buttonBack'>VOLVER</button>
-      </Link>
-      <Paginado
-        characterPerPage={characterPerPage}
-        newState={productVenta.length}
-        paginado={paginado}
-      />
-        <label key='venta'>Filtrar por Precio </label>
-        <select name="venta" id="barcoVenta" onChange={(e) => filtroPorPrecio(e)}>
-        <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
-        <option key={'mayor'} value={'mayor'}>Mas de US$ 300000 </option>
-        <option key={'medio'} value={'medio'}>Entre US$ 150000 - US$ 300000 </option>
-        <option key={'menor'} value={'menor'}>Menos de US$ 150000</option>
-      </select>
-      {
-       venta && <label key='categoriasR'>Filtrar por Gama</label>
-      }
-      {
-        venta &&
 
-        <select name="categoriasR" id="categoriasR" onChange={(e) => filtroPorCategoria(e)}>
-          <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
-          <option key={'Gama Alta'} value={'Alta'}>Gama Alta</option>
-          <option key={'Gama Media'} value={'media'}>Gama Media</option>
-          <option key={'Gama Baja'} value={'baja'}>Gama Baja</option>
-        </select>
-      }
-      {
-         categoriasR &&<label key='venta'>Ordenar</label>
-      }
-      {
-        categoriasR &&
-        <select name="order" id="order" onChange={(e) => ordenPrecio(e)}>
-          <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
-          <option key={'max'} value={'max'}>Mayor Precio</option>
-          <option key={'min'} value={'min'}>Menor Precio</option>
-        </select>
-      }
-
-
-      <br />
-      <br />
-
+        <Navbar/>
+        <Box id='boxVta'>
+                <Box id='textBox1'>VENTA</Box>
+                
+        </Box>
+      
       <Grid container spacing={2}>
         {
 
@@ -135,8 +56,6 @@ export function BarcosEnVenta()
           {
             return (
               <Fragment>
-
-
                 <Grid item xs={12} sm={6} md={4} lg={3}>
 
                   <Card
@@ -157,14 +76,21 @@ export function BarcosEnVenta()
 
                 </Grid>
 
-
-
-
               </Fragment>
             )
           })
         }
       </Grid>
+      <Link to='/home'>
+        <button id='buttonBack'>VOLVER</button>
+      </Link>
+      <Paginado
+        characterPerPage={characterPerPage}
+        newState={productVenta.length}
+        paginado={paginado}
+      />
+
+      <Footer/>
 
 
     </div>);

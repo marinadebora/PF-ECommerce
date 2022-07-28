@@ -6,7 +6,7 @@
     accesories: [],
     allAccesories:[],
     detail: {},
-    categories: [],
+    categorias: [],
     basket: [],
   
   };
@@ -171,6 +171,13 @@
             ...state,
             accesories:orden
           }
+          case 'CATEGORIAS':
+            return {
+              ...state,
+              categorias: action.payload,
+            }
+          case "POST_CATEGORIAS":   
+            return { ...state, categorias: state.categorias.concat(action.payload) };
   
       default: {
         return state

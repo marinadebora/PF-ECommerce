@@ -37,7 +37,7 @@ export default function CheckoutPage()
     return (
         <div>
             <NavBar />
-            <p id='titleCheckoutPage'>Checkout</p>
+            <p id='titleCheckoutPage'>Shopping Cart</p>
             {
         
                 stateBasket?.map(e => (

@@ -17,14 +17,20 @@ import {UpdateAccesorio} from "./components/Admin/EditAccesorios"
 import {UpdateEmbarcacionRenta} from "./components/Admin/EditEmbarcacionRT"
 import {UpdateEmbarcacionVenta}  from "./components/Admin/EditEmbarcacionEnv"
 import CheckoutPage from './components/CheckoutPage'
+import LandingPage from './components/LandingPage'
+import SingIn from './components/SingIn'
+import SingUp from './components/SingUp'
+import {CatCreate} from "./components/Admin/CreateCat"
 
 function App() {
   return (
    
     <div className="App">
       <Routes>
-        <Route exact path='/' element={<Navbar/>} />
-        <Route exact path='/' element={<SearchBar />} />
+        <Route exact path= '/' element={<LandingPage/>}/>
+        <Route exact path= '/' element={<Navbar/>}/>
+        <Route exact path='/singIn' element={<SingIn />} />
+        <Route exact path='singUp' element={<SingUp />} />
         <Route exact path='/home' element={<Home />} />
         <Route exact path='/home/:id' element={<CardDetail />} />
         <Route exact path='/checkoutPage' element={<CheckoutPage />}/>
@@ -33,6 +39,7 @@ function App() {
         <Route exact path='/admin/createAcc' element={<AccesoriosCreate />} />
         <Route exact path='/admin/createEmbarcacionVenta' element={<EmbarcacionCreateEnV />} />
         <Route exact path='/admin/createEmbarcacionRenta' element={<EmbarcacionCreateRT/>} />
+        <Route exact path='/admin/createCat' element={<CatCreate/>} />
         <Route exact path='/admin/updateacc/:id' element={<UpdateAccesorio/>} />
         <Route exact path='/admin/updateembrt/:id' element={<UpdateEmbarcacionRenta/>} />
         <Route exact path='/admin/updateembventa/:id' element={<UpdateEmbarcacionVenta/>} />
