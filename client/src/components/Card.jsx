@@ -10,7 +10,7 @@ import Badge from "@mui/material/Badge"
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Button from '@mui/material/Button';
 import '../styles/card.css';
-import { addToBasket, productosDetail } from '../actions/actions'
+import { addToBasket, productosDetail,getLocaBasket } from '../actions/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState,useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -24,25 +24,29 @@ export default function Producto({ tipo, id, producto, marca, precio, fabricacio
   const [contador, setContador] = useState(0)
   const dispatch = useDispatch() 
   const basket=useSelector(state=>state.basket)    
-const [data, setData] = useState( JSON.parse(localStorage.getItem("items") || "[]"))
- localStorage.setItem("items", JSON.stringify(basket))
+//const [data, setData] = useState( JSON.parse(localStorage.getItem("items") || "[]"))
+ //localStorage.setItem("items", JSON.stringify(basket))
 
+/* useEffect(()=>{
+  localStorage.setItem("items", JSON.stringify(basket))
+},[basket])
 
+useEffect(() =>
+{
+   dispatch(getLocaBasket())
+},[]); */
 
-  const addToCart =async () =>{
+  const addToCart = () =>{
     console.log(basket)
-    dispatch(addToBasket(id))
-    if(basket===null||basket===undefined){
-      localStorage.setItem("items", JSON.stringify(JSON.parse(guardar)))
-    }
     localStorage.setItem("items", JSON.stringify(basket))
-    setData( JSON.parse(localStorage.getItem("items") || "[]"))
+    dispatch(addToBasket(id))
+    //setData( JSON.parse(localStorage.getItem("items") || "[]"))
       
       setContador(contador + 1)
      
   }
    
-let guardar=localStorage.getItem("items")
+
   
   return (
     <Fragment>

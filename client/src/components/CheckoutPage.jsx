@@ -1,7 +1,7 @@
 
 import NavBar from './Navbar'
 import { addToBasket, removeToBasket } from '../actions/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/card.css';
@@ -14,38 +14,41 @@ export default function CheckoutPage()
 {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-     
+    const basket=useSelector(state=>state.basket) 
 
     let detalles=JSON.parse(localStorage.getItem('items')!==null?localStorage.getItem('items'):'[]' )
-    console.log(detalles)
+    //console.log(detalles)
     
-    //localStorage.setItem('items',JSON.stringify(detalles))
+   //localStorage.setItem('items',JSON.stringify(detalles))
     
     const [carta, setCarta] = useState(detalles);
-    console.log(carta)
+    //console.log(carta)
 
     
     useEffect(() =>
     {
         dispatch(addToBasket())
-
+        
     }, [dispatch]);
+
+   
 
     const volver = () =>
     {
         navigate(-1)
     }
     const deleteProduct = (id) =>
-    {  let estado= localStorage.setItem(
+    {  localStorage.setItem(
         "items",
-        JSON.stringify(detalles.filter((e) =>e!==null&& e._id !== id))
+        JSON.stringify(carta.filter((e) =>e!==null&& e._id !== id))
         );
         dispatch(removeToBasket(id))
       
 
-        setCarta(estado)//JSON.parse(localStorage.getItem('items'))!==null?JSON.parse(localStorage.getItem('items')):'[]' 
+        setCarta(JSON.parse(localStorage.getItem('items'))!==null?JSON.parse(localStorage.getItem('items')):'[]' )
         
     }
+
     let pregunta;
     Array.isArray(carta)?pregunta=[...carta]:pregunta=[carta]
     console.log(pregunta)
