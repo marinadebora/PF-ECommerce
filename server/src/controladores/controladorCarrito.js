@@ -12,19 +12,31 @@ let asignarUsuarioAlCarrito = async (req,res)=> {
       }
 }
 
+let descargarElementoCarrito = async(req,res)=>{
+    try{const {id} = req.params;
+    const {idAccesorio} = req.body;
+    let usuario = await Usuarios.find({_id:id})
+    console.log(usuario)
+    if(usuario){usuario[0].carritoDeCompra.deleteOne({_id:idAccesorio})}else res.send("este producto no esta en el carrito")
+    console.log(usuario.carritoDeCompra)
+    res.send("El producto decremento correctamente" + usuario)
+    }catch(error){
+        console.log(error)
+    }
+}
+
 let agregarAlCarrito = async (req,res)=>{
     try {
         const { id } = req.params;
-        const { idAccesorio} = req.body;
+        const { idAccesorio, canti} = req.body;
         let usuario = await Usuarios.findOneAndUpdate(
           { _id: id },
-          { $push: { carritoDeCompra: [idAccesorio]}}
-          
+          { $set : { carritoDeCompra: [idAccesorio], cantidad:[canti] }} 
         );
         console.log({carritoDeCompra: [{idAccesorio}]})
-        res.send("El producto se agrego correctamente" + usuario);
-      } catch (err) {
-       console.error(err);
+        res.send("El producto se agrego correctamente" + usuario + "                ");
+      } catch (error) {
+       console.error(error);
       }
     };
 
@@ -43,5 +55,5 @@ let agregarAlCarrito = async (req,res)=>{
 
     
         
-module.exports= { agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito } 
+module.exports= { agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito,descargarElementoCarrito } 
     

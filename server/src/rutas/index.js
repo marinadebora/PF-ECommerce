@@ -23,7 +23,7 @@ const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores
 const postCategorias = require("./postCategoria");
 const { usuarios } = require("../controladores/controladorPostRegistro");
 const { usuariosAuth } = require("../controladores/ControladorPostAutenticar");
-const {agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito} = require("../controladores/controladorCarrito")
+const {agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito, descargarElementoCarrito} = require("../controladores/controladorCarrito")
 
 let router = Router();
 
@@ -50,7 +50,7 @@ router.post("/carrito/:id", agregarAlCarrito);
 router.delete("/carrito",borrarCarrito)
 router.get("/categorias", categorias)
 router.use("/categorias", postCategorias)
-
+router.delete("/carrito/:id",descargarElementoCarrito)
 
 // no ejecutar esta ruta para no replicar los documentos de la base de datos
 router.use("/a", cargarVentas)
