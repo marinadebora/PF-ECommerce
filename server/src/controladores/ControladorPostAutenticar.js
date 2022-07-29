@@ -1,4 +1,5 @@
 const Usuarios= require("../modelos/Usuarios");
+const transporter = require("../controladores/controladorPostEmail")
 
 
 const usuariosAuth= (req,res)=>{
@@ -21,7 +22,8 @@ const usuariosAuth= (req,res)=>{
 }
     
    });
-    
 };
+
+
 
 module.exports= {usuariosAuth}

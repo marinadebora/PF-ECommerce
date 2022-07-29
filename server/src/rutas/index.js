@@ -16,13 +16,14 @@ const putEmbarcacionesV = require("./putEmbarcacionesVenta");
 const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVentas");
 const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRentas");
 const deleteAccesorios = require("./deleteAccesorios");
-const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
-const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
+// const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
+// const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
 const { categorias } = require("../controladores/controladorCategorias");
 const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores/CargaVentas");
 const postCategorias = require("./postCategoria");
 const { usuarios } = require("../controladores/controladorPostRegistro");
 const { usuariosAuth } = require("../controladores/ControladorPostAutenticar");
+const correo= require("../controladores/autenticar")
 
 
 let router = Router();
@@ -45,10 +46,11 @@ router.use("/embarcacionesV",deleteEmbarcacionesVenta);
 router.use("/embarcacionesR",deleteEmbarcacionesRenta);
 router.use("/accesorio",deleteAccesorios);
 router.post("/registro",usuarios);
-router.post("/autenticar",usuariosAuth);
+router.post("/autenticar",usuariosAuth); 
 
-router.get("/categorias", categorias)
-router.use("/categorias", postCategorias)
+router.get("/categorias", categorias);
+router.use("/categorias", postCategorias);
+router.use('/correo', correo);
 
 
 // no ejecutar esta ruta para no replicar los documentos de la base de datos
