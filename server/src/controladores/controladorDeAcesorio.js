@@ -1,6 +1,7 @@
 const api = require('../resources/products.json');
 const EmvarcacionesVenta = require('../modelos/EmbarcacionesVenta')
 
+
 const getAccesorios = async (req,res)=>{
     try {
         /* const mode = await EmvarcacionesVenta.find() */

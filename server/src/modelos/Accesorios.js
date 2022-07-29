@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = require("mongoose");
 
 const accesorioSchema = new Schema({
-    producto:{
+/*     producto:{
         type: String,
         required: true,
         trim:true
@@ -29,7 +29,7 @@ const accesorioSchema = new Schema({
         required: true
     },
     stock:{
-        type:String,
+        type:Number,
         required:true
     },
     valoraciones:{
@@ -44,6 +44,53 @@ const accesorioSchema = new Schema({
 },{
     versionKey:false,
     timestamps:true
-})
+}
+ */
+producto:{
+    type: String,
+    required: true,
+    trim:true
+},
+categorias:{
+    type: Array,
+    required:true
+},
+imagenes:{
+    type: Array,
+    required: true,
+    trim:true
+},
+descripcion:{
+    type: String,
+    trim: true
+},
+dimensiones:{
+    type: String,
+    trim:true
+},
+precio:{
+    type:String,
+    required: true
+},
+stock:{
+    type:Number,
+    required:true
+},
+valoraciones:{
+    type: Array
+},
+rating:{
+    type: Number
+},
+comentarios: [
+    {
+        userId: {type: mongoose.Schema.Types.ObjectId, ref: 'Usuarios'},
+        comentario: String
 
+    }]
+},{
+    versionKey:false,
+    timestamps:true
+})
 module.exports= mongoose.model('Accesorios', accesorioSchema);
+

@@ -23,7 +23,7 @@ const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores
 const postCategorias = require("./postCategoria");
 const { usuarios } = require("../controladores/controladorPostRegistro");
 const { usuariosAuth } = require("../controladores/ControladorPostAutenticar");
-
+const {agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito} = require("../controladores/controladorCarrito")
 
 let router = Router();
 
@@ -46,7 +46,8 @@ router.use("/embarcacionesR",deleteEmbarcacionesRenta);
 router.use("/accesorio",deleteAccesorios);
 router.post("/registro",usuarios);
 router.post("/autenticar",usuariosAuth);
-
+router.post("/carrito/:id", agregarAlCarrito);
+router.delete("/carrito",borrarCarrito)
 router.get("/categorias", categorias)
 router.use("/categorias", postCategorias)
 
@@ -59,4 +60,4 @@ router.use("/c", cargarAccesorios)
 
 
 
-module.exports= router;
+module.exports = router;

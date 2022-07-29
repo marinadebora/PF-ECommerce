@@ -8,7 +8,11 @@ const UsuariosSchema = new Schema({
     password:{type:String,required:true},
     nombre:{type:String,required:true,lowercase:true},
     apellido:{type:String,required:true,lowercase:true},
-    carritoDeCompra:{type:Array},
+    carritoDeCompra:[{
+        ref: "Accesorios",
+        type: mongoose.Schema.Types.ObjectId,
+        cantidad: Number, default:1
+        }],
     historialDeCompra:{type:Array},
     favoritos:{type:Array},
     admin:{type:Boolean,default:false}
@@ -46,7 +50,7 @@ UsuariosSchema.methods.isCorrectPassword= function(password,callback){
 
 }
 
-module.exports=mongoose.model("usuarios",UsuariosSchema)
+module.exports=mongoose.model("Usuarios",UsuariosSchema)
 
 
 
