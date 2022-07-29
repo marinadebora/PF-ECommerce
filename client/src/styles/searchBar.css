@@ -1,0 +1,70 @@
+
+.item{
+    text-decoration: none;
+    float: left;
+   
+    color: #0184a9;
+    font-size: 12px;
+}
+
+#appBar2{
+    background-color: #ffffff;
+}
+
+#campos{
+    margin-left: 140px;
+    
+}
+#categoriasR{
+    margin-right: 40px ;
+    height: 20px;
+    padding: 20px;
+   
+}
+#text{
+    margin-right: 4px;
+    color: #0184a9;
+    
+}
+
+#buttonBackForm{
+
+    font-weight: bold;
+    color: white;
+    height: 25px;
+    width: 70px;
+    background-color:#0184a9;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    margin-top: 100px;
+    margin-right: 100px;
+    cursor: pointer;
+    
+    
+}
+
+#buttonR{
+    background-color: #0184a9;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    margin-left: 10px;  
+    cursor: pointer; 
+}
+
+#buttonB{
+    background-color: #0184a9;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    margin-left: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* @media(max-width: 1500px){
+    #appBar2{
+       display: none;
+    }
+} */

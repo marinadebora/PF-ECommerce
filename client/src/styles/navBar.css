@@ -1,5 +1,8 @@
-#logo{
-    height: 70px;
+
+
+#logoNavBar{
+    height: 50px;
+    margin-right: 100px;
 }
 
 #appBar{
@@ -30,6 +33,87 @@
     padding: 20px;
     float: left;
 }
+
+#adminNavbar{
+    text-decoration: none;
+    color: #0184a9
+}
+
+
+.paralelogramo{
+   
+    width: 85px; 
+    height: 72px; 
+    margin-right: 60px;
+    background: #01bfc4;
+    border: none;
+    cursor: pointer;
+    -webkit-transform: skewX(-40deg); 
+   
+}
+
+#buttonParalel{
+    width: 80px;
+    background-color: transparent;
+    border: none;
+    color: #02537d;
+    -webkit-transform: skewX(40deg); 
+    margin-top: 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media(max-width: 680px){
+    #guest{
+       display: none;
+    }
+
+    #logo{
+        margin-left: 30px;
+        margin-right: 80px;
+    }
+    #button{
+        height: 25px;
+        width: 70px;
+        font-size: 8px;
+    }
+}
+
+@media(max-width: 600px){
+    #guest{
+        display: none;
+     }
+ 
+     #logo{
+        margin-left: 10px;
+        height: 50px;
+     }
+     #button{
+         height: 25px;
+         width: 70px;
+         font-size: 8px;
+     }  
+
+     #cart{
+        font-size: 20px;
+        color: #0184a9
+    }
+
+    #badge{
+        height: 15px;
+    }
+}
+
+@media(max-width: 507px){
+    
+     #logo{
+        height: 40px;
+}
+}
+
+
+
 
 
 

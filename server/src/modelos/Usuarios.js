@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { Schema } = require("mongoose");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt")
@@ -50,3 +51,19 @@ module.exports=mongoose.model("usuarios",UsuariosSchema)
 
 
 
+=======
+const { Schema } = require("mongoose");
+const mongoose = require("mongoose")
+
+const usuariosSchema = new Schema({
+    id:{
+        required:true,
+        primaryKey:true   
+    },
+    carritoCompra:{
+        type:Array,
+    }
+})
+
+module.exports= mongoose.model("Usuarios",usuariosSchema)
+>>>>>>> f4ce25ed315d5d7cdb681ca61547947209a15099

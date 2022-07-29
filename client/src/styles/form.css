@@ -1,0 +1,87 @@
+.form {
+  
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
+  width: 600px;
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 20px;
+}
+
+.error {
+  color: red;
+  font-style: italic;
+  font-size: 10px;
+  text-align: right;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 30px;
+}
+
+#buttonBackForm {
+  font-weight: bold;
+  color: white;
+  height: 25px;
+  width: 150px;
+  background-color: #0184a9;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+  margin-top: 5px;
+  margin-right: 100px;
+  margin-left: 120px;
+  cursor: pointer;
+}
+
+#buttonSubmitForm {
+  font-weight: bold;
+  color: white;
+  height: 25px;
+  width: 150px;
+  background-color: #0184a9;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.form input,
+textarea {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form label {
+  float: left; /* Ahora los inputs quedan debajo de los label */
+  padding: 5px; /* Separando espacios internos */
+  color: #0184a9;
+}
+
+.form li {
+  margin: 15px; /* dando márgenes a todos los elementos de la lista */
+}
+
+.form ul {
+  list-style: none;
+}
+
+.button {
+  margin-top: 20px; /* Damos un margen individual para el contenedor del botón */
+}
+
+.input {
+  margin-right: auto;
+}
