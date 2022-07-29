@@ -16,14 +16,14 @@ const putEmbarcacionesV = require("./putEmbarcacionesVenta");
 const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVentas");
 const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRentas");
 const deleteAccesorios = require("./deleteAccesorios");
-const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
-const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
+/* const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
+const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta"); */
 const { categorias } = require("../controladores/controladorCategorias");
 const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores/CargaVentas");
 const postCategorias = require("./postCategoria");
 const { usuarios } = require("../controladores/controladorPostRegistro");
 const { usuariosAuth } = require("../controladores/ControladorPostAutenticar");
-
+const {agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito} = require("../controladores/controladorCarrito")
 
 let router = Router();
 
@@ -46,7 +46,8 @@ router.use("/embarcacionesR",deleteEmbarcacionesRenta);
 router.use("/accesorio",deleteAccesorios);
 router.post("/registro",usuarios);
 router.post("/autenticar",usuariosAuth);
-
+router.post("/carrito/:id", agregarAlCarrito);
+router.delete("/carrito",borrarCarrito)
 router.get("/categorias", categorias)
 router.use("/categorias", postCategorias)
 

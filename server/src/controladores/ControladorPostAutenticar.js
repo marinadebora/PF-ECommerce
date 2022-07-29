@@ -1,5 +1,5 @@
 const Usuarios= require("../modelos/Usuarios");
-
+const jwt = require("jsonwebtoken")
 
 const usuariosAuth= (req,res)=>{
     const {email,password} = req.body;
@@ -13,7 +13,11 @@ const usuariosAuth= (req,res)=>{
         if(err){
             res.status(500).send("Error al autenticar")
         }else if(result){
-            res.send("Correo autenticado correctamente")
+            let token = jwt.sign({Usuarios}, "torombolo", {
+                expiresIn: "10h"
+            })
+            res.cookie("token", token, { expiresIn: "10h" });
+            res.send({email,token})
         }else {
             res.status(500).send("Correo y/o contraseña incorrecta")
         }
