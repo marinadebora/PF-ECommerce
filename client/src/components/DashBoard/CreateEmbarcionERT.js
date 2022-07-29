@@ -5,15 +5,14 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import {postEmbarcacionEnV, Categorias } from '../../actions/admin-action';
-import { barcosEnVenta, /*getAllTypes */} from '../../actions/actions';
+import {postEmbarcacionRT, Categorias } from '../../actions/admin-action';
+import { barcosEnAlquiler, /*getAllTypes */} from '../../actions/actions';
 import form from '../../styles/form.css';
 import { Link } from 'react-router-dom';
 
 
 
-
-export function EmbarcacionCreateEnV(){
+export function EmbarcacionCreateRT(){
 
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -21,69 +20,70 @@ export function EmbarcacionCreateEnV(){
     function validate(input){
 
        /* {
-            "_id": "62d8b46f497e920550b6f123",
-            "tipo": "Catamaran a motor",
-            "categorias": [],
-            "modelo": "A10",
-            "precio": "238386 usd",
-            "astillero": "Aventura Catamarans",
-            "fabricacion": 2022,
-            "localizacion": "España",
-            "imagenes": [
-              "https://imagenes.cosasdebarcos.com/barcosOcasion/9/0/4/6/a10-aventura-catamarans-70789100210854487068545254684570x.jpg"
-            ],
-            "numero_de_pasajeros": 10,
-            "eslora": "9.98 m",
-            "manga": "5.3 m",
-            "calado": "0.8 m",
-            "numero_de_motores": 2,
-            "marca_de_motor": "Yanmar",
-            "potencia_total": "200 CV",
-            "descripcion": "",
-            "combustible": "Diesel",
-            "__v": 0
+            {
+    "_id": "62d8ae81d780cdfae6405235",
+    "marca": "Genesis",
+    
+    "modelo": "Genesis290",
+    "fabricacion": "2018",
+    "fabricacionDelMotor": 2018,
+    "motor": "4 tiempos",
+    
+    "eslora": "9.05 m",
+    "manga": "2.6 m",
+    "puntal": "1. 72 m",
+    "cantMotores": "1",
+    "hp": "300",
+    "marcamotor": "VOLVO PENTA",
+    "descripcion": "",
+    "combustible": "Nafta",
+    "horas": "40",
+    "transmision": "Pata Duo Prop.-",
+    "createdAt": "2022-07-21T01:40:17.567Z",
+    "updatedAt": "2022-07-21T01:40:17.567Z"
+  }
           }*/
         let errors = {}
 
-        if(!input.tipo){
-            errors.tipo = 'Falta ingresar el tipo'
+        if(!input.marca){
+            errors.marca = 'Falta ingresar el marca'
         }
         if(!input.modelo){
             errors.modelo='No ingresaste el modelo'
         }
-        if(!input.precio){
-            errors.precio = 'no ingresaste el precio.'
+        if(!input.fabricacionDelMotor){
+            errors.fabricacionDelMotor = 'no ingresaste el fabricacionDelMotor.'
         }
-        if(!input.astillero){
-            errors.astillero = 'no ingresaste astillero'
+        if(!input.motor){
+            errors.motor = 'no ingresaste motor'
         }
         if (!input.fabricacion){
             errors.fabricacion = "no ingresaste fabricacion"
         }
-        if (!input.localizacion){
-            errors.localizacion = "no ingresaste localizacion"
+        if (!input.marcamotor){
+            errors.marcamotor = "no ingresaste marcamotor"
         }
-        if (!input.numero_de_pasajeros){
-            errors.numero_de_pasajeros = "no ingresaste numero_de_pasajeros"
+        if (!input.puntal){
+            errors.puntal = "no ingresaste puntal"
         }
         if (!input.eslora){
             errors.eslora = "no ingresaste eslora"
         }
         if (!input.manga){
-            errors.manga = "no ingresaste manga"
+            errors.manga = "no ingresaste .manga"
         }
-        if (!input.calado){
-            errors.calado = "no ingresastecalado"
+        if (!input.hp){
+            errors.hp = "no ingresaste hp"
         }
-       
-         if (!input.numero_de_motores){
-            errors.numero_de_motores = "no ingresaste numero_de_motores"
+        if (!input.cantMotores){
+            errors.cantMotores = "no ingresaste cantMotores"
         }
-        if (!input.marca_de_motor){
-            errors.marca_de_motor = "no ingresaste marca_de_motor"
+        
+        if (!input.transmision){
+            errors.transmision = "no ingresaste transmision"
         }
-        if (!input.potencia_total){
-            errors.potencia_total = "no ingresaste potencia_total"
+        if (!input.horas){
+            errors.horas = "no ingresaste horas"
         }
         if (!input.descripcion){
             errors.descripcion = "no ingresaste descripcion"
@@ -91,37 +91,41 @@ export function EmbarcacionCreateEnV(){
         if (!input.combustible){
             errors.combustible = "no ingresaste combustible"
         }
+
+
+
+
         
         return errors
     }
 
-    
     //const allRecipes = useSelector((state) => state.all_recipes); FIJARSE STORE ALL PRODUCTS
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
     useEffect( () => {
         dispatch(Categorias())
-        dispatch(barcosEnVenta())
+        dispatch(barcosEnAlquiler())
     }, [dispatch])
 
-    const [input, setinput] = useState({
-        tipo: '',
+    const [input, setInput] = useState({
+        marca: '',
         modelo: '',
-        precio: "",
-        astillero: '',
+        fabricacionDelMotor:0,
+        motor: '',
         fabricacion: 0,
-        localizacion: '',
-        numero_de_pasajeros: 0,
+        marcamotor:'' ,
+        puntal: "",
         eslora:"",
         manga:"",
-        calado:"",
-        numero_de_motores:0,
-        marca_de_motor: "",
-        potencia_total: "",
-        descripcion: "",
-        combustible: "",
-        imagenes: [],
+        hp:"",
+        cantMotores:"",
+        transmision:" ",
+        horas: " ",
+        descripcion: " ",
+        combustible: " ",
         categorias: [],
+        imagenes: [],
+
 
     })
 
@@ -130,7 +134,7 @@ export function EmbarcacionCreateEnV(){
 
     function handleCat(e){
         if(!input.categorias.includes(e.target.value)){
-            setinput({
+            setInput({
                 ...input,
                 categorias: [...input.categorias, e.target.value]
             })
@@ -138,82 +142,78 @@ export function EmbarcacionCreateEnV(){
     }
 
     function handleDelete(d){
-        setinput({
+        setInput({
             ...input,
             categorias: input.categorias.filter(e => e !== d)
         })
     }
-
     function handleChange(e){
-        setinput({
+        setInput({
             ...input,
             [e.target.name]:e.target.value
-        })
-       setErrors(validate({
+        }) //LAS DIETAS VENDRIAN A SER LAS CATEGORIAS, TODAVI NO SE DEFINIO NOMBRE NI MODELO
+
+        setErrors(validate({
             ...input,
             [e.target.name]:e.target.value
         }))
-        
     }
     const handleChangeArray=(e)=>{
-        setinput({
+        setInput({
           ...input,
           [e.target.name] : [e.target.value]
       })
     }
+
+    const allEmbarcacionRenta = useSelector((state) => state.rentVessels);
     const allCat = useSelector(state => state.categorias)
-    const allEmbarcacionVenta = useSelector((state) => state.saleVessels);
     
-    function handleSubmit(e) {   
-        e.preventDefault(); 
-        
-        try {
-            let findproducto = allEmbarcacionVenta.find((e) => e.tipo.toLowerCase() === input.tipo.toLowerCase()
+    function handleSubmit(e) {    
+        e.preventDefault();
+        try  {
+            let findName = allEmbarcacionRenta.find((e) => e.marca.toLowerCase() === input.marca.toLowerCase()
             )
-            if (findproducto) {
-              return alert("Ya existe un producto con este nombre. ¡Cambialo!");
-            }else if(Object.keys(errors).length === 0 && (input.tipo!=='')){
+            if (findName) {
+              return alert("Ya existe una embarcacion con este nombre. ¡Cambialo!");
+            }else if(Object.keys(errors).length === 0 && (input.marca!=='')){
+              
+              dispatch(postEmbarcacionRT(input))
+              setInput({
+                  marca: '',
+                  modelo: '',
+                  fabricacionDelMotor:0,
+                  motor: '',
+                  fabricacion: 0,
+                  marcamotor:'' ,
+                  puntal: 0,
+                  eslora:0,
+                  manga:0,
+                  hp:0,
+                  cantMotores:0,
+                  transmision:" ",
+                  horas: " ",
+                  descripcion: " ",
+                  combustible: " ",
+                  categorias: [],
+                  imagenes: [],
+              })
+              return (
+                  alert(`La Embarcacion fue creada con éxito.`), navigate(`/admin`)
+                  ) 
             
-            
-            dispatch(postEmbarcacionEnV(input))
-            setinput({
-                tipo: '',
-                modelo: '',
-                precio: "",
-                astillero: '',
-                fabricacion: 0,
-                localizacion:'' ,
-                numero_de_pasajeros: 0,
-                eslora: "",
-                manga: "",
-                calado:"",
-                numero_de_motores:0,
-                marca_de_motor: "",
-                potencia_total: "",
-                descripcion: "",
-                combustible: "",
-                categorias: [],
-                imagenes: [],
-            })
-            return (
-                alert(`La Embarcacion fue creada con éxito.`), navigate(`/admin`)
-                ) 
-          
-       } } catch (error) {
-          console.log(error);
-          return alert(
-            "Algo falló al crear la embarcacion. "
-          );
-        }
+         } } catch (error) {
+            console.log(error);
+            return alert(
+              "Algo falló al crear la embarcacion. "
+            );
+          }
       };
-      
-      
     
     return (
         <div className="cont-form">
             
             
-            { !allCat ? 
+            {!allCat ? 
                 <>
                     <div>
                         <h1>LOADING</h1>
@@ -226,17 +226,17 @@ export function EmbarcacionCreateEnV(){
                             <h1>Crea tu Embarcacion</h1>
                             
                             <div >
-                                <label>Tipo de la Embarcacion: </label>
+                                <label>Nombre de la Embarcacion: </label>
                                 <input 
                                     type='text' 
-                                    name='tipo' 
-                                    placeholder='Tipo de la embarcacion' 
-                                    value={input.tipo}
+                                    name='marca' 
+                                    placeholder='marca de la embarcacion' 
+                                    value={input.marca}
                                     onChange={handleChange}
-                                    className="input"
+                                    className={errors.marca && 'danger'}
                                 >
                                 </input>
-                                {errors.tipo && <p className="danger">{errors.tipo}</p>}
+                                {errors.marca && <p className="danger">{errors.marca}</p>}
                             </div>
                             
                             <div>
@@ -245,10 +245,10 @@ export function EmbarcacionCreateEnV(){
                                     type='text' 
                                     name='descripcion' 
                                     value={input.descripcion}
-                                    className="input" 
+                                    className={errors.descripcion && 'danger'} 
                                     onChange={handleChange}> 
                                 </textarea>
-                                {errors.tipo && <p className="danger">{errors.tipo}</p>}
+                                {errors.marca && <p className="danger">{errors.marca}</p>}
                             </div>
 
                             <div>
@@ -258,38 +258,38 @@ export function EmbarcacionCreateEnV(){
                                     name='modelo' 
                                     value={input.modelo} 
                                     onChange={handleChange}
-                                    className="input"
+                                    className={errors.modelo && 'danger'}
                                     >
                                 </input>
                                 {errors.modelo && <p className="danger">{errors.modelo}</p>}
                             </div>
                             <div>
-                                <label>precio:</label>
-                                <input
-                                    type='text' 
-                                    name='precio' 
-                                    value={input.precio} 
+                                <label>fabricacionDelMotor:</label>
+                                <input 
+                                    type='number' 
+                                    name='fabricacionDelMotor' 
+                                    value={input.fabricacionDelMotor} 
                                     onChange={handleChange}
-                                    className="input"
+                                    className={errors.fabricacionDelMotor && 'danger'}
                                     >
                                 </input>
-                                {errors.precio && <p className="danger">{errors.precio}</p>}
+                                {errors.fabricacionDelMotor && <p className="danger">{errors.fabricacionDelMotor}</p>}
                             </div>
                             <div>
-                                <label>Astillero:</label>
-                                <input
+                                <label>motor:</label>
+                                <input 
                                     type='text' 
-                                    name='astillero' 
-                                    value={input.astillero} 
+                                    name='motor' 
+                                    value={input.motor} 
                                     onChange={handleChange}
-                                    className={errors.astillero && 'danger'}
+                                    className={errors.motor && 'danger'}
                                     >
                                 </input>
-                                {errors.astillero && <p className="danger">{errors.astillero}</p>}
+                                {errors.motor && <p className="danger">{errors.motor}</p>}
                             </div>
                             <div>
                                 <label>Fabricacion:</label>
-                                <input
+                                <input 
                                     type='number' 
                                     name='fabricacion' 
                                     value={input.fabricacion} 
@@ -300,28 +300,28 @@ export function EmbarcacionCreateEnV(){
                                 {errors.fabricacion && <p className="danger">{errors.fabricacion}</p>}
                             </div>
                             <div>
-                                <label>Localizacion:</label>
+                                <label>marcamotor:</label>
                                 <input 
                                     type='text' 
-                                    name='localizacion' 
-                                    value={input.localizacion} 
+                                    name='marcamotor' 
+                                    value={input.marcamotor} 
                                     onChange={handleChange}
-                                    className={errors.localizacion && 'danger'}
+                                    className={errors.marcamotor && 'danger'}
                                     >
                                 </input>
-                                {errors.localizacion && <p className="danger">{errors.localizacion}</p>}
+                                {errors.marcamotor && <p className="danger">{errors.marcamotor}</p>}
                             </div>
                             <div>
-                                <label>Numero de Pasajeros:</label>
+                                <label>Puntal:</label>
                                 <input 
-                                    type='number' 
-                                    name='numero_de_pasajeros' 
-                                    value={input.numero_de_pasajeros} 
+                                    type='text' 
+                                    name='puntal' 
+                                    value={input.puntal} 
                                     onChange={handleChange}
-                                    className={errors.numero_de_pasajeros && 'danger'}
+                                    className={errors.puntal && 'danger'}
                                     >
                                 </input>
-                                {errors.numero_de_pasajeros && <p className="danger">{errors.numero_de_pasajeros}</p>}
+                                {errors.puntal && <p className="danger">{errors.puntal}</p>}
                             </div>
                             <div>
                                 <label>Eslora:</label>
@@ -348,52 +348,52 @@ export function EmbarcacionCreateEnV(){
                                 {errors.manga && <p className="danger">{errors.manga}</p>}
                             </div>
                             <div>
-                                <label>Calado:</label>
+                                <label>hp:</label>
                                 <input 
                                     type='text' 
-                                    name='calado' 
-                                    value={input.calado} 
+                                    name='hp' 
+                                    value={input.hp} 
                                     onChange={handleChange}
-                                    className={errors.calado && 'danger'}
+                                    className={errors.hp && 'danger'}
                                     >
                                 </input>
-                                {errors.calado && <p className="danger">{errors.calado}</p>}
+                                {errors.hp && <p className="danger">{errors.hp}</p>}
                             </div>
                             <div>
-                                <label>Numero de Motores:</label>
-                                <input 
-                                    type='number' 
-                                    name='numero_de_motores' 
-                                    value={input.numero_de_motores} 
-                                    onChange={handleChange}
-                                    className={errors.numero_de_motores && 'danger'}
-                                    >
-                                </input>
-                                {errors.numero_de_motores && <p className="danger">{errors.numero_de_motores}</p>}
-                            </div>
-                            <div>
-                                <label>Marca de Motor:</label>
+                                <label>Cantidad De Motores:</label>
                                 <input 
                                     type='text' 
-                                    name='marca_de_motor' 
-                                    value={input.marca_de_motor} 
+                                    name='cantMotores' 
+                                    value={input.cantMotores} 
                                     onChange={handleChange}
-                                    className={errors.marca_de_motor && 'danger'}
+                                    className={errors.cantMotores && 'danger'}
                                     >
                                 </input>
-                                {errors.marca_de_motor && <p className="danger">{errors.marca_de_motor}</p>}
+                                {errors.cantMotores && <p className="danger">{errors.cantMotores}</p>}
                             </div>
                             <div>
-                                <label>Potencia Total:</label>
+                                <label>Transmision:</label>
                                 <input 
                                     type='text' 
-                                    name='potencia_total' 
-                                    value={input.potencia_total} 
+                                    name='transmision' 
+                                    value={input.transmision} 
                                     onChange={handleChange}
-                                    className={errors.potencia_total && 'danger'}
+                                    className={errors.transmision && 'danger'}
                                     >
                                 </input>
-                                {errors.potencia_totalr && <p className="danger">{errors.potencia_total}</p>}
+                                {errors.transmision && <p className="danger">{errors.transmision}</p>}
+                            </div>
+                            <div>
+                                <label>Horas:</label>
+                                <input 
+                                    type='text' 
+                                    name='horas' 
+                                    value={input.horas} 
+                                    onChange={handleChange}
+                                    className={errors.horas && 'danger'}
+                                    >
+                                </input>
+                                {errors.horas && <p className="danger">{errors.horas}</p>}
                             </div>
                             <div>
                                 <label>Combustible:</label>
@@ -413,8 +413,8 @@ export function EmbarcacionCreateEnV(){
                            {/*<button name="imagenes" onClick={(e)=>handleChangeArray(e)}>SUBIR FOTO</button>*/}
        
                             </div>
-
-                            <div className="class-select">
+                                
+                                <div className="class-select">
                                 <label>Categorias</label>
                                 <select onChange={handleCat} value='Onetype' >
                                     <option>Eligir Categorias</option>
@@ -428,8 +428,8 @@ export function EmbarcacionCreateEnV(){
                                 </select>
                             </div>
 
-                            <button id='buttonSubmitForm' className="button-submitev" type="submit">Create Product</button>
-                            <Link to='/dashboard'>
+                            <button id='buttonSubmitForm' className="button-submit" type="submit">Create Product</button>
+                            <Link to='/admin'>
                                 <button id='buttonBackForm'>Back</button>
                             </Link>
 
@@ -438,7 +438,7 @@ export function EmbarcacionCreateEnV(){
                                 <button disabled className="button-submit" type="submit">Enviar Receta</button>:
                                 
                             } */}
-                        </form>   
+                        </form>
                         <div className="my-categ">
                             <h3>Mis Categorias</h3>
                             <div className="cat">
@@ -452,14 +452,16 @@ export function EmbarcacionCreateEnV(){
                                 }
                             )}
                             </div>
-                        </div>                            
+                        </div>
+
+                       
                     </div>
                 </>
             }
-           
             
+
         </div>
     )
 }
 
-export default EmbarcacionCreateEnV;
+export default EmbarcacionCreateRT;

@@ -429,7 +429,7 @@ export function EmbarcacionCreateEnV(){
                             </div>
 
                             <button id='buttonSubmitForm' className="button-submitev" type="submit">Create Product</button>
-                            <Link to='/dashboard'>
+                            <Link to='/admin'>
                                 <button id='buttonBackForm'>Back</button>
                             </Link>
 

@@ -94,17 +94,13 @@ export default function CheckoutPage()
                                     <DeleteForeverIcon id='buttonRemove' />
                                     </IconButton>
                                     
-                        }
-                        
+                        }   
                     
                     </div>
                     ))
                 
             }
             <button id='buttonBackCheckout' onClick={volver}>Back</button>
-            
-
-
         </div>
 
     )

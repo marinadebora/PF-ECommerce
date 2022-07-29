@@ -11,6 +11,7 @@ import SearchBarProductos from './SearchBarProductos';
 import { Grid } from '@mui/material'
 import '../styles/searchBar.css';
 import '../styles/box.css'
+import {FiltrosAccesorios} from './FiltrosAccesorios';
 
 
 
@@ -56,6 +57,10 @@ export function Accesorios(){
       <SearchBarProductos/>
 
       <Grid container spacing={2}>
+      {/* <FiltrosAccesorios
+    setPage={setPage}
+     /> */}
+
         {
 
           actualPage?.map(e => 

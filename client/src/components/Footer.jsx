@@ -1,4 +1,6 @@
-import {AppBar, Toolbar, IconButton, Typography, Button, Badge, Grid} from "@mui/material";
+import {AppBar, Toolbar, IconButton, Typography, Button, Box, Grid} from "@mui/material";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import ContactLinkedIn from "@mui/icons-material/LinkedIn";
 import "../styles/navBar.css";
 import Logo from "../imagenes/logo_PF_Yatch.png";
 import { ShoppingCart } from "@mui/icons-material";
@@ -15,15 +17,20 @@ export default function Footer() {
       <AppBar position="sticky" id="footer">
         <Grid>
           <Toolbar>
-        
-            <Link to='/checkoutPage'>
-              <IconButton sx={{marginRight: 'auto'}} arial-label="show cart items" id="cartButton">
-                <Badge badgeContent={3} color="secondary" id='badge'>
-                  <ShoppingCart id="cart" />
-                </Badge>
+        <Box id="LinksFooterAll" sx={{marginLeft: 'auto'}}>
+          <Box id="LinksFooter">
+              <IconButton id="contactFooter" href="/formContact">
+                <a>Contacto</a>
+                <ContactMailIcon/> 
               </IconButton>
-            </Link>
-            
+            </Box>
+            <Box id="LinksFooter">
+              <IconButton id="contactFooter" href="/formContact">
+                <a>LinkedIn</a>
+                <ContactLinkedIn/>
+              </IconButton>
+          </Box>
+        </Box>  
           </Toolbar>
         </Grid>
       </AppBar>

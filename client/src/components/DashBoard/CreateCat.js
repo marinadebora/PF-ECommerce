@@ -159,7 +159,7 @@ export function CatCreate(){
                             </div>
 
                             <button classproducto="button-submit" type="submit" >Enviar Categoria</button>
-                            <Link to='/dasboard'>
+                            <Link to='/admin'>
                                 <button id='buttonBackForm'>Back</button>
                             </Link>
                             

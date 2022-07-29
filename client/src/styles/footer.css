@@ -2,3 +2,17 @@
     height: 200px;
     background-color: #0184a9;
 }
+
+
+#LinksFooterAll{
+    margin-top: 10px;
+    margin-right: 30px;
+   
+}
+
+
+#contactFooter a{
+    align-items: flex-end;
+    margin-right: 10px;
+    font-size: 15px;
+}

@@ -4,7 +4,7 @@ import { barcosEnVenta, filtroPrecio, filtrosCategoriaEmbarcacion, precioOrden }
 import { Link } from 'react-router-dom';
 import { Box } from '@mui/system';
 import Paginado from "./Paginado";
-import Card from './Card'
+import CardRentaVenta from './CardRentaVenta'
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { Grid } from '@mui/material'
@@ -58,7 +58,7 @@ export function BarcosEnVenta()
               <Fragment>
                 <Grid item xs={12} sm={6} md={4} lg={3}>
 
-                  <Card
+                  <CardRentaVenta
                     tipo={e.tipo}
                     Marca={e.Marca}
                     modelo={e.modelo}
