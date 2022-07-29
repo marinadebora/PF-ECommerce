@@ -11,7 +11,7 @@ const UsuariosSchema = new Schema({
     carritoDeCompra:{type:Array},
     historialDeCompra:{type:Array},
     favoritos:{type:Array},
-    admin:{type:Boolean,defaultValue:false}
+    admin:{type:Boolean,default:false}
 
 })
 // module.exports= mongoose.model('usuarios', UsuariosSchema);
