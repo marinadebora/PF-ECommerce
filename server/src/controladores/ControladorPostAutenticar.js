@@ -13,7 +13,7 @@ const usuariosAuth= (req,res)=>{
         if(err){
             res.status(500).send("Error al autenticar")
         }else if(result){
-            console.log(req.headers/* .authorization.split(" ")[1] */)
+            console.log(req.headers.authorization/* .split(" ")[1] */)
             let token = jwt.sign({Usuarios}, "torombolo", {
                 expiresIn: "10h"
             })

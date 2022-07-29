@@ -23,7 +23,7 @@ export function todosLosProductos()
     }
 }
 function filtrado(id){
-   return infoProductos.filter(e=>e.id==id) 
+    return infoProductos.filter(e=>e.id==id) 
 }
 
 export function productosDetail(id)
@@ -32,7 +32,6 @@ export function productosDetail(id)
     {
         try {
            const proDetail = filtrado(id)  //await axios(`http://localHost:3001/productos${id}`)
-           
             return dispatch({
                 type: 'PRODUCTOS_DETAIL',
                 payload: proDetail[0]
@@ -43,4 +42,14 @@ export function productosDetail(id)
 
     }
 
+}
+
+export const login = (value) => async (dispatch)=>{
+    const axiosConfi = ()=>{
+        
+    }
+    return await axios.post(`http://localHost:4000//registro`)
+    .then(res =>{
+        dispatch({type:'LOGIN', payload: res.data})
+    })
 }

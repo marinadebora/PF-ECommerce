@@ -3,7 +3,7 @@ const bcrypt=require("bcrypt");
 const jwt = require("jsonwebtoken")
 
 const usuarios= async (req,res)=>{
-    const {email,password,nombre,apellido,carritoDeCompra,historialDeCompra,favoritos,admin} = req.body;
+    const {email,password,nombre,apellido} = req.body;
     const api = await Usuarios.findOne({ email })
     console.log(api)
     if(api){ 
@@ -20,6 +20,7 @@ const usuarios= async (req,res)=>{
             })
             res.send({
                 email:email,
+                nombre: nombre,
                 token:token
             })
         }

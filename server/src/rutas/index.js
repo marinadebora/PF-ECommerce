@@ -23,7 +23,8 @@ const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores
 const postCategorias = require("./postCategoria");
 const { usuarios } = require("../controladores/controladorPostRegistro");
 const { usuariosAuth } = require("../controladores/ControladorPostAutenticar");
-const {agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito} = require("../controladores/controladorCarrito")
+const {agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito} = require("../controladores/controladorCarrito");
+const { requireSignin } = require("../controladores/Verificaciones");
 
 let router = Router();
 
@@ -31,7 +32,7 @@ router.use("/embarcacionesV", getEmbarVenta);
 router.use("/embarcacionesVId", getEmbarVentaId);
 router.use("//embarcacionesR", getEmbarRenta);
 router.use("/embarcacionesRId", getEmbarRentaId);
-router.use("/accesorios", getAccesorios);
+router.use("/accesorios",requireSignin, getAccesorios);
 router.use("/accesorio", getAccesoriosId);
 router.use("/todos", getTodo);
 router.use("/todos", getTodoId);
