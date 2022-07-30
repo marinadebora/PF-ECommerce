@@ -92,8 +92,9 @@ import cookie from 'js-cookie'
         }
 
        case 'ADD_TO_BASKET':
-          const cart_add = state.products.find(e => e._id === action.payload.id) 
+          const cart_add = state.allAccesories.find(e => e._id === action.payload.id) 
           localStorage.getItem("item2")
+          console.log(cart_add)
          
          if(cartFromLocalStorage.length) {
           localStorage.setItem(
@@ -223,6 +224,13 @@ import cookie from 'js-cookie'
             }
           case "POST_CATEGORIAS":   
             return { ...state, categorias: state.categorias.concat(action.payload) };
+
+            case "RESET_DETAIL":
+              return {
+                ...state,
+                detail: {},
+              };
+            
   
       default: {
         return state

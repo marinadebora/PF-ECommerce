@@ -48,9 +48,7 @@ const [contador, setContador] = useState(0)
 		setPage(numPage)
 	}
     useEffect(()=>{
-        localStorage.setItem("item2", JSON.stringify(cart));
-        dispatch(getItemsCart());
-        dispatch(resetDetail());
+        
         dispatch(todosLosProductos())
 
     },[dispatch, cart])

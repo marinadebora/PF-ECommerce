@@ -68,7 +68,7 @@ export default function CardDetail()
 
   const volver = () =>
   {
-    navigate(`/home`)
+    navigate(`/accesorios`)
   }
 
 

@@ -47,7 +47,7 @@ router.use("/categorias", deleteCategoria)
 
 
 // no ejecutar esta ruta para no replicar los documentos de la base de datos
-router.use("/cargarVenta", cargarVentas)
+//router.use("/cargarVenta", cargarVentas)
 
 
 

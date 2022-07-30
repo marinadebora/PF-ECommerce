@@ -28,6 +28,8 @@ export default function Producto({ tipo,id, producto, marca ,precio, fabricacion
   
   
   
+  
+  
    const [contador, setContador] = useState(0)
    const dispatch = useDispatch() 
    const basket=useSelector(state=>state.basket)  
