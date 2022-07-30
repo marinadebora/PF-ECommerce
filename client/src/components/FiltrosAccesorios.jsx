@@ -1,7 +1,7 @@
 import React,{ useEffect,useState }  from "react";
 import { accesorios, filtroPrecioAccesorios, filtroCategoriaAccesorios,precioOrdenAccesorios } from '../actions/actions'
 import { useDispatch } from "react-redux";
-import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap'
+
 export function FiltrosAccesorios({setPage}) {
     const dispatch = useDispatch()
     const [, setOrdering] = useState('')

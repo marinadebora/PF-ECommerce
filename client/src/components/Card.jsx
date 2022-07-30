@@ -10,44 +10,24 @@ import Badge from "@mui/material/Badge"
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Button from '@mui/material/Button';
 import '../styles/card.css';
-import { addToBasket, productosDetail,getLocaBasket } from '../actions/actions'
-import { useDispatch, useSelector } from 'react-redux'
-import { useState,useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import {addToBasket} from '../actions/actions'
+import {useDispatch} from 'react-redux'
+import {  useState } from 'react';
 
 
 
 
 
-export default function Producto({ tipo, id, producto, marca, precio, fabricacion, imagenes, Link })
-{
-  const [contador, setContador] = useState(0)
-  const dispatch = useDispatch() 
-  const basket=useSelector(state=>state.basket)    
-//const [data, setData] = useState( JSON.parse(localStorage.getItem("items") || "[]"))
- //localStorage.setItem("items", JSON.stringify(basket))
 
-/* useEffect(()=>{
-  localStorage.setItem("items", JSON.stringify(basket))
-},[basket])
-
-useEffect(() =>
-{
-   dispatch(getLocaBasket())
-},[]); */
-
-  const addToCart = () =>{
-    console.log(basket)
-    localStorage.setItem("items", JSON.stringify(basket))
-    dispatch(addToBasket(id))
-    //setData( JSON.parse(localStorage.getItem("items") || "[]"))
-      
-      setContador(contador + 1)
-     
-  }
+export default function Producto({ tipo,id, producto, marca ,precio, fabricacion, imagenes, Link}) {
+  //const { id } = useParams();
+  const [contador,setContador]=useState(0)
+   const dispatch = useDispatch()
    
-
-  
+   const addToCart = () =>{
+      dispatch(addToBasket(id))
+    setContador(contador +1)
+   }
   return (
     <Fragment>
       <Card sx={{ maxWidth: 330 }} id='card'>
@@ -71,28 +51,29 @@ useEffect(() =>
           }
         />
 
-        {imagenes ?
-          <CardMedia
-            component="img"
-            height="200"
-            image={imagenes} />
-          : ''
-
+        { imagenes?
+         <CardMedia
+         id='imgCard'
+         component="img"
+         height="200"
+         image={imagenes} />
+         :''
+            
         }
         <CardContent>
-          {
-            fabricacion ? <Typography>Año: {fabricacion}</Typography> : ''
+        {
+            fabricacion? <Typography>Año: {fabricacion}</Typography>:''
           }
           <Typography>Price: {precio}</Typography>
         </CardContent>
         <CardActions disableSpacing id='cardAction'>
-
+          
           <IconButton aria-label="add to cart" onClick={addToCart} >
-            <Badge badgeContent={contador} color="secondary" id='badge'>
-              <AddShoppingCartIcon />
+          <Badge badgeContent={contador} color="secondary" id='badge'>
+            <AddShoppingCartIcon />
             </Badge>
           </IconButton>
-          <Button sx={{ marginLeft: 'auto' }} size="small">{Link}</Button>
+          <Button sx={{marginLeft: 'auto'}} size="small">{Link}</Button>
         </CardActions>
       </Card>
     </Fragment>

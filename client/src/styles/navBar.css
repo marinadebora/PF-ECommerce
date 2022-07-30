@@ -1,5 +1,8 @@
-#logo{
-    height: 70px;
+
+
+#logoNavBar{
+    height: 50px;
+    margin-right: 100px;
 }
 
 #appBar{
@@ -34,6 +37,31 @@
 #adminNavbar{
     text-decoration: none;
     color: #0184a9
+}
+
+
+.paralelogramo{
+   
+    width: 85px; 
+    height: 72px; 
+    margin-right: 60px;
+    background: #01bfc4;
+    border: none;
+    cursor: pointer;
+    -webkit-transform: skewX(-40deg); 
+   
+}
+
+#buttonParalel{
+    width: 80px;
+    background-color: transparent;
+    border: none;
+    color: #02537d;
+    -webkit-transform: skewX(40deg); 
+    margin-top: 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 @media(max-width: 680px){

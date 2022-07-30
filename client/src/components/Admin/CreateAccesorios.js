@@ -3,9 +3,9 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import {postAccesorio } from '../../actions/admin-action';
+import {postAccesorio, Categorias } from '../../actions/admin-action';
 import { accesorios, /*getAllTypes */} from '../../actions/actions';
-import form from '../../styles/form.css';
+import '../../styles/form.css';
 import { Link } from 'react-router-dom';
 
 
@@ -63,12 +63,13 @@ export function AccesoriosCreate(){
     }
 
     const allAccesories = useSelector((state) => state.allAccesories);
+    const allCat = useSelector(state => state.categorias)
     console.log(allAccesories)
     
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
     useEffect( () => {
-        //dispatch(getAllTypes())
+        dispatch(Categorias())
         dispatch(accesorios())
     }, [dispatch])
 
@@ -77,7 +78,9 @@ export function AccesoriosCreate(){
         descripcion: '',
         precio:0,
         dimensiones: '',
-        stock: 0
+        stock: 0,
+        imagenes: [],
+        categorias: [],
         
         
     })
@@ -85,11 +88,11 @@ export function AccesoriosCreate(){
     
     const [errors, setErrors] = useState({});
 
-   /* function handleDiet(e){
-        if(!input.diets.includes(e.target.value)){
+    function handleCat(e){
+        if(!input.categorias.includes(e.target.value)){
             setInput({
                 ...input,
-                diets: [...input.diets, e.target.value]
+                categorias: [...input.categorias, e.target.value]
             })
         }
     }
@@ -97,9 +100,9 @@ export function AccesoriosCreate(){
     function handleDelete(d){
         setInput({
             ...input,
-            diets: input.diets.filter(e => e !== d)
+            categorias: input.categorias.filter(e => e !== d)
         })
-    }*/
+    }
 
     function handleChange(e){
         setInput({
@@ -112,36 +115,48 @@ export function AccesoriosCreate(){
             [e.target.name]:e.target.value
         }))
     }
+    const handleChangeArray=(e)=>{
+        setInput({
+          ...input,
+          [e.target.name] : [e.target.value]
+      })
+      setErrors(validate({
+         ...input,
+        [e.target.name] : [e.target.value]
+      }))
+      console.log(input)}
 
     
     function handleSubmit(e) {    
         e.preventDefault();
         try {
-          let findproducto = allAccesories.find((e) => e.producto.toLowerCase() === input.producto.toLowerCase()
-          )
-          if (findproducto) {
-            return alert("Ya existe un producto con este nombre. ¡Cambialo!");
-          }else if(Object.keys(errors).length === 0 && (input.producto!=='')){
-            if(input.precio){parseInt(input.precio)}
-            dispatch(postAccesorio(input))
-            setInput({
-                producto: '',
-                descripcion: '',
-                precio:0,
-                dimensiones: '',
-                stock:0
-                
-            })
-            return (
-                alert(`El Accesorio fue creado con exito.`), navigate(`/admin`)
-                ) 
-          
-       } } catch (error) {
-          console.log(error);
-          return alert(
-            "Algo falló al crear el accesorio."
-          );
-        }
+            let findproducto = allAccesories.find((e) => e.producto.toLowerCase() === input.producto.toLowerCase()
+            )
+            if (findproducto) {
+              return alert("Ya existe un producto con este nombre. ¡Cambialo!");
+            }else if(Object.keys(errors).length === 0 && (input.producto!=='')){
+              if(input.precio){parseInt(input.precio)}
+              dispatch(postAccesorio(input))
+              setInput({
+                  producto: '',
+                  descripcion: '',
+                  precio:0,
+                  dimensiones: '',
+                  stock:0,
+                  imagenes: [],
+                  categorias: [],
+                  
+              })
+              return (
+                  alert(`El Accesorio fue creado con exito.`), navigate(`/admin`)
+                  ) 
+            
+         } } catch (error) {
+            console.log(error);
+            return alert(
+              "Algo falló al crear el accesorio."
+            );
+          }
       };
     
     return (
@@ -149,7 +164,7 @@ export function AccesoriosCreate(){
             
             
             {
-                !allAccesories ? 
+                !allCat ? 
                 <>
                     <div>
                         <h1>LOADING</h1>
@@ -226,9 +241,28 @@ export function AccesoriosCreate(){
                                 </textarea>
                                 {errors.dimensiones && <p classproducto="danger">{errors.dimensiones}</p>}
                             </div>
+                            <div >
+                           <label >Imagen</label>
+                           <input  type="url" value={input.imagenes} name="imagenes" onChange={(e)=>handleChangeArray(e)}></input> 
+                           {/*<button name="imagenes" onClick={(e)=>handleChangeArray(e)}>SUBIR FOTO</button>*/}
+       
+                            </div>
+                            <div className="class-select">
+                                <label>Categorias</label>
+                                <select onChange={handleCat} value='Onetype' >
+                                    <option>Eligir Categorias</option>
+                                    {
+                                        allCat && allCat?.map(e => {
+                                            return (
+                                                <option key={e} value={e} name={e}>{e}</option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
                             
                             <button id='buttonSubmitForm' classproducto="button-submit" type="submit">Create Product</button>
-                            <Link to='/admin'>
+                            <Link to='/dashboard'>
                                 <button id='buttonBackForm'>Back</button>
                             </Link>
 
@@ -241,6 +275,20 @@ export function AccesoriosCreate(){
                                 
                             } */}
                         </form>
+                        <div className="my-categ">
+                            <h3>Mis Categorias</h3>
+                            <div className="cat">
+                                {input.categorias.map(d => {
+                                    return (
+                                    <div key={d} className="tipo_cat">
+                                        <button className="cerrar" onClick={() => handleDelete(d)}>X</button>
+                                        <p>{d}</p> 
+                                    </div>
+                                    )
+                                }
+                            )}
+                            </div>
+                        </div>
 
                         
                     </div>

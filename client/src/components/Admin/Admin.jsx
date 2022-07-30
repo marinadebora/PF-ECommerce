@@ -9,6 +9,7 @@ import Navbar from '../Navbar'
 import {Button, Typography} from "@mui/material";
 import admincss from '../../styles/admin.css'
 import {Grid} from '@mui/material'
+//import '../styles/card.css';
 
 
 
@@ -35,15 +36,12 @@ export default function Admin(){
 
     return(
         <div>
-            <Navbar/>
+           
             <Typography sx={{marginLeft: 'auto'}} variant="h6" component="p" id='guest1'>
-              Wellcome Guest
+             Edita tu producto
             </Typography>
-            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createAcc`}>Crear Accesorio</Link></Button>
-            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createEmbarcacionVenta`}>Crear Embarcacion para la venta</Link></Button>
-            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createEmbarcacionRenta`}>Crear Embarcacion para la renta</Link></Button>
-            <br/>
-            <Link to='/home'>
+            
+            <Link to='/dashboard'>
                 <button id='buttonBackAdmin'>VOLVER</button>
             </Link>
             
