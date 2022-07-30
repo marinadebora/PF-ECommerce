@@ -1,4 +1,4 @@
-// const {CORREO_SECRET,GOOGLE_SECRET} = process.env
+const {CORREO_SECRET,GOOGLE_SECRET} = process.env
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
@@ -6,8 +6,8 @@ const transporter = nodemailer.createTransport({
    port: 465,
    secure: true, 
    auth: {
-    user: process.env.CORREO_SECRET, 
-    pass: process.env.GOOGLE_SECRET,
+    user: 'accesoriosnautica02@gmail.com', 
+    pass: 'yrbvrnyorfgfchwh',
   },
    tls: {
        rejectUnauthorized: false

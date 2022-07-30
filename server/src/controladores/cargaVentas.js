@@ -33,4 +33,4 @@ cargarVentas.get("/", async (req, res) =>{
 })
 
 
-module.exports = cargarVentas
+module.exports = {cargarVentas}

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const {Router} = require("express");
 const getEmbarVenta = require("./getEmbarcacionesVenta");
 const getEmbarRenta = require("./getEmbarcacionesRenta");
@@ -24,7 +23,7 @@ const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores
 const postCategorias = require("./postCategoria");
 const { usuarios } = require("../controladores/controladorPostRegistro");
 const { usuariosAuth } = require("../controladores/ControladorPostAutenticar");
-const correo= require("../controladores/autenticar")
+const {correo}= require("../controladores/autenticar")
 
 
 let router = Router();
@@ -46,7 +45,7 @@ router.use("/embarcacionesV",putEmbarcacionesV);
 router.use("/embarcacionesV",deleteEmbarcacionesVenta);
 router.use("/embarcacionesR",deleteEmbarcacionesRenta);
 router.use("/accesorio",deleteAccesorios);
-router.post("/registro",usuarios);
+router.post("/registro",usuarios,correo);
 router.post("/autenticar",usuariosAuth); 
 
 router.get("/categorias", categorias);
@@ -55,68 +54,11 @@ router.use('/correo', correo);
 
 
 // no ejecutar esta ruta para no replicar los documentos de la base de datos
-router.use("/a", cargarVentas)
-router.use("/b", cargarRenta)
-router.use("/c", cargarAccesorios)
+// router.use("/a", cargarVentas)
+// router.use("/b", cargarRenta)
+// router.use("/c", cargarAccesorios)
 
 
 
 
 module.exports= router;
-=======
-const {Router} = require("express");
-const getEmbarVenta = require("./getEmbarcacionesVenta");
-const getEmbarRenta = require("./getEmbarcacionesRenta");
-const getAccesorios = require("./getAccesorios");
-const getAccesoriosId = require("./getAccesoriosId");
-const getEmbarVentaId = require("./getEmbarcacionesVentaid");
-const getEmbarRentaId = require("./getEmbarcacionesRentaId");
-const getTodo = require("./getTodo");
-const getTodoId = require("./getTodoId");
-const postEmbarcacionesRenta = require("./postEmbarcacionesRentas");
-const postEmbarcacionesV = require("./postEmbarcacionesVentas");
-const postAccesorios = require("./postAccesorios");
-const putEmbarcacionesRenta = require("./putEmbarcacionesRenta");
-const putEmbarcacionesVenta = require("./putEmbarcacionesVenta");
-const putAccesorios = require("./putAccesorios");
-const deleteAccesorios = require("./deleteAccesorios");
-const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
-const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
-const { categorias } = require("../controladores/controladorCategorias");
-const cargarVentas = require("../controladores/CargaVentas");
-const postCategorias = require("./postCategoria");
-const deleteCategoria = require("./deleteCategoria");
-
-let router = Router();
-
-router.use("/embarcacionesV", getEmbarVenta)
-router.use("/embarcacionesVId", getEmbarVentaId)
-router.use("/embrarcacionesV",postEmbarcacionesV)
-router.use("/embarcacionesV",deleteEmbarcacionesVenta);
-router.use("/embrarcacionesV",putEmbarcacionesVenta)
-router.use("/embarcacionesR", getEmbarRenta)
-router.use("/embarcacionesRId", getEmbarRentaId)
-router.use("/embarcacionesR", postEmbarcacionesRenta)
-router.use("/embarcacionesR", putEmbarcacionesRenta)
-router.use("/embarcacionesR",deleteEmbarcacionesRenta)
-router.use("/accesorios", getAccesorios)
-router.use("/accesorio", getAccesoriosId)
-router.use("/accesorios", postAccesorios)
-router.use("/accesorio", putAccesorios)
-router.use("/accesorio", deleteAccesorios)
-router.use("/todos", getTodo)
-router.use("/todo", getTodoId)
-
-router.get("/categorias", categorias)
-router.use("/categorias", postCategorias)
-router.use("/categorias", deleteCategoria)
-
-
-// no ejecutar esta ruta para no replicar los documentos de la base de datos
-router.use("/cargarVenta", cargarVentas)
-
-
-
-
-module.exports= router;
->>>>>>> f4ce25ed315d5d7cdb681ca61547947209a15099
