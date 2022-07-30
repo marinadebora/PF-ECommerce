@@ -30,7 +30,7 @@ export function productosDetail(id)
     return async function (dispatch)
     {
         try {
-           const proDetail =await axios(`http://localhost:4000/todo/${id}`)
+           const proDetail =await axios(`http://localhost:4000/todos/${id}`)
           
             return dispatch({
                 type: 'PRODUCTOS_DETAIL',
@@ -95,13 +95,23 @@ export function categoriaAccesorios(payload){
     }
     }
 
-    export function addToBasket(payload){
+    /*export function addToBasket(payload){
         return{
                 type:'ADD_TO_BASKET',
                 payload
     
                 } 
-            }
+            }*/
+            export const addToBasket = (item) => {
+                try {
+                  return {
+                    type: 'ADD_TO_BASKET',
+                    payload: item,
+                  }
+                } catch (err) {
+                  console.log(err)
+                }
+              };
     
     export function removeToBasket(payload){
         return{
@@ -110,6 +120,15 @@ export function categoriaAccesorios(payload){
     
                 } 
             }
+            export const getItemsCart = () => {
+                try {
+                  return {
+                    type: "GET_ALL_CART",
+                  }
+                } catch (err) {
+                  console.log(err)
+                }
+              };
     
 
 //------------Filtro-Por-Precio------------//
@@ -207,23 +226,7 @@ export function productName(payload){
 
   
 
-export function postAccesorio(payload) {
-    return async function (dispatch) {
-      try {
-        const accesoriosCreated = await axios.post(`${URL_BASE}/accesorios`, payload);
-        return dispatch({
-          type: "POST_ACCESORIOS",
-          payload: accesoriosCreated,
-        });
-      } catch (error) {
-        console.log(error.message);
-        return alert(
-          "Hubo un error al crear el Accesorio. "
-        );
-        
-      }
-    };
-  }
+
 
   export function deleteAccesorio(id){
     return function(dispatch){
@@ -356,3 +359,8 @@ export function updateEmbarcacionRT(id, payload){
       })
   }
 }
+export function resetDetail() {
+    return {
+      type:" RESET_DETAIL",
+    };
+  }

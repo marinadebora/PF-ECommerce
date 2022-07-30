@@ -11,7 +11,6 @@ export function BarcosEnAlquiler()
 {
   const productAlquiler = useSelector(state => state.rentVessels)
   const dispatch = useDispatch()
-<<<<<<< HEAD
 
  //----------paginado---------//
 
@@ -21,28 +20,7 @@ export function BarcosEnAlquiler()
   const endIndex = index - characterPerPage;
   const actualPage = productAlquiler?.slice(endIndex, index);
   const [/* ordering */, setOrdering] = useState('')
-=======
->>>>>>> debora/carrito
 
- //----------paginado---------//
-
-<<<<<<< HEAD
-console.log(productAlquiler)
-
-  const paginado = (numPage) =>
-  {
-    setPage(numPage)
-  }
-
-=======
-  const [page, setPage] = useState(1);
-  const [characterPerPage, /* setCharacterPerPage */] = useState(5);
-  const index = page * characterPerPage;
-  const endIndex = index - characterPerPage;
-  const actualPage = productAlquiler?.slice(endIndex, index);
-  const [/* ordering */, setOrdering] = useState('')
-  const [ordenFiltro,setOrdenFiltro] = useState(productAlquiler)
-const arrayFiltros=ordenFiltro
 
 console.log(productAlquiler)
 
@@ -51,7 +29,6 @@ console.log(productAlquiler)
     setPage(numPage)
   }
 
->>>>>>> debora/carrito
   useEffect(() =>
   {
     dispatch(barcosEnAlquiler())

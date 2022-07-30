@@ -17,10 +17,7 @@ import {UpdateAccesorio} from "./components/Admin/EditAccesorios"
 import {UpdateEmbarcacionRenta} from "./components/Admin/EditEmbarcacionRT"
 import {UpdateEmbarcacionVenta}  from "./components/Admin/EditEmbarcacionEnv"
 import CheckoutPage from './components/CheckoutPage'
-<<<<<<< HEAD
 import {CatCreate} from "./components/Admin/CreateCat"
-=======
->>>>>>> debora/carrito
 
 function App() {
   return (
@@ -37,10 +34,7 @@ function App() {
         <Route exact path='/admin/createAcc' element={<AccesoriosCreate />} />
         <Route exact path='/admin/createEmbarcacionVenta' element={<EmbarcacionCreateEnV />} />
         <Route exact path='/admin/createEmbarcacionRenta' element={<EmbarcacionCreateRT/>} />
-<<<<<<< HEAD
         <Route exact path='/admin/createCat' element={<CatCreate/>} />
-=======
->>>>>>> debora/carrito
         <Route exact path='/admin/updateacc/:id' element={<UpdateAccesorio/>} />
         <Route exact path='/admin/updateembrt/:id' element={<UpdateEmbarcacionRenta/>} />
         <Route exact path='/admin/updateembventa/:id' element={<UpdateEmbarcacionVenta/>} />

@@ -7,7 +7,7 @@ import Card from './Card'
 import { Grid } from '@mui/material'
 import '../styles/searchBar.css';
 export function Accesorios(){ 
-  const accesorio = useSelector(state => state.accesories)
+  const accesorio = useSelector(state => state.allProducts)
   const dispatch = useDispatch()
   //----------paginado---------//
 

@@ -5,11 +5,7 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-<<<<<<< HEAD
 import {postEmbarcacionRT, Categorias } from '../../actions/admin-action';
-=======
-import {postEmbarcacionRT } from '../../actions/admin-action';
->>>>>>> debora/carrito
 import { barcosEnAlquiler, /*getAllTypes */} from '../../actions/actions';
 import form from '../../styles/form.css';
 import { Link } from 'react-router-dom';
@@ -107,11 +103,7 @@ export function EmbarcacionCreateRT(){
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
     useEffect( () => {
-<<<<<<< HEAD
         dispatch(Categorias())
-=======
-       // dispatch(getAllTypes())
->>>>>>> debora/carrito
         dispatch(barcosEnAlquiler())
     }, [dispatch])
 
@@ -130,33 +122,21 @@ export function EmbarcacionCreateRT(){
         transmision:" ",
         horas: " ",
         descripcion: " ",
-<<<<<<< HEAD
         combustible: " ",
         categorias: [],
         imagenes: [],
 
-=======
-        combustible: " "
->>>>>>> debora/carrito
 
     })
 
     
     const [errors, setErrors] = useState({});
 
-<<<<<<< HEAD
     function handleCat(e){
         if(!input.categorias.includes(e.target.value)){
             setInput({
                 ...input,
                 categorias: [...input.categorias, e.target.value]
-=======
-    /*function handleDiet(e){
-        if(!input.diets.includes(e.target.value)){
-            setInput({
-                ...input,
-                diets: [...input.diets, e.target.value]
->>>>>>> debora/carrito
             })
         }
     }
@@ -164,16 +144,9 @@ export function EmbarcacionCreateRT(){
     function handleDelete(d){
         setInput({
             ...input,
-<<<<<<< HEAD
             categorias: input.categorias.filter(e => e !== d)
         })
     }
-=======
-            diets: input.diets.filter(e => e !== d)
-        })
-    }*/
-
->>>>>>> debora/carrito
     function handleChange(e){
         setInput({
             ...input,
@@ -185,7 +158,6 @@ export function EmbarcacionCreateRT(){
             [e.target.name]:e.target.value
         }))
     }
-<<<<<<< HEAD
     const handleChangeArray=(e)=>{
         setInput({
           ...input,
@@ -235,58 +207,13 @@ export function EmbarcacionCreateRT(){
               "Algo falló al crear la embarcacion. "
             );
           }
-=======
-
-    const allEmbarcacionRenta = useSelector((state) => state.rentVessels);
-    function handleSubmit(e) {    
-        e.preventDefault();
-        try {
-          let findName = allEmbarcacionRenta.find((e) => e.marca.toLowerCase() === input.marca.toLowerCase()
-          )
-          if (findName) {
-            return alert("Ya existe una embarcacion con este nombre. ¡Cambialo!");
-          }else if(Object.keys(errors).length === 0 && (input.marca!=='')){
-            
-            dispatch(postEmbarcacionRT(input))
-            setInput({
-                marca: '',
-                modelo: '',
-                fabricacionDelMotor:0,
-                motor: '',
-                fabricacion: 0,
-                marcamotor:'' ,
-                puntal: 0,
-                eslora:0,
-                manga:0,
-                hp:0,
-                cantMotores:0,
-                transmision:" ",
-                horas: " ",
-                descripcion: " ",
-                combustible: " "
-            })
-            return (
-                alert(`La Embarcacion fue creada con éxito.`), navigate(`/admin`)
-                ) 
-          
-       } } catch (error) {
-          console.log(error);
-          return alert(
-            "Algo falló al crear la embarcacion. "
-          );
-        }
->>>>>>> debora/carrito
       };
     
     return (
         <div className="cont-form">
             
             
-<<<<<<< HEAD
             {!allCat ? 
-=======
-            {!allEmbarcacionRenta ? 
->>>>>>> debora/carrito
                 <>
                     <div>
                         <h1>LOADING</h1>
@@ -480,7 +407,6 @@ export function EmbarcacionCreateRT(){
                                 </input>
                                 {errors.combustible && <p className="danger">{errors.combustible}</p>}
                             </div>
-<<<<<<< HEAD
                             <div >
                            <label >Imagen</label>
                            <input  type="url" value={input.imagenes} name="imagenes" onChange={(e)=>handleChangeArray(e)}></input> 
@@ -501,8 +427,6 @@ export function EmbarcacionCreateRT(){
                                     }
                                 </select>
                             </div>
-=======
->>>>>>> debora/carrito
 
                             <button id='buttonSubmitForm' className="button-submit" type="submit">Create Product</button>
                             <Link to='/admin'>
@@ -515,7 +439,6 @@ export function EmbarcacionCreateRT(){
                                 
                             } */}
                         </form>
-<<<<<<< HEAD
                         <div className="my-categ">
                             <h3>Mis Categorias</h3>
                             <div className="cat">
@@ -530,8 +453,6 @@ export function EmbarcacionCreateRT(){
                             )}
                             </div>
                         </div>
-=======
->>>>>>> debora/carrito
 
                        
                     </div>

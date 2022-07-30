@@ -1,13 +1,8 @@
 
 import NavBar from './Navbar'
-import { addToBasket, removeToBasket } from '../actions/actions'
-<<<<<<< HEAD
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react'
-=======
-import { useDispatch } from 'react-redux'
-import { useEffect, useState } from 'react'
->>>>>>> debora/carrito
+import { addToBasket, removeToBasket,getItemsCart } from '../actions/actions'
+import { useSelector, useDispatch ,} from 'react-redux'
+import { useEffect ,useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/card.css';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
@@ -17,43 +12,45 @@ import IconButton from "@mui/material/IconButton";
 
 export default function CheckoutPage()
 {
-<<<<<<< HEAD
+
+    
+   /* const productsCart = useSelector((state)=> state.basket);
+    
+    const [user, setUser] = useState(false)
+
+
+   
+
+    useEffect(()=>{
+        let localUser
+        ( async() => {
+        if(localStorage.getItem('userInfo')){
+            localUser = JSON.parse(localStorage.getItem('userInfo'));
+            setUser(localUser)
+        }
+        
+        })()
+    }, [dispatch])*/
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const stateBasket = useSelector(state => state.basket)
-    useEffect(() =>
-    {
-
-        dispatch(addToBasket())
-
-    }, [dispatch])
-=======
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-     
-
-    let detalles=JSON.parse(localStorage.getItem('items')!==null?localStorage.getItem('items'):'[]' )
-    console.log(detalles)
+    const stateBasket = useSelector((state) => state.basket)
     
-    //localStorage.setItem('items',JSON.stringify(detalles))
-    
-    const [carta, setCarta] = useState(detalles);
-    console.log(carta)
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem("item2") || "[]");
+  const [cart /* setCart */] = useState(cartFromLocalStorage);
 
+  useEffect(() => {
+    localStorage.setItem("item2", JSON.stringify(cart));
+    dispatch(getItemsCart());
     
-    useEffect(() =>
-    {
-        dispatch(addToBasket())
+  }, [cart ,dispatch ]);
 
-    }, [dispatch]);
->>>>>>> debora/carrito
+  const current_cart =cartFromLocalStorage;
 
     const volver = () =>
     {
         navigate(-1)
     }
-<<<<<<< HEAD
 
     const deleteProduct=(id)=>{
         dispatch(removeToBasket(id))
@@ -62,38 +59,25 @@ export default function CheckoutPage()
 
 
     return (
+        !current_cart ? 
+        <>
+            <div>
+                <h1>LOADING</h1>
+                <button id='buttonBackCheckout' onClick={volver}>Back</button>
+            </div>
+        </>:
         <div>
+
             <NavBar />
+            
             <p id='titleCheckoutPage'>Checkout</p>
             {
+              
+                 
         
-                stateBasket?.map(e => (
+        current_cart?.map(e => (
                     e !== undefined &&
                 <div id='checkoutCard'>
-=======
-    const deleteProduct = (id) =>
-    {  let estado= localStorage.setItem(
-        "items",
-        JSON.stringify(detalles.filter((e) =>e!==null&& e._id !== id))
-        );
-        dispatch(removeToBasket(id))
-      
-
-        setCarta(estado)//JSON.parse(localStorage.getItem('items'))!==null?JSON.parse(localStorage.getItem('items')):'[]' 
-        
-    }
-    let pregunta;
-    Array.isArray(carta)?pregunta=[...carta]:pregunta=[carta]
-    console.log(pregunta)
-    return (
-        <div>
-            <NavBar />
-
-           {
-                
-                pregunta?.map(e => (
-                    (e !== undefined && e !== null) &&
->>>>>>> debora/carrito
 
                     <ul id='detalleCheck'>
                         {
@@ -137,7 +121,6 @@ export default function CheckoutPage()
                         {
                             e.Tamaño && <li><p>Tamaño: {e.Tamaño}</p></li>
                         }
-<<<<<<< HEAD
                         
                     </ul>
 
@@ -155,55 +138,9 @@ export default function CheckoutPage()
             }
             <button id='buttonBackCheckout' onClick={volver}>Back</button>
             
-=======
-                        {
-                            e._id && <button id='buttonDelete' onClick={() => deleteProduct(e._id)}>BORRAR</button>
-                        }
-
-                    </ul>
-
-            ))} 
-            <button id='buttonBack' onClick={volver}>VOLVER</button>
-
->>>>>>> debora/carrito
-
+         
 
         </div>
-
+        
     )
 }
-<<<<<<< HEAD
-=======
-/*   const id_user = localStorage.getItem("id");
-  const videogamesInCart = useSelector((state) => state.cart);
-
-  const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
-  const [cart /* setCart ] = useState(cartFromLocalStorage);
-
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-    if(typeof id_user === "string"){
-      dispatch(getCartById(id_user));
-    }
-  }, [cart /* dispatch ]);
-
-  const current_cart =
-    typeof id_user === "string" ? videogamesInCart : cartFromLocalStorage;
-
-  const handleDelete = (id) => {
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(cartFromLocalStorage.filter((e) => e.id !== id))
-    );
-    if (typeof id_user === "string") {
-      dispatch(delFromCart(id_user, id));
-      
-    } else {
-      localStorage.setItem(
-        "cart",
-        JSON.stringify(cartFromLocalStorage.filter((e) => e.id !== id))
-      );
-    }
-    navigate("/my_cart");
-  }; */
->>>>>>> debora/carrito
