@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const URL_BASE = "http://localhost:4000"
+//const URL_BASE = "http://localhost:4000"
 //import infoProductos from '../infoPrueba/index'
 
 
@@ -10,7 +10,7 @@ export function todosLosProductos()
     return async function (dispatch)
     {
         try {
-            const productos =await axios(`http://localHost:4000/todos`)
+            const productos =await axios('/todos')
            
             return dispatch({
 
@@ -30,7 +30,7 @@ export function productosDetail(id)
     return async function (dispatch)
     {
         try {
-           const proDetail =await axios(`http://localhost:4000/todo/${id}`)
+           const proDetail =await axios(`/todo/${id}`)
           
             return dispatch({
                 type: 'PRODUCTOS_DETAIL',
@@ -50,7 +50,7 @@ export function barcosEnVenta(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localhost:4000/embarcacionesv')
+            const prodVenta= await axios('/embarcacionesv')
             return dispatch({
                 type:'BARCOS_EN_VENTA',
                 payload:prodVenta.data
@@ -64,7 +64,7 @@ export function barcosEnAlquiler(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localHost:4000/embarcacionesr');
+            const prodVenta= await axios('/embarcacionesr');
             return dispatch({
                 type:'BARCOS_EN_ALQUILER',
                 payload:prodVenta.data
@@ -78,7 +78,7 @@ export function accesorios(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localHost:4000/accesorios')
+            const prodVenta= await axios('/accesorios')
             return dispatch({
                 type:'ACCESORIOS',
                 payload:prodVenta.data
@@ -168,7 +168,7 @@ export function todasCategorias(){
      return async function(dispatch){
             try {
                 
-                const prodCat=await axios('http://localhost:4000/categorias')
+                const prodCat=await axios('/categorias')
                 
                 return dispatch({
                     type:'TODAS_CATEGORIAS',
@@ -192,7 +192,7 @@ export function productName(payload){
 
     return async function(dispatch){
      try {
-        const name= await axios(`http://localhost:4000/todos?name=${payload}`)//http://localhost:4000/todos?name=chaleco
+        const name= await axios(`/todos?name=${payload}`)//http://localhost:4000/todos?name=chaleco
         console.log(name.data)
         return dispatch({
           type:'PRODUCT_NAME',
@@ -210,7 +210,7 @@ export function productName(payload){
 export function postAccesorio(payload) {
     return async function (dispatch) {
       try {
-        const accesoriosCreated = await axios.post(`${URL_BASE}/accesorios`, payload);
+        const accesoriosCreated = await axios.post(`/accesorios`, payload);
         return dispatch({
           type: "POST_ACCESORIOS",
           payload: accesoriosCreated,
@@ -227,7 +227,7 @@ export function postAccesorio(payload) {
 
   export function deleteAccesorio(id){
     return function(dispatch){
-        return axios.delete(`${URL_BASE}/accesorio/${id}`)
+        return axios.delete(`/accesorio/${id}`)
         .then(data => {
             dispatch({
                 type:"DELETE_ACCESORIO",
@@ -241,7 +241,7 @@ export function postAccesorio(payload) {
 
 export function updateAccesorio(id, payload){
     return function(dispatch){
-        return axios.put(`${URL_BASE}/accesorio/${id}`, payload)
+        return axios.put(`/accesorio/${id}`, payload)
         .then(data => {
             dispatch({
                 type:"UPDATE_ACCESORIO",
@@ -255,7 +255,7 @@ export function updateAccesorio(id, payload){
   export function postEmbarcacionEnV(payload) {
     return async function (dispatch) {
       try {
-        const embarcacionCreated = await axios.post(`${URL_BASE}/embrarcacionesV`, payload);
+        const embarcacionCreated = await axios.post(`/embrarcacionesV`, payload);
         return dispatch({
           type: "POST_EMBARCACIONENV",
           payload: embarcacionCreated,
@@ -272,7 +272,7 @@ export function updateAccesorio(id, payload){
 
 export function deleteEmbarcacionEnV(id){
     return async function(dispatch){
-        return axios.delete(`${URL_BASE}/embarcacionesV/${id}`) 
+        return axios.delete(`/embarcacionesV/${id}`) 
         .then(data => {
             dispatch({
                 type:"DELETE_EMBARCACIONENV",
@@ -300,7 +300,7 @@ export function deleteEmbarcacionEnV(id){
 
 export function updateEmbarcacionEnV(id, payload){
     return function(dispatch){
-        return axios.put(`${URL_BASE}/embrarcacionesV/${id}`, payload)
+        return axios.put(`/embrarcacionesV/${id}`, payload)
         .then(data => {
             dispatch({
                 type:"UPDATE_EMBARCACIONENV",
@@ -316,7 +316,7 @@ export function updateEmbarcacionEnV(id, payload){
 export function postEmbarcacionRT(payload) {
   return async function (dispatch) {
     try {
-      const embarcacionCreated = await axios.post(`${URL_BASE}/embarcacionesR`, payload);
+      const embarcacionCreated = await axios.post(`/embarcacionesR`, payload);
       return dispatch({
         type: "POST_EMBARCACIONRT",
         payload: embarcacionCreated,
@@ -333,7 +333,7 @@ export function postEmbarcacionRT(payload) {
 
 export function deleteEmbarcacionRT(id){
   return function(dispatch){
-      return axios.delete(`${URL_BASE}/embarcacionesR/${id}`)
+      return axios.delete(`/embarcacionesR/${id}`)
       .then(data => {
           dispatch({
               type:"DELETE_EMBARCACIONRT",
@@ -347,7 +347,7 @@ export function deleteEmbarcacionRT(id){
 
 export function updateEmbarcacionRT(id, payload){
   return function(dispatch){
-      return axios.put(`${URL_BASE}/embarcacionesR/${id}`, payload)
+      return axios.put(`/embarcacionesR/${id}`, payload)
       .then(data => {
           dispatch({
               type:"UPDATE_EMBARCACIONRT",

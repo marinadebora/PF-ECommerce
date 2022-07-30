@@ -3,13 +3,14 @@ const index = require('./rutas/index');
 const morgan = require('morgan')
 const cors = require('cors');
 const bodyParser = require('body-parser')
+// require('dotenv').config();
 
 const {mongoose} = require('./dataBase')
 
 const app = express();
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json({ limit: '50mb' }))
+app.use(bodyParser.urlencoded({extended: false,  limit: '50mb' }))
 
 app.use(morgan("dev"))
 app.use(cors())
