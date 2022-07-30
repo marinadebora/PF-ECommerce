@@ -23,7 +23,7 @@ export default function CardDetail()
   }
 
 
-console.log(myDetail);
+//console.log(myDetail);
 
   return <div>
     {
