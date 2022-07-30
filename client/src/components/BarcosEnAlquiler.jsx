@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { barcosEnAlquiler, filtrosCategoriaEmbarcacion } from '../actions/actions'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Box } from '@mui/system';
 import Paginado from "./Paginado";
 import CardRentaVenta from './CardRentaVenta';
@@ -14,6 +14,7 @@ import '../styles/box.css'
 
 export function BarcosEnAlquiler()
 {
+  const navigate = useNavigate()
   const productAlquiler = useSelector(state => state.rentVessels)
   const dispatch = useDispatch()
 
@@ -39,6 +40,11 @@ console.log(productAlquiler)
     dispatch(barcosEnAlquiler())
   }, [dispatch])
 
+  const volver = () =>
+  {
+    navigate(-1)
+  }
+
 
   
   return (
@@ -47,6 +53,8 @@ console.log(productAlquiler)
     <Navbar/>
         <Box id='boxAlq'>
                 <Box id='textBox1'>ALQUILER</Box>
+                <Box id='textBox1aV'>Realiza tu consulta</Box>
+                <Box id='textBox1aV'>y te contactamos en el día</Box>
                 
             </Box>
       
@@ -75,7 +83,7 @@ console.log(productAlquiler)
                     producto={e.producto}
                     descripcion={e.descripcion}
                     Tamaño={e.Tamaño}
-                    Link={<Link to={`/home/${e._id}`} >Info</Link>}
+                    Link={<Link to={`/home/${e._id}`} id='linkCard'>Info</Link>}
                   />
 
                 </Grid>
@@ -88,9 +96,9 @@ console.log(productAlquiler)
           })
         }
       </Grid>
-      <Link to='/home'>
-        <button id='buttonBack'>VOLVER</button>
-      </Link>
+      
+      <button id='buttonBack' onClick={volver}>VOLVER</button>
+      
       <Paginado
         characterPerPage={characterPerPage}
         newState={productAlquiler.length}

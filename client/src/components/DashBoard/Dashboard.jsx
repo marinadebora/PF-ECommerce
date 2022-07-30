@@ -10,14 +10,12 @@ import { useNavigate } from 'react-router-dom';
 import {Button, Typography} from "@mui/material";
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import logoDashBoard from '../../imagenes/Nautical.png';
 import { mainListItems } from './ListItems';
 import "../../styles/dasshBoard.css";
 
@@ -116,6 +114,11 @@ function DashboardContent() {
             >
               <MenuIcon />
             </IconButton>
+
+            <Link href="/">
+            <Button><img id='logoDashboard' src={logoDashBoard} alt='imgDashboard'/></Button>
+            </Link> 
+
             <Typography
               component="h1"
               variant="h6"
@@ -125,6 +128,12 @@ function DashboardContent() {
             >
               Admin
             </Typography>
+
+            <Link href="/singIn">
+              <Button variant="outlined" id="buttonDasboard">Inicia Sesion</Button>
+            </Link>
+
+
             {/* <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />

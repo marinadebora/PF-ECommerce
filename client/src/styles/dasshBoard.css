@@ -1,3 +1,15 @@
 #appBarDash{
     background-color: #0184a9;
 }
+
+#buttonDasboard{
+    color:white;
+    border: solid 1px white;
+    float: left;
+    margin-left: 10px;
+}
+
+#logoDashboard{
+    margin-top: 5px;
+    height: 30px;
+}

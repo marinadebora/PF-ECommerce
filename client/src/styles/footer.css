@@ -11,8 +11,12 @@
 }
 
 
-#contactFooter a{
+#contactFooter button{
     align-items: flex-end;
     margin-right: 10px;
     font-size: 15px;
+}
+
+#footerCopy{
+    margin-left: 44%;
 }

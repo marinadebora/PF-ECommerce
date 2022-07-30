@@ -52,7 +52,8 @@ export function Accesorios(){
 
       <Navbar/>
       <Box id='boxAcc'>
-                <Box id='textBox1'>VENTA</Box>
+                <Box id='textBox1'>Tienda Online</Box>
+                <Box id='textBox1a'>Compra rápido y facil</Box>
       </Box>
       <SearchBarProductos/>
 
