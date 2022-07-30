@@ -69,8 +69,7 @@ export default function CheckoutPage()
         <div>
 
             <NavBar />
-            
-            <p id='titleCheckoutPage'>Checkout</p>
+            <p id='titleCheckoutPage'>Shopping Cart</p>
             {
               
                  
@@ -129,17 +128,13 @@ export default function CheckoutPage()
                                     <DeleteForeverIcon id='buttonRemove' />
                                     </IconButton>
                                     
-                        }
-                        
+                        }   
                     
                     </div>
                     ))
                 
             }
             <button id='buttonBackCheckout' onClick={volver}>Back</button>
-            
-         
-
         </div>
         
     )

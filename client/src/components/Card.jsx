@@ -75,6 +75,7 @@ export default function Producto({ tipo,id, producto, marca ,precio, fabricacion
 
         { imagenes?
          <CardMedia
+         id='imgCard'
          component="img"
          height="200"
          image={imagenes} />

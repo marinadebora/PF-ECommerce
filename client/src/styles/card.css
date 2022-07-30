@@ -26,6 +26,10 @@
 
 }
 
+#imgCard{
+    overflow: hidden;
+}
+
 #titleCheckoutPage{
     font-size: 20px;
     font-weight: bold;
@@ -75,6 +79,12 @@
 	z-index: 99;
 }
 
+#Contactanos{
+    display: flex;
+    align-items: flex-end;
+    font-size: 15px;
+    margin-left: 5px;
+}
 
 
 

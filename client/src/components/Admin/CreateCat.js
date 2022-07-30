@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {postCategorias, Categorias } from '../../actions/admin-action';
-
-
+import '../../styles/form.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -159,6 +159,9 @@ export function CatCreate(){
                             </div>
 
                             <button classproducto="button-submit" type="submit" >Enviar Categoria</button>
+                            <Link to='/dasboard'>
+                                <button id='buttonBackForm'>Back</button>
+                            </Link>
                             
                           
                         </form>

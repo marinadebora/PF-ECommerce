@@ -1,11 +1,20 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { accesorios, filtroPrecioAccesorios, filtroCategoriaAccesorios,precioOrdenAccesorios } from '../actions/actions'
+import { accesorios } from '../actions/actions'
 import { useNavigate, Link } from 'react-router-dom';
 import Paginado from "./Paginado";
+import { Box } from '@mui/system';
 import Card from './Card'
+import Navbar from './Navbar';
+import Footer from './Footer';
+import SearchBarProductos from './SearchBarProductos';
 import { Grid } from '@mui/material'
 import '../styles/searchBar.css';
+import '../styles/box.css'
+import {FiltrosAccesorios} from './FiltrosAccesorios';
+
+
+
 export function Accesorios(){ 
   const accesorio = useSelector(state => state.allProducts)
   const dispatch = useDispatch()
@@ -27,59 +36,10 @@ export function Accesorios(){
     setPage(numPage)
   }
 
-  console.log(accesorio)
-
   useEffect(() =>
   {
     dispatch(accesorios())
   }, [dispatch])
-
-
-
-  const filtroPorPrecio = (event) =>
-  {
-    event.preventDefault()
-    if (event.target.value === 'sinFiltro') {
-      dispatch(accesorios())
-      setPage(1)
-      setOrdering(`Order ${event.target.value}`)
-    } else {
-      dispatch(filtroPrecioAccesorios(event.target.value))
-      setVenta(true)
-      setPage(1)
-      setOrdering(`Order ${event.target.value}`)
-    }
-
-  }
-
-
-  const filtroPorCategoria = (event) =>
-  {
-    event.preventDefault()
-    if (event.target.value === 'sinFiltro') {
-      dispatch(accesorios())
-      setPage(1)
-      setOrdering(`Order ${event.target.value}`)
-    } else {
-    dispatch(filtroCategoriaAccesorios(event.target.value))
-    setCategorias(true)
-    setPage(1)
-    setOrdering(`Order ${event.target.value}`)
-  }
-}
-  const ordenPrecio = (event) =>
-  {
-    event.preventDefault()
-    if (event.target.value === 'sinFiltro') {
-      dispatch(accesorios())
-      setPage(1)
-      setOrdering(`Order ${event.target.value}`)
-    } else {
-    dispatch(precioOrdenAccesorios(event.target.value))
-    setPage(1)
-    setOrdering(`Order ${event.target.value}`)
-  }
-  }
 
   const volver = () =>
   {
@@ -90,51 +50,18 @@ export function Accesorios(){
   return (
     <div>
 
-      <button id='buttonBack' onClick={volver}>VOLVER</button>
-
-      <Paginado
-        characterPerPage={characterPerPage}
-        newState={accesorio.length}
-        paginado={paginado}
-      />
-
-      <label key='venta'>Filtrar por Precio </label>
-      <select name="venta" id="barcoVentaAcc" onChange={(e) => filtroPorPrecio(e)}>
-        <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
-        <option key={'mayor'} value={'mayor'}>Mas de US$ 100 </option>
-        <option key={'medio'} value={'medio'}>Entre US$ 50 - US$ 100 </option>
-        <option key={'menor'} value={'menor'}>Menos de US$ 50</option>
-      </select>
-      {
-        venta && <label key='venta'>Filtrar por Categoria</label>
-      }
-      
-      {
-        venta &&
-        <select name="categorias" id="categorias" onChange={(e) => filtroPorCategoria(e)}>
-          <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
-          <option key={'seguridad'} value={'seguridad'}>Seguridad</option>
-          <option key={'electronica'} value={'electronica'}>Electronica</option>
-          <option key={'esparcimiento'} value={'esparcimiento'}>Recreativo</option>
-        </select>
-      }
-       {
-        categorias && <label key='venta'>Ordenar</label>
-       } 
-        
-      {
-        categorias &&
-        <select name="order" id="order" onChange={(e) => ordenPrecio(e)}>
-          <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
-          <option key={'max'} value={'max'}>Mayor Precio</option>
-          <option key={'min'} value={'min'}>Menor Precio</option>
-        </select>
-      }
-      <br />
-      <br />
-      <br />
+      <Navbar/>
+      <Box id='boxAcc'>
+                <Box id='textBox1'>Tienda Online</Box>
+                <Box id='textBox1a'>Compra rápido y facil</Box>
+      </Box>
+      <SearchBarProductos/>
 
       <Grid container spacing={2}>
+      {/* <FiltrosAccesorios
+    setPage={setPage}
+     /> */}
+
         {
 
           actualPage?.map(e => 
@@ -172,6 +99,14 @@ export function Accesorios(){
         }
       </Grid>
 
+      <button id='buttonBack' onClick={volver}>VOLVER</button>
 
+<Paginado
+  characterPerPage={characterPerPage}
+  newState={accesorio.length}
+  paginado={paginado}
+/>
+
+<Footer/>
     </div>);
 };

@@ -10,6 +10,7 @@ import Navbar from './Navbar'
 import {Grid} from '@mui/material'
 import '../styles/box.css'
 import SearchBar from './SearchBar';
+import Footer from './Footer';
 import '../styles/searchBar.css';
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CardActions from "@mui/material/CardActions";
@@ -116,6 +117,8 @@ const [contador, setContador] = useState(0)
             newState ={newState.length}
             paginado = {paginado}
             />
+
+            <Footer/>
 
         </div>
     
