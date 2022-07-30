@@ -1,11 +1,11 @@
 import axios from "axios"
 
-const URL_BASE = "http://localhost:4000"
+//const URL_BASE = "http://localhost:4000"
 
 export function postAccesorio(payload) {
     return async function (dispatch) {
       try {
-        const accesoriosCreated = await axios.post(`${URL_BASE}/accesorios`, payload);
+        const accesoriosCreated = await axios.post(`/accesorios`, payload);
         return dispatch({
           type: "POST_ACCESORIOS",
           payload: accesoriosCreated,
@@ -22,7 +22,7 @@ export function postAccesorio(payload) {
 
   export function deleteAccesorio(id){
     return function(dispatch){
-        return axios.delete(`${URL_BASE}/accesorio/${id}`)
+        return axios.delete(`/accesorio/${id}`)
         .then(data => {
             dispatch({
                 type:"DELETE_ACCESORIO",
@@ -36,7 +36,7 @@ export function postAccesorio(payload) {
 
 export function updateAccesorio(id, payload){
     return function(dispatch){
-        return axios.put(`${URL_BASE}/accesorio/${id}`, payload)
+        return axios.put(`/accesorio/${id}`, payload)
         .then(data => {
             dispatch({
                 type:"UPDATE_ACCESORIO",
@@ -50,7 +50,7 @@ export function updateAccesorio(id, payload){
   export function postEmbarcacionEnV(payload) {
     return async function (dispatch) {
       try {
-        const embarcacionCreated = await axios.post(`${URL_BASE}/embrarcacionesV`, payload);
+        const embarcacionCreated = await axios.post(`/embrarcacionesV`, payload);
         return dispatch({
           type: "POST_EMBARCACIONENV",
           payload: embarcacionCreated,
@@ -67,7 +67,7 @@ export function updateAccesorio(id, payload){
 
 export function deleteEmbarcacionEnV(id){
     return async function(dispatch){
-        return axios.delete(`${URL_BASE}/embarcacionesV/${id}`) 
+        return axios.delete(`/embarcacionesV/${id}`) 
         .then(data => {
             dispatch({
                 type:"DELETE_EMBARCACIONENV",
@@ -95,7 +95,7 @@ export function deleteEmbarcacionEnV(id){
 
 export function updateEmbarcacionEnV(id, payload){
     return function(dispatch){
-        return axios.put(`${URL_BASE}/embrarcacionesV/${id}`, payload)
+        return axios.put(`/embrarcacionesV/${id}`, payload)
         .then(data => {
             dispatch({
                 type:"UPDATE_EMBARCACIONENV",
@@ -111,7 +111,7 @@ export function updateEmbarcacionEnV(id, payload){
 export function postEmbarcacionRT(payload) {
   return async function (dispatch) {
     try {
-      const embarcacionCreated = await axios.post(`${URL_BASE}/embarcacionesR`, payload);
+      const embarcacionCreated = await axios.post(`/embarcacionesR`, payload);
       return dispatch({
         type: "POST_EMBARCACIONRT",
         payload: embarcacionCreated,
@@ -128,7 +128,7 @@ export function postEmbarcacionRT(payload) {
 
 export function deleteEmbarcacionRT(id){
   return function(dispatch){
-      return axios.delete(`${URL_BASE}/embarcacionesR/${id}`)
+      return axios.delete(`/embarcacionesR/${id}`)
       .then(data => {
           dispatch({
               type:"DELETE_EMBARCACIONRT",
@@ -142,7 +142,7 @@ export function deleteEmbarcacionRT(id){
 
 export function updateEmbarcacionRT(id, payload){
   return function(dispatch){
-      return axios.put(`${URL_BASE}/embarcacionesR/${id}`, payload)
+      return axios.put(`/embarcacionesR/${id}`, payload)
       .then(data => {
           dispatch({
               type:"UPDATE_EMBARCACIONRT",
@@ -157,7 +157,7 @@ export function updateEmbarcacionRT(id, payload){
 export function  Categorias() {
   return async function (dispatch) {
     try {
-      let jsonTypes = await axios.get(`${URL_BASE}/categorias`);
+      let jsonTypes = await axios.get(`/categorias`);
       console.log(jsonTypes.data);
       return dispatch({
         type: 'CATEGORIAS',
@@ -174,7 +174,7 @@ export function  Categorias() {
 export function postCategorias(payload) {
   return async function (dispatch) {
     try {
-      const CatCreated = await axios.post(`${URL_BASE}/categorias`, payload);
+      const CatCreated = await axios.post(`/categorias`, payload);
       return dispatch({
         type: "POST_CATEGORIAS",
         payload: CatCreated,

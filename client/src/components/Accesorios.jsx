@@ -52,18 +52,16 @@ export function Accesorios(){
 
       <Navbar/>
       <Box id='boxAcc'>
-                <Box id='textBox1'>VENTA</Box>
+                <Box id='textBox1'>Tienda Online</Box>
+                <Box id='textBox1a'>Compra rápido y facil</Box>
       </Box>
       <SearchBarProductos/>
 
       <Grid container spacing={2}>
-      <br />
-      <br />
-      <br /><br /><br />
-    <FiltrosAccesorios
+      {/* <FiltrosAccesorios
     setPage={setPage}
-     />
- <br /><br /><br /><br /><br />
+     /> */}
+
         {
 
           actualPage?.map(e => 

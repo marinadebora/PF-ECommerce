@@ -32,7 +32,7 @@ let router = Router();
 
 router.use("/embarcacionesV", getEmbarVenta);
 router.use("/embarcacionesVId", getEmbarVentaId);
-router.use("//embarcacionesR", getEmbarRenta);
+router.use("/embarcacionesR", getEmbarRenta);
 router.use("/embarcacionesRId", getEmbarRentaId);
 router.use("/accesorios",/* requireSignin, */ getAccesorios);
 router.use("/accesorio", getAccesoriosId);
@@ -41,7 +41,7 @@ router.use("/todos", getTodoId);
 router.use("/embarcacionesR",postEmbarcacionesRenta);
 router.use("/embarcacionesV",postEmbarcacionesV);
 router.use("/accesorio",postAccesorios);
-router.use("//embarcacionesR", putEmbarcacionesRenta);
+router.use("/embarcacionesR", putEmbarcacionesRenta);
 router.use("/accesorio", putAccesorios);
 router.use("/embarcacionesV",putEmbarcacionesV);
 router.use("/embarcacionesV",deleteEmbarcacionesVenta);

@@ -1,16 +1,19 @@
-let mongoose =require("mongoose");
-let config = require("./config") ;
+const mongoose = require("mongoose");
+const config = require("./config");
+const { MONGO_USERS,
+   } = process.env;
 
 // conectamos nuestra base de datos
-(async()=>{
-try {
-        
-        const db = await mongoose.connect(`mongodb+srv://alexpina:Aa.040292@cluster0.mxvbffi.mongodb.net/test`);
-    console.log('conectada la db', db.connection.name)
+(async () =>
+{
+    try {
+
+        const db = await mongoose.connect(MONGO_USERS);
+        console.log('conectada la db', db.connection.name)
     } catch (error) {
         console.error(error)
     }
-})() 
+})()
 
 
 /* (async()=>{

@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import {Button, Typography} from "@mui/material";
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+<<<<<<< HEAD
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -18,6 +19,14 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+=======
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import MenuIcon from '@mui/icons-material/Menu';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import logoDashBoard from '../../imagenes/Nautical.png';
+>>>>>>> 32c2c85d4e43ed2b86dce9e9f17547f5c37df5c4
 import { mainListItems } from './ListItems';
 import "../../styles/dasshBoard.css";
 
@@ -116,6 +125,14 @@ function DashboardContent() {
             >
               <MenuIcon />
             </IconButton>
+<<<<<<< HEAD
+=======
+
+            <Link href="/">
+            <Button><img id='logoDashboard' src={logoDashBoard} alt='imgDashboard'/></Button>
+            </Link> 
+
+>>>>>>> 32c2c85d4e43ed2b86dce9e9f17547f5c37df5c4
             <Typography
               component="h1"
               variant="h6"
@@ -125,6 +142,15 @@ function DashboardContent() {
             >
               Admin
             </Typography>
+<<<<<<< HEAD
+=======
+
+            <Link href="/singIn">
+              <Button variant="outlined" id="buttonDasboard">Inicia Sesion</Button>
+            </Link>
+
+
+>>>>>>> 32c2c85d4e43ed2b86dce9e9f17547f5c37df5c4
             {/* <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
                 <NotificationsIcon />
