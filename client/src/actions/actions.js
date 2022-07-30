@@ -10,7 +10,7 @@ export function todosLosProductos()
     return async function (dispatch)
     {
         try {
-            const productos =await axios(`http://localHost:4000/todos`)
+            const productos =await axios(`http://localhost:4000/todos`)
            
             return dispatch({
 
@@ -64,7 +64,7 @@ export function barcosEnAlquiler(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localHost:4000/embarcacionesr');
+            const prodVenta= await axios('http://localhost:4000/embarcacionesr');
             return dispatch({
                 type:'BARCOS_EN_ALQUILER',
                 payload:prodVenta.data
@@ -78,7 +78,7 @@ export function accesorios(){
     return async function(dispatch){
         try {
             
-            const prodVenta= await axios('http://localHost:4000/accesorios')
+            const prodVenta= await axios('http://localhost:4000/accesorios')
             return dispatch({
                 type:'ACCESORIOS',
                 payload:prodVenta.data

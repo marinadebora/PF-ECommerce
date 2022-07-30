@@ -57,10 +57,13 @@ export function Accesorios(){
       <SearchBarProductos/>
 
       <Grid container spacing={2}>
-      {/* <FiltrosAccesorios
+      <br />
+      <br />
+      <br /><br /><br />
+    <FiltrosAccesorios
     setPage={setPage}
-     /> */}
-
+     />
+ <br /><br /><br /><br /><br />
         {
 
           actualPage?.map(e => 

@@ -67,9 +67,9 @@ export function FiltrosAccesorios({setPage}) {
    <label key='venta'>Filtrar por Precio </label>
   <select name="venta" id="barcoVentaAcc" onChange={(e) => filtroPorPrecio(e)}>
     <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
-    <option key={'mayor'} value={'mayor'}>Mas de US$ 100 </option>
-    <option key={'medio'} value={'medio'}>Entre US$ 50 - US$ 100 </option>
-    <option key={'menor'} value={'menor'}>Menos de US$ 50</option>
+    <option key={'mayor'} value={'mayor'}>Mas de US$ 120 </option>
+    <option key={'medio'} value={'medio'}>Entre US$ 45 - US$ 120 </option>
+    <option key={'menor'} value={'menor'}>Menos de US$ 45</option>
   </select>
   {
         venta && <label key='venta'>Filtrar por Categoria</label>

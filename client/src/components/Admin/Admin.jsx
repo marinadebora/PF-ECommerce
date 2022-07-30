@@ -38,12 +38,6 @@ export default function Admin(){
         <div>
            
             <Typography sx={{marginLeft: 'auto'}} variant="h6" component="p" id='guest1'>
-<<<<<<< HEAD
-             Edita tu producto
-            </Typography>
-            
-            <Link to='/dashboard'>
-=======
               Wellcome Admin
             </Typography>
             <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createAcc`}>Crear Accesorio</Link></Button>
@@ -52,7 +46,6 @@ export default function Admin(){
             <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createCat`}>Crear Categoria</Link></Button>
             <br/>
             <Link to='/home'>
->>>>>>> 8b7999e5e529d188888e23223b0e7be6047708bc
                 <button id='buttonBackAdmin'>VOLVER</button>
             </Link>
             

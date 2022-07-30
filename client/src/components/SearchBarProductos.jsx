@@ -70,9 +70,9 @@ export default function SearchBar(){
           <Toolbar>
          
    
-    <div id='campos'>
+     <div id='campos'>
       
-      <label id='text'>Buscar por Categoria:</label>
+     {/* <label id='text'>Buscar por Categoria:</label>
       <select name="categoriasR" id="categoriasR" onChange={(e) => filtroPorCategoria(e)}>
       <option key={'all'} value={'sinFiltro'}>Sin Filtros</option>
       {
@@ -87,7 +87,7 @@ export default function SearchBar(){
        
       
      
-       </select>
+       </select> */}
 
        
       
