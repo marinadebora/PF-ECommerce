@@ -5,7 +5,7 @@ const URL_BASE = "http://localhost:4000"
 export function postAccesorio(payload) {
     return async function (dispatch) {
       try {
-        const accesoriosCreated = await axios.post(`${URL_BASE}/accesorios`, payload);
+        const accesoriosCreated = await axios.post(`/accesorios`, payload);
         return dispatch({
           type: "POST_ACCESORIOS",
           payload: accesoriosCreated,
@@ -22,7 +22,7 @@ export function postAccesorio(payload) {
 
   export function deleteAccesorio(id){
     return function(dispatch){
-        return axios.delete(`${URL_BASE}/accesorio/${id}`)
+        return axios.delete(`/accesorio/${id}`)
         .then(data => {
             dispatch({
                 type:"DELETE_ACCESORIO",
@@ -36,7 +36,7 @@ export function postAccesorio(payload) {
 
 export function updateAccesorio(id, payload){
     return function(dispatch){
-        return axios.put(`${URL_BASE}/accesorio/${id}`, payload)
+        return axios.put(`/accesorio/${id}`, payload)
         .then(data => {
             dispatch({
                 type:"UPDATE_ACCESORIO",
@@ -50,7 +50,7 @@ export function updateAccesorio(id, payload){
   export function postEmbarcacionEnV(payload) {
     return async function (dispatch) {
       try {
-        const embarcacionCreated = await axios.post(`${URL_BASE}/embrarcacionesV`, payload);
+        const embarcacionCreated = await axios.post(`/embrarcacionesV`, payload);
         return dispatch({
           type: "POST_EMBARCACIONENV",
           payload: embarcacionCreated,
@@ -67,7 +67,7 @@ export function updateAccesorio(id, payload){
 
 export function deleteEmbarcacionEnV(id){
     return async function(dispatch){
-        return axios.delete(`${URL_BASE}/embarcacionesV/${id}`) 
+        return axios.delete(`/embarcacionesV/${id}`) 
         .then(data => {
             dispatch({
                 type:"DELETE_EMBARCACIONENV",
