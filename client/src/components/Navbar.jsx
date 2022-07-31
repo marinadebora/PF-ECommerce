@@ -38,18 +38,18 @@ export default function Navbar() {
             </Link>
             
            
-            <Typography sx={{marginLeft: 'auto'}} variant="h6" component="p" id='guest'>
-            <Link id='adminNavbar' to='/admin'>
+            <Typography sx={{marginLeft: 'auto'}} variant="h6" id='guest'>
+            <Link id='adminNavbar' to='/dashboard'>
               Hello Guest
               </Link>
             </Typography>
             
             <Link to='/singIn'>
-              <Button variant="outlined" id="button">Sing In</Button>
+              <Button variant="outlined" id="button">Inicia Sesion</Button>
             </Link>
 
             <Link to='/singUp'>
-              <Button variant="outlined" id="button">Sing Up</Button>
+              <Button variant="outlined" id="button">Registro</Button>
             </Link>
 
             <Link to='/checkoutPage'>

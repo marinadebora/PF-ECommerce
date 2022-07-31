@@ -1,12 +1,9 @@
-const {Schema} = require("mongoose");
-const mongoose = require('mongoose')
-/* const findOrCreate = require('mongoose-find-or-create') */
-
+const { Schema } = require("mongoose");
+const mongoose = require("mongoose")
 
 const categoriasSchema = new Schema({
-  nombre:{type:String}
+  nombre:{type:Array}
 
 },{timestamps:false})
-/* categoriasSchema.plugin(findOrCreate) */
 
-module.exports= mongoose.model("categorias", categoriasSchema)
+module.exports = mongoose.model("categorias",categoriasSchema)

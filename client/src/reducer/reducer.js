@@ -1,3 +1,7 @@
+import { ActionTypes } from '@mui/base';
+
+
+
  const initialState = {
     products: [],
     allProducts:[],
@@ -7,14 +11,39 @@
     allAccesories:[],
     detail: {},
     categorias: [],
-    basket: [],
+    basket:[],
+    //cookie.get('cart') ? JSON.parse(cookie.get('cart')) : []
+    //const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
   
   };
+
+  
   
   function rootReducer(state = initialState, action)
   {
-  
+    let itemsCart = state.basket
+    // let totalPrice = state.totalPrice
+    let cart = state.basket
+    const cartFromLocalStorage = JSON.parse(localStorage.getItem("item2") || "[]");
+    
+    
+    // console.log(itemsCart)
     switch (action.type) {
+      
+
+        /*case "ADD_TO_BASKET" :
+          const cart_add = state.products.find(e => e._id === action.payload)
+           localStorage.setItem('item2', JSON.stringify(cart_add))
+              return{
+                ...state,
+                basket: [...state.basket,cart_add]
+              } 
+              
+         
+          return{
+            ...state,
+            basket: [...state.basket,cart_add]
+          }*/
   
       case 'TODOS_LOS_PRODUCTOS':
         return {
@@ -63,12 +92,24 @@
         }
 
        case 'ADD_TO_BASKET':
-          const cart_add = state.products.find(e => e._id === action.payload) 
+          const cart_add = state.allAccesories.find(e => e._id === action.payload.id) 
+          localStorage.getItem("item2")
+          console.log(cart_add)
          
-          return{
-            ...state,
-            basket: [...state.basket,cart_add]
-          } 
+         if(cartFromLocalStorage.length) {
+          localStorage.setItem(
+            "item2",
+            JSON.stringify([...cartFromLocalStorage, cart_add])
+          );
+        } else {
+          localStorage.setItem(
+            "item2",
+            JSON.stringify([cart_add])
+          )
+        }
+          
+         
+         
   
           case 'REMOVE_TO_BASKET':
             const cart_remove = state.basket.filter(e => e!==undefined&& e._id !== action.payload)
@@ -77,6 +118,11 @@
               ...state,
               basket: cart_remove
             }
+            case "GET_ALL_CART":
+              return {
+                ...state,
+                basket:state.basket
+              }
     
         //----------filtros----------//
   
@@ -178,6 +224,22 @@
             }
           case "POST_CATEGORIAS":   
             return { ...state, categorias: state.categorias.concat(action.payload) };
+
+            case "RESET_DETAIL":
+              return {
+                ...state,
+                detail: {},
+              };
+              case 'REGISTRO':
+            return{
+              ...state
+            }
+            case "USUARIOS":
+            return{
+              ...state,
+              user: action.payload
+            }
+            
   
       default: {
         return state

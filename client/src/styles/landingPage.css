@@ -14,9 +14,9 @@
 }
 
 #logoL{
-    padding-top: 230px;
-    height: 90px;
-    margin-right: 617px;
+    padding-top: 200px;
+    height: 80px;
+    margin-right: 678px;
 
 }
 
@@ -27,15 +27,18 @@
 
 
 #textBoxL2{
+    font-style: italic;
+    text-align: left;
     padding-top: 7px;
+    margin-left: 125px;
     margin-right: 770px;
-    font-size: 25px;
+    font-size: 14px;
 }
 
 #buttonsLanding{
     display: flex;
     align-items: flex-end;
-    margin-top: 50px;
+    margin-top: -38px;
     margin-left: 120px;
 
     
@@ -71,4 +74,18 @@
     
     text-decoration: none;
     color: black;
+}
+
+#buttonLandingSing{
+    display: flex;
+    float:right;
+    color:white;
+    border: solid 1px white;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+
+#boxButtonLanding{
+    margin-right: 80px;
+    
 }

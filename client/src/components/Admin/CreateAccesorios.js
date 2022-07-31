@@ -7,6 +7,8 @@ import {postAccesorio, Categorias } from '../../actions/admin-action';
 import { accesorios, /*getAllTypes */} from '../../actions/actions';
 import '../../styles/form.css';
 import { Link } from 'react-router-dom';
+import * as MdIcons from 'react-icons/md'
+import axios from "axios"
 
 
 
@@ -18,23 +20,6 @@ export function AccesoriosCreate(){
 
     function validate(input){
         let errors = {}
-
-        /*{
-            "_id": "62d8a6b52029a4c825e23ed4",
-            "producto": "Bote inflable",
-            "categorias": [
-              "seguridad"
-            ],
-            "imagenes": [
-              "https://http2.mlstatic.com/D_NQ_NP_821055-MLA41327582058_042020-O.webp"
-            ],
-            "descripcion": "Inflables de remolque OBRIEN deluxe nylon-wrapped con asas y neopreno nudillos. Cubierta de nylon de doble costura y alta resistencia PVC virgen vejiga. Velocidad Válvula De Seguridad",
-            "dimensiones": "Rider, 54 de diámetro, (desinflado)",
-            "precio": "US$96.61",
-            "stock": "5",
-            "createdAt": "2022-07-21T01:07:01.988Z",
-            "updatedAt": "2022-07-21T01:07:01.988Z"
-          }*/
 
         if(!input.producto){
             errors.producto = 'Falta ingresar el nombre'
@@ -64,7 +49,11 @@ export function AccesoriosCreate(){
 
     const allAccesories = useSelector((state) => state.allAccesories);
     const allCat = useSelector(state => state.categorias)
-    console.log(allAccesories)
+    const arrayimage = allAccesories.find(e => e.producto)
+    
+   
+    
+    //console.log(allAccesories)
     
     //const allCategories = useSelector(state => state.types) FIJARSE EN EL STORE LAS CATEGORIAS
 
@@ -72,7 +61,10 @@ export function AccesoriosCreate(){
         dispatch(Categorias())
         dispatch(accesorios())
     }, [dispatch])
-
+    
+    const [imgSrc, setImgSrc] = useState("");
+    const [imgFile, setImgFile] = useState("");
+    const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         producto: '',
         descripcion: '',
@@ -83,10 +75,12 @@ export function AccesoriosCreate(){
         categorias: [],
         
         
+        
     })
+    
 
     
-    const [errors, setErrors] = useState({});
+    console.log(input.imagenes)
 
     function handleCat(e){
         if(!input.categorias.includes(e.target.value)){
@@ -115,16 +109,55 @@ export function AccesoriosCreate(){
             [e.target.name]:e.target.value
         }))
     }
-    const handleChangeArray=(e)=>{
+    const handleDeleteImage = (e) => {
         setInput({
           ...input,
-          [e.target.name] : [e.target.value]
-      })
-      setErrors(validate({
-         ...input,
-        [e.target.name] : [e.target.value]
-      }))
-      console.log(input)}
+          imagenes: input.imagenes.filter((tag) => tag !== e)
+          
+        });
+        
+      };
+      //const asd = short_screenshots: input.short_screenshots.filter((tag) => tag !== e),
+   
+      const cloudinaryUpload2 = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", imgFile);
+        formData.append("upload_preset", "upload-images");
+    
+        try {
+          const response = await axios.post(
+            "https://api.cloudinary.com/v1_1/browsingyate/image/upload",
+            formData
+          );
+          
+          
+          setInput({ ...input, imagenes: [...input.imagenes.concat(response.data.url)] });
+          console.log("todo ok");
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      
+     
+      const previewFile2 = (e) => {
+        const file = e.target.files[0]
+        setImgFile(file);
+        console.log(file)
+        
+        const reader = new FileReader();
+    
+        reader.onload = function () {
+          setImgSrc(reader.result);
+        };
+    
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      };
+      
+      
 
     
     function handleSubmit(e) {    
@@ -145,6 +178,7 @@ export function AccesoriosCreate(){
                   stock:0,
                   imagenes: [],
                   categorias: [],
+                  
                   
               })
               return (
@@ -241,12 +275,104 @@ export function AccesoriosCreate(){
                                 </textarea>
                                 {errors.dimensiones && <p classproducto="danger">{errors.dimensiones}</p>}
                             </div>
-                            <div >
-                           <label >Imagen</label>
-                           <input  type="url" value={input.imagenes} name="imagenes" onChange={(e)=>handleChangeArray(e)}></input> 
-                           {/*<button name="imagenes" onClick={(e)=>handleChangeArray(e)}>SUBIR FOTO</button>*/}
-       
-                            </div>
+                            <div className="component_rigth_form">
+                {/* MAIN IMAGE INPUT */}
+
+             
+               { input.imagenes.length < 5? <div>
+                  <label>Main image</label>
+                  
+                  <input
+                    className="inputImage"
+                    type="file" 
+                    placeholder="Main Image"
+                    name="image"
+                    id="main_image"
+                    
+                    onChange={previewFile2} 
+                  />
+                       <button id="save"
+                        bgColor={"#1884BE"}
+                        borderRadius={"none"}
+                        boxShadow="xl"
+                        color={"white"}
+                        fontSize={"1rem"}
+                        onClick={cloudinaryUpload2}
+                        isDisabled={imgSrc ? false : true}
+                        _hover={{
+                          background: "white",
+                          color: "#1884BE",
+                        }}
+                      >
+                        Save
+                      </button>
+
+
+                 
+                </div>
+                : <div>
+                  <h1>Alcanzaste el maximo de imagenes permitidas</h1>
+                   </div>
+                
+                      }
+                {/* 4 screenshots */}
+                <div >
+
+                  
+                  <div className="screenShots_Image">
+
+                    <div >
+                      <img src={input.imagenes[0]} id="image1" className="image_form" />
+                       {input.imagenes.length > 0 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteImage(input.imagenes[0])}
+      type="reset"
+    >
+      X
+    </button>
+    } 
+                      <img src={input.imagenes[1]} id="image2" className="image_form" />
+                      {input.imagenes.length > 1 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteImage(input.imagenes[1])}
+      type="reset"
+    >
+      X
+    </button>
+    } 
+                      <img src={input.imagenes[2]} id="image3" className="image_form" />
+                       {input.imagenes.length > 2 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteImage(input.imagenes[2])}
+      type="reset"
+    >
+      X
+    </button>
+    } 
+                      <img src={input.imagenes[3]} id="image4" className="image_form" />
+                      {input.imagenes.length > 3 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteImage(input.imagenes[3])}
+      type="reset"
+    >
+      X
+    </button>
+    } 
+      <img src={input.imagenes[4]} id="image4" className="image_form" />
+                      {input.imagenes.length > 3 && <button
+      className="botonX"
+      onClick={(e) => handleDeleteImage(input.imagenes[4])}
+      type="reset"
+    >
+      X
+    </button>
+    } 
+                    </div>
+
+                  </div>
+                </div>
+   
+              </div>   
                             <div className="class-select">
                                 <label>Categorias</label>
                                 <select onChange={handleCat} value='Onetype' >
@@ -262,18 +388,10 @@ export function AccesoriosCreate(){
                             </div>
                             
                             <button id='buttonSubmitForm' classproducto="button-submit" type="submit">Create Product</button>
-                            <Link to='/admin'>
+                            <Link to='/dashboard'>
                                 <button id='buttonBackForm'>Back</button>
                             </Link>
 
-                            
-
-
-                            {/* {
-                                ((errors.descripcion) || (errors.dimensiones) || (errors.healthScore) || (!input.producto)) ?
-                                <button disabled classproducto="button-submit" type="submit">Enviar Receta</button>:
-                                
-                            } */}
                         </form>
                         <div className="my-categ">
                             <h3>Mis Categorias</h3>

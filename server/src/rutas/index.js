@@ -19,7 +19,7 @@ const deleteAccesorios = require("./deleteAccesorios");
 // const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
 // const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
 const { categorias } = require("../controladores/controladorCategorias");
-const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores/CargaVentas");
+// const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores/CargaVentas");
 const postCategorias = require("./postCategoria");
 const { usuarios } = require("../controladores/controladorPostRegistro");
 const { usuariosAuth } = require("../controladores/ControladorPostAutenticar");
@@ -27,21 +27,22 @@ const {correo}= require("../controladores/autenticar")
 
 const {agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito} = require("../controladores/controladorCarrito");
 const { requireSignin } = require("../controladores/Verificaciones");
+const {getUsuario} = require("../controladores/ControladorUsuario");
 
 let router = Router();
 
 router.use("/embarcacionesV", getEmbarVenta);
 router.use("/embarcacionesVId", getEmbarVentaId);
-router.use("//embarcacionesR", getEmbarRenta);
+router.use("/embarcacionesR", getEmbarRenta);
 router.use("/embarcacionesRId", getEmbarRentaId);
-router.use("/accesorios",requireSignin, getAccesorios);
+router.use("/accesorios",getAccesorios);
 router.use("/accesorio", getAccesoriosId);
 router.use("/todos", getTodo);
 router.use("/todos", getTodoId);
 router.use("/embarcacionesR",postEmbarcacionesRenta);
 router.use("/embarcacionesV",postEmbarcacionesV);
 router.use("/accesorio",postAccesorios);
-router.use("//embarcacionesR", putEmbarcacionesRenta);
+router.use("/embarcacionesR", putEmbarcacionesRenta);
 router.use("/accesorio", putAccesorios);
 router.use("/embarcacionesV",putEmbarcacionesV);
 router.use("/embarcacionesV",deleteEmbarcacionesVenta);
@@ -59,6 +60,7 @@ router.post("/carrito/:id", agregarAlCarrito);
 router.delete("/carrito",borrarCarrito)
 router.get("/categorias", categorias)
 router.use("/categorias", postCategorias)
+router.get("/user",getUsuario)
 
 
 // no ejecutar esta ruta para no replicar los documentos de la base de datos

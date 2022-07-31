@@ -5,7 +5,7 @@ const URL_BASE = "http://localhost:4000"
 export function postAccesorio(payload) {
     return async function (dispatch) {
       try {
-        const accesoriosCreated = await axios.post(`${URL_BASE}/accesorios`, payload);
+        const accesoriosCreated = await axios.post(`${URL_BASE}/accesorio`, payload);
         return dispatch({
           type: "POST_ACCESORIOS",
           payload: accesoriosCreated,
@@ -158,7 +158,7 @@ export function  Categorias() {
   return async function (dispatch) {
     try {
       let jsonTypes = await axios.get(`${URL_BASE}/categorias`);
-      console.log(jsonTypes.data);
+      
       return dispatch({
         type: 'CATEGORIAS',
         payload: jsonTypes.data,
