@@ -57,35 +57,19 @@
 #textBox1{
     text-shadow: 0px 2px 4px  gray;
     font-weight: bolder;
-    padding-top: 140px;
+    font-style: italic;
+    padding-top: 110px;
     margin-right: 150px;
     font-size: 90px;
 }
 
-#textBox1a{
-    text-shadow: 0px 2px 4px  gray;
-    font-weight: bolder;
-    padding-top: 40px;
-    margin-right: 150px;
-    font-size: 30px;
-}
-
-#textBox1aV{
-    text-shadow: 0px 2px 4px  gray;
-    font-weight: bolder;
-    padding-top: 15px;
-    margin-right: 150px;
-    font-size: 30px;
-}
-
-
-
 #textBox2{
     text-shadow: 0px 2px 4px  gray;
     font-weight: bolder;
+    font-style: italic;
     padding-top: 10px;
     margin-left: 150px;
-    font-size: 100px;
+    font-size: 90px;
 }
 
 #buttonText{

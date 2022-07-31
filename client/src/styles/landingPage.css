@@ -15,8 +15,8 @@
 
 #logoL{
     padding-top: 230px;
-    height: 120px;
-    margin-right: 678px;
+    height: 90px;
+    margin-right: 617px;
 
 }
 
@@ -27,18 +27,15 @@
 
 
 #textBoxL2{
-    font-style: italic;
-    text-align: left;
     padding-top: 7px;
-    margin-left: 125px;
     margin-right: 770px;
-    font-size: 18px;
+    font-size: 25px;
 }
 
 #buttonsLanding{
     display: flex;
     align-items: flex-end;
-    margin-top: -38px;
+    margin-top: 50px;
     margin-left: 120px;
 
     

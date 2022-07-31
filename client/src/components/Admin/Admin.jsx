@@ -10,7 +10,7 @@ import {Button, Typography} from "@mui/material";
 import admincss from '../../styles/admin.css'
 import {Grid} from '@mui/material'
 //import '../styles/card.css';
-
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Admin(){
@@ -23,7 +23,7 @@ export default function Admin(){
     const index = page * characterPerPage;
     const endIndex = index - characterPerPage;
     const actualPage = newState?.slice(endIndex, index);
-
+    const navigate= useNavigate()
     const paginado = (numPage) =>{
         setPage(numPage)
       }
@@ -33,17 +33,24 @@ export default function Admin(){
         dispatch(todosLosProductos())
 
     },[dispatch]) 
+    function volver (){
+        navigate(-1)
+    }
 
     return(
         <div>
            
             <Typography sx={{marginLeft: 'auto'}} variant="h6" component="p" id='guest1'>
-             Edita tu producto
+              Wellcome Admin
             </Typography>
+            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createAcc`}>Crear Accesorio</Link></Button>
+            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createEmbarcacionVenta`}>Crear Embarcacion para la venta</Link></Button>
+            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createEmbarcacionRenta`}>Crear Embarcacion para la renta</Link></Button>
+            <Button id='buttonCreate' variant="contained"><Link id='linkCreate' to ={`/admin/createCat`}>Crear Categoria</Link></Button>
+            <br/>
             
-            <Link to='/dashboard'>
-                <button id='buttonBackAdmin'>VOLVER</button>
-            </Link>
+                <button id='buttonBackAdmin' onClick={volver}>VOLVER</button>
+         
             
         <Paginado 
             characterPerPage ={characterPerPage}

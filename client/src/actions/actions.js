@@ -10,7 +10,7 @@ export function todosLosProductos()
     return async function (dispatch)
     {
         try {
-            const productos =await axios('/todos')
+            const productos =await axios(`/todos`)
            
             return dispatch({
 
@@ -210,7 +210,7 @@ export function productName(payload){
 export function postAccesorio(payload) {
     return async function (dispatch) {
       try {
-        const accesoriosCreated = await axios.post(`/accesorios`, payload);
+        const accesoriosCreated = await axios.post(`accesorios`, payload);
         return dispatch({
           type: "POST_ACCESORIOS",
           payload: accesoriosCreated,

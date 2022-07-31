@@ -12,11 +12,12 @@ import { Grid } from '@mui/material'
 import '../styles/searchBar.css';
 import '../styles/box.css'
 import {FiltrosAccesorios} from './FiltrosAccesorios';
-
+import img from '../imagenes/sin_productos.jpg'
 
 
 export function Accesorios(){ 
   const accesorio = useSelector(state => state.accesories)
+  console.log(accesorio)
   const dispatch = useDispatch()
   //----------paginado---------//
 
@@ -31,6 +32,7 @@ export function Accesorios(){
   const [categorias, setCategorias] = useState('')
 
 
+ 
   const paginado = (numPage) =>
   {
     setPage(numPage)
@@ -52,19 +54,15 @@ export function Accesorios(){
 
       <Navbar/>
       <Box id='boxAcc'>
-                <Box id='textBox1'>Tienda Online</Box>
-                <Box id='textBox1a'>Compra rápido y facil</Box>
+                <Box id='textBox1'>VENTA</Box>
       </Box>
       <SearchBarProductos/>
-
+      
       <Grid container spacing={2}>
-      {/* <FiltrosAccesorios
-    setPage={setPage}
-     /> */}
-
+  
         {
 
-          actualPage?.map(e => 
+          actualPage.length > 0 ? actualPage.map(e => 
           {
             return (
               <Fragment>
@@ -95,10 +93,18 @@ export function Accesorios(){
 
               </Fragment>
             )
-          })
+          }):  <img className="sin_art" src={img} alt="sin articulos" />
+          
+         
+             
+         
         }
       </Grid>
-
+      <br /><br /><br /><br /><br />
+      <FiltrosAccesorios
+    setPage={setPage}
+     />
+<br /><br /><br /><br /><br />
       <button id='buttonBack' onClick={volver}>VOLVER</button>
 
 <Paginado

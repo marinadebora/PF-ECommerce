@@ -10,7 +10,7 @@
     border: none;
     margin: 10px;
     margin-top: 25px;
-    margin-right: 20px;
+    margin-right: 60px;
     cursor: pointer;
     
     
@@ -44,11 +44,6 @@
     width: 500px;
     background-color: white;
     
-}
-
-#titleDetailCard{
-   
-    font-weight: bold;
 }
 
 ul{

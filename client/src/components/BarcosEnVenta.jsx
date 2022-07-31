@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { barcosEnVenta } from '../actions/actions'
-import { Link, useNavigate } from 'react-router-dom';
+import { barcosEnVenta, filtroPrecio, filtrosCategoriaEmbarcacion, precioOrden } from '../actions/actions'
+import { Link } from 'react-router-dom';
 import { Box } from '@mui/system';
 import Paginado from "./Paginado";
 import CardRentaVenta from './CardRentaVenta'
@@ -13,7 +13,6 @@ import '../styles/box.css'
 
 export function BarcosEnVenta()
 {
-  const navigate = useNavigate()
   const productVenta = useSelector(state => state.saleVessels)
   const dispatch = useDispatch()
 
@@ -40,11 +39,6 @@ export function BarcosEnVenta()
     dispatch(barcosEnVenta())
   }, [dispatch])
 
-  const volver = () =>
-  {
-    navigate(-1)
-  }
-
 
   return (
     <div>
@@ -52,8 +46,6 @@ export function BarcosEnVenta()
         <Navbar/>
         <Box id='boxVta'>
                 <Box id='textBox1'>VENTA</Box>
-                <Box id='textBox1aV'>Realiza tu consulta</Box>
-                <Box id='textBox1aV'>y te contactamos en el día</Box>
                 
         </Box>
       
@@ -89,9 +81,9 @@ export function BarcosEnVenta()
           })
         }
       </Grid>
-      
-      <button id='buttonBack' onClick={volver}>VOLVER</button>
-     
+      <Link to='/home'>
+        <button id='buttonBack'>VOLVER</button>
+      </Link>
       <Paginado
         characterPerPage={characterPerPage}
         newState={productVenta.length}

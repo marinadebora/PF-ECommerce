@@ -45,11 +45,11 @@ export default function Navbar() {
             </Typography>
             
             <Link to='/singIn'>
-              <Button variant="outlined" id="button">Inicia Sesion</Button>
+              <Button variant="outlined" id="button">Sing In</Button>
             </Link>
 
             <Link to='/singUp'>
-              <Button variant="outlined" id="button">Registro</Button>
+              <Button variant="outlined" id="button">Sing Up</Button>
             </Link>
 
             <Link to='/checkoutPage'>
