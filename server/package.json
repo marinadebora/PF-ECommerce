@@ -8,8 +8,8 @@
     "npm": "^8.5.5"
     },
   "scripts": {
-    "dev": "nodemon ./index.js",
-    "start": "node ."
+    "dev": "react-scripts start",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
