@@ -86,39 +86,39 @@ export default function CheckoutPage()
                         }
                         
                         {
-                            e.modelo && <li><p>Modelo: {e.modelo}</p></li>
+                            e.modelo && <li><p id='listCheckout'>Modelo: {e.modelo}</p></li>
                         }
                         {
-                            e.marca && <li><p>Marca: {e.marca}</p></li>
+                            e.marca && <li><p id='listCheckout'>Marca: {e.marca}</p></li>
                         }
                         {
-                            e.tipo && <li><p>tipo: {e.tipo}</p></li>
+                            e.tipo && <li><p id='listCheckout'>Tipo: {e.tipo}</p></li>
                         }
                         {
-                            e.fabricacion && <li><p>fabricacion: {e.fabricacion}</p></li>
+                            e.fabricacion && <li><p id='listCheckout'>Fabricacion: {e.fabricacion}</p></li>
                         }
                         {
-                            e.astillero && <li><p>astillero: {e.astillero}</p></li>
+                            e.astillero && <li><p id='listCheckout'>Astillero: {e.astillero}</p></li>
                         }
                         {
-                            e.motor && <li><p>Motor: {e.motor}</p></li>
+                            e.motor && <li><p id='listCheckout'>Motor: {e.motor}</p></li>
                         }
                         {
-                            e.localizacion && <li><p>localizacion: {e.localizacion}</p></li>
-                        }
-
-                        {
-                            e.precio && <li><p>precio: {e.precio}</p></li>
-                        }
-                        {
-                            e.producto && <li><p>producto: {e.producto}</p></li>
-                        }
-                        {
-                            e.descripcion && <li><p>descripcion: {e.descripcion}</p></li>
+                            e.localizacion && <li><p id='listCheckout'>Localizacion: {e.localizacion}</p></li>
                         }
 
                         {
-                            e.Tamaño && <li><p>Tamaño: {e.Tamaño}</p></li>
+                            e.precio && <li><p id='listCheckout'>Precio: {e.precio}</p></li>
+                        }
+                        {
+                            e.producto && <li><p id='listCheckout'>Producto: {e.producto}</p></li>
+                        }
+                        {
+                            e.descripcion && <li><p id='listCheckout'>Descripcion: {e.descripcion}</p></li>
+                        }
+
+                        {
+                            e.Tamaño && <li><p id='listCheckout'>Tamaño: {e.Tamaño}</p></li>
                         }
                         
                     </ul>

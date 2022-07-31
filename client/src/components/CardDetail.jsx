@@ -90,7 +90,7 @@ console.log(myDetail._id);
 
           </div>
       
-          <ul>
+          <ul id='ulDetail'>
           
           {
             myDetail.marca ? <li><p id='titleDetailCard'>Marca:</p> <p>{myDetail.marca}</p></li> : ''

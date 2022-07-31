@@ -41,9 +41,20 @@ export default function Home()
 
     return(
         <div>
-            {/* <Navbar/> */}
+            
+            
             
             <Box id='boxLanding'>
+                <Box id='boxButtonLanding'>
+                    <Link to='/singIn'>
+                        <Button variant="outlined" id="buttonLandingSing">Inicia Sesion</Button>
+                    </Link>
+
+                    <Link to='/singUp'>
+                        <Button variant="outlined" id="buttonLandingSing">Registro</Button>
+                    </Link>
+                </Box>
+
                 <Box id='textBoxL1'><img id='logoL' src={logoLanding} alt='imgLanding'/></Box> 
                 <Box id='textBoxL2'>
                 En Nautical nos dedicamos a la ventade productos de nautica desde 1988.<br/>

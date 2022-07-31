@@ -7,7 +7,7 @@ import Paginado from '../Paginado';
 import Card from '../Card';
 import Navbar from '../Navbar'
 import {Button, Typography} from "@mui/material";
-import admincss from '../../styles/admin.css'
+import '../../styles/admin.css'
 import {Grid} from '@mui/material'
 //import '../styles/card.css';
 

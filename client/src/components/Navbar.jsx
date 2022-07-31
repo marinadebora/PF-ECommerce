@@ -38,7 +38,7 @@ export default function Navbar() {
             </Link>
             
            
-            <Typography sx={{marginLeft: 'auto'}} variant="h6" component="p" id='guest'>
+            <Typography sx={{marginLeft: 'auto'}} variant="h6" id='guest'>
             <Link id='adminNavbar' to='/dashboard'>
               Hello Guest
               </Link>

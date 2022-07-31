@@ -14,8 +14,8 @@
 }
 
 #logoL{
-    padding-top: 230px;
-    height: 120px;
+    padding-top: 200px;
+    height: 80px;
     margin-right: 678px;
 
 }
@@ -32,7 +32,7 @@
     padding-top: 7px;
     margin-left: 125px;
     margin-right: 770px;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 #buttonsLanding{
@@ -74,4 +74,18 @@
     
     text-decoration: none;
     color: black;
+}
+
+#buttonLandingSing{
+    display: flex;
+    float:right;
+    color:white;
+    border: solid 1px white;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+
+#boxButtonLanding{
+    margin-right: 80px;
+    
 }

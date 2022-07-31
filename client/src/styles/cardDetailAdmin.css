@@ -1,6 +1,33 @@
-
 #buttonBack{
 
+    font-weight: bold;
+    color: white;
+    height: 25px;
+    width: 70px;
+    background-color:#0184a9;
+    border-radius: 10px;
+    border: none;
+    margin-top: 25px;
+    margin-right: 20px;
+    cursor: pointer;
+    
+    
+}
+
+.update_button{
+    font-weight: bold;
+    color: white;
+    height: 25px;
+    width: 150px;
+    background-color:#0184a9;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.delete-button{
     font-weight: bold;
     color: white;
     height: 25px;
@@ -12,10 +39,7 @@
     margin-top: 25px;
     margin-right: 20px;
     cursor: pointer;
-    
-    
 }
-
 
 #mainContainer{
     overflow: hidden;
@@ -28,30 +52,14 @@
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-#mainImg{
-   
-}
-
-#imgProduc{
+#imgProducE{
     margin-top: 20px;
-    margin-right: 60px;
+    margin-right: 30px;
     height: 300px;
-    float:left
+    margin-top: 20px;
 }
 
-#dataContainer{
-    text-align: left;
-    width: 500px;
-    background-color: white;
-    
-}
-
-#titleDetailCard{
-   
-    font-weight: bold;
-}
-
-#ulDetail{
+p{
     margin-left: 95px;
     width: 740px;
     
@@ -59,7 +67,9 @@
     margin-top: 40px;
 }
 
-#ulDetail li{
+#list-cat li{
     list-style-type: none;
+    margin-right: 60px;
     font-size: 15px;
 }
+
