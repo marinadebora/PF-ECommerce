@@ -93,4 +93,7 @@ comentarios: [
     timestamps:true
 })
 module.exports= mongoose.model('Accesorios', accesorioSchema);
+<<<<<<< HEAD
 
+=======
+>>>>>>> aefd48b85a9adc252460ef2247754f8d77bdc283

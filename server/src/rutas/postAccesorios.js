@@ -31,6 +31,9 @@ postAccesorios.post("/", async (req,res) =>{
     }
 })
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> aefd48b85a9adc252460ef2247754f8d77bdc283
 module.exports = postAccesorios

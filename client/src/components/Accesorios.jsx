@@ -13,11 +13,14 @@ import '../styles/searchBar.css';
 import '../styles/box.css'
 import {FiltrosAccesorios} from './FiltrosAccesorios';
 import img from '../imagenes/sin_productos.jpg'
+import {todosLosProductos,getItemsCart, resetDetail} from '../actions/actions'
+
 
 
 export function Accesorios(){ 
-  const accesorio = useSelector(state => state.accesories)
-  console.log(accesorio)
+  const accesorio = useSelector(state => state.allAccesories)
+  
+  
   const dispatch = useDispatch()
   //----------paginado---------//
 
@@ -30,6 +33,9 @@ export function Accesorios(){
   const navigate = useNavigate()
   const [venta, setVenta] = useState('')
   const [categorias, setCategorias] = useState('')
+  const cartFromLocalStorage = JSON.parse(localStorage.getItem("item2") || "[]");
+  const [cart /* setCart */] = useState(cartFromLocalStorage);
+
 
 
  
@@ -38,15 +44,26 @@ export function Accesorios(){
     setPage(numPage)
   }
 
-  useEffect(() =>
+  /*useEffect(() =>
   {
+    localStorage.setItem("item2", JSON.stringify(cart));
+    dispatch(getItemsCart());
     dispatch(accesorios())
-  }, [dispatch])
+    //dispatch(todosLosProductos())
+  }, [dispatch, cart])*/
 
   const volver = () =>
   {
     navigate(-1)
   }
+  useEffect(()=>{
+    localStorage.setItem("item2", JSON.stringify(cart));
+    
+    dispatch(getItemsCart());
+    dispatch(resetDetail());
+    dispatch(accesorios())
+
+},[dispatch, cart])
 
 
   return (
@@ -83,6 +100,7 @@ export function Accesorios(){
                     producto={e.producto}
                     descripcion={e.descripcion}
                     Tamaño={e.Tamaño}
+                    id={e._id}
                     Link={<Link to={`/home/${e._id}`} >Info</Link>}
                   />
 

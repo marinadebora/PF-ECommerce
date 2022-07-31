@@ -1,3 +1,23 @@
 #appBarDash{
     background-color: #0184a9;
 }
+<<<<<<< HEAD
+=======
+
+#buttonDasboard{
+    color:white;
+    border: solid 1px white;
+    float: left;
+    margin-left: 10px;
+    float: left;
+}
+
+#logoDashboard{
+    margin-top: 5px;
+    height: 30px;
+}
+
+#Ecopy{
+    margin-left: 200px;
+}
+>>>>>>> aefd48b85a9adc252460ef2247754f8d77bdc283

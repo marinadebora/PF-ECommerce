@@ -95,13 +95,23 @@ export function categoriaAccesorios(payload){
     }
     }
 
-    export function addToBasket(payload){
+    /*export function addToBasket(payload){
         return{
                 type:'ADD_TO_BASKET',
                 payload
     
                 } 
-            }
+            }*/
+            export const addToBasket = (item) => {
+                try {
+                  return {
+                    type: 'ADD_TO_BASKET',
+                    payload: item,
+                  }
+                } catch (err) {
+                  console.log(err)
+                }
+              };
     
     export function removeToBasket(payload){
         return{
@@ -110,6 +120,15 @@ export function categoriaAccesorios(payload){
     
                 } 
             }
+            export const getItemsCart = () => {
+                try {
+                  return {
+                    type: "GET_ALL_CART",
+                  }
+                } catch (err) {
+                  console.log(err)
+                }
+              };
     
 
 //------------Filtro-Por-Precio------------//
@@ -356,3 +375,8 @@ export function updateEmbarcacionRT(id, payload){
       })
   }
 }
+export function resetDetail() {
+    return {
+      type:" RESET_DETAIL",
+    };
+  }

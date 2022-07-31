@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> aefd48b85a9adc252460ef2247754f8d77bdc283
 const {Router} = require("express");
 const Categorias = require('../modelos/Categorias')
 
@@ -14,6 +17,7 @@ deleteCategoria.delete('/:id', async (req,res)=>{
     }
 })
 
+<<<<<<< HEAD
 =======
 const {Router} = require("express");
 const Categorias = require('../modelos/Categorias')
@@ -31,4 +35,6 @@ deleteCategoria.delete('/:id', async (req,res)=>{
 })
 
 >>>>>>> 8b7999e5e529d188888e23223b0e7be6047708bc
+=======
+>>>>>>> aefd48b85a9adc252460ef2247754f8d77bdc283
 module.exports = deleteCategoria

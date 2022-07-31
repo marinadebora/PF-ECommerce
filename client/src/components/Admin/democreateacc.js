@@ -1,14 +1,12 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {postAccesorio, Categorias } from '../../actions/admin-action';
 import { accesorios, /*getAllTypes */} from '../../actions/actions';
-import '../../styles/form.css';
+import form from '../../styles/form.css';
 import { Link } from 'react-router-dom';
 import * as MdIcons from 'react-icons/md'
-import axios from "axios"
 
 
 
@@ -20,6 +18,23 @@ export function AccesoriosCreate(){
 
     function validate(input){
         let errors = {}
+
+        /*{
+            "_id": "62d8a6b52029a4c825e23ed4",
+            "producto": "Bote inflable",
+            "categorias": [
+              "seguridad"
+            ],
+            "imagenes": [
+              "https://http2.mlstatic.com/D_NQ_NP_821055-MLA41327582058_042020-O.webp"
+            ],
+            "descripcion": "Inflables de remolque OBRIEN deluxe nylon-wrapped con asas y neopreno nudillos. Cubierta de nylon de doble costura y alta resistencia PVC virgen vejiga. Velocidad Válvula De Seguridad",
+            "dimensiones": "Rider, 54 de diámetro, (desinflado)",
+            "precio": "US$96.61",
+            "stock": "5",
+            "createdAt": "2022-07-21T01:07:01.988Z",
+            "updatedAt": "2022-07-21T01:07:01.988Z"
+          }*/
 
         if(!input.producto){
             errors.producto = 'Falta ingresar el nombre'
@@ -51,7 +66,23 @@ export function AccesoriosCreate(){
     const allCat = useSelector(state => state.categorias)
     const arrayimage = allAccesories.find(e => e.producto)
     
-   
+    const cloudinaryUpload = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("file", imgFile);
+        formData.append("upload_preset", "petelegant");
+    
+        try {
+          const response = await axios.post(
+            "https://api.cloudinary.com/v1_1/petelegant/image/upload",
+            formData
+          );
+          setProduct({ ...product, image: response.data.url });
+          console.log("todo ok");
+        } catch (error) {
+          console.log(error);
+        }
+      };
     
     //console.log(allAccesories)
     
@@ -61,10 +92,7 @@ export function AccesoriosCreate(){
         dispatch(Categorias())
         dispatch(accesorios())
     }, [dispatch])
-    
-    const [imgSrc, setImgSrc] = useState("");
-    const [imgFile, setImgFile] = useState("");
-    const [errors, setErrors] = useState({});
+
     const [input, setInput] = useState({
         producto: '',
         descripcion: '',
@@ -73,14 +101,13 @@ export function AccesoriosCreate(){
         stock: 0,
         imagenes: [],
         categorias: [],
-        
+        imagenes: [],
         
         
     })
-    
 
     
-    console.log(input.imagenes)
+    const [errors, setErrors] = useState({});
 
     function handleCat(e){
         if(!input.categorias.includes(e.target.value)){
@@ -112,52 +139,126 @@ export function AccesoriosCreate(){
     const handleDeleteImage = (e) => {
         setInput({
           ...input,
-          imagenes: input.imagenes.filter((tag) => tag !== e)
+          imagenes: ""
           
         });
         
       };
-      //const asd = short_screenshots: input.short_screenshots.filter((tag) => tag !== e),
-   
-      const cloudinaryUpload2 = async (e) => {
-        e.preventDefault();
-        const formData = new FormData();
-        formData.append("file", imgFile);
-        formData.append("upload_preset", "upload-images");
+    const handleChangeArray=(e)=>{
+        setInput({
+          ...input,
+          [e.target.name] : [e.target.value]
+      })
+      setErrors(validate({
+         ...input,
+        [e.target.name] : [e.target.value]
+      }))
+      console.log(input)}
+      async function handleImage() {
+        const preview = document.getElementById("imagen_principal");
     
-        try {
-          const response = await axios.post(
-            "https://api.cloudinary.com/v1_1/browsingyate/image/upload",
-            formData
-          );
-          
-          
-          setInput({ ...input, imagenes: [...input.imagenes.concat(response.data.url)] });
-          console.log("todo ok");
-        } catch (error) {
-          console.log(error);
-        }
-      };
-
-      
-     
-      const previewFile2 = (e) => {
-        const file = e.target.files[0]
-        setImgFile(file);
-        console.log(file)
-        
-        const reader = new FileReader();
-    
-        reader.onload = function () {
-          setImgSrc(reader.result);
-        };
-    
+        const fileInput = document.getElementById("main_image");
+        const file = fileInput.files[0];
+        const reader = await new FileReader();
+        reader.addEventListener(
+          "load",
+          async function () {
+            preview.src = await reader.result;
+            setInput({
+              ...input,
+              imagenes: [preview.src],
+            });;
+          },
+          false
+        );
         if (file) {
           reader.readAsDataURL(file);
         }
-      };
-      
-      
+      }
+      async function handleImageOne() {
+        const preview = document.getElementById("image1");
+    
+        const fileInput = document.getElementById("Short-Image1");
+        const file = fileInput.files[0];
+        const reader = await new FileReader();
+        reader.addEventListener(
+          "load",
+          async function () {
+            preview.src = await reader.result;
+            setInput({
+              ...input,
+              imagenes: [...input.imagenes.concat(preview.src)],
+            });;
+          },
+          false
+        );
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
+      async function handleImageTwo() {
+        const preview = document.getElementById("image2");
+    
+        const fileInput = document.getElementById("Short-Image2");
+        const file = fileInput.files[0];
+        const reader = await new FileReader();
+        reader.addEventListener(
+          "load",
+          async function () {
+            preview.src = await reader.result;
+            setInput({
+              ...input,
+              imagenes: [...input.imagenes.concat(preview.src)],
+            });;
+          },
+          false
+        );
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
+      async function handleImageTree() {
+        const preview = document.getElementById("image3");
+    
+        const fileInput = document.getElementById("Short-Image3");
+        const file = fileInput.files[0];
+        const reader = await new FileReader();
+        reader.addEventListener(
+          "load",
+          async function () {
+            preview.src = await reader.result;
+            setInput({
+              ...input,
+              imagenes: [...input.imagenes.concat(preview.src)],
+            });;
+          },
+          false
+        );
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
+      async function handleImageFour() {
+        const preview = document.getElementById("image4");
+    
+        const fileInput = document.getElementById("Short-Image4");
+        const file = fileInput.files[0];
+        const reader = await new FileReader();
+        reader.addEventListener(
+          "load",
+          async function () {
+            preview.src = await reader.result;
+            setInput({
+              ...input,
+              imagenes: [...input.imagenes.concat(preview.src)],
+            });;
+          },
+          false
+        );
+        if (file) {
+          reader.readAsDataURL(file);
+        }
+      }
 
     
     function handleSubmit(e) {    
@@ -178,7 +279,7 @@ export function AccesoriosCreate(){
                   stock:0,
                   imagenes: [],
                   categorias: [],
-                  
+                  imagenes: [],
                   
               })
               return (
@@ -278,101 +379,128 @@ export function AccesoriosCreate(){
                             <div className="component_rigth_form">
                 {/* MAIN IMAGE INPUT */}
 
-             
-               { input.imagenes.length < 5? <div>
+                <div>
                   <label>Main image</label>
-                  
                   <input
                     className="inputImage"
-                    type="file" 
+                    type="file"
                     placeholder="Main Image"
                     name="image"
                     id="main_image"
-                    
-                    onChange={previewFile2} 
+                    onChange={(e) => handleImage(e)}
                   />
-                       <button id="save"
-                        bgColor={"#1884BE"}
-                        borderRadius={"none"}
-                        boxShadow="xl"
-                        color={"white"}
-                        fontSize={"1rem"}
-                        onClick={cloudinaryUpload2}
-                        isDisabled={imgSrc ? false : true}
-                        _hover={{
-                          background: "white",
-                          color: "#1884BE",
-                        }}
-                      >
-                        Save
-                      </button>
+
+                  
+
+                    <div className="imagen_principal_container">
+                      <img id="imagen_principal" src={input.imagenes} className="image_form" />
+                      {input.imagenes.length > 0 &&
+
+                        <button className="botonX" onClick={(e) => handleDeleteImage(e)} type="reset"><MdIcons.MdCancel /></button>
+
+                      }
+                    </div>
+
 
 
                  
                 </div>
-                : <div>
-                  <h1>Alcanzaste el maximo de imagenes permitidas</h1>
-                   </div>
-                
-                      }
+
                 {/* 4 screenshots */}
                 <div >
 
-                  
+                  <div >
+                    <label> Insert screenshots</label>
+                  </div>
+                  <div className="container_up_shortsc">
+
+                    <input
+                      className="inputImage"
+                      type="file"
+                      placeholder="Insert url image"
+                      name="imagenes"
+                      id="Short-Image1"
+                      onChange={(e) => handleImageOne(e)}
+                    />
+                    <input
+                      className="inputImage"
+                      type="file"
+                      placeholder="Insert url image"
+                      name="imagenes"
+                      id="Short-Image2"
+                      onChange={(e) => handleImageTwo(e)}
+                    />
+                    <input
+                      className="inputImage"
+                      type="file"
+                      placeholder="Insert url image"
+                      name="imagenes"
+                      id="Short-Image3"
+                      onChange={(e) => handleImageTree(e)}
+                    />
+                    <input
+                      className="inputImage"
+                      type="file"
+                      placeholder="Insert url image"
+                      name="imagenes"
+                      id="Short-Image4"
+                      onChange={(e) => handleImageFour(e)}
+                    />
+
+                  </div>
                   <div className="screenShots_Image">
 
                     <div >
                       <img src={input.imagenes[0]} id="image1" className="image_form" />
-                       {input.imagenes.length > 0 && <button
+                      {/* {input.imagenes.length > 0 && <button
       className="botonX"
-      onClick={(e) => handleDeleteImage(input.imagenes[0])}
+      onClick={(e) => handleDeleteShortImage(input.imagenes[0])}
       type="reset"
     >
       X
     </button>
-    } 
+    } */}
                       <img src={input.imagenes[1]} id="image2" className="image_form" />
-                      {input.imagenes.length > 1 && <button
+                      {/* {input.imagenes.length > 1 && <button
       className="botonX"
-      onClick={(e) => handleDeleteImage(input.imagenes[1])}
+      onClick={(e) => handleDeleteShortImage(input.imagenes[1])}
       type="reset"
     >
       X
     </button>
-    } 
+    } */}
                       <img src={input.imagenes[2]} id="image3" className="image_form" />
-                       {input.imagenes.length > 2 && <button
+                      {/* {input.imagenes.length > 2 && <button
       className="botonX"
-      onClick={(e) => handleDeleteImage(input.imagenes[2])}
+      onClick={(e) => handleDeleteShortImage(input.imagenes[2])}
       type="reset"
     >
       X
     </button>
-    } 
+    } */}
                       <img src={input.imagenes[3]} id="image4" className="image_form" />
-                      {input.imagenes.length > 3 && <button
+                      {/* {input.imagenes.length > 3 && <button
       className="botonX"
-      onClick={(e) => handleDeleteImage(input.imagenes[3])}
+      onClick={(e) => handleDeleteShortImage(input.imagenes[3])}
       type="reset"
     >
       X
     </button>
-    } 
-      <img src={input.imagenes[4]} id="image4" className="image_form" />
-                      {input.imagenes.length > 3 && <button
-      className="botonX"
-      onClick={(e) => handleDeleteImage(input.imagenes[4])}
-      type="reset"
-    >
-      X
-    </button>
-    } 
+    } */}
                     </div>
 
                   </div>
                 </div>
-   
-              </div>   
+
+
+                {/* 4 screenshots */}
+                
+              </div>
+                            
+                            
+                            
+                            
+                            
                             <div className="class-select">
                                 <label>Categorias</label>
                                 <select onChange={handleCat} value='Onetype' >
@@ -388,10 +516,18 @@ export function AccesoriosCreate(){
                             </div>
                             
                             <button id='buttonSubmitForm' classproducto="button-submit" type="submit">Create Product</button>
-                            <Link to='/dashboard'>
+                            <Link to='/admin'>
                                 <button id='buttonBackForm'>Back</button>
                             </Link>
 
+                            
+
+
+                            {/* {
+                                ((errors.descripcion) || (errors.dimensiones) || (errors.healthScore) || (!input.producto)) ?
+                                <button disabled classproducto="button-submit" type="submit">Enviar Receta</button>:
+                                
+                            } */}
                         </form>
                         <div className="my-categ">
                             <h3>Mis Categorias</h3>

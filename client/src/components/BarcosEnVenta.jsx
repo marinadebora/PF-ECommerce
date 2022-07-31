@@ -10,7 +10,7 @@ import Footer from './Footer';
 import { Grid } from '@mui/material'
 import '../styles/searchBar.css';
 import '../styles/box.css'
-
+import { useNavigate } from "react-router-dom";
 export function BarcosEnVenta()
 {
   const productVenta = useSelector(state => state.saleVessels)
@@ -28,6 +28,8 @@ export function BarcosEnVenta()
   const [categoriasR, setCategoriasR] = useState('')
   
 
+  const navigate=useNavigate()
+
 
   const paginado = (numPage) =>
   {
@@ -38,6 +40,11 @@ export function BarcosEnVenta()
   {
     dispatch(barcosEnVenta())
   }, [dispatch])
+
+  const volver = () =>
+  {
+    navigate(-1)
+  }
 
 
   return (
@@ -81,9 +88,9 @@ export function BarcosEnVenta()
           })
         }
       </Grid>
-      <Link to='/home'>
-        <button id='buttonBack'>VOLVER</button>
-      </Link>
+      
+        <button id='buttonBack' onClick={volver}>VOLVER</button>
+    
       <Paginado
         characterPerPage={characterPerPage}
         newState={productVenta.length}

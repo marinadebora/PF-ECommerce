@@ -19,11 +19,11 @@
   margin-right: 30px;
 }
 
-#buttonBackForm {
+#save {
   font-weight: bold;
   color: white;
   height: 25px;
-  width: 150px;
+  width: 50px;
   background-color: #0184a9;
   border-radius: 10px;
   border: none;
@@ -84,4 +84,8 @@ textarea {
 
 .input {
   margin-right: auto;
+}
+
+.image_form{
+  width: 80px;
 }
