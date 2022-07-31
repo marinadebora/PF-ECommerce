@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
- 
   "scripts": {
     "dev": "nodemon ./index.js",
-    "start": "node index"
+    "start": "node ./index.js"
   },
- 
   "dependencies": {
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
