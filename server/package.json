@@ -8,8 +8,8 @@
     "npm": "^8.11.0"
     },
   "scripts": {
-    "dev": "nodemon ./index.js",
-    "start": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
