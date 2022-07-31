@@ -8,3 +8,4 @@ package-lock.json
 .npm
 # Dependency directories
 jspm_packages/
+package-lock.json
