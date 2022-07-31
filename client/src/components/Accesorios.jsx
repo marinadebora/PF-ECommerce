@@ -55,13 +55,15 @@ export function Accesorios(){
     navigate(-1)
   }
   useEffect(()=>{
+    localStorage.getItem("item2")
     localStorage.setItem("item2", JSON.stringify(cart));
     
     dispatch(getItemsCart());
     dispatch(resetDetail());
     dispatch(accesorios())
 
-},[dispatch, cart])
+},[dispatch, cart,localStorage.getItem("item2")])
+
 
 
   return (

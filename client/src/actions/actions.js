@@ -111,6 +111,7 @@ export function categoriaAccesorios(payload){
                 } catch (err) {
                   console.log(err)
                 }
+                console.log(item)
               };
     
     export function removeToBasket(payload){
