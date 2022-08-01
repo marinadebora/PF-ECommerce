@@ -142,59 +142,59 @@ import { ActionTypes } from '@mui/base';
           saleVessels: action.payload === 'mayor' ? precios.filter(e => parseInt(e.precio) > 300000) : filterPrecio
         }
   
-      case 'FITRO_PRECIO_ACCESORIO':
-        const estadoAcc = state.allAccesories
-        const precioAcc = estadoAcc.filter(e => e.precio.split('$')[1])
-        const filterPrecioAcc = action.payload === 'medio' ?
-          precioAcc.filter(e => parseInt(e.precio.split('$')[1]) > 45 && parseInt(e.precio.split('$')[1]) < 120) :
-          action.payload === 'menor' ? precioAcc.filter(e => parseInt(e.precio.split('$')[1]) < 45): action.payload === 'mayor' && precioAcc.filter(e => parseInt(e.precio.split('$')[1]) > 120)
-  
-        return {
-          ...state,
-          accesories:  filterPrecioAcc,
-          catAcc:  filterPrecioAcc,
-        }
-  
-      case 'FITRO_CATEGORIA_ACCESORIO':
-        const allAcc = state.catAcc
-        const categoria = action.payload === 'seguridad' ? allAcc.filter(e => e.categorias.find(e => e === action.payload)) :
-        action.payload === 'esparcimiento' ? allAcc.filter(e => e.categorias.find(e => e === action.payload)):action.payload === 'electronica' && allAcc.filter(e => e.categorias.find(e => e === action.payload))
-      
-        return {
-          ...state,
-          accesories: action.payload === 'sinFiltro' ? allAcc : categoria,
-          pecioAcc:categoria,
-        }
-        case 'PRECIO_ORDEN_ACCESORIOS':
-
-          const stateOrden=state.pecioAcc.map(e=>({
-            producto: e.producto,
-            imagenes:e.imagenes,
-            precio: e.precio.split('$')[1],
-            comentarios:e.comentarios,
-            stock: e.stock,
-            descripcion: e.descripcion,
-            dimensiones: e.dimensiones,
-            categorias: e.categorias,
-            _id:e._id,
-            valoraciones:e.valoraciones
-
-          }))
-
-          const orden = action.payload === 'max' ?
-            stateOrden.sort(function (a, b)
-            {
-              return parseInt(b.precio) - parseInt(a.precio)
-            })
-            :action.payload === 'min' && stateOrden.sort(function (a, b)
-            {
-              return parseInt(a.precio) - parseInt(b.precio)
-            })
-            console.log(orden)
-          return{
+        case 'FITRO_PRECIO_ACCESORIO':
+          const estadoAcc = state.allAccesories
+          const precioAcc = estadoAcc.filter(e => e.precio.split('$')[1])
+          const filterPrecioAcc = action.payload === 'medio' ?
+            precioAcc.filter(e => parseInt(e.precio.split('$')[1]) > 45 && parseInt(e.precio.split('$')[1]) < 120) :
+            action.payload === 'menor' ? precioAcc.filter(e => parseInt(e.precio.split('$')[1]) < 45): action.payload === 'mayor' && precioAcc.filter(e => parseInt(e.precio.split('$')[1]) > 120)
+    
+          return {
             ...state,
-            accesories:orden
+            accesories:  filterPrecioAcc,
+            catAcc:  filterPrecioAcc,
           }
+    
+        case 'FITRO_CATEGORIA_ACCESORIO':
+          const allAcc = state.catAcc
+          const categoria = action.payload === 'seguridad' ? allAcc.filter(e => e.categorias.find(e => e === action.payload)) :
+          action.payload === 'esparcimiento' ? allAcc.filter(e => e.categorias.find(e => e === action.payload)):action.payload === 'electronica' && allAcc.filter(e => e.categorias.find(e => e === action.payload))
+        
+          return {
+            ...state,
+            accesories: action.payload === 'sinFiltro' ? allAcc : categoria,
+            pecioAcc:categoria,
+          }
+          case 'PRECIO_ORDEN_ACCESORIOS':
+  
+            const stateOrden=state.pecioAcc.map(e=>({
+              producto: e.producto,
+              imagenes:e.imagenes,
+              precio: e.precio.split('$')[1],
+              comentarios:e.comentarios,
+              stock: e.stock,
+              descripcion: e.descripcion,
+              dimensiones: e.dimensiones,
+              categorias: e.categorias,
+              _id:e._id,
+              valoraciones:e.valoraciones
+  
+            }))
+  
+            const orden = action.payload === 'max' ?
+              stateOrden.sort(function (a, b)
+              {
+                return parseInt(b.precio) - parseInt(a.precio)
+              })
+              :action.payload === 'min' && stateOrden.sort(function (a, b)
+              {
+                return parseInt(a.precio) - parseInt(b.precio)
+              })
+              console.log(orden)
+            return{
+              ...state,
+              accesories:orden
+            }
   
       case 'FITRO_CATEGORIA_EMBARCACION':
         const allrent = state.rentVessels
