@@ -382,7 +382,7 @@ export function resetDetail() {
   }
 
   export const registro = (value)=> async (dispatch)=>{
-    return await axios.post(`${URL_BASE}/registro`,value)
+    return await axios.post(`/registro`,value)
     .then(res =>{
         dispatch({type: "REGISTRO", payload: res.data})
     }).catch(error=>{
@@ -390,7 +390,7 @@ export function resetDetail() {
     })
 }
 export const usuarios = () => async (dispatch) =>{
-    return await axios.get(`${URL_BASE}/user`)
+    return await axios.get(`/user`)
     .then(res =>{
         dispatch({type: "USUARIOS", payload: res.data})
     })

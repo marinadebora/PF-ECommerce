@@ -17,7 +17,7 @@ const { MONGO_USERS,
 })()
 
 
-//  (async()=>{
+/* //  (async()=>{
 //     try {
         
         const db = await mongoose.connect(`mongodb://localhost:27017/punto-yates`);
@@ -25,4 +25,4 @@ const { MONGO_USERS,
     } catch (error) {
         console.error(error)
     }
-})() */
+})()  */
