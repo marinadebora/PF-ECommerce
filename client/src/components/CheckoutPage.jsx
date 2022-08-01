@@ -1,4 +1,3 @@
-
 import NavBar from './Navbar'
 import { addToBasket, removeToBasket,getItemsCart } from '../actions/actions'
 import { useSelector, useDispatch ,} from 'react-redux'
@@ -26,7 +25,7 @@ export default function CheckoutPage()
     const accesorio = useSelector(state => state.allAccesories._id)
     const cartFromLocalStorage = JSON.parse(localStorage.getItem("item2") || "[]");
     const [cart /* setCart */] = useState(cartFromLocalStorage);
-    const[cant, /*SetCant*/]= useState(1)
+    const[cant, SetCant]= useState(1)
 
     
     
@@ -90,59 +89,6 @@ console.log(uniqueArray);
                     e !== undefined &&
                 <div id='checkoutCard'>
 
-<<<<<<< HEAD
-                    <ul id='detalleCheck'>
-                        {
-                            e.imagenes?.map(e =>
-                                <img id='imgCheckout' src={e} alt='img' />
-                            )
-                        }
-                        
-                        {
-                            e.modelo && <li><p id='listCheckout'>Modelo: {e.modelo}</p></li>
-                        }
-                        {
-                            e.marca && <li><p id='listCheckout'>Marca: {e.marca}</p></li>
-                        }
-                        {
-                            e.tipo && <li><p id='listCheckout'>Tipo: {e.tipo}</p></li>
-                        }
-                        {
-                            e.fabricacion && <li><p id='listCheckout'>Fabricacion: {e.fabricacion}</p></li>
-                        }
-                        {
-                            e.astillero && <li><p id='listCheckout'>Astillero: {e.astillero}</p></li>
-                        }
-                        {
-                            e.motor && <li><p id='listCheckout'>Motor: {e.motor}</p></li>
-                        }
-                        {
-                            e.localizacion && <li><p id='listCheckout'>Localizacion: {e.localizacion}</p></li>
-                        }
-
-                        {
-                            e.precio && <li><p id='listCheckout'>Precio: {e.precio}</p></li>
-                        }
-                        {
-                            e.producto && <li><p id='listCheckout'>Producto: {e.producto}</p></li>
-                        }
-                        {
-                            e.descripcion && <li><p id='listCheckout'>Descripcion: {e.descripcion}</p></li>
-                        }
-
-                        {
-                            e.Tamaño && <li><p id='listCheckout'>Tamaño: {e.Tamaño}</p></li>
-                        }
-                        
-                    </ul>
-
-                        {
-                            e._id &&<IconButton aria-label="remove to cart" onClick={()=>deleteProduct(e._id)} >
-                                    <DeleteForeverIcon id='buttonRemove' />
-                                    </IconButton>
-                                    
-                        }   
-=======
                    
                          <Grid container spacing={2}>
       {
@@ -157,12 +103,11 @@ console.log(uniqueArray);
                     astillero={e.astillero}
                     fabricacion={e.fabricacion}
                     localizacion={e.localizacion}
-                    imagenes={e.imagenes[0]}
+                    imagenes={e.imagenes?.[0]}
                     producto={e.producto}
                     descripcion={e.descripcion}
                     Tamaño={e.Tamaño}
                     id={e._id}
->>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
                     
                   />
                 <button>Cantidad:{cant}</button>

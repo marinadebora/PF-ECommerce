@@ -126,8 +126,8 @@ export function categoriaAccesorios(payload){
                     type: "GET_ALL_CART",
                   }
                 } catch (err) {
-                  console.log(err)
-                }
+                    console.log(err)
+                  }
               };
     
 

@@ -13,8 +13,6 @@ import '../styles/card.css';
 import {addToBasket,getItemsCart} from '../actions/actions'
 import {useDispatch, useSelector, } from 'react-redux'
 import {  useState } from 'react';
-<<<<<<< HEAD
-=======
 import swal from "sweetalert";
 import {useNavigate } from "react-router-dom";
 
@@ -23,7 +21,6 @@ import {useNavigate } from "react-router-dom";
 
 
 
->>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
 
 
 export default function Producto({ tipo,id, producto, marca ,precio, fabricacion, imagenes, Link}) {

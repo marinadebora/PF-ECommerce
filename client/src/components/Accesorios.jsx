@@ -75,7 +75,7 @@ export function Accesorios(){
       <Box id='boxAcc'>
                 <Box id='textBox1'>VENTA</Box>
       </Box>
-      <SearchBarProductos/>
+      {/* <SearchBarProductos/> */}
       
       <Grid container spacing={2}>
   
@@ -120,11 +120,11 @@ export function Accesorios(){
          
         }
       </Grid>
-      <br /><br /><br /><br /><br />
+  {/*     <br /><br /><br /><br /><br />
       <FiltrosAccesorios
     setPage={setPage}
      />
-<br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /> */}
       <button id='buttonBack' onClick={volver}>VOLVER</button>
 
 <Paginado
