@@ -16,8 +16,8 @@ const putEmbarcacionesV = require("./putEmbarcacionesVenta");
 const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVentas");
 const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRentas");
 const deleteAccesorios = require("./deleteAccesorios");
-// const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
-// const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
+const deleteEmbarcacionesVenta = require("./deleteEmbarcacionesVenta");
+const deleteEmbarcacionesRenta = require("./deleteEmbarcacionesRenta");
 const { categorias } = require("../controladores/controladorCategorias");
 // const { cargarVentas, cargarRenta, cargarAccesorios} = require("../controladores/CargaVentas");
 const postCategorias = require("./postCategoria");
@@ -27,24 +27,24 @@ const {correo}= require("../controladores/autenticar")
 
 const {agregarAlCarrito, borrarCarrito, asignarUsuarioAlCarrito} = require("../controladores/controladorCarrito");
 const { requireSignin } = require("../controladores/Verificaciones");
-//const {getUsuario} = require("../controladores/ControladorUsuario");
+const {getUsuario} = require("../controladores/ControladorUsuario");
 
 let router = Router();
 
-router.use("/embarcacionesV", getEmbarVenta);
-router.use("/embarcacionesVId", getEmbarVentaId);
-router.use("/embarcacionesR", getEmbarRenta);
-router.use("/embarcacionesRId", getEmbarRentaId);
+router.use("/embarcacionesV",getEmbarVenta);
+router.use("/embarcacionesVId",getEmbarVentaId);
+router.use("/embarcacionesR",getEmbarRenta);
+router.use("/embarcacionesRId",getEmbarRentaId);
 router.use("/accesorios",getAccesorios);
 router.use("/accesorio", getAccesoriosId);
-router.use("/todos", getTodo);
-router.use("/todos", getTodoId);
+router.use("/todos",getTodo);
+router.use("/todos",getTodoId);
 router.use("/embarcacionesR",postEmbarcacionesRenta);
 router.use("/embarcacionesV",postEmbarcacionesV);
 router.use("/accesorio",postAccesorios);
 router.use("/embarcacionesR", putEmbarcacionesRenta);
 router.use("/accesorio", putAccesorios);
-router.use("/embarcacionesV",putEmbarcacionesV);
+router.use("/embarcacionesV",putEmbarcacionesVenta);
 router.use("/embarcacionesV",deleteEmbarcacionesVenta);
 router.use("/embarcacionesR",deleteEmbarcacionesRenta);
 router.use("/accesorio",deleteAccesorios);
@@ -60,7 +60,7 @@ router.post("/carrito/:id", agregarAlCarrito);
 router.delete("/carrito",borrarCarrito)
 router.get("/categorias", categorias)
 router.use("/categorias", postCategorias)
-//router.get("/user",getUsuario)
+router.get("/user",getUsuario)
 
 
 // no ejecutar esta ruta para no replicar los documentos de la base de datos

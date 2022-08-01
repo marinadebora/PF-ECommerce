@@ -10,6 +10,10 @@ export function FiltrosAccesorios({setPage}) {
     const [orden, setOrden] = useState('')
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
     useEffect(() =>
     {
       dispatch(accesorios())
@@ -41,7 +45,11 @@ export function FiltrosAccesorios({setPage}) {
     {
       event.preventDefault()
       if (event.target.value === 'sinFiltro') {
+<<<<<<< HEAD
         dispatch(filtroCategoriaAccesorios(event.target.value))
+=======
+       
+>>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
         setCategorias(false)
         setPage(1)
         setOrdering(`Order ${event.target.value}`)
@@ -63,6 +71,7 @@ export function FiltrosAccesorios({setPage}) {
     
   return (
 <div>
+<<<<<<< HEAD
    <label key='Precio'>Filtrar por Precio </label>
   <select name="Precio" id="barcoVentaAcc" onChange={(e) => filtroPorPrecio(e)}>
     <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
@@ -73,6 +82,18 @@ export function FiltrosAccesorios({setPage}) {
   {
         venta && <label key='venta'>Filtrar por Categoria</label>
   }
+=======
+   <label key='venta'>Filtrar por Precio </label>
+  <select name="venta" id="barcoVentaAcc" onChange={(e) => filtroPorPrecio(e)}>
+    <option key={'sinFiltro'} value={'sinFiltro'}>Sin Filtros</option>
+    <option key={'mayor'} value={'mayor'}>Mas de US$ 100 </option>
+    <option key={'medio'} value={'medio'}>Entre US$ 50 - US$ 100 </option>
+    <option key={'menor'} value={'menor'}>Menos de US$ 50</option>
+  </select>
+  {
+        venta && <label key='venta'>Filtrar por Categoria</label>
+      }
+>>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
       
       {
         venta &&
@@ -84,7 +105,11 @@ export function FiltrosAccesorios({setPage}) {
         </select>
       }
        {
+<<<<<<< HEAD
         categorias && <label key='orden'>Ordenar</label>
+=======
+        categorias && <label key='venta'>Ordenar</label>
+>>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
        } 
         
       {

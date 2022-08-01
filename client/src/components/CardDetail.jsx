@@ -4,44 +4,48 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { productosDetail } from "../actions/actions";
 import '../styles/cardDetail.css'
 import ImagenList from  './ImagenList'
+import IconButton from "@mui/material/IconButton";
+import Badge from "@mui/material/Badge"
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import '../styles/card.css';
+import {addToBasket,getItemsCart} from '../actions/actions'
+import {  useState } from 'react';
 
-import Card from "@mui/material/Card";
+// import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
+// import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Badge from "@mui/material/Badge"
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+// import Badge from "@mui/material/Badge"
+// import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Button from '@mui/material/Button';
-import '../styles/card.css';
-import {addToBasket,getItemsCart} from '../actions/actions'
+// import '../styles/card.css';
+// import {addToBasket,getItemsCart} from '../actions/actions'
 
-import {  useState } from 'react';
+// import {  useState } from 'react';
 
 export default function CardDetail()
-{
+{ 
+  
+  
+
+  
   const dispatch = useDispatch();
   const { id } = useParams();
   const myDetail = useSelector(state => state.detail);
+<<<<<<< HEAD
   
+=======
+>>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
   const navigate = useNavigate()
   const [contador, setContador] = useState(0)
   const cartFromLocalStorage = JSON.parse(localStorage.getItem("item2") || "[]");
   const [cart /* setCart */] = useState(cartFromLocalStorage);
    
-   const basket=useSelector(state=>state.basket)  
-   
-   
-   
- //const [data, setData] = useState( JSON.parse(localStorage.getItem("items") || "[]"))
- 
- 
- //localStorage.getItem("item2") ? JSON.parse(localStorage.getItem("item2")) : []
-  
-   const addToCart = () =>{
     
+<<<<<<< HEAD
     if(cartFromLocalStorage.length) {
       localStorage.setItem(
         "item2",
@@ -60,11 +64,26 @@ export default function CardDetail()
      
 
    }
+=======
+>>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
   useEffect(() =>
   {
+    localStorage.getItem("item2")
     localStorage.setItem("item2", JSON.stringify(cart));
     dispatch(productosDetail(id))
   }, [dispatch, id])
+   
+   
+ 
+  
+   const addToCart = () =>{
+
+    
+          dispatch(addToBasket({id}))
+          
+          return alert("producto agregado correctamente")
+   }
+
 
   const volver = () =>
   {
@@ -76,7 +95,13 @@ export default function CardDetail()
 
   return <div>
     {
-      myDetail ?
+      myDetail._id !== id?
+
+      <div>
+                <h1>LOADING</h1>
+                
+            </div>
+            :
         <div id='mainContainer'>
           <div>
           {/* {
@@ -131,13 +156,13 @@ export default function CardDetail()
          
             <button id='buttonBack' onClick={volver}>VOLVER</button>
             <IconButton aria-label="add to cart" onClick={addToCart}>
-          <Badge badgeContent={contador} color="secondary" id='badge'>
+          <Badge  color="secondary" id='badge'>
             <AddShoppingCartIcon />
             </Badge>
           </IconButton>
          
         </div>
-        : <h1><strong>Loading...</strong></h1>
+        
     }
   </div>;
 };

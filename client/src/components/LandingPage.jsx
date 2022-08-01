@@ -53,6 +53,17 @@ export default function Home()
                     <Link to='/singUp'>
                         <Button variant="outlined" id="buttonLandingSing">Registro</Button>
                     </Link>
+<<<<<<< HEAD
+=======
+                </Box>
+
+                <Box id='textBoxL1'><img id='logoL' src={logoLanding} alt='imgLanding'/></Box> 
+                <Box id='textBoxL2'>
+                En Nautical nos dedicamos a la ventade productos de nautica desde 1988.<br/>
+                A lo largo de los años y con mucho esfuerzo no hemos convertidos en referentes del sector,
+                y a la fecha contamos con las siguientes areas de negocio, venta de productos,
+                venta de embarcaciones y alquiler. Cubriendo todas las necesidades para nuestros clientes
+>>>>>>> 4ef4920affd3355bcdbd8720ee388694eaccb3c0
                 </Box>
 
                 <Box id='textBoxL1'><img id='logoL' src={logoLanding} alt='imgLanding'/></Box> 

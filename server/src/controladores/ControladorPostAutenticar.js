@@ -30,7 +30,4 @@ const usuariosAuth= (req,res)=>{
     });
     
 };
-
-
-
 module.exports= {usuariosAuth}

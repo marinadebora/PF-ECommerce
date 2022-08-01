@@ -59,7 +59,6 @@ export default function contactForm() {
         <Route exact path='/alquiler' element={<BarcosEnAlquiler  />} />
         <Route exact path='/accesorios' element={<Accesorios />} />
         <Route exact path='/accesorios/:id' element={<CardDetail />} />
-
       </Routes>
     </div>
    

@@ -1,9 +1,7 @@
 
 const { transporter } = require('../controladores/controladorPostEmail');
 const Router = require("express"); 
-const router = Router();
-const { body } = require('express-validator');
-const { validacioncampos } = require('../middlewares/validador-de-campos')
+
 
 // router.post("/", 
 // // body('contact_user','El nombre es obligatorio').notEmpty(),
@@ -38,8 +36,8 @@ const { validacioncampos } = require('../middlewares/validador-de-campos')
 
 
 
-const correo = async (req,res = response)=>{
-    const {email,password,nombre,apellido} = req.body;
+const correo = async (req,res)=>{
+    const {email,password,firstName,lastName} = req.body;
     try {
         await transporter.sendMail({
             from: '"Usuario Creado 🚢" <accesoriosnautica02@gmail.com>', // sender address
@@ -48,8 +46,8 @@ const correo = async (req,res = response)=>{
             text: "", // plain text body
             html: `"<b>De:accesoriosnautica02@gmail.com</b>"
             <p>Password: ${password}</p>
-            <p>Nombre: ${nombre}</p>
-            <p>Apellido: ${apellido}</p>
+            <p>Nombre: ${firstName}</p>
+            <p>Apellido: ${lastName}</p>
             `, // html body
         });
          return("Correo Enviado")

@@ -30,7 +30,7 @@ export function productosDetail(id)
     return async function (dispatch)
     {
         try {
-           const proDetail =await axios(`/todo/${id}`)
+           const proDetail =await axios(`/todos/${id}`)
           
             return dispatch({
                 type: 'PRODUCTOS_DETAIL',
@@ -380,3 +380,18 @@ export function resetDetail() {
       type:" RESET_DETAIL",
     };
   }
+
+  export const registro = (value)=> async (dispatch)=>{
+    return await axios.post(`${URL_BASE}/registro`,value)
+    .then(res =>{
+        dispatch({type: "REGISTRO", payload: res.data})
+    }).catch(error=>{
+        alert(error)
+    })
+}
+export const usuarios = () => async (dispatch) =>{
+    return await axios.get(`${URL_BASE}/user`)
+    .then(res =>{
+        dispatch({type: "USUARIOS", payload: res.data})
+    })
+}

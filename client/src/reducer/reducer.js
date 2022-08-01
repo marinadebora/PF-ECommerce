@@ -2,6 +2,8 @@ import { ActionTypes } from '@mui/base';
 
 
 
+
+import Cookie from "js-cookie"
  const initialState = {
     products: [],
     allProducts:[],
@@ -96,9 +98,9 @@ import { ActionTypes } from '@mui/base';
         }
 
        case 'ADD_TO_BASKET':
-          const cart_add = state.allAccesories.find(e => e._id === action.payload.id) 
-          localStorage.getItem("item2")
-          console.log(cart_add)
+          const cart_add = state.allAccesories.find(e => e._id === action.payload.id)
+         const actual_card = localStorage.getItem("item2") 
+          //JSON.stringify([...cartFromLocalStorage, cart_add._id, cart_add.producto])
          
          if(cartFromLocalStorage.length) {
           localStorage.setItem(
@@ -110,6 +112,9 @@ import { ActionTypes } from '@mui/base';
             "item2",
             JSON.stringify([cart_add])
           )
+        }
+        return{
+          ...state
         }
           
          
@@ -253,6 +258,15 @@ import { ActionTypes } from '@mui/base';
                 ...state,
                 detail: {},
               };
+              case 'REGISTRO':
+            return{
+              ...state
+            }
+            case "USUARIOS":
+            return{
+              ...state,
+              user: action.payload
+            }
             
   
       default: {

@@ -4,9 +4,8 @@ const mongoose = require('mongoose')
 
 
 const categoriasSchema = new Schema({
-  nombre:{type:String}
+  nombre:{type:Array}
 
 },{timestamps:false})
-/* categoriasSchema.plugin(findOrCreate) */
 
 module.exports= mongoose.model("categorias", categoriasSchema)
