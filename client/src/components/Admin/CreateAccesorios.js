@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import {postAccesorio, Categorias } from '../../actions/admin-action';
 import { accesorios, /*getAllTypes */} from '../../actions/actions';
-import '../../styles/form.css';
+import form from '../../styles/form.css';
 import { Link } from 'react-router-dom';
 import * as MdIcons from 'react-icons/md'
 import axios from "axios"
@@ -291,7 +291,7 @@ export function AccesoriosCreate(){
                     
                     onChange={previewFile2} 
                   />
-                       <button id="save"
+                       <button
                         bgColor={"#1884BE"}
                         borderRadius={"none"}
                         boxShadow="xl"
@@ -388,7 +388,7 @@ export function AccesoriosCreate(){
                             </div>
                             
                             <button id='buttonSubmitForm' classproducto="button-submit" type="submit">Create Product</button>
-                            <Link to='/dashboard'>
+                            <Link to='/admin'>
                                 <button id='buttonBackForm'>Back</button>
                             </Link>
 

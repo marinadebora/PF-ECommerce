@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import { ActionTypes } from '@mui/base';
 
 
 
+=======
+
+
+
+import Cookie from "js-cookie"
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
  const initialState = {
     products: [],
     allProducts:[],
@@ -92,9 +99,15 @@ import { ActionTypes } from '@mui/base';
         }
 
        case 'ADD_TO_BASKET':
+<<<<<<< HEAD
           const cart_add = state.allAccesories.find(e => e._id === action.payload.id) 
           localStorage.getItem("item2")
           console.log(cart_add)
+=======
+          const cart_add = state.allAccesories.find(e => e._id === action.payload.id)
+         const actual_card = localStorage.getItem("item2") 
+          //JSON.stringify([...cartFromLocalStorage, cart_add._id, cart_add.producto])
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
          
          if(cartFromLocalStorage.length) {
           localStorage.setItem(
@@ -107,6 +120,12 @@ import { ActionTypes } from '@mui/base';
             JSON.stringify([cart_add])
           )
         }
+<<<<<<< HEAD
+=======
+        return{
+          ...state
+        }
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
           
          
          
@@ -230,6 +249,7 @@ import { ActionTypes } from '@mui/base';
                 ...state,
                 detail: {},
               };
+<<<<<<< HEAD
               case 'REGISTRO':
             return{
               ...state
@@ -239,6 +259,8 @@ import { ActionTypes } from '@mui/base';
               ...state,
               user: action.payload
             }
+=======
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
             
   
       default: {

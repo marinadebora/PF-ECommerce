@@ -55,13 +55,22 @@ export function Accesorios(){
     navigate(-1)
   }
   useEffect(()=>{
+<<<<<<< HEAD
+=======
+    localStorage.getItem("item2")
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
     localStorage.setItem("item2", JSON.stringify(cart));
     
     dispatch(getItemsCart());
     dispatch(resetDetail());
     dispatch(accesorios())
 
+<<<<<<< HEAD
 },[dispatch, cart])
+=======
+},[dispatch, cart,localStorage.getItem("item2")])
+
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
 
 
   return (

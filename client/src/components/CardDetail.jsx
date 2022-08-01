@@ -4,6 +4,21 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { productosDetail } from "../actions/actions";
 import '../styles/cardDetail.css'
 import ImagenList from  './ImagenList'
+import axios from 'axios';
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Badge from "@mui/material/Badge"
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import Button from '@mui/material/Button';
+import '../styles/card.css';
+import {addToBasket,getItemsCart} from '../actions/actions'
+
+import {  useState } from 'react';
 
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -21,16 +36,24 @@ import {addToBasket,getItemsCart} from '../actions/actions'
 import {  useState } from 'react';
 
 export default function CardDetail()
-{
+{ 
+  
+  
+
+  
   const dispatch = useDispatch();
   const { id } = useParams();
   const myDetail = useSelector(state => state.detail);
+<<<<<<< HEAD
   
+=======
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
   const navigate = useNavigate()
   const [contador, setContador] = useState(0)
   const cartFromLocalStorage = JSON.parse(localStorage.getItem("item2") || "[]");
   const [cart /* setCart */] = useState(cartFromLocalStorage);
    
+<<<<<<< HEAD
    const basket=useSelector(state=>state.basket)  
    
    
@@ -62,9 +85,27 @@ export default function CardDetail()
    }
   useEffect(() =>
   {
+=======
+    
+  useEffect(() =>
+  {
+    localStorage.getItem("item2")
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
     localStorage.setItem("item2", JSON.stringify(cart));
     dispatch(productosDetail(id))
   }, [dispatch, id])
+   
+   
+ 
+  
+   const addToCart = () =>{
+
+    
+          dispatch(addToBasket({id}))
+          
+          return alert("producto agregado correctamente")
+   }
+
 
   const volver = () =>
   {
@@ -76,7 +117,17 @@ console.log(myDetail._id);
 
   return <div>
     {
+<<<<<<< HEAD
       myDetail ?
+=======
+      myDetail._id !== id?
+
+      <div>
+                <h1>LOADING</h1>
+                
+            </div>
+            :
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
         <div id='mainContainer'>
           <div>
           {/* {
@@ -131,13 +182,17 @@ console.log(myDetail._id);
          
             <button id='buttonBack' onClick={volver}>VOLVER</button>
             <IconButton aria-label="add to cart" onClick={addToCart}>
+<<<<<<< HEAD
           <Badge badgeContent={contador} color="secondary" id='badge'>
+=======
+          <Badge  color="secondary" id='badge'>
+>>>>>>> 4aae1947c492933f8791966e1cd6a8a92f8b8663
             <AddShoppingCartIcon />
             </Badge>
           </IconButton>
          
         </div>
-        : <h1><strong>Loading...</strong></h1>
+        
     }
   </div>;
 };

@@ -22,7 +22,7 @@ import "../../styles/dasshBoard.css";
 
 function Copyright(props) {
   return (
-    <Typography  id='Ecopy'variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
         Nautical
