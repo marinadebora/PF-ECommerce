@@ -1,0 +1,65 @@
+
+#buttonBack{
+
+    font-weight: bold;
+    color: white;
+    height: 25px;
+    width: 70px;
+    background-color:#0184a9;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+    margin-top: 25px;
+    margin-right: 60px;
+    cursor: pointer;
+    
+    
+}
+
+
+#mainContainer{
+    overflow: hidden;
+    margin-top: 40px;
+    margin-left: 270px;
+    padding: 10px;
+    height: auto;
+    width: 900px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#mainImg{
+   
+}
+
+#imgProduc{
+    margin-top: 20px;
+    margin-right: 60px;
+    height: 300px;
+    float:left
+}
+
+#dataContainer{
+    text-align: left;
+    width: 500px;
+    background-color: white;
+    
+}
+
+#titleDetailCard{
+   
+    font-weight: bold;
+}
+
+#ulDetail{
+    margin-left: 95px;
+    width: 740px;
+    
+    text-align: left;
+    margin-top: 40px;
+}
+
+#ulDetail li{
+    list-style-type: none;
+    font-size: 15px;
+}

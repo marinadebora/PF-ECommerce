@@ -1,0 +1,150 @@
+#box{
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../imagenes/banner2.jpg);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    
+
+}
+
+#boxVta{
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../imagenes/banner4.jpg);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    
+
+}
+
+#boxAlq{
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../imagenes/banner5.jpg);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    
+
+}
+
+#boxAcc{
+    background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(../imagenes/banner6.jpg);
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    
+
+}
+
+#textBox1{
+    text-shadow: 0px 2px 4px  gray;
+    font-weight: bolder;
+    font-style: italic;
+    padding-top: 110px;
+    margin-right: 150px;
+    font-size: 90px;
+}
+
+#textBox2{
+    text-shadow: 0px 2px 4px  gray;
+    font-weight: bolder;
+    font-style: italic;
+    padding-top: 10px;
+    margin-left: 150px;
+    font-size: 90px;
+}
+
+#buttonText{
+    color: grey;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+@media(max-width: 895px){
+    #textBox1{
+        padding-top: 70px;
+        font-size: 60px;
+    }
+    #textBox2{
+        padding-top: 5px;
+        font-size: 60px;
+    }
+
+    #box{
+        
+        height: 300px;
+        
+        
+    
+    }
+}
+
+@media(max-width: 660px){
+    #textBox1{
+        padding-top: 40px;
+        font-size: 40px;
+    }
+    #textBox2{
+        padding-top: 5px;
+        font-size: 40px;
+    }
+
+    #box{
+        
+        height:150px;
+        
+        
+    
+    }
+}
+
+@media(max-width: 695px){
+    #textBox1{
+        padding-top: 40px;
+        font-size: 40px;
+    }
+    #textBox2{
+        padding-top: 5px;
+        font-size: 40px;
+    }
+
+    #box{
+        
+        height:150px;
+        
+        
+    
+    }
+}
+
+@media(max-width: 498px){
+    
+    #box{
+       display: none;
+    }
+    #textBox1{
+        display: none;
+    }
+    #textBox2{
+        display: none;
+    }
+}
